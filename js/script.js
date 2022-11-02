@@ -23,29 +23,3 @@ document.onclick=reEnable
 }
 
 // ============= //
-
-$.getJSON('https://json.geoiplookup.io/?callback=?', function(data) {
-    $("#ip").html(data.ip);
-    $("#isp").html(data.isp);
-    $("#org").html(data.org);
-    $("#host").html(data.hostname);
-    $("#lat").html(data.latitude);
-    $("#long").html(data.longitude);
-    $("#post").html(data.postal_code);
-    $("#city").html(data.city);
-    $("#code").html(data.country_code);
-    $("#codename").html(data.country_name);
-    $("#contcode").html(data.continent_code);
-    $("#contname").html(data.continent_name);
-    $("#reg").html(data.region);
-    $("#district").html(data.district);
-    $("#time").html(data.timezone_name);
-    $("#conn").html(data.connection_type);
-    $("#asnn").html(data.asn_number);
-    $("#asno").html(data.asn_org);
-    $("#asn").html(data.asn);
-    $("#curcod").html(data.currency_code);
-    $("#curname").html(data.currency_name);
-    $("#succ").html(data.success)
-    $("#prem").html(data.premium)
-    });
