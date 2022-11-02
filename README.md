@@ -20,7 +20,7 @@ A Portfolio/Resume website template for Programmers, Geeks, Developers, Hackers 
 ![Contact Tab](https://i.postimg.cc/Y0WxCJYJ/4.png)
 
 ### Demo
-For Demo of this template you can visit http://0xprateek-portfolio-template.rf.gd
+For Demo of this template you can visit https://xnuvers007.github.io/
 
 ### Quick Start
 If you are reading this then I will assume that you know something about code and want to make a resume website of yours then this open-source project may help you setup it to showcase all your creations without effort.
@@ -37,4 +37,4 @@ Any and all contributions, issues, features and tips are welcome.
 
 ### Contact
 
-For any Suggestion / Ideas ping me at [@prateekis1](https://twitter.com/prateekis1)
+For any Suggestion / Ideas ping me at [@indradwi.25](https://www.instagram.com/Indradwi.25/)
