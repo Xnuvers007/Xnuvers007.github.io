@@ -1,0 +1,44 @@
+.container {
+    margin-top: 50px;
+}
+body {
+    background-color: grey;
+    background-repeat: center;
+    background-size: cover;
+}
+.masukan {
+    position : "relative";
+    margin-top: 50px;
+    padding: 20px;
+}
+.hitng {
+    margin-top: 50px;
+    padding: 10px;
+    /* memberikan warna */
+    background-color: #f1f1f1;
+    /* memberikan border */
+    border: 1px solid #d3d3d3;
+    /* memberikan border radius */
+    border-radius: 5px;
+
+}
+
+.Jam-digital {
+    /* margin-top: 10px; */
+    width: 100px;
+    height: 35px;
+    /* memberikan warna */
+    background-color: green;
+    /* memberikan border */
+    /* border: 1px solid #d3d3d3; */
+    /* memberikan border radius */
+    /* border-radius: 5px; */
+}
+#clock {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    text-shadow: 0 0 12px #000;
+
+}
