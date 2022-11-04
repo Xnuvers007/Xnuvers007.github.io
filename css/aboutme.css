@@ -1,0 +1,43 @@
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+#ha {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    top: auto;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#what-is {
+    text-align: center;
+    font-size: 15px;
+    font-weight: lighter;
+    color: green;
+    text-shadow: 2px 3px 5px green;
+    top: auto;
+    bottom: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#ini-span a:link, a:visited {
+    background-color: blue;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#ini-span a:hover, a:active {
+    background-color: blue;
+}

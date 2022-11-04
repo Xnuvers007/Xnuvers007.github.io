@@ -1,14 +1,14 @@
 marquee {
-    color: yellow;
-}
-    body{
+            color: yellow;
+        }
+body {
         background-color: black;
     }
-    h1 {
+h1 {
         color: green;
-    }
+}
 
-    .container, .row, .col-6, .content {
+.container, .row, .col-6, .content {
         width: 100%;
         height: 100%;
         background-color: black;
@@ -19,4 +19,58 @@ marquee {
 .untuk-p {
     position: relative;
     color: green;
+}
+
+.ini-ul {
+    list-style-type: none;
+}
+
+.ini-li {
+    margin-right: 80%;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    /* untuk posisi menu ada di tengah */
+    left: 38%;
+    /* untuk posisi menu ada di tengah */
+    /* transform: translate(-50%, 0);*/
+
+}
+
+/* Mendesain button */
+.ini-a {
+    display: inline-block;
+    margin-left: 0 10px;
+    padding: 10px 20px;
+    border: 1px solid green;
+    border-radius: 5px;
+    text-decoration: none;
+    color: green;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#loading {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+}
+  
+#loading-image {
+    z-index: 100;
 }
