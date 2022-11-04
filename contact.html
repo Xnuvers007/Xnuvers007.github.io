@@ -36,6 +36,9 @@
 </script>
 </head>
 <body>
+    <div id="loading">
+                <img id="loading-image" src="https://media.tenor.com/8KWBGNcD-zAAAAAC/loader.gif" alt="Loading..." />
+            </div>
     <script type="application/javascript" src="./js/script.js">
         </script>
     <div class="container-contact100">
@@ -99,4 +102,9 @@ Send
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"764a45286bf56be8","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.0","si":100}' crossorigin="anonymous"></script>
 </body>
+<script type="application/javascript">
+            $(window).on('load', function () {
+                $('#loading').hide();
+              });
+            </script>
 </html>
