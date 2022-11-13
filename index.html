@@ -105,6 +105,20 @@
                             <a href="./games/">Games</a>
                         </div>
                     </div>
+                    <button class="dropbtn" onclick="hapusCookie()">
+                        <i class="fas fa-bars">Hapus Jejak cookie</i>
+                    </button>
+                    <!-- menghapus cookie user setelah masuk ke website -->
+                    <script>
+                        function hapusCookie() {
+                            document.cookie.split(";").forEach(function(c) {
+                                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+                            });
+
+                        alert("Cookie Anda Telah Dihapus");
+                        }
+                    </script>
+
                     <script>
                         /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
                             function myFunction() {
