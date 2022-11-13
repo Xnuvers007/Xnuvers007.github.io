@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false">
+    <head>
+        <script src="../js/cls.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Games</title>
+        <script src="../js/script.js"></script>
+    </head>
+    <body color="black">
+        <link rel="stylesheet" href="./games.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <div id="loading">
+            <img id="loading-image" src="https://media.tenor.com/8KWBGNcD-zAAAAAC/loader.gif" alt="Loading..." />
+        </div>
+        <!-- This page for show list games -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 style="text-align: center;">Games</h1>
+                    <label for="search">Search</label>
+                    <input type="text" id="search" onkeyup="search()">
+                    <div id="list">
+                        <ul>
+                            <li>
+                                <h1 id="name">Fruit Catcher</h1>
+                                <img src="./images/SimpleFruitCatcherGame.webp" alt="SimpleFruitCatcherGame" height="30%" width="30%" loading="lazy">
+                                <br />
+                                <p id="description">description:
+                                    Ini adalah sebuah game untuk menangkap buah-buahan yang jatuh dari atas ke bawah. Game ini dibuat dengan menggunakan HTML, CSS, dan Javascript.<br /> Game Ini Hanya bisa di mainkan di PC atau Laptop, karena membutuhkan tanda panah Kiri dan Kanan untuk menggerakkan player.
+                                </p>
+                                <br />
+                                <button class="btn btn-primary">
+                                    <a href="FruitCatcher/">Play</a>
+                                </button>
+                            </li>
+                            <li>
+                                <h1 id="name">Memory Checker</h1>
+                                <img src="./images/MemoryCheckerGame.webp" alt="MemoryCheckerGame" height="30%" width="30%" loading="lazy">
+                                <br />
+                                <p id="description">description:
+                                    Ini adalah sebuah game untuk menguji kemampuan anda dalam mengingat tampilan yang ada di layar. Game ini dibuat dengan menggunakan HTML, CSS, dan Javascript. <br /> Game ini bisa Dimainkan di PC atau Laptop dan Hp.
+                                </p>
+                                <br />
+                                <button class="btn btn-primary">
+                                    <a href="MemoryChecker/">Play</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <script>
+                        function search() {
+                            var input, filter, ul, li, a, i, txtValue;
+                            input = document.getElementById("search");
+                            filter = input.value.toUpperCase();
+                            ul = document.getElementById("list");
+                            li = ul.getElementsByTagName("li");
+                            for (i = 0; i < li.length; i++) {
+                                a = li[i].getElementsByTagName("h1")[0];
+                                txtValue = a.textContent || a.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    li[i].style.display = "";
+                                } else {
+                                    li[i].style.display = "none";
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <script type="application/javascript">
+            $(window).on('load', function () {
+                $('#loading').hide();
+              });
+            </script>
+    </body>
+</html>

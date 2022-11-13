@@ -2,9 +2,10 @@
 <html lang="en" oncontextmenu="return false">
     <head>
         <script src="./js/cls.js"></script>
-        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="preload" href="https://avatars.githubusercontent.com/u/62522733?v=4" as="image">
         <meta charset="utf-8" />
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="./css/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="description" content="Xnuvers007 Website :D ">
@@ -94,15 +95,36 @@
                         </ul>
                     </nav>
                     <a href="#" class="logo"><center><img src="https://avatars.githubusercontent.com/u/62522733?v=4" width="100px" height="100px" alt="Ini Avatar Saya"></center></a>
-                    <div class="menu-btn" id="menu">
-                        <i class="fas fa-bars"></i>
+                    <link rel="stylesheet" href="./css/dropdown.css" />
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Tekan Saya</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="./index.html">Home</a>
+                            <a href="./lk21/">Film</a>
+                            <a href="./myportfolio/">MyPortfolio</a>
+                            <a href="./games/">Games</a>
+                        </div>
                     </div>
-                    <ul class="list">
-                        <li><a href="https://xnuvers007.github.io">Home</a></li>
-                        <li><a href="https://xnuvers007.github.io/lk21">Film</a></li>
-                        <li><a href="https://xnuvers007.github.io/myportfolio">myportfolio</a></li>
-                        <li><a href="https://xnuvers007.github.io/kalkulator">kalkulator</a></li>
-                    </ul>
+                    <script>
+                        /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+                            function myFunction() {
+                                document.getElementById("myDropdown").classList.toggle("show");
+                            }
+                            
+                            // Close the dropdown menu if the user clicks outside of it
+                            window.onclick = function(event) {
+                                if (!event.target.matches('.dropbtn')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                var i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                    openDropdown.classList.remove('show');
+                                    }
+                                }
+                                }
+                            }
+                    </script>
                 </header>
             </div>
             <div class="container">
