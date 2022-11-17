@@ -114,6 +114,13 @@
                             document.cookie.split(";").forEach(function(c) {
                                 document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
                             });
+                            document.cookie = '_ga=; path=/; domain='+domainValue+'; expires=' + new Date(0).toUTCString();
+                            document.cookie = '_gid=; path=/; domain='+domainValue+'; expires=' + new Date(0).toUTCString();
+                            document.cookie = '_gat=; path=/; domain='+domainValue+'; expires=' + new Date(0).toUTCString();
+                            document.cookie = '_gat_gtag_UA_182568_1=; path=/; domain='+domainValue+'; expires=' + new Date(0).toUTCString();
+                            document.cookie = 'cookieconsent_status=; path=/; domain='+domainValue+'; expires=' + new Date(0).toUTCString();
+                            document.cookie = 'cookieconsent_dismissed=yes; path=/; domain='+domainValue+'; expires=' + new Date(0).toUTCString();
+                            document.cookie = 'cookieconsent_status=dismiss; path=/; domain='+domainValue+'; expires=' + new Date(0).toUTCString();
 
                         alert("Cookie Anda Telah Dihapus");
                         }
