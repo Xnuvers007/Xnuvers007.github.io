@@ -7,17 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobaXterm Keygen</title>
 
-    <!-- <script src="js/vue/vue.min-2.6.12.js"></script>
+    <script src="js/vue/vue.min-2.6.12.js"></script>
     <script src="js/FileSaver/FileSaver.min.js"></script>
-    <script src="js/jszip/jszip.min.js"></script> -->
-
-    <script src="./js/vue/vue.min-2.6.12.js"></script>
-    <script src="./js/FileSaver/FileSaver.min.js"></script>
-    <script src="./js/jszip/jszip.min.js"></script>
-<!--     <script src="{{ url_for('static', filename='js/mobaXtermGenerater.js') }}"></script>
- -->
+    <script src="js/jszip/jszip.min.js"></script>
+    <script src="js/mobaXtermGenerater.js"></script>
+    
     <!-- <link href="css/pure-min.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" type="text/css" href="./css/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="css/pure-min.css">
 
     <style>
         .box-main {
@@ -125,21 +121,21 @@
                         </legend>
 
                         <div class="pure-g">
-                            <!-- <div class="pure-control-group pure-u-1">
+                            <div class="pure-control-group pure-u-1">
                                 <label for="licenseType">Version:</label>
                                 <select name="licenseType" id="licenseType" v-model="licenseType">
                                     <option value="">Please select</option>
                                     <option v-for="(val, key) in LICENSE_TYPES" :value="val">{{key}}</option>
                                 </select>
-                            </div> -->
-                            <div class="pure-control-group pure-u-1">
+                            </div>
+<!--                             <div class="pure-control-group pure-u-1">
                                 <label for="licenseType">Version:</label>
                                 <select name="licenseType" id="licenseType" v-model="licenseType">
                                     <option value="">Please select</option>
                                     <option value="1">Professional</option>
                                     <option value="3">Educational</option>
                                     <option value="4">Personal</option>
-                                </select>
+                                </select> -->
                             </div>                            
                             <div class="pure-control-group pure-u-1">
                                 <label for="userName">Username:</label>
@@ -192,7 +188,7 @@
     </div>
 
     <script type="module">
-        import { LicenseType, generateLicense } from './js/mobaXtermGenerater.js'
+        import { LicenseType, generateLicense } from 'js/mobaXtermGenerater.js'
         
         var app = new Vue({
             el: '#app',
