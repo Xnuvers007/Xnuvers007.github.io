@@ -10,10 +10,8 @@
     <script src="js/vue/vue.min-2.6.12.js"></script>
     <script src="js/FileSaver/FileSaver.min.js"></script>
     <script src="js/jszip/jszip.min.js"></script>
-    <script src="js/mobaXtermGenerater.js"></script>
-    
-    <!-- <link href="css/pure-min.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" type="text/css" href="css/pure-min.css">
+
+    <link href="css/pure-min.css" rel="stylesheet" />
 
     <style>
         .box-main {
@@ -87,24 +85,6 @@
             margin-top: 30px;
             text-align: center;
         }
-        .tutorial {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .text-center2 {
-            text-align: center;
-            font: normal 17px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-
-        .pure-form-aligned .pure-control-group {
-            margin-bottom: 10px;
-        }
-
-        .pure-form-aligned .pure-control-group label {
-            text-align: left;
-        }
-
     </style>
 </head>
 
@@ -116,48 +96,38 @@
                 <div class="pure-form pure-form-aligned auto-center">
                     <fieldset>
                         <legend>
-                            <h1 class="text-center">MobaXterm License Generator</h1>
-                            <h3 class="text-center"> create by Xnuvers007 and using framework Flask</h3>
+                            <h1 class="text-center">MobaXterm license 生成</h1>
                         </legend>
 
                         <div class="pure-g">
                             <div class="pure-control-group pure-u-1">
-                                <label for="licenseType">Version:</label>
+                                <label for="licenseType">版本：</label>
                                 <select name="licenseType" id="licenseType" v-model="licenseType">
-                                    <option value="">Please select</option>
+                                    <option value="">请选择</option>
                                     <option v-for="(val, key) in LICENSE_TYPES" :value="val">{{key}}</option>
                                 </select>
                             </div>
-<!--                             <div class="pure-control-group pure-u-1">
-                                <label for="licenseType">Version:</label>
-                                <select name="licenseType" id="licenseType" v-model="licenseType">
-                                    <option value="">Please select</option>
-                                    <option value="1">Professional</option>
-                                    <option value="3">Educational</option>
-                                    <option value="4">Personal</option>
-                                </select>
-                            </div> -->
                             <div class="pure-control-group pure-u-1">
-                                <label for="userName">Username:</label>
+                                <label for="userName">用户名：</label>
                                 <my-input :idattr="'userName'" :validation="'^[a-zA-Z]+$'" :valueattr="userName"
-                                    :validationtips="'tidak boleh menggunakan angka'" :placeholderattr="'Example defaultUser'" @set-data="setUserName">
+                                    :validationtips="'只能使用字母'" :placeholderattr="'示例 defaultUser'" @set-data="setUserName">
                                 </my-input>
                             </div>
                             <div class="pure-control-group pure-u-1">
-                                <label for="versionName">Version Number:</label>
+                                <label for="versionName">版本号：</label>
                                 <my-input :idattr="'versionName'" :validation="'^[1-9][0-9]*\\.?\\d{0,1}$'"
-                                    :validationtips="'Decimal with at most 1 decimal place'" :valueattr="versionName"
-                                    :placeholderattr="'Example 23.2'" @set-data="setVersionName"></my-input>
+                                    :validationtips="'小数且小数点后只能有1位'" :valueattr="versionName"
+                                    :placeholderattr="'示例 21.0'" @set-data="setVersionName"></my-input>
                             </div>
                             <div class="pure-control-group pure-u-1">
-                                <label for="userNum">Number of Users:</label>
+                                <label for="userNum">用户数：</label>
                                 <my-input :idattr="'userNum'" :validation="'^[1-9]+\\d*$'" :valueattr="userNum"
-                                    :placeholderattr="'Example 9999'" :validationtips="'Numeric and minimum value is 1'" @set-data="setUserNum">
+                                    :placeholderattr="'示例 1'" :validationtips="'数字且最小值为1'" @set-data="setUserNum">
                                 </my-input>
                             </div>
                             <div class="pure-controls pure-u-1">
                                 <button type="submit" class="pure-button pure-button-primary"
-                                    @click.stop="generate">Generate</button>
+                                    @click.stop="generate">生成</button>
                             </div>
                         </div>
                     </fieldset>
@@ -166,47 +136,25 @@
         </div>
     </div>
     <div class="quote">
-        <p style="text-align: center !important; font-weight: bold;">Library i use</p>
-        <a href="https://github.com/flygon2018/MobaXterm-keygen" target="_blank">MobaXterm-keygen Core Algorithm</a>
+        <a href="https://github.com/flygon2018/MobaXterm-keygen" target="_blank">MobaXterm-keygen 核心算法</a>
         <br /><br />
-        <a href="https://github.com/Stuk/jszip" target="_blank">jszip JavaScript Library for ZIP Files</a>
+        <a href="https://github.com/Stuk/jszip" target="_blank">jszip js实现的zip文件库</a>
         <br /><br />
-        <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js File Download Library</a>
-        <br /><br />
-        <a href="https://github.com/vuejs" target="_blank">Vue.js</a>
-    </div>
-    <div class="tutorial">
-        <p> Source Code: 
-            <a href="https://github.com/Xnuvers007/MobaXtermGenerator" target="_blank">https://github.com/Xnuvers007/MobaXtermGenerator</a> (python flask) demo in here <a href="https://moba.deployers.repl.co" target="_blank">https://moba.deployers.repl.co</a></p>
-        <br />
-        <p> Source Code 2: <a href="https://github.com/Xnuvers007/Xnuvers007.github.io/blob/3a96b4ee2e178e92bd0d2450521a978d1e33c518/mobaxterm/index.html" target="_blank">https://github.com/Xnuvers007/Xnuvers007.github.io/blob/3a96b4ee2e178e92bd0d2450521a978d1e33c518/mobaxterm/index.html</a> (HTML) demo in here <a href="https://xnuvers007.github.io/mobaxterm/" target="_blank">https://xnuvers007.github.io/mobaxterm/</a></p>
-        <p class="text-center2">
-            Created by <a href="https://github.com/Xnuvers007" target="_blank">Xnuvers007</a><br />
-            Tutorial: <br />
-            1. Generate <br />
-            2. copy/cut file Custom.mxtpro <br />
-            3. Go to C:\Program Files (x86)\Mobatek\MobaXterm\ or where you install MobaXterm<br />
-            4. Paste it <br />
-        </p>
+        <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver js生成文件下载</a>
     </div>
 
     <script type="module">
         import { LicenseType, generateLicense } from 'js/mobaXtermGenerater.js'
-        
+
         var app = new Vue({
             el: '#app',
             data() {
                 return {
-                    userName: 'Xnuvers',
-                    versionName: '23.2',
-                    userNum: 99,
+                    userName: 'defaultUser',
+                    versionName: '21.0',
+                    userNum: 1,
                     licenseType: 1,
                     LICENSE_TYPES: LicenseType
-                    // {
-                    //     'Professional': 1,
-                    //     'Educational': 3,
-                    //     'Personal': 4
-                    // }
                 }
             },
             methods: {
@@ -221,27 +169,30 @@
                 },
                 generate() {
                     if (!this.userName) {
-                        alert('Please fill in the username');
+                        alert('请填写用户名');
                         return;
                     }
                     if (!this.versionName) {
-                        alert('Please fill in the version number');
+                        alert('请填写版本号');
                         return;
                     }
                     if (!this.userNum) this.userNum = 1;
-                    // Split the version number
+                    // 版本号拆分
                     let versionNameArr = this.versionName.split('.');
                     const majorVersion = parseInt(versionNameArr[0]);
                     const minorVersion = versionNameArr.length === 2 ? (parseInt(versionNameArr[1]) || 0) : 0;
-                    // Generate the license string
+                    // 生成license字符串
                     let licenseStr = generateLicense(this.licenseType, this.userName, this.userNum, majorVersion, minorVersion);
                     this.generateLicenseFile(licenseStr);
                 },
                 generateLicenseFile(licenseStr) {
                     let zip = new JSZip();
                     zip.file("Pro.key", licenseStr);
+                    //var img = zip.folder("images");
+                    //img.file("smile.gif", imgData, { base64: true });
                     zip.generateAsync({ type: "blob" })
                         .then(function (content) {
+                            // see FileSaver.js
                             saveAs(content, "Custom.mxtpro");
                         });
                 }
@@ -256,6 +207,8 @@
                                     </div>
                                 </div>`,
                     data() {
+                        // 将组件外传入的 props 的 valueattr 赋值到当前的 data.value 值
+                        // 同时本组件的 value 值是和当前变量双向绑定的
                         return {
                             value: this.valueattr,
                             validationTipsDiplay: 'hide',
@@ -263,14 +216,16 @@
                         }
                     },
                     props: {
+                        // 接收父组件使用本组件时绑定的 idattr 属性值绑定到当前值
                         idattr: { type: String, default: '' },
                         placeholderattr: { type: String, default: '' },
                         valueattr: '',
-                        validation: { type: String, default: '' },
+                        validation: { type: String, default: '' }, // 校验正则
                         validationtips: ''
                     },
                     watch: {
                         valueattr(newVal, oldVal) {
+                            // 监视 父组件传入的 valueattr 值的变化绑定到当前组件的 data.value 值
                             this.value = newVal
                         },
                         value(newVal, oldVal) {
@@ -288,6 +243,7 @@
                                     return;
                                 }
                             }
+                            // 监视当前组件的 data.value 值触发父组件绑定的 set-data 事件改变父组件的值
                             this.$emit('set-data', newVal);
                         }
                     }
