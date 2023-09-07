@@ -11,13 +11,13 @@
     <script src="js/FileSaver/FileSaver.min.js"></script>
     <script src="js/jszip/jszip.min.js"></script> -->
 
-    <script src="{{ url_for('static', filename='js/vue/vue.min-2.6.12.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/FileSaver/FileSaver.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jszip/jszip.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/mobaXtermGenerater.js') }}"></script>
-
+    <script src="./js/vue/vue.min-2.6.12.js"></script>
+    <script src="./js/FileSaver/FileSaver.min.js"></script>
+    <script src="./js/jszip/jszip.min.js"></script>
+<!--     <script src="{{ url_for('static', filename='js/mobaXtermGenerater.js') }}"></script>
+ -->
     <!-- <link href="css/pure-min.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pure-min.css') }}">
+    <link rel="stylesheet" type="text/css" href="./css/pure-min.css">
 
     <style>
         .box-main {
@@ -192,9 +192,7 @@
     </div>
 
     <script type="module">
-        // import { LicenseType, generateLicense } from '/js/mobaXtermGenerater.js'
-
-        import { LicenseType, generateLicense } from '{{ url_for('static', filename='js/mobaXtermGenerater.js') }}';
+        import { LicenseType, generateLicense } from './js/mobaXtermGenerater.js'
         
         var app = new Vue({
             el: '#app',
