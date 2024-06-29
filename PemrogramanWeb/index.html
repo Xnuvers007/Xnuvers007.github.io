@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pariwisata Indonesia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: true
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+    <header class="bg-danger text-white text-center py-4 animate__animated animate__fadeInDown">
+        <h1>Pariwisata Indonesia</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#home">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#culture">Budaya</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#tourism">Wisata</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#hotels">Hotel</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#pesan">Pesan</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#contact">Hubungi Kami</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#about">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#faq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="https://bioskop-six.vercel.app/metagen">Metagen</a></li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-light ml-3" id="modeSwitcher">Ganti Mode</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="google_translate_element" class="container text-center my-3"></div>
+    <div class="waktu" id="waktu"></div>
+    
+    <section id="home" class="container my-5 animate__animated animate__fadeIn">
+        <h2>Selamat Datang di Pariwisata Indonesia</h2>
+        <p class="centered-content">Selamat datang di portal resmi untuk menjelajahi keindahan dan kekayaan budaya Indonesia. Di sini, Anda akan menemukan berbagai informasi dan panduan yang akan membantu Anda merencanakan perjalanan tak terlupakan ke salah satu destinasi paling menawan di dunia. Indonesia, negara kepulauan yang terletak di jantung Asia Tenggara, adalah tempat di mana keindahan alam dan kekayaan budaya berpadu dalam harmoni yang sempurna. Dengan lebih dari 17.000 pulau, setiap sudut Indonesia menawarkan sesuatu yang unik dan menakjubkan. Dari pantai berpasir putih yang bersinar di Bali hingga keajaiban bawah laut Raja Ampat, keanekaragaman geografis negara ini memastikan bahwa setiap kunjungan akan membawa pengalaman yang baru dan mendalam.
+            </p>
+        
+        <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/Indonesia.webp" alt="Indonesia" class="d-block w-100 img-fluid rounded shadow-sm">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/indonesia2.webp" alt="Indonesia 2" class="d-block w-100 img-fluid rounded shadow-sm">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/indonesia3.webp" alt="Indonesia 3" class="d-block w-100 img-fluid rounded shadow-sm">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Sebelumnya</span>
+            </a>
+            <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Selanjutnya</span>
+            </a>
+        </div>
+    </section>
+    
+    <section id="culture" class="container my-5 animate__animated animate__fadeIn">
+        <h2>Budaya</h2>
+        <p>Indonesia memiliki warisan budaya yang kaya, termasuk tarian tradisional, upacara, dan adat istiadat. Beberapa elemen budaya yang menonjol meliputi:</p>
+        
+        <div id="cultureCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/tarikecak.webp" alt="Tari Kecak" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Tari Kecak</h5>
+                        <p>Tarian tradisional Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/ngaben.webp" alt="Upacara Ngaben" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Upacara Ngaben</h5>
+                        <p>Upacara kremasi Bali.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/grebeg.webp" alt="Tradisi Grebeg" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Tradisi Grebeg</h5>
+                        <p>Upacara tradisional di Yogyakarta.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#cultureCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Sebelumnya</span>
+            </a>
+            <a class="carousel-control-next" href="#cultureCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Selanjutnya</span>
+            </a>
+        </div>
+    </section>
+    
+    <section id="tourism" class="container my-5 animate__animated animate__fadeIn">
+        <h2>Destinasi Wisata Terbaik</h2>
+        <p>Jelajahi beberapa tempat wisata terbaik di Indonesia:</p>
+        <div id="tourismCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/bali.webp" alt="Bali" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Bali</h5>
+                        <p>Pantai yang indah dan budaya yang hidup.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/yogyakarta.webp" alt="Yogyakarta" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Yogyakarta</h5>
+                        <p>Warisan budaya dan situs sejarahnya.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rajaampat.webp" alt="Raja Ampat" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Raja Ampat</h5>
+                        <p>Surga bagi penyelam dan pecinta alam.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#tourismCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Sebelumnya</span>
+            </a>
+            <a class="carousel-control-next" href="#tourismCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Selanjutnya</span>
+            </a>
+        </div>
+    </section>
+    
+    <section id="hotels" class="container my-5 animate__animated animate__fadeIn">
+        <h2>Hotel Favorit</h2>
+        <p>Temukan hotel terbaik dengan fasilitas lengkap, harga, alamat, dan informasi penting lainnya:</p>
+        
+        <div id="hotelsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/hotelbaliparadise.webp" alt="Hotel Bali Paradise" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Hotel Bali Paradise</h5>
+                        <p>Fasilitas termasuk kolam renang, spa, dan Wi-Fi gratis. Rp. 556.580 ($34) per malam hingga Rp. 3.000.000 ($183,26)</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/royalambarrukmojogja.webp" alt="Hotel Royal Ambarrukmo Jogja" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Hotel Royal Ambarrukmo Jogja</h5>
+                        <p>Fasilitas termasuk gym, restoran, dan sarapan gratis. Harga dimulai Rp. 2.000.000 ($122,17) per malam hingga Rp. 10.000.000 ($610,87)</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/yenatarresort.webp" alt="Yenatar Resort" class="d-block w-100 img-fluid rounded shadow-sm">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Resor Yenatar</h5>
+                        <p>Fasilitas termasuk tur menyelam, kamar tepi pantai, dan bar. harga dimulai Rp. 4.763.670 ($291) per malam</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#hotelsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Sebelumnya</span>
+            </a>
+            <a class="carousel-control-next" href="#hotelsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Selanjutnya</span>
+            </a>
+        </div>
+    </section>
+    
+    <section id="pesan" class="container my-5 animate__animated animate__fadeIn">
+        <h2>Pesan</h2>
+        <form id="contactForm" autocomplete="on">
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input type="text" class="form-control" id="name" placeholder="Nama Anda" autocomplete="on" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Email Anda" autocomplete="on" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan:</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Pesan Anda" autocomplete="on" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contactMethod">Metode Kontak:</label>
+                <select class="form-control" id="contactMethod" required>
+                    <option value="email">Email</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <!-- <option value="telegram">Telegram</option> -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-danger">Kirim Pesan</button>
+        </form>
+        <div id="contact" class="container my-5 animate__animated animate__fadeIn">
+            <h2>Hubungi Kami:</h3>
+            <p><strong>Email:</strong> <a id="contactEmail" href="#" target="_blank">Email Kami</a></p>
+            <p><strong>WhatsApp:</strong> <a id="contactWhatsApp" href="#" target="_blank">Hubungi Kami di WhatsApp</a></p>
+            <p><strong>Telegram:</strong> <a id="contactTelegram" href="#" target="_blank">Hubungi Kami di Telegram</a></p>
+        </div>
+    </section>
+    
+    <section id="about" class="container my-5 animate__animated animate__fadeIn">
+        <h2>Tentang Kami</h2>
+        <p class="centered-content">
+            Selamat datang di Pariwisata Indonesia, pusat eksklusif di mana keindahan Indonesia dan pelayanan unggul bertemu dalam harmoni yang sempurna. Kami adalah tim yang berkomitmen untuk menyajikan pengalaman wisata yang mewah dan tak tertandingi, mengungkap keajaiban budaya dan alam negeri ini dengan cara yang paling mempesona.
+
+            Di Pariwisata Indonesia, kami memahami bahwa setiap perjalanan adalah sebuah karya seni yang perlu dirancang dengan teliti. Dengan sentuhan keahlian dan gairah kami dalam setiap detail, kami bertekad untuk menghadirkan layanan yang bukan hanya memenuhi, tetapi melebihi ekspektasi Anda. Kami percaya bahwa keindahan sejati terletak pada eksplorasi yang penuh makna dan pengalaman yang dirasakan dari hati.
+            
+            Bergabunglah dengan kami dalam perjalanan yang tak terlupakan, dan biarkan kami menjadi jembatan Anda menuju keajaiban dan keanggunan yang hanya dapat ditemukan di Indonesia. Setiap momen yang Anda habiskan bersama kami adalah cerminan dari dedikasi kami untuk memberikan keindahan yang abadi dan pengalaman yang elegan.
+        </p>
+    </section>
+    
+    <section id="faq" class="container my-5 animate__animated animate__fadeIn">
+        <main class="faq-container">
+            <h2 class="text-center mb-5">FAQ</h2>
+            <section class="faq-item">
+                <h2 class="faq-question">Apa itu Pariwisata Indonesia?</h2>
+                <p class="faq-answer">Pariwisata Indonesia adalah platform yang menyediakan informasi dan layanan terkait destinasi wisata di Indonesia. Kami menawarkan panduan lengkap tentang tempat-tempat menarik, budaya, dan fasilitas yang ada di seluruh negeri untuk membantu Anda merencanakan perjalanan yang tidak terlupakan.</p>
+            </section>
+    
+            <section class="faq-item">
+                <h2 class="faq-question">Bagaimana cara memesan paket wisata?</h2>
+                <p class="faq-answer">Untuk memesan paket wisata, Anda dapat mengunjungi halaman 'Kontak' di situs kami, memilih paket yang Anda inginkan, dan mengikuti petunjuk pemesanan yang tersedia. Jika Anda memerlukan bantuan, tim kami siap membantu Anda melalui chat atau email.</p>
+            </section>
+    
+            <section class="faq-item">
+                <h2 class="faq-question">Apakah ada biaya tambahan yang perlu saya ketahui?</h2>
+                <p class="faq-answer">Biaya tambahan mungkin berlaku untuk beberapa paket wisata tergantung pada pilihan akomodasi, aktivitas tambahan, atau permintaan khusus. Semua biaya tambahan akan diinformasikan secara jelas sebelum Anda menyelesaikan pemesanan.</p>
+            </section>
+    
+            <section class="faq-item">
+                <h2 class="faq-question">Bagaimana saya bisa menghubungi layanan pelanggan?</h2>
+                <p class="faq-answer">Anda dapat menghubungi layanan pelanggan kami melalui formulir kontak di situs web, mengirim email ke emailkamu@gmail.com, atau menelepon kami di [nomor telepon]. Tim kami siap membantu Anda dengan pertanyaan atau masalah yang Anda miliki.</p>
+            </section>
+        </main>
+    </section>
+    
+    <footer class="bg-danger text-white text-center py-3 animate__animated animate__fadeInUp">
+        <p>&copy; 2024 Pariwisata Indonesia Indra Dwi Aryadi (211011450468). Hak cipta dilindungi.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
