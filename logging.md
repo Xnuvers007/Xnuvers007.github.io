@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 14 September 2024 18.17.54 UTC
-- WITA: Sabtu, 14 September 2024 19.17.54 UTC
-- WIT: Sabtu, 14 September 2024 20.17.54 UTC
+- WIB: Sabtu, 14 September 2024 19.41.43 UTC
+- WITA: Sabtu, 14 September 2024 20.41.43 UTC
+- WIT: Sabtu, 14 September 2024 21.41.43 UTC
 
 Kutipan Inspiratif:
-"When WORDS fail, eyes speak.When eyes fail,?HEART? speaks. When HEART fails, nothing speaks they put cotton in the nose"
+"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
 
 
-Kategori: funny
+Kategori: motivational
 
