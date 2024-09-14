@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 15 September 2024 05.24.16 UTC
-- WITA: Minggu, 15 September 2024 06.24.16 UTC
-- WIT: Minggu, 15 September 2024 07.24.16 UTC
+- WIB: Minggu, 15 September 2024 06.21.36 UTC
+- WITA: Minggu, 15 September 2024 07.21.36 UTC
+- WIT: Minggu, 15 September 2024 08.21.36 UTC
 
 Kutipan Inspiratif:
-"A stranger stabs you in the front, a friend stabs you in the back, a boyfriend stabs you in the heart, but best friends only poke each other with straws."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: friendship
+Kategori: nature
 
