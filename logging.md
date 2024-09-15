@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 15 September 2024 14.20.08 UTC
-- WITA: Minggu, 15 September 2024 15.20.08 UTC
-- WIT: Minggu, 15 September 2024 16.20.08 UTC
+- WIB: Minggu, 15 September 2024 15.28.43 UTC
+- WITA: Minggu, 15 September 2024 16.28.43 UTC
+- WIT: Minggu, 15 September 2024 17.28.43 UTC
 
 Kutipan Inspiratif:
-"I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world."
+"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
 
 
-Kategori: inspirational
+Kategori: motivational
 
