@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 16 September 2024 14.22.42 UTC
-- WITA: Senin, 16 September 2024 15.22.42 UTC
-- WIT: Senin, 16 September 2024 16.22.42 UTC
+- WIB: Senin, 16 September 2024 15.30.47 UTC
+- WITA: Senin, 16 September 2024 16.30.47 UTC
+- WIT: Senin, 16 September 2024 17.30.47 UTC
 
 Kutipan Inspiratif:
-"My life,My rules My Attitude!!!"
+"You will never know what you are capable of until you take that first step and go for it."
 
 
-Kategori: attitude
+Kategori: motivational
 
