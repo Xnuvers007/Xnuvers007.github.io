@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 19 September 2024 17.27.19 UTC
-- WITA: Kamis, 19 September 2024 18.27.19 UTC
-- WIT: Kamis, 19 September 2024 19.27.19 UTC
+- WIB: Kamis, 19 September 2024 18.20.16 UTC
+- WITA: Kamis, 19 September 2024 19.20.16 UTC
+- WIT: Kamis, 19 September 2024 20.20.16 UTC
 
 Kutipan Inspiratif:
-"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: success
+Kategori: technology
 
