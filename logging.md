@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 22 September 2024 21.22.22 UTC
-- WITA: Minggu, 22 September 2024 22.22.22 UTC
-- WIT: Minggu, 22 September 2024 23.22.22 UTC
+- WIB: Minggu, 22 September 2024 22.23.12 UTC
+- WITA: Minggu, 22 September 2024 23.23.12 UTC
+- WIT: Senin, 23 September 2024 00.23.12 UTC
 
 Kutipan Inspiratif:
-"My task, which I am trying to achieve is, by the power of the written word, to make you hear, to make you feel--it is, before all, to make you see."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
 Kategori: inspirational
