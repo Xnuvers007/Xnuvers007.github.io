@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 22 September 2024 23.27.45 UTC
-- WITA: Senin, 23 September 2024 00.27.45 UTC
-- WIT: Senin, 23 September 2024 01.27.45 UTC
+- WIB: Senin, 23 September 2024 00.23.00 UTC
+- WITA: Senin, 23 September 2024 01.23.00 UTC
+- WIT: Senin, 23 September 2024 02.23.00 UTC
 
 Kutipan Inspiratif:
-"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
+"He who controls the past controls the future. He who controls the present controls the past."
 
 
 Kategori: inspirational
