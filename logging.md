@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 22 September 2024 13.30.40 UTC
-- WITA: Minggu, 22 September 2024 14.30.40 UTC
-- WIT: Minggu, 22 September 2024 15.30.40 UTC
+- WIB: Minggu, 22 September 2024 14.20.41 UTC
+- WITA: Minggu, 22 September 2024 15.20.41 UTC
+- WIT: Minggu, 22 September 2024 16.20.41 UTC
 
 Kutipan Inspiratif:
-"A man who treats his woman like a princess is proof that he has been born and raised in the arms of a queen."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: motivational
+Kategori: nature
 
