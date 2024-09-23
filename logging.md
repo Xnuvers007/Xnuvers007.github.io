@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 23 September 2024 20.30.56 UTC
-- WITA: Senin, 23 September 2024 21.30.56 UTC
-- WIT: Senin, 23 September 2024 22.30.56 UTC
+- WIB: Senin, 23 September 2024 21.25.00 UTC
+- WITA: Senin, 23 September 2024 22.25.00 UTC
+- WIT: Senin, 23 September 2024 23.25.00 UTC
 
 Kutipan Inspiratif:
-"I used to jog but the ice cubes kept falling out of my glass."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: funny
+Kategori: attitude
 
