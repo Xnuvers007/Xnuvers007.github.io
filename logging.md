@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 25 September 2024 03.26.05 UTC
-- WITA: Rabu, 25 September 2024 04.26.05 UTC
-- WIT: Rabu, 25 September 2024 05.26.05 UTC
+- WIB: Rabu, 25 September 2024 04.22.15 UTC
+- WITA: Rabu, 25 September 2024 05.22.15 UTC
+- WIT: Rabu, 25 September 2024 06.22.15 UTC
 
 Kutipan Inspiratif:
-"The great growling engine of change - technology."
+"We have more media than ever and more technology in our lives. It's supposed to help us communicate, but it has the opposite effect of isolating us."
 
 
 Kategori: technology
