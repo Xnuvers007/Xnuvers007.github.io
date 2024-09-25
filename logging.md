@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 26 September 2024 05.25.15 UTC
-- WITA: Kamis, 26 September 2024 06.25.15 UTC
-- WIT: Kamis, 26 September 2024 07.25.15 UTC
+- WIB: Kamis, 26 September 2024 06.23.05 UTC
+- WITA: Kamis, 26 September 2024 07.23.05 UTC
+- WIT: Kamis, 26 September 2024 08.23.05 UTC
 
 Kutipan Inspiratif:
-"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
+"Xcuse me, I found something under my shoes. Oh its your attitude."
 
 
-Kategori: inspirational
+Kategori: attitude
 
