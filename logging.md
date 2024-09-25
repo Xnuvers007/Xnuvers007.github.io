@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 25 September 2024 19.48.33 UTC
-- WITA: Rabu, 25 September 2024 20.48.33 UTC
-- WIT: Rabu, 25 September 2024 21.48.33 UTC
+- WIB: Rabu, 25 September 2024 20.31.12 UTC
+- WITA: Rabu, 25 September 2024 21.31.12 UTC
+- WIT: Rabu, 25 September 2024 22.31.12 UTC
 
 Kutipan Inspiratif:
-"Life is like a steering wheel, it only takes one small move to change your entire direction."
+"I enjoy when people show Attitude to me because it shows that they need an Attitude to impress me!"
 
 
-Kategori: motivational
+Kategori: attitude
 
