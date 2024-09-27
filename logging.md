@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 27 September 2024 16.25.50 UTC
-- WITA: Jumat, 27 September 2024 17.25.50 UTC
-- WIT: Jumat, 27 September 2024 18.25.50 UTC
+- WIB: Jumat, 27 September 2024 17.27.49 UTC
+- WITA: Jumat, 27 September 2024 18.27.49 UTC
+- WIT: Jumat, 27 September 2024 19.27.49 UTC
 
 Kutipan Inspiratif:
-"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
+"The further you get into technology, the further you go into gaming. That's the general rule."
 
 
-Kategori: nature
+Kategori: technology
 
