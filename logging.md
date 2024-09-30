@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 1 Oktober 2024 02.16.59 UTC
-- WITA: Selasa, 1 Oktober 2024 03.16.59 UTC
-- WIT: Selasa, 1 Oktober 2024 04.16.59 UTC
+- WIB: Selasa, 1 Oktober 2024 03.25.51 UTC
+- WITA: Selasa, 1 Oktober 2024 04.25.51 UTC
+- WIT: Selasa, 1 Oktober 2024 05.25.51 UTC
 
 Kutipan Inspiratif:
-"Human nature is potentially aggressive and destructive and potentially orderly and constructive."
+"I enjoy when people show Attitude to me because it shows that they need an Attitude to impress me!"
 
 
-Kategori: nature
+Kategori: attitude
 
