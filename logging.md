@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 30 September 2024 14.23.54 UTC
-- WITA: Senin, 30 September 2024 15.23.54 UTC
-- WIT: Senin, 30 September 2024 16.23.54 UTC
+- WIB: Senin, 30 September 2024 15.32.48 UTC
+- WITA: Senin, 30 September 2024 16.32.48 UTC
+- WIT: Senin, 30 September 2024 17.32.48 UTC
 
 Kutipan Inspiratif:
-"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: motivational
+Kategori: nature
 
