@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 1 Oktober 2024 21.25.45 UTC
-- WITA: Selasa, 1 Oktober 2024 22.25.45 UTC
-- WIT: Selasa, 1 Oktober 2024 23.25.45 UTC
+- WIB: Selasa, 1 Oktober 2024 22.26.10 UTC
+- WITA: Selasa, 1 Oktober 2024 23.26.10 UTC
+- WIT: Rabu, 2 Oktober 2024 00.26.10 UTC
 
 Kutipan Inspiratif:
-"Life is like a steering wheel, it only takes one small move to change your entire direction."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: motivational
+Kategori: nature
 
