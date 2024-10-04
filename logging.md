@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 4 Oktober 2024 16.25.55 UTC
-- WITA: Jumat, 4 Oktober 2024 17.25.55 UTC
-- WIT: Jumat, 4 Oktober 2024 18.25.55 UTC
+- WIB: Jumat, 4 Oktober 2024 17.28.38 UTC
+- WITA: Jumat, 4 Oktober 2024 18.28.38 UTC
+- WIT: Jumat, 4 Oktober 2024 19.28.38 UTC
 
 Kutipan Inspiratif:
-"I am who I am, Your approval is not needed"
+"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
 
 
-Kategori: attitude
+Kategori: motivational
 
