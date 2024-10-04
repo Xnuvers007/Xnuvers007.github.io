@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 4 Oktober 2024 18.18.54 UTC
-- WITA: Jumat, 4 Oktober 2024 19.18.54 UTC
-- WIT: Jumat, 4 Oktober 2024 20.18.54 UTC
+- WIB: Jumat, 4 Oktober 2024 19.47.31 UTC
+- WITA: Jumat, 4 Oktober 2024 20.47.31 UTC
+- WIT: Jumat, 4 Oktober 2024 21.47.31 UTC
 
 Kutipan Inspiratif:
-"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: inspirational
+Kategori: attitude
 
