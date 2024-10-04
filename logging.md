@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 4 Oktober 2024 06.24.03 UTC
-- WITA: Jumat, 4 Oktober 2024 07.24.03 UTC
-- WIT: Jumat, 4 Oktober 2024 08.24.03 UTC
+- WIB: Jumat, 4 Oktober 2024 08.50.22 UTC
+- WITA: Jumat, 4 Oktober 2024 09.50.22 UTC
+- WIT: Jumat, 4 Oktober 2024 10.50.22 UTC
 
 Kutipan Inspiratif:
-"Im sorry my fault. I forgot youre an Idiot."
+"If you work just for money, you'll never make it, but if you love what you're doing and you always put the customer first, success will be yours."
 
 
-Kategori: attitude
+Kategori: success
 
