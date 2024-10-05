@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 5 Oktober 2024 20.25.52 UTC
-- WITA: Sabtu, 5 Oktober 2024 21.25.52 UTC
-- WIT: Sabtu, 5 Oktober 2024 22.25.52 UTC
+- WIB: Sabtu, 5 Oktober 2024 21.22.35 UTC
+- WITA: Sabtu, 5 Oktober 2024 22.22.35 UTC
+- WIT: Sabtu, 5 Oktober 2024 23.22.35 UTC
 
 Kutipan Inspiratif:
-"I'm in favor of any technology that makes my work available to the reading public at a reasonable price."
+"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
 
 
-Kategori: technology
+Kategori: attitude
 
