@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 8 Oktober 2024 02.19.11 UTC
-- WITA: Selasa, 8 Oktober 2024 03.19.11 UTC
-- WIT: Selasa, 8 Oktober 2024 04.19.11 UTC
+- WIB: Selasa, 8 Oktober 2024 03.27.21 UTC
+- WITA: Selasa, 8 Oktober 2024 04.27.21 UTC
+- WIT: Selasa, 8 Oktober 2024 05.27.21 UTC
 
 Kutipan Inspiratif:
-"When i was born..Devil said..?Oh Shit..!! Competition?"
+"The negative side of the American Dream comes when people pursue success at any cost, which in turn destroys the vision and the dream."
 
 
-Kategori: attitude
+Kategori: success
 
