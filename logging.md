@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 7 Oktober 2024 13.34.18 UTC
-- WITA: Senin, 7 Oktober 2024 14.34.18 UTC
-- WIT: Senin, 7 Oktober 2024 15.34.18 UTC
+- WIB: Senin, 7 Oktober 2024 14.23.40 UTC
+- WITA: Senin, 7 Oktober 2024 15.23.40 UTC
+- WIT: Senin, 7 Oktober 2024 16.23.40 UTC
 
 Kutipan Inspiratif:
-"Don't get me wrong, there are sometimes if I go and see a really funny comedy, that I wished I had smoked a joint. I'll be honest with you. That's the truth."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: funny
+Kategori: nature
 
