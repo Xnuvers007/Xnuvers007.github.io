@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 7 Oktober 2024 14.23.40 UTC
-- WITA: Senin, 7 Oktober 2024 15.23.40 UTC
-- WIT: Senin, 7 Oktober 2024 16.23.40 UTC
+- WIB: Senin, 7 Oktober 2024 15.31.11 UTC
+- WITA: Senin, 7 Oktober 2024 16.31.11 UTC
+- WIT: Senin, 7 Oktober 2024 17.31.11 UTC
 
 Kutipan Inspiratif:
-"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
+"It's not a faith in technology. It's faith in people."
 
 
-Kategori: nature
+Kategori: technology
 
