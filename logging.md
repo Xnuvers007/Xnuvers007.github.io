@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 9 Oktober 2024 05.25.30 UTC
-- WITA: Rabu, 9 Oktober 2024 06.25.30 UTC
-- WIT: Rabu, 9 Oktober 2024 07.25.30 UTC
+- WIB: Rabu, 9 Oktober 2024 06.24.15 UTC
+- WITA: Rabu, 9 Oktober 2024 07.24.15 UTC
+- WIT: Rabu, 9 Oktober 2024 08.24.15 UTC
 
 Kutipan Inspiratif:
-"Im sorry my fault. I forgot youre an Idiot."
+"I'm in favor of any technology that makes my work available to the reading public at a reasonable price."
 
 
-Kategori: attitude
+Kategori: technology
 
