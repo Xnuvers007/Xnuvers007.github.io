@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 9 Oktober 2024 18.20.39 UTC
-- WITA: Rabu, 9 Oktober 2024 19.20.39 UTC
-- WIT: Rabu, 9 Oktober 2024 20.20.39 UTC
+- WIB: Rabu, 9 Oktober 2024 19.47.31 UTC
+- WITA: Rabu, 9 Oktober 2024 20.47.31 UTC
+- WIT: Rabu, 9 Oktober 2024 21.47.31 UTC
 
 Kutipan Inspiratif:
-"You weren't just a star to me, you were my whole damn sky."
+"People say me bad, trust me i am the worst!!!"
 
 
-Kategori: inspirational
+Kategori: attitude
 
