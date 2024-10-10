@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 10 Oktober 2024 13.33.56 UTC
-- WITA: Kamis, 10 Oktober 2024 14.33.56 UTC
-- WIT: Kamis, 10 Oktober 2024 15.33.56 UTC
+- WIB: Kamis, 10 Oktober 2024 14.22.35 UTC
+- WITA: Kamis, 10 Oktober 2024 15.22.35 UTC
+- WIT: Kamis, 10 Oktober 2024 16.22.35 UTC
 
 Kutipan Inspiratif:
-"Every flower is a soul blossoming in nature."
+"i am what i am.. i will never try to be some one else."
 
 
-Kategori: nature
+Kategori: attitude
 
