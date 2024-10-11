@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 12 Oktober 2024 01.31.36 UTC
-- WITA: Sabtu, 12 Oktober 2024 02.31.36 UTC
-- WIT: Sabtu, 12 Oktober 2024 03.31.36 UTC
+- WIB: Sabtu, 12 Oktober 2024 02.19.32 UTC
+- WITA: Sabtu, 12 Oktober 2024 03.19.32 UTC
+- WIT: Sabtu, 12 Oktober 2024 04.19.32 UTC
 
 Kutipan Inspiratif:
-"All things are ready if our mind be so."
+"Technology is the fashion of the '90s. It affects everyone, and everyone is interested in it - either from fear of being left behind or because they have a real need to use technology."
 
 
-Kategori: attitude
+Kategori: technology
 
