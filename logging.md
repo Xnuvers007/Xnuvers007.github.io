@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 12 Oktober 2024 14.20.23 UTC
-- WITA: Sabtu, 12 Oktober 2024 15.20.23 UTC
-- WIT: Sabtu, 12 Oktober 2024 16.20.23 UTC
+- WIB: Sabtu, 12 Oktober 2024 15.28.15 UTC
+- WITA: Sabtu, 12 Oktober 2024 16.28.15 UTC
+- WIT: Sabtu, 12 Oktober 2024 17.28.15 UTC
 
 Kutipan Inspiratif:
-"Human nature is potentially aggressive and destructive and potentially orderly and constructive."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
 Kategori: nature
