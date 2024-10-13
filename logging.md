@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 13 Oktober 2024 23.28.27 UTC
-- WITA: Senin, 14 Oktober 2024 00.28.27 UTC
-- WIT: Senin, 14 Oktober 2024 01.28.27 UTC
+- WIB: Senin, 14 Oktober 2024 00.21.40 UTC
+- WITA: Senin, 14 Oktober 2024 01.21.40 UTC
+- WIT: Senin, 14 Oktober 2024 02.21.40 UTC
 
 Kutipan Inspiratif:
-"It's not the size of the dog in the fight, but the size of the fight in the dog."
+"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
 
 
 Kategori: motivational
