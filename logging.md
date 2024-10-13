@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 13 Oktober 2024 10.31.31 UTC
-- WITA: Minggu, 13 Oktober 2024 11.31.31 UTC
-- WIT: Minggu, 13 Oktober 2024 12.31.31 UTC
+- WIB: Minggu, 13 Oktober 2024 11.28.43 UTC
+- WITA: Minggu, 13 Oktober 2024 12.28.43 UTC
+- WIT: Minggu, 13 Oktober 2024 13.28.43 UTC
 
 Kutipan Inspiratif:
-"Technology, like art, is a soaring exercise of the human imagination."
+"You create beauty with your attitude, your behaviours, and your actions. Its all up to you"
 
 
-Kategori: technology
+Kategori: attitude
 
