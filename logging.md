@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 13 Oktober 2024 12.25.35 UTC
-- WITA: Minggu, 13 Oktober 2024 13.25.35 UTC
-- WIT: Minggu, 13 Oktober 2024 14.25.35 UTC
+- WIB: Minggu, 13 Oktober 2024 13.31.55 UTC
+- WITA: Minggu, 13 Oktober 2024 14.31.55 UTC
+- WIT: Minggu, 13 Oktober 2024 15.31.55 UTC
 
 Kutipan Inspiratif:
-"The sun, with all those planets revolving around it and dependent on it, can still ripen a bunch of grapes as if it had nothing else in the universe to do."
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: nature
+Kategori: technology
 
