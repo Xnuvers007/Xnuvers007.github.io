@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 13 Oktober 2024 22.24.56 UTC
-- WITA: Minggu, 13 Oktober 2024 23.24.56 UTC
-- WIT: Senin, 14 Oktober 2024 00.24.56 UTC
+- WIB: Minggu, 13 Oktober 2024 23.28.27 UTC
+- WITA: Senin, 14 Oktober 2024 00.28.27 UTC
+- WIT: Senin, 14 Oktober 2024 01.28.27 UTC
 
 Kutipan Inspiratif:
-"If you work just for money, you'll never make it, but if you love what you're doing and you always put the customer first, success will be yours."
+"It's not the size of the dog in the fight, but the size of the fight in the dog."
 
 
-Kategori: success
+Kategori: motivational
 
