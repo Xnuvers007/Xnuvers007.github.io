@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 15 Oktober 2024 11.29.13 UTC
-- WITA: Selasa, 15 Oktober 2024 12.29.13 UTC
-- WIT: Selasa, 15 Oktober 2024 13.29.13 UTC
+- WIB: Selasa, 15 Oktober 2024 12.26.32 UTC
+- WITA: Selasa, 15 Oktober 2024 13.26.32 UTC
+- WIT: Selasa, 15 Oktober 2024 14.26.32 UTC
 
 Kutipan Inspiratif:
-"If you are player then Im the GAME."
+"People say me bad, trust me i am the worst!!!"
 
 
-Kategori: funny
+Kategori: attitude
 
