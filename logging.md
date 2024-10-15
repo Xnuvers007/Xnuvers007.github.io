@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 15 Oktober 2024 18.20.42 UTC
-- WITA: Selasa, 15 Oktober 2024 19.20.42 UTC
-- WIT: Selasa, 15 Oktober 2024 20.20.42 UTC
+- WIB: Selasa, 15 Oktober 2024 19.48.45 UTC
+- WITA: Selasa, 15 Oktober 2024 20.48.45 UTC
+- WIT: Selasa, 15 Oktober 2024 21.48.45 UTC
 
 Kutipan Inspiratif:
-"At the end of the day, the most overwhelming key to a child's success is the positive involvement of parents."
+"You're going to fail your way to success, you have nothing to be ashamed of so keep your head up. It’s much easier to come up with excuses of why you can't do it. If you do what is easy your life will be hard."
 
 
-Kategori: success
+Kategori: motivational
 
