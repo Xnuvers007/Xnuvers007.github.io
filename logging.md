@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 16 Oktober 2024 00.24.48 UTC
-- WITA: Rabu, 16 Oktober 2024 01.24.48 UTC
-- WIT: Rabu, 16 Oktober 2024 02.24.48 UTC
+- WIB: Rabu, 16 Oktober 2024 01.32.36 UTC
+- WITA: Rabu, 16 Oktober 2024 02.32.36 UTC
+- WIT: Rabu, 16 Oktober 2024 03.32.36 UTC
 
 Kutipan Inspiratif:
-"I used to jog but the ice cubes kept falling out of my glass."
+"It took me a long time not to judge myself through someone else's eyes"
 
 
-Kategori: funny
+Kategori: motivational
 
