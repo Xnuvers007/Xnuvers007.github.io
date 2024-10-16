@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 16 Oktober 2024 17.27.49 UTC
-- WITA: Rabu, 16 Oktober 2024 18.27.49 UTC
-- WIT: Rabu, 16 Oktober 2024 19.27.49 UTC
+- WIB: Rabu, 16 Oktober 2024 18.20.56 UTC
+- WITA: Rabu, 16 Oktober 2024 19.20.56 UTC
+- WIT: Rabu, 16 Oktober 2024 20.20.56 UTC
 
 Kutipan Inspiratif:
-"Im sorry my fault. I forgot youre an Idiot."
+"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
 
 
-Kategori: attitude
+Kategori: motivational
 
