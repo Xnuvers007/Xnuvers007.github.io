@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 18 Oktober 2024 08.50.54 UTC
-- WITA: Jumat, 18 Oktober 2024 09.50.54 UTC
-- WIT: Jumat, 18 Oktober 2024 10.50.54 UTC
+- WIB: Jumat, 18 Oktober 2024 09.55.36 UTC
+- WITA: Jumat, 18 Oktober 2024 10.55.36 UTC
+- WIT: Jumat, 18 Oktober 2024 11.55.36 UTC
 
 Kutipan Inspiratif:
-"Our technological powers increase, but the side effects and potential hazards also escalate."
+"Xcuse me, I found something under my shoes. Oh its your attitude."
 
 
-Kategori: technology
+Kategori: attitude
 
