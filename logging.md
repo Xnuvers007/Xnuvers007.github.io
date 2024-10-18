@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 18 Oktober 2024 06.24.08 UTC
-- WITA: Jumat, 18 Oktober 2024 07.24.08 UTC
-- WIT: Jumat, 18 Oktober 2024 08.24.08 UTC
+- WIB: Jumat, 18 Oktober 2024 08.50.54 UTC
+- WITA: Jumat, 18 Oktober 2024 09.50.54 UTC
+- WIT: Jumat, 18 Oktober 2024 10.50.54 UTC
 
 Kutipan Inspiratif:
-"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."
+"Our technological powers increase, but the side effects and potential hazards also escalate."
 
 
-Kategori: inspirational
+Kategori: technology
 
