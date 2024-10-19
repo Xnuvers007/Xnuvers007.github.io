@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 19 Oktober 2024 10.28.37 UTC
-- WITA: Sabtu, 19 Oktober 2024 11.28.37 UTC
-- WIT: Sabtu, 19 Oktober 2024 12.28.37 UTC
+- WIB: Sabtu, 19 Oktober 2024 11.28.02 UTC
+- WITA: Sabtu, 19 Oktober 2024 12.28.02 UTC
+- WIT: Sabtu, 19 Oktober 2024 13.28.02 UTC
 
 Kutipan Inspiratif:
-"Cant talk, telepathy only!"
+"People say me bad, trust me i am the worst!!!"
 
 
-Kategori: funny
+Kategori: attitude
 
