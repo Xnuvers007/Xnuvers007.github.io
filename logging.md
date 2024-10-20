@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 20 Oktober 2024 10.33.14 UTC
-- WITA: Minggu, 20 Oktober 2024 11.33.14 UTC
-- WIT: Minggu, 20 Oktober 2024 12.33.14 UTC
+- WIB: Minggu, 20 Oktober 2024 11.28.22 UTC
+- WITA: Minggu, 20 Oktober 2024 12.28.22 UTC
+- WIT: Minggu, 20 Oktober 2024 13.28.22 UTC
 
 Kutipan Inspiratif:
-"Success and failure are both part of life. Both are not permanent."
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: success
+Kategori: technology
 
