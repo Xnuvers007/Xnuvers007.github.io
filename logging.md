@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 25 Oktober 2024 18.20.45 UTC
-- WITA: Jumat, 25 Oktober 2024 19.20.45 UTC
-- WIT: Jumat, 25 Oktober 2024 20.20.45 UTC
+- WIB: Jumat, 25 Oktober 2024 19.47.47 UTC
+- WITA: Jumat, 25 Oktober 2024 20.47.47 UTC
+- WIT: Jumat, 25 Oktober 2024 21.47.47 UTC
 
 Kutipan Inspiratif:
-"Don't get me wrong, there are sometimes if I go and see a really funny comedy, that I wished I had smoked a joint. I'll be honest with you. That's the truth."
+"There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle"
 
 
-Kategori: funny
+Kategori: motivational
 
