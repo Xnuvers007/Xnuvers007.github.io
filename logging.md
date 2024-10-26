@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 27 Oktober 2024 00.22.44 UTC
-- WITA: Minggu, 27 Oktober 2024 01.22.44 UTC
-- WIT: Minggu, 27 Oktober 2024 02.22.44 UTC
+- WIB: Minggu, 27 Oktober 2024 01.30.14 UTC
+- WITA: Minggu, 27 Oktober 2024 02.30.14 UTC
+- WIT: Minggu, 27 Oktober 2024 03.30.14 UTC
 
 Kutipan Inspiratif:
-"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
+"The negative side of the American Dream comes when people pursue success at any cost, which in turn destroys the vision and the dream."
 
 
-Kategori: inspirational
+Kategori: success
 
