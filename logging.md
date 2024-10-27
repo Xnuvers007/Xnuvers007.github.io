@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 27 Oktober 2024 16.23.30 UTC
-- WITA: Minggu, 27 Oktober 2024 17.23.30 UTC
-- WIT: Minggu, 27 Oktober 2024 18.23.30 UTC
+- WIB: Minggu, 27 Oktober 2024 17.25.58 UTC
+- WITA: Minggu, 27 Oktober 2024 18.25.58 UTC
+- WIT: Minggu, 27 Oktober 2024 19.25.58 UTC
 
 Kutipan Inspiratif:
-"Nobody can make you feel inferior without your consent."
+"There are three principal means of acquiring knowledge... observation of nature, reflection, and experimentation. Observation collects facts; reflection combines them; experimentation verifies the result of that combination."
 
 
-Kategori: motivational
+Kategori: nature
 
