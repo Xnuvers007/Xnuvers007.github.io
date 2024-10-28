@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 29 Oktober 2024 01.33.06 UTC
-- WITA: Selasa, 29 Oktober 2024 02.33.06 UTC
-- WIT: Selasa, 29 Oktober 2024 03.33.06 UTC
+- WIB: Selasa, 29 Oktober 2024 02.19.52 UTC
+- WITA: Selasa, 29 Oktober 2024 03.19.52 UTC
+- WIT: Selasa, 29 Oktober 2024 04.19.52 UTC
 
 Kutipan Inspiratif:
-"Not all of us can do great things. But we can do small things with great love."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: inspirational
+Kategori: nature
 
