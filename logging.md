@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 31 Oktober 2024 05.25.12 UTC
-- WITA: Kamis, 31 Oktober 2024 06.25.12 UTC
-- WIT: Kamis, 31 Oktober 2024 07.25.12 UTC
+- WIB: Kamis, 31 Oktober 2024 06.24.29 UTC
+- WITA: Kamis, 31 Oktober 2024 07.24.29 UTC
+- WIT: Kamis, 31 Oktober 2024 08.24.29 UTC
 
 Kutipan Inspiratif:
-"Im sorry my fault. I forgot youre an Idiot."
+"It's not the size of the dog in the fight, but the size of the fight in the dog."
 
 
-Kategori: attitude
+Kategori: motivational
 
