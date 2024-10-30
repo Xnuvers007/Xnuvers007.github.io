@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 30 Oktober 2024 23.31.29 UTC
-- WITA: Kamis, 31 Oktober 2024 00.31.29 UTC
-- WIT: Kamis, 31 Oktober 2024 01.31.29 UTC
+- WIB: Kamis, 31 Oktober 2024 00.23.53 UTC
+- WITA: Kamis, 31 Oktober 2024 01.23.53 UTC
+- WIT: Kamis, 31 Oktober 2024 02.23.53 UTC
 
 Kutipan Inspiratif:
-"Every flower is a soul blossoming in nature."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: nature
+Kategori: attitude
 
