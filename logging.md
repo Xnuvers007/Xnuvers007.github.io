@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 2 November 2024 17.25.40 UTC
-- WITA: Sabtu, 2 November 2024 18.25.40 UTC
-- WIT: Sabtu, 2 November 2024 19.25.40 UTC
+- WIB: Sabtu, 2 November 2024 18.18.43 UTC
+- WITA: Sabtu, 2 November 2024 19.18.43 UTC
+- WIT: Sabtu, 2 November 2024 20.18.43 UTC
 
 Kutipan Inspiratif:
-"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
+"I quit being afraid when my first venture failed and the sky didn't fall down."
 
 
-Kategori: inspirational
+Kategori: motivational
 
