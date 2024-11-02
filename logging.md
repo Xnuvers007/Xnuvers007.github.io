@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 2 November 2024 10.28.41 UTC
-- WITA: Sabtu, 2 November 2024 11.28.41 UTC
-- WIT: Sabtu, 2 November 2024 12.28.41 UTC
+- WIB: Sabtu, 2 November 2024 11.29.22 UTC
+- WITA: Sabtu, 2 November 2024 12.29.22 UTC
+- WIT: Sabtu, 2 November 2024 13.29.22 UTC
 
 Kutipan Inspiratif:
-"It took me a long time not to judge myself through someone else's eyes"
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: motivational
+Kategori: technology
 
