@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 4 November 2024 03.24.05 UTC
-- WITA: Senin, 4 November 2024 04.24.05 UTC
-- WIT: Senin, 4 November 2024 05.24.05 UTC
+- WIB: Senin, 4 November 2024 04.22.51 UTC
+- WITA: Senin, 4 November 2024 05.22.51 UTC
+- WIT: Senin, 4 November 2024 06.22.51 UTC
 
 Kutipan Inspiratif:
-"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: success
+Kategori: technology
 
