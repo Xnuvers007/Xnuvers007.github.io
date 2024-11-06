@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 6 November 2024 12.25.17 UTC
-- WITA: Rabu, 6 November 2024 13.25.17 UTC
-- WIT: Rabu, 6 November 2024 14.25.17 UTC
+- WIB: Rabu, 6 November 2024 13.33.01 UTC
+- WITA: Rabu, 6 November 2024 14.33.01 UTC
+- WIT: Rabu, 6 November 2024 15.33.01 UTC
 
 Kutipan Inspiratif:
-"Being strong means rejoicing in who you are, complete with imperfections."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: motivational
+Kategori: attitude
 
