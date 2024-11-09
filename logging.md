@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 9 November 2024 18.18.33 UTC
-- WITA: Sabtu, 9 November 2024 19.18.33 UTC
-- WIT: Sabtu, 9 November 2024 20.18.33 UTC
+- WIB: Sabtu, 9 November 2024 19.41.45 UTC
+- WITA: Sabtu, 9 November 2024 20.41.45 UTC
+- WIT: Sabtu, 9 November 2024 21.41.45 UTC
 
 Kutipan Inspiratif:
-"One original thought is worth a thousand mindless quotings."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: inspirational
+Kategori: attitude
 
