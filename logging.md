@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 9 November 2024 11.27.34 UTC
-- WITA: Sabtu, 9 November 2024 12.27.34 UTC
-- WIT: Sabtu, 9 November 2024 13.27.34 UTC
+- WIB: Sabtu, 9 November 2024 12.23.43 UTC
+- WITA: Sabtu, 9 November 2024 13.23.43 UTC
+- WIT: Sabtu, 9 November 2024 14.23.43 UTC
 
 Kutipan Inspiratif:
-"Strategy is a style of thinking, a conscious and deliberate process, an intensive implementation system, the science of insuring future success."
+"Take up one idea. Make that one idea your life - think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success."
 
 
 Kategori: success
