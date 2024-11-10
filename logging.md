@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 11 November 2024 00.20.53 UTC
-- WITA: Senin, 11 November 2024 01.20.53 UTC
-- WIT: Senin, 11 November 2024 02.20.53 UTC
+- WIB: Senin, 11 November 2024 01.29.05 UTC
+- WITA: Senin, 11 November 2024 02.29.05 UTC
+- WIT: Senin, 11 November 2024 03.29.05 UTC
 
 Kutipan Inspiratif:
-"I don't care what the haters and naysayers say. If they make jokes about me, I'll laugh because they'll probably be funny."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: funny
+Kategori: nature
 
