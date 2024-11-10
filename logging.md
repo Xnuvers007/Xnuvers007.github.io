@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 11 November 2024 02.19.10 UTC
-- WITA: Senin, 11 November 2024 03.19.10 UTC
-- WIT: Senin, 11 November 2024 04.19.10 UTC
+- WIB: Senin, 11 November 2024 03.23.44 UTC
+- WITA: Senin, 11 November 2024 04.23.44 UTC
+- WIT: Senin, 11 November 2024 05.23.44 UTC
 
 Kutipan Inspiratif:
-"I failed in some subjects in exam, but my friend passed in all. Now he is an engineer in microsoft and i am the owner of microsoft."
+"If we continue to develop our technology without wisdom or prudence, our servant may prove to be our executioner."
 
 
-Kategori: inspirational
+Kategori: technology
 
