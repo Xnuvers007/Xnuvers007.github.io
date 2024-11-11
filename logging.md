@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 12 November 2024 03.24.47 UTC
-- WITA: Selasa, 12 November 2024 04.24.47 UTC
-- WIT: Selasa, 12 November 2024 05.24.47 UTC
+- WIB: Selasa, 12 November 2024 04.21.57 UTC
+- WITA: Selasa, 12 November 2024 05.21.57 UTC
+- WIT: Selasa, 12 November 2024 06.21.57 UTC
 
 Kutipan Inspiratif:
-"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."
+"I am not bound to win, but i am bound to be true. I am not bound to succeed, but i am bound to live up to what light i have."
 
 
-Kategori: inspirational
+Kategori: success
 
