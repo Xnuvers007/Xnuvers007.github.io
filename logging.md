@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 12 November 2024 01.31.27 UTC
-- WITA: Selasa, 12 November 2024 02.31.27 UTC
-- WIT: Selasa, 12 November 2024 03.31.27 UTC
+- WIB: Selasa, 12 November 2024 02.18.02 UTC
+- WITA: Selasa, 12 November 2024 03.18.02 UTC
+- WIT: Selasa, 12 November 2024 04.18.02 UTC
 
 Kutipan Inspiratif:
-"Success and failure are both part of life. Both are not permanent."
+"There are three principal means of acquiring knowledge... observation of nature, reflection, and experimentation. Observation collects facts; reflection combines them; experimentation verifies the result of that combination."
 
 
-Kategori: success
+Kategori: nature
 
