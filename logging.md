@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 14 November 2024 14.22.36 UTC
-- WITA: Kamis, 14 November 2024 15.22.36 UTC
-- WIT: Kamis, 14 November 2024 16.22.36 UTC
+- WIB: Kamis, 14 November 2024 15.31.12 UTC
+- WITA: Kamis, 14 November 2024 16.31.12 UTC
+- WIT: Kamis, 14 November 2024 17.31.12 UTC
 
 Kutipan Inspiratif:
-"Successful people are not gifted; they just work hard, then succeed on purpose."
+"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
 
 
-Kategori: success
+Kategori: attitude
 
