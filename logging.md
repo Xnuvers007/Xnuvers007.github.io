@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 16 November 2024 23.30.23 UTC
-- WITA: Minggu, 17 November 2024 00.30.23 UTC
-- WIT: Minggu, 17 November 2024 01.30.23 UTC
+- WIB: Minggu, 17 November 2024 00.22.14 UTC
+- WITA: Minggu, 17 November 2024 01.22.14 UTC
+- WIT: Minggu, 17 November 2024 02.22.14 UTC
 
 Kutipan Inspiratif:
-"Somebody asked me to explain the relationship between you and me, they expected the answer as, just friends. But I simply smiled and said. Gods gift."
+"I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.'"
 
 
-Kategori: friendship
+Kategori: inspirational
 
