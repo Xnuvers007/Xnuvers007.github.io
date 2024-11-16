@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 16 November 2024 18.20.32 UTC
-- WITA: Sabtu, 16 November 2024 19.20.32 UTC
-- WIT: Sabtu, 16 November 2024 20.20.32 UTC
+- WIB: Sabtu, 16 November 2024 19.45.53 UTC
+- WITA: Sabtu, 16 November 2024 20.45.53 UTC
+- WIT: Sabtu, 16 November 2024 21.45.53 UTC
 
 Kutipan Inspiratif:
-"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
+"The secret to success is to know something nobody else knows."
 
 
-Kategori: inspirational
+Kategori: success
 
