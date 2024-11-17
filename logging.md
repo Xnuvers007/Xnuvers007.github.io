@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 17 November 2024 10.37.38 UTC
-- WITA: Minggu, 17 November 2024 11.37.38 UTC
-- WIT: Minggu, 17 November 2024 12.37.38 UTC
+- WIB: Minggu, 17 November 2024 11.28.45 UTC
+- WITA: Minggu, 17 November 2024 12.28.45 UTC
+- WIT: Minggu, 17 November 2024 13.28.45 UTC
 
 Kutipan Inspiratif:
-"Our technological powers increase, but the side effects and potential hazards also escalate."
+"People say me bad, trust me i am the worst!!!"
 
 
-Kategori: technology
+Kategori: attitude
 
