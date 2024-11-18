@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 18 November 2024 10.04.23 UTC
-- WITA: Senin, 18 November 2024 11.04.23 UTC
-- WIT: Senin, 18 November 2024 12.04.23 UTC
+- WIB: Senin, 18 November 2024 10.38.24 UTC
+- WITA: Senin, 18 November 2024 11.38.24 UTC
+- WIT: Senin, 18 November 2024 12.38.24 UTC
 
 Kutipan Inspiratif:
-"Solitary trees, if they grow at all, grow strong."
+"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
 
 
-Kategori: nature
+Kategori: motivational
 
