@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 21 November 2024 14.23.24 UTC
-- WITA: Kamis, 21 November 2024 15.23.24 UTC
-- WIT: Kamis, 21 November 2024 16.23.24 UTC
+- WIB: Kamis, 21 November 2024 15.31.46 UTC
+- WITA: Kamis, 21 November 2024 16.31.46 UTC
+- WIT: Kamis, 21 November 2024 17.31.46 UTC
 
 Kutipan Inspiratif:
-"Friendship is the hardest thing in the world to explain. Its not something you learn in school. But if you havent learned the meaning of friendship you really havent learned anything."
+"Im sorry my fault. I forgot youre an Idiot."
 
 
-Kategori: friendship
+Kategori: attitude
 
