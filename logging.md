@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 23 November 2024 14.24.50 UTC
-- WITA: Sabtu, 23 November 2024 15.24.50 UTC
-- WIT: Sabtu, 23 November 2024 16.24.50 UTC
+- WIB: Sabtu, 23 November 2024 15.29.05 UTC
+- WITA: Sabtu, 23 November 2024 16.29.05 UTC
+- WIT: Sabtu, 23 November 2024 17.29.05 UTC
 
 Kutipan Inspiratif:
-"When i was born..Devil said..?Oh Shit..!! Competition?"
+"The secret to success is to know something nobody else knows."
 
 
-Kategori: attitude
+Kategori: success
 
