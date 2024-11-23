@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 23 November 2024 16.23.44 UTC
-- WITA: Sabtu, 23 November 2024 17.23.44 UTC
-- WIT: Sabtu, 23 November 2024 18.23.44 UTC
+- WIB: Sabtu, 23 November 2024 17.27.13 UTC
+- WITA: Sabtu, 23 November 2024 18.27.13 UTC
+- WIT: Sabtu, 23 November 2024 19.27.13 UTC
 
 Kutipan Inspiratif:
-"i am what i am.. i will never try to be some one else."
+"I'm in favor of any technology that makes my work available to the reading public at a reasonable price."
 
 
-Kategori: attitude
+Kategori: technology
 
