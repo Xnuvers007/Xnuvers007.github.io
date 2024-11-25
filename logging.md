@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 25 November 2024 06.24.37 UTC
-- WITA: Senin, 25 November 2024 07.24.37 UTC
-- WIT: Senin, 25 November 2024 08.24.37 UTC
+- WIB: Senin, 25 November 2024 08.58.25 UTC
+- WITA: Senin, 25 November 2024 09.58.25 UTC
+- WIT: Senin, 25 November 2024 10.58.25 UTC
 
 Kutipan Inspiratif:
-"It's not the size of the dog in the fight, but the size of the fight in the dog."
+"Strategy is a style of thinking, a conscious and deliberate process, an intensive implementation system, the science of insuring future success."
 
 
-Kategori: motivational
+Kategori: success
 
