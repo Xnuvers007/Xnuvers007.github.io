@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 28 November 2024 16.27.47 UTC
-- WITA: Kamis, 28 November 2024 17.27.47 UTC
-- WIT: Kamis, 28 November 2024 18.27.47 UTC
+- WIB: Kamis, 28 November 2024 17.30.29 UTC
+- WITA: Kamis, 28 November 2024 18.30.29 UTC
+- WIT: Kamis, 28 November 2024 19.30.29 UTC
 
 Kutipan Inspiratif:
-"Reading more books will only confuse you more and you will be dreaming about success instead of becoming successful yourself."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: success
+Kategori: technology
 
