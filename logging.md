@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 28 November 2024 11.31.37 UTC
-- WITA: Kamis, 28 November 2024 12.31.37 UTC
-- WIT: Kamis, 28 November 2024 13.31.37 UTC
+- WIB: Kamis, 28 November 2024 12.27.29 UTC
+- WITA: Kamis, 28 November 2024 13.27.29 UTC
+- WIT: Kamis, 28 November 2024 14.27.29 UTC
 
 Kutipan Inspiratif:
-"Success is a state of mind. If you want success, start thinking of yourself as a success."
+"Strategy is a style of thinking, a conscious and deliberate process, an intensive implementation system, the science of insuring future success."
 
 
 Kategori: success
