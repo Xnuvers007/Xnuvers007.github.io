@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 30 November 2024 05.26.13 UTC
-- WITA: Sabtu, 30 November 2024 06.26.13 UTC
-- WIT: Sabtu, 30 November 2024 07.26.13 UTC
+- WIB: Sabtu, 30 November 2024 06.24.29 UTC
+- WITA: Sabtu, 30 November 2024 07.24.29 UTC
+- WIT: Sabtu, 30 November 2024 08.24.29 UTC
 
 Kutipan Inspiratif:
-"I am not bound to win, but i am bound to be true. I am not bound to succeed, but i am bound to live up to what light i have."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: success
+Kategori: technology
 
