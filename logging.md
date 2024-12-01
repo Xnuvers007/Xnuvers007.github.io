@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 1 Desember 2024 17.28.08 UTC
-- WITA: Minggu, 1 Desember 2024 18.28.08 UTC
-- WIT: Minggu, 1 Desember 2024 19.28.08 UTC
+- WIB: Minggu, 1 Desember 2024 18.20.07 UTC
+- WITA: Minggu, 1 Desember 2024 19.20.07 UTC
+- WIT: Minggu, 1 Desember 2024 20.20.07 UTC
 
 Kutipan Inspiratif:
-"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
+"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
 
 
-Kategori: motivational
+Kategori: success
 
