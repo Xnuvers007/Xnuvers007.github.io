@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 2 Desember 2024 14.27.32 UTC
-- WITA: Senin, 2 Desember 2024 15.27.32 UTC
-- WIT: Senin, 2 Desember 2024 16.27.32 UTC
+- WIB: Senin, 2 Desember 2024 15.34.16 UTC
+- WITA: Senin, 2 Desember 2024 16.34.16 UTC
+- WIT: Senin, 2 Desember 2024 17.34.16 UTC
 
 Kutipan Inspiratif:
-"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: attitude
+Kategori: inspirational
 
