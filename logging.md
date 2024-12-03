@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 3 Desember 2024 17.31.47 UTC
-- WITA: Selasa, 3 Desember 2024 18.31.47 UTC
-- WIT: Selasa, 3 Desember 2024 19.31.47 UTC
+- WIB: Selasa, 3 Desember 2024 18.22.00 UTC
+- WITA: Selasa, 3 Desember 2024 19.22.00 UTC
+- WIT: Selasa, 3 Desember 2024 20.22.00 UTC
 
 Kutipan Inspiratif:
-"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
+"The size of your problems is nothing compared with your ability to solve them. Dont overestimate your problems and underestimate yourself."
 
 
-Kategori: technology
+Kategori: motivational
 
