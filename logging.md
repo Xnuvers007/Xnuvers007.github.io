@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 4 Desember 2024 02.20.51 UTC
-- WITA: Rabu, 4 Desember 2024 03.20.51 UTC
-- WIT: Rabu, 4 Desember 2024 04.20.51 UTC
+- WIB: Rabu, 4 Desember 2024 03.28.20 UTC
+- WITA: Rabu, 4 Desember 2024 04.28.20 UTC
+- WIT: Rabu, 4 Desember 2024 05.28.20 UTC
 
 Kutipan Inspiratif:
-"Nobody can make you feel inferior without your consent."
+"My life,My rules My Attitude!!!"
 
 
-Kategori: motivational
+Kategori: attitude
 
