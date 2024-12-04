@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 4 Desember 2024 12.27.19 UTC
-- WITA: Rabu, 4 Desember 2024 13.27.19 UTC
-- WIT: Rabu, 4 Desember 2024 14.27.19 UTC
+- WIB: Rabu, 4 Desember 2024 13.36.31 UTC
+- WITA: Rabu, 4 Desember 2024 14.36.31 UTC
+- WIT: Rabu, 4 Desember 2024 15.36.31 UTC
 
 Kutipan Inspiratif:
-"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
+"It took me a long time not to judge myself through someone else's eyes"
 
 
-Kategori: inspirational
+Kategori: motivational
 
