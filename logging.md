@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 4 Desember 2024 11.31.12 UTC
-- WITA: Rabu, 4 Desember 2024 12.31.12 UTC
-- WIT: Rabu, 4 Desember 2024 13.31.12 UTC
+- WIB: Rabu, 4 Desember 2024 12.27.19 UTC
+- WITA: Rabu, 4 Desember 2024 13.27.19 UTC
+- WIT: Rabu, 4 Desember 2024 14.27.19 UTC
 
 Kutipan Inspiratif:
-"Strategy is a style of thinking, a conscious and deliberate process, an intensive implementation system, the science of insuring future success."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: success
+Kategori: inspirational
 
