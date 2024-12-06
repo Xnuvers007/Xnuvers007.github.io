@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 6 Desember 2024 11.31.21 UTC
-- WITA: Jumat, 6 Desember 2024 12.31.21 UTC
-- WIT: Jumat, 6 Desember 2024 13.31.21 UTC
+- WIB: Jumat, 6 Desember 2024 12.27.14 UTC
+- WITA: Jumat, 6 Desember 2024 13.27.14 UTC
+- WIT: Jumat, 6 Desember 2024 14.27.14 UTC
 
 Kutipan Inspiratif:
-"I am who I am, Your approval is not needed"
+"The size of your problems is nothing compared with your ability to solve them. Dont overestimate your problems and underestimate yourself."
 
 
-Kategori: attitude
+Kategori: motivational
 
