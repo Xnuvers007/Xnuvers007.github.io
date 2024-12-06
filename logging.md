@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 6 Desember 2024 20.33.17 UTC
-- WITA: Jumat, 6 Desember 2024 21.33.17 UTC
-- WIT: Jumat, 6 Desember 2024 22.33.17 UTC
+- WIB: Jumat, 6 Desember 2024 21.26.55 UTC
+- WITA: Jumat, 6 Desember 2024 22.26.55 UTC
+- WIT: Jumat, 6 Desember 2024 23.26.55 UTC
 
 Kutipan Inspiratif:
-"i am what i am.. i will never try to be some one else."
+"Technology is a useful servant but a dangerous master."
 
 
-Kategori: attitude
+Kategori: technology
 
