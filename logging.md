@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 6 Desember 2024 22.27.48 UTC
-- WITA: Jumat, 6 Desember 2024 23.27.48 UTC
-- WIT: Sabtu, 7 Desember 2024 00.27.48 UTC
+- WIB: Jumat, 6 Desember 2024 23.31.04 UTC
+- WITA: Sabtu, 7 Desember 2024 00.31.04 UTC
+- WIT: Sabtu, 7 Desember 2024 01.31.04 UTC
 
 Kutipan Inspiratif:
-"Being strong means rejoicing in who you are, complete with imperfections."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: motivational
+Kategori: inspirational
 
