@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 10 Desember 2024 05.27.38 UTC
-- WITA: Selasa, 10 Desember 2024 06.27.38 UTC
-- WIT: Selasa, 10 Desember 2024 07.27.38 UTC
+- WIB: Selasa, 10 Desember 2024 06.25.21 UTC
+- WITA: Selasa, 10 Desember 2024 07.25.21 UTC
+- WIT: Selasa, 10 Desember 2024 08.25.21 UTC
 
 Kutipan Inspiratif:
-"Human nature is evil, and goodness is caused by intentional activity."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: nature
+Kategori: attitude
 
