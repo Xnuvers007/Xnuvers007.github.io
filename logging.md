@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 10 Desember 2024 23.34.21 UTC
-- WITA: Rabu, 11 Desember 2024 00.34.21 UTC
-- WIT: Rabu, 11 Desember 2024 01.34.21 UTC
+- WIB: Rabu, 11 Desember 2024 00.25.49 UTC
+- WITA: Rabu, 11 Desember 2024 01.25.49 UTC
+- WIT: Rabu, 11 Desember 2024 02.25.49 UTC
 
 Kutipan Inspiratif:
-"A life spent making mistakes is not only more honorable, but more useful than a life spent doing nothing."
+"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
 
 
-Kategori: motivational
+Kategori: attitude
 
