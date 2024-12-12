@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 12 Desember 2024 18.21.54 UTC
-- WITA: Kamis, 12 Desember 2024 19.21.54 UTC
-- WIT: Kamis, 12 Desember 2024 20.21.54 UTC
+- WIB: Kamis, 12 Desember 2024 19.52.31 UTC
+- WITA: Kamis, 12 Desember 2024 20.52.31 UTC
+- WIT: Kamis, 12 Desember 2024 21.52.31 UTC
 
 Kutipan Inspiratif:
-"It took me a long time not to judge myself through someone else's eyes"
+"My life,My rules My Attitude!!!"
 
 
-Kategori: motivational
+Kategori: attitude
 
