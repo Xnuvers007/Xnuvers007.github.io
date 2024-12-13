@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 13 Desember 2024 13.36.14 UTC
-- WITA: Jumat, 13 Desember 2024 14.36.14 UTC
-- WIT: Jumat, 13 Desember 2024 15.36.14 UTC
+- WIB: Jumat, 13 Desember 2024 14.25.10 UTC
+- WITA: Jumat, 13 Desember 2024 15.25.10 UTC
+- WIT: Jumat, 13 Desember 2024 16.25.10 UTC
 
 Kutipan Inspiratif:
-"I'm in favor of any technology that makes my work available to the reading public at a reasonable price."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: technology
+Kategori: attitude
 
