@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 16 Desember 2024 20.34.01 UTC
-- WITA: Senin, 16 Desember 2024 21.34.01 UTC
-- WIT: Senin, 16 Desember 2024 22.34.01 UTC
+- WIB: Senin, 16 Desember 2024 21.27.45 UTC
+- WITA: Senin, 16 Desember 2024 22.27.45 UTC
+- WIT: Senin, 16 Desember 2024 23.27.45 UTC
 
 Kutipan Inspiratif:
-"Technology is a useful servant but a dangerous master."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: technology
+Kategori: attitude
 
