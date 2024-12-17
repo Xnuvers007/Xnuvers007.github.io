@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 17 Desember 2024 17.30.33 UTC
-- WITA: Selasa, 17 Desember 2024 18.30.33 UTC
-- WIT: Selasa, 17 Desember 2024 19.30.33 UTC
+- WIB: Selasa, 17 Desember 2024 18.21.54 UTC
+- WITA: Selasa, 17 Desember 2024 19.21.54 UTC
+- WIT: Selasa, 17 Desember 2024 20.21.54 UTC
 
 Kutipan Inspiratif:
-"I failed in some subjects in exam, but my friend passed in all. Now he is an engineer in microsoft and i am the owner of microsoft."
+"We have more media than ever and more technology in our lives. It's supposed to help us communicate, but it has the opposite effect of isolating us."
 
 
-Kategori: inspirational
+Kategori: technology
 
