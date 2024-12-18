@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 18 Desember 2024 17.29.20 UTC
-- WITA: Rabu, 18 Desember 2024 18.29.20 UTC
-- WIT: Rabu, 18 Desember 2024 19.29.20 UTC
+- WIB: Rabu, 18 Desember 2024 18.21.04 UTC
+- WITA: Rabu, 18 Desember 2024 19.21.04 UTC
+- WIT: Rabu, 18 Desember 2024 20.21.04 UTC
 
 Kutipan Inspiratif:
-"The sun, with all those planets revolving around it and dependent on it, can still ripen a bunch of grapes as if it had nothing else in the universe to do."
+"Our technological powers increase, but the side effects and potential hazards also escalate."
 
 
-Kategori: nature
+Kategori: technology
 
