@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 19 Desember 2024 12.26.39 UTC
-- WITA: Kamis, 19 Desember 2024 13.26.39 UTC
-- WIT: Kamis, 19 Desember 2024 14.26.39 UTC
+- WIB: Kamis, 19 Desember 2024 13.35.09 UTC
+- WITA: Kamis, 19 Desember 2024 14.35.09 UTC
+- WIT: Kamis, 19 Desember 2024 15.35.09 UTC
 
 Kutipan Inspiratif:
-"I enjoy when people show Attitude to me because it shows that they need an Attitude to impress me!"
+"There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle"
 
 
-Kategori: attitude
+Kategori: motivational
 
