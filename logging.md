@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 19 Desember 2024 21.26.26 UTC
-- WITA: Kamis, 19 Desember 2024 22.26.26 UTC
-- WIT: Kamis, 19 Desember 2024 23.26.26 UTC
+- WIB: Kamis, 19 Desember 2024 22.26.44 UTC
+- WITA: Kamis, 19 Desember 2024 23.26.44 UTC
+- WIT: Jumat, 20 Desember 2024 00.26.44 UTC
 
 Kutipan Inspiratif:
-"He who controls the past controls the future. He who controls the present controls the past."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: inspirational
+Kategori: technology
 
