@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 20 Desember 2024 06.22.54 UTC
-- WITA: Jumat, 20 Desember 2024 07.22.54 UTC
-- WIT: Jumat, 20 Desember 2024 08.22.54 UTC
+- WIB: Jumat, 20 Desember 2024 08.51.23 UTC
+- WITA: Jumat, 20 Desember 2024 09.51.23 UTC
+- WIT: Jumat, 20 Desember 2024 10.51.23 UTC
 
 Kutipan Inspiratif:
-"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
+"There are three principal means of acquiring knowledge... observation of nature, reflection, and experimentation. Observation collects facts; reflection combines them; experimentation verifies the result of that combination."
 
 
-Kategori: attitude
+Kategori: nature
 
