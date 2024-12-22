@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 22 Desember 2024 17.24.43 UTC
-- WITA: Minggu, 22 Desember 2024 18.24.43 UTC
-- WIT: Minggu, 22 Desember 2024 19.24.43 UTC
+- WIB: Minggu, 22 Desember 2024 18.17.32 UTC
+- WITA: Minggu, 22 Desember 2024 19.17.32 UTC
+- WIT: Minggu, 22 Desember 2024 20.17.32 UTC
 
 Kutipan Inspiratif:
-"You will never know what you are capable of until you take that first step and go for it."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: motivational
+Kategori: technology
 
