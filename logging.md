@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 24 Desember 2024 03.24.59 UTC
-- WITA: Selasa, 24 Desember 2024 04.24.59 UTC
-- WIT: Selasa, 24 Desember 2024 05.24.59 UTC
+- WIB: Selasa, 24 Desember 2024 04.21.46 UTC
+- WITA: Selasa, 24 Desember 2024 05.21.46 UTC
+- WIT: Selasa, 24 Desember 2024 06.21.46 UTC
 
 Kutipan Inspiratif:
-"I buy expensive suits. They just look cheap on me."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: funny
+Kategori: attitude
 
