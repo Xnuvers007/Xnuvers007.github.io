@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 27 Desember 2024 00.22.02 UTC
-- WITA: Jumat, 27 Desember 2024 01.22.02 UTC
-- WIT: Jumat, 27 Desember 2024 02.22.02 UTC
+- WIB: Jumat, 27 Desember 2024 01.31.51 UTC
+- WITA: Jumat, 27 Desember 2024 02.31.51 UTC
+- WIT: Jumat, 27 Desember 2024 03.31.51 UTC
 
 Kutipan Inspiratif:
-"i am what i am.. i will never try to be some one else."
+"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
 
 
-Kategori: attitude
+Kategori: motivational
 
