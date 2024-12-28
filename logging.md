@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 29 Desember 2024 00.20.47 UTC
-- WITA: Minggu, 29 Desember 2024 01.20.47 UTC
-- WIT: Minggu, 29 Desember 2024 02.20.47 UTC
+- WIB: Minggu, 29 Desember 2024 01.30.12 UTC
+- WITA: Minggu, 29 Desember 2024 02.30.12 UTC
+- WIT: Minggu, 29 Desember 2024 03.30.12 UTC
 
 Kutipan Inspiratif:
-"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
+"Smile in front of people who hate you Ur happiness kills them"
 
 
-Kategori: motivational
+Kategori: attitude
 
