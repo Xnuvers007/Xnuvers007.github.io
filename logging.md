@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 4 Januari 2025 01.32.02 UTC
-- WITA: Sabtu, 4 Januari 2025 02.32.02 UTC
-- WIT: Sabtu, 4 Januari 2025 03.32.02 UTC
+- WIB: Sabtu, 4 Januari 2025 02.18.36 UTC
+- WITA: Sabtu, 4 Januari 2025 03.18.36 UTC
+- WIT: Sabtu, 4 Januari 2025 04.18.36 UTC
 
 Kutipan Inspiratif:
-"Strategy is a style of thinking, a conscious and deliberate process, an intensive implementation system, the science of insuring future success."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: success
+Kategori: technology
 
