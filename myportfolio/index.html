@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;" oncontextmenu="return false;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indra Dwi A | Full Stack Developer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="This is website portofolio by Xnuvers007 from Indonesia">
+    <meta name="language" content="id">
+    <meta name="author" content="Xnuvers007 | Indra Dwi A">
+    <meta name="keywords" content="portofolio,Portofolio,Website,website,certificates,certificate,sertifikat,skill,skills,keahlian">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Portfolio">
+    <meta itemprop="description" content="This is website portofolio by Xnuvers007 from Indonesia">
+    <meta itemprop="image" content="https://raw.githubusercontent.com/Xnuvers007/Xnuvers007.github.io/refs/heads/master/myportfolio/images/person.png">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://xnuvers007.github.io/">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Xnuvers007 | Portofolio" />
+    <meta property="og:description" content="This is website portofolio by Xnuvers007 from Indonesia" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/Xnuvers007/Xnuvers007.github.io/refs/heads/master/myportfolio/images/person.png" />
+    <meta property="og:site_name" content="Portfolio" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Xnuvers007 | Portofolio" />
+    <meta name="twitter:description" content="This is website portofolio by Xnuvers007 from Indonesia" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Xnuvers007/Xnuvers007.github.io/refs/heads/master/myportfolio/images/person.png" />
+
+    <!-- Meta Tags Generated via https://github.com/Xnuvers007/Meta-Generator -->
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="content">
+        <header>
+            <nav class="container">
+                <div class="logo">
+                <a href="#" class="logo" id="logo-link">Indra Dwi A.</a>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#certificates">Certificates</a>
+                </div>
+            </nav>
+        </header>
+
+        <section id="home" class="hero" data-aos="fade-down">
+            <div class="container hero-content">
+                <img data-src="./images/person.png" alt="Indra Dwi A." style="width: 200px; height: 200px; border-radius: 50%; margin: 0 auto; display: block;">
+                <h1>Indra Dwi A.</h1>
+                <p>Full Stack Developer & Cybersecurity Specialist</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="button button-primary">View My Work</a>
+                    <a href="#contact" class="button button-outline">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills" data-aos="slide-left">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fab fa-python skill-icon"></i>
+                        <div class="skill-name">Python</div>
+                        <div class="skill-bar" data-progress="98%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <div class="skill-name">HTML/CSS</div>
+                        <div class="skill-bar" data-progress="95%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-code skill-icon"></i>
+                        <div class="skill-name">C++ / C / C#</div>
+                        <div class="skill-bar" data-progress="80%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-code skill-icon"></i>
+                        <div class="skill-name">Dart / Flutter / Kotlin </div>
+                        <div class="skill-bar" data-progress="60%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-java skill-icon"></i>
+                        <div class="skill-name">Java / Springboot</div>
+                        <div class="skill-bar" data-progress="75%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-linux skill-icon"></i>
+                        <div class="skill-name">Linux & Shell</div>
+                        <div class="skill-bar" data-progress="95%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-windows skill-icon"></i>
+                        <div class="skill-name">Windows</div>
+                        <div class="skill-bar" data-progress="100%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-shield-alt skill-icon"></i>
+                        <div class="skill-name">Penetration Testing</div>
+                        <div class="skill-bar" data-progress="82%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <div class="skill-name">Database Management</div>
+                        <div class="skill-bar" data-progress="90%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-wordpress skill-icon"></i>
+                        <div class="skill-name">Wordpress</div>
+                        <div class="skill-bar" data-progress="100%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img data-src="https://raw.githubusercontent.com/Xnuvers007/RemBg/main/image/image2%20(2).jpg" alt="Rembg Project" class="project-image">
+                        <div class="project-content" data-aos="fade">
+                            <h3 class="project-title">Rembg</h3>
+                            <p class="project-description">Rembg is a tool to remove image backgrounds. Make your photos change in an instant. </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Remove.bg</span>
+                                <span class="project-tag">Automation</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Xnuvers007/RemBg" class="project-link project-link-primary">View Project</a>
+                                <a href="https://github.com/Xnuvers007/RemBg" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img data-src="https://github.com/Xnuvers007/DorkGoogle/raw/main/images/Screenshot_3.png" alt="Dork Google Project" class="project-image">
+                        <div class="project-content" data-aos="fade">
+                            <h3 class="project-title">Google Dork</h3>
+                            <p class="project-description">Google Dork is a tool to find sensitive data on the internet. </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Google</span>
+                                <span class="project-tag">Data Security</span>
+                                <span class="project-tag">Internet</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Xnuvers007/DorkGoogle" class="project-link project-link-primary">View Project</a>
+                                <a href="https://github.com/Xnuvers007/DorkGoogle" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img data-src="https://user-images.githubusercontent.com/62522733/131252692-16065250-5607-43a0-a606-db6162211986.png" alt="OSINT Project" class="project-image">
+                        <div class="project-content" data-aos="fade"
+                            <h3 class="project-title">OSINT</h3>
+                            <p class="project-description">OSINT is a tool to find information on the internet or social media. </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Security</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Open Source</span>
+                                <span class="project-tag">AI (Artificial Intelligence)</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Xnuvers007/Osint" class="project-link project-link-primary">View Project</a>
+                                <a href="https://github.com/Xnuvers007/Osint" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img data-src="./images/facerecog.png" alt="Face Recognition Project" class="project-image">
+                        <div class="project-content" data-aos="fade"
+                            <h3 class="project-title">Face Recognition Attendance</h3>
+                            <p class="project-description">Face Recognition Attendance is a tool to make attendance easier. for example, in schools or companies. </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Face Recognition</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Biometric</span>
+                                <span class="project-tag">AI (Artificial Intelligence)</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://journal.mediapublikasi.id/index.php/Biner/article/view/4771" class="project-link project-link-primary">View Journal</a>
+                                <a href="#" class="project-link project-link-secondary">Source Code (Private)</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img data-src="./images/pamstudents.png" alt="Pamstudents Project" class="project-image">
+                        <div class="project-content" data-aos="fade"
+                            <h3 class="project-title">Pamstudents</h3>
+                            <p class="project-description">Welcome to PamStudents – your premier companion for accessing Pamulang University campus websites. This application is crafted to streamline your educational journey by providing swift and efficient access to essential resources for students and faculty of Pamulang University.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Mobile</span>
+                                <span class="project-tag">Mobile</span>
+                                <span class="project-tag">Dart</span>
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">University of Pamulang</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Xnuvers007/pamstudents/releases/tag/v1.3.0" class="project-link project-link-primary">View Project</a>
+                                <a href="https://github.com/Xnuvers007/pamstudents" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img data-src="https://i.pinimg.com/564x/90/44/a6/9044a634e09b2a633ff73efad0fdf470.jpg" alt="Metagen Project" class="project-image">
+                        <div class="project-content" data-aos="fade"
+                            <h3 class="project-title">Metagen (Meta Generator)</h3>
+                            <p class="project-description">Metagen is a tool to generate meta tags for your website and making it easier to share on social media platforms. Metagen can be used for SEO purposes. </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Website</span>
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">Javascript</span>
+                                <span class="project-tag">SEO</span>
+                                <span class="project-tag">Python</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://bioskop-six.vercel.app/metagen" class="project-link project-link-primary">View Project</a>
+                                <a href="https://github.com/Xnuvers007/Meta-Generator" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sertifikat -->
+        <section id="certificates" class="certificates-section" data-aos="zoom-in">
+            <div class="container">
+                <h2 class="section-title">Certificates & Achievements</h2>
+                <div class="certificates-grid">
+                    <!-- Certificate Card 1 -->
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img data-src="./images/sertif1.png" alt="Certificate" class="cert-img">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-award certificate-icon"></i>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Data Science (Python)</h3>
+                            <p class="certificate-issuer">DQLab</p>
+                            <p class="certificate-date">Issued: 02 Aug 2024</p>
+                            <div class="certificate-badge">
+                                <span class="badge-text">Verified</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <br />
+                            <br />
+                            <a href="#" class="project-link project-link-primary certificates" onclick="openCertificate('./images/sertif1.png')">View Certificate</a>
+                        </div>
+                    </div>
+        
+                    <!-- Certificate Card 2 -->
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img data-src="./images/sertif2.png" alt="Certificate" class="cert-img">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-shield-alt certificate-icon"></i>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Data Science (R)</h3>
+                            <p class="certificate-issuer">DQLab</p>
+                            <p class="certificate-date">Issued: 02 Aug 2024</p>
+                            <div class="certificate-badge">
+                                <span class="badge-text">Verified</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <br />
+                            <br />
+                            <a href="#" class="project-link project-link-primary certificates" onclick="openCertificate('./images/sertif2.png')">View Certificate</a>
+                        </div>
+                    </div>
+        
+                    <!-- Certificate Card 3 -->
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img data-src="./images/sertif3.png" alt="Certificate" class="cert-img">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-code certificate-icon"></i>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">TOEFL</h3>
+                            <p class="certificate-issuer">Mr. TOEFL ID</p>
+                            <p class="certificate-date">Issued: 28 June 2022</p>
+                            <div class="certificate-badge">
+                                <span class="badge-text">Verified</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <br />
+                            <br />
+                            <a href="#" class="project-link project-link-primary certificates" onclick="openCertificate('./images/sertif3.png')">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img data-src="./images/sertif4.png" alt="Certificate" class="cert-img">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-code certificate-icon"></i>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Cybersecurity</h3>
+                            <p class="certificate-issuer">Ruang Seminar</p>
+                            <p class="certificate-date">Issued: 11 June 2022</p>
+                            <div class="certificate-badge">
+                                <span class="badge-text">Verified</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <br />
+                            <br />
+                            <a href="#" class="project-link project-link-primary certificates" onclick="openCertificate('./images/sertif4.png')">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img data-src="./images/sertif5.png" alt="Certificate" class="cert-img">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-code certificate-icon"></i>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Forensic</h3>
+                            <p class="certificate-issuer">Ruang Seminar</p>
+                            <p class="certificate-date">Issued: 21 January 2023</p>
+                            <div class="certificate-badge">
+                                <span class="badge-text">Verified</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <br />
+                            <br />
+                            <a href="#" class="project-link project-link-primary certificates" onclick="openCertificate('./images/sertif5.png')">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img data-src="./images/sertif6.png" alt="Certificate" class="cert-img">
+                            <div class="certificate-overlay">
+                                <i class="fas fa-code certificate-icon"></i>
+                            </div>
+                        </div>
+                        <div class="certificate-content">
+                            <h3 class="certificate-title">Data Science</h3>
+                            <p class="certificate-issuer">Asean Data Science (DSA)</p>
+                            <p class="certificate-date">Issued: 2022</p>
+                            <div class="certificate-badge">
+                                <span class="badge-text">Verified</span>
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <br />
+                            <br />
+                            <a href="#" class="project-link project-link-primary certificates" onclick="openCertificate('./images/sertif6.png')">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="certificateModal" class="certificate-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <img id="modalImage" src="" alt="Certificate Full View" class="modal-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Xnuvers007" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.facebook.com/indradwi.25/" class="social-link" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com/Indradwi.25" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#contact-form" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br />
+        <section id="contact" class="contact" style="font-family: Arial, sans-serif; background: linear-gradient(135deg, #1e1e1e, #343a40); padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; color: #fff;" data-aos="fade-up">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #f8f9fa;">Contact Us</h2>
+            <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;" autocomplete="on">
+                <label for="name" style="font-weight: bold;">Name</label>
+                <input type="text" id="name" name="name" required style="padding: 10px; border: none; border-radius: 5px;" placeholder="Enter your name" autocomplete="name" />
+        
+                <label for="email" style="font-weight: bold;">Email</label>
+                <input type="email" id="email" name="email" required style="padding: 10px; border: none; border-radius: 5px;" placeholder="Enter your email" autocomplete="email" />
+        
+                <label for="message" style="font-weight: bold;">Message</label>
+                <textarea id="message" name="message" required style="padding: 10px; border: none; border-radius: 5px; height: 120px;" placeholder="Enter your message" autocomplete="on" ></textarea>
+        
+                <button type="submit" style="background: #17a2b8; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <br />
+
+    <footer style="text-align: center; padding: 20px; background: #1e1e1e; color: #fff;">
+        <span id="currentYear"></span>
+    </footer>
+
+    <script src="./assets/js/email.js"></script>
+    <script src="./assets/js/particle-js-aos.js"></script>
+    <script src="./assets/js/year-image-certificate.js"></script>
+</body>
+</html>

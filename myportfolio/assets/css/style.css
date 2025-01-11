@@ -1,0 +1,557 @@
+:root {
+    --primary: #4f46e5;
+    --secondary: #06b6d4;
+    --accent: #f43f5e;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --text: #e2e8f0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.content {
+    position: relative;
+    z-index: 2;
+}
+/* Header Styles */
+header {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    background: radial-gradient(circle at center, var(--surface) 0%, var(--background) 100%);
+    background-attachment: fixed;
+   /* Efek parallax */
+    background-position: center;
+   /* Menjaga posisi latar belakang tetap di tengah */
+    background-size: cover;
+   /* Mengatur ukuran latar belakang untuk menutupi elemen */
+    background-repeat: no-repeat;
+   /* Mengatur latar belakang agar tidak diulang */
+    color: var(--text);
+}
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+}
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 8s ease infinite;
+}
+.hero p {
+    font-size: 1.4rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+.button-primary {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+}
+.button-outline {
+    border: 2px solid var(--primary);
+    color: var(--text);
+}
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+/* Skills Section */
+.skills {
+    padding: 8rem 0;
+    background: var(--surface);
+}
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: var(--text);
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+.skill-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.skill-name {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+.skill-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+/* .skill-progress {
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+    transition: width 1.5s ease-in-out;
+}
+*/
+.skill-progress {
+    width: 0%;
+   /* pastikan ini dimulai dengan 0% */
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+    transition: width 1.5s ease-in-out;
+}
+.projects {
+    padding: 8rem 0;
+    background: var(--background);
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+.project-card {
+    background: var(--surface);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+.project-content {
+    padding: 2rem;
+    position: relative;
+    background: linear-gradient(to top, var(--surface) 80%, transparent);
+}
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+.project-description {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+.project-tag {
+    padding: 0.3rem 0.8rem;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary);
+    border-radius: 2rem;
+    font-size: 0.9rem;
+}
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+.project-link {
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.project-link-primary {
+    background: var(--primary);
+    color: white;
+}
+.project-link-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+}
+.project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.certificates {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 0;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+/* Contact Section */
+.contact {
+    padding: 8rem 0;
+    background: var(--surface);
+}
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.social-link {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+.social-link:hover {
+    transform: translateY(-5px);
+    background: var(--primary);
+    color: white;
+}
+/* Animations */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+   }
+    50% {
+        background-position: 100% 50%;
+   }
+    100% {
+        background-position: 0% 50%;
+   }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+   }
+    .hero h1 {
+        font-size: 2.5rem;
+   }
+    .hero p {
+        font-size: 1.1rem;
+   }
+    .projects-grid {
+        grid-template-columns: 1fr;
+   }
+    .skill-card {
+        padding: 1.5rem;
+   }
+}
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1rem;
+   }
+    .hero p {
+        font-size: 0.5rem;
+   }
+    .skill-card {
+        padding: 0.5rem;
+   }
+    .project-card {
+        border-radius: 0;
+   }
+}
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 0 1rem;
+   }
+}
+#logo-link {
+    text-decoration: none;
+}
+.certificates-section {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, var(--background), var(--surface));
+}
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 0;
+}
+.certificate-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary);
+}
+.certificate-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+.cert-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.certificate-card:hover .cert-img {
+    transform: scale(1.1);
+}
+.certificate-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(79, 70, 229, 0.4), rgba(6, 182, 212, 0.4));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.certificate-card:hover .certificate-overlay {
+    opacity: 1;
+}
+.certificate-icon {
+    font-size: 3rem;
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+.certificate-card:hover .certificate-icon {
+    transform: translateY(0);
+}
+.certificate-content {
+    padding: 2rem;
+    position: relative;
+}
+.certificate-title {
+    font-size: 1.4rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+.certificate-issuer {
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.certificate-date {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.certificate-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(79, 70, 229, 0.1);
+    border-radius: 2rem;
+    color: var(--primary);
+}
+.badge-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.fa-check-circle {
+    color: #10b981;
+}
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+   }
+    .certificate-card {
+        max-width: 100%;
+   }
+}
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: modalFade 0.3s ease-in-out;
+}
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+   }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+   }
+}
+.modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.close-modal {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+.close-modal:hover {
+    color: var(--primary);
+}
+/* Make certificate link more attractive */
+.project-link.certificates {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.project-link.certificates:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
