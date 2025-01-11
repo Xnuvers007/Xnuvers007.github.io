@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indra Dwi A | Full Stack Developer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #f43f5e;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            background: radial-gradient(circle at center, var(--surface) 0%, var(--background) 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 8s ease infinite;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .button-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .button-outline {
+            border: 2px solid var(--primary);
+            color: var(--text);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 8rem 0;
+            background: var(--surface);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--text);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-name {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+        } */
+        .skill-progress {
+            width: 0%; /* pastikan ini dimulai dengan 0% */
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out; /* pastikan transisi width ada */
+        }
+
+
+        /* Projects Section */
+        .projects {
+            padding: 8rem 0;
+            background: var(--background);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(to top, var(--surface) 80%, transparent);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .project-description {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            border-radius: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .project-link-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            background: var(--surface);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Animations */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="content">
+        <header>
+            <nav class="container">
+                <div class="logo">Indra.dev</div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </header>
+
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <h1>Indra Dwi Aryadi</h1>
+                <p>Full Stack Developer & Cybersecurity Specialist</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="button button-primary">View My Work</a>
+                    <a href="#contact" class="button button-outline">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fab fa-python skill-icon"></i>
+                        <div class="skill-name">Python</div>
+                        <div class="skill-bar" data-progress="91%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <div class="skill-name">HTML/CSS</div>
+                        <div class="skill-bar" data-progress="95%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-code skill-icon"></i>
+                        <div class="skill-name">C++</div>
+                        <div class="skill-bar" data-progress="82%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-linux skill-icon"></i>
+                        <div class="skill-name">Linux & Shell</div>
+                        <div class="skill-bar" data-progress="95%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-shield-alt skill-icon"></i>
+                        <div class="skill-name">Penetration Testing</div>
+                        <div class="skill-bar" data-progress="80%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <div class="skill-name">Database Management</div>
+                        <div class="skill-bar" data-progress="85%">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="/api/placeholder/400/250" alt="SecureNet Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">SecureNet Framework</h3>
+                            <p class="project-description">A comprehensive security testing framework for enterprise networks with automated vulnerability scanning and reporting.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Network Security</span>
+                                <span class="project-tag">Automation</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link project-link-primary">View Project</a>
+                                <a href="#" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="/api/placeholder/400/250" alt="DataGuard Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">DataGuard AI</h3>
+                            <p class="project-description">AI-powered data protection system that detects and prevents data breaches using machine learning algorithms.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Machine Learning</span>
+                                <span class="project-tag">C++</span>
+                                <span class="project-tag">Data Security</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link project-link-primary">View Project</a>
+                                <a href="#" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="/api/placeholder/400/250" alt="CloudShield Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">CloudShield</h3>
+                            <p class="project-description">Cloud security platform providing real-time monitoring, threat detection, and automated incident response.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Cloud Security</span>
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Node.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link project-link-primary">View Project</a>
+                                <a href="#" class="project-link project-link-secondary">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#4f46e5'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#4f46e5',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Animate skill bars on scroll
+        // const skillBars = document.querySelectorAll('.skill-progress');
+        // const observer = new IntersectionObserver((entries) => {
+        //     entries.forEach(entry => {
+        //         if (entry.isIntersecting) {
+        //             entry.target.style.width = entry.target.parentElement.dataset.progress || '0%';
+        //         }
+        //     });
+        // }, { threshold: 0.5 });
+
+        // skillBars.forEach(bar => observer.observe(bar));
+
+// Perhatikan perubahan berikut
+const skillBars = document.querySelectorAll('.skill-progress');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const progressBar = entry.target;
+            const progressValue = progressBar.parentElement.dataset.progress; // mengambil nilai progress dari data-progress
+            progressBar.style.width = progressValue; // Mengubah lebar skill bar
+        }
+    });
+}, { threshold: 0.5 });
+
+skillBars.forEach(bar => observer.observe(bar));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
