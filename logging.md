@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 11 Januari 2025 16.22.40 UTC
-- WITA: Sabtu, 11 Januari 2025 17.22.40 UTC
-- WIT: Sabtu, 11 Januari 2025 18.22.40 UTC
+- WIB: Sabtu, 11 Januari 2025 17.19.35 UTC
+- WITA: Sabtu, 11 Januari 2025 18.19.35 UTC
+- WIT: Sabtu, 11 Januari 2025 19.19.35 UTC
 
 Kutipan Inspiratif:
-"Technology is the fashion of the '90s. It affects everyone, and everyone is interested in it - either from fear of being left behind or because they have a real need to use technology."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: technology
+Kategori: nature
 
