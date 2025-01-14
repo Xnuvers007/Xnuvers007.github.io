@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 14 Januari 2025 10.25.00 UTC
-- WITA: Selasa, 14 Januari 2025 11.25.00 UTC
-- WIT: Selasa, 14 Januari 2025 12.25.00 UTC
+- WIB: Selasa, 14 Januari 2025 11.27.08 UTC
+- WITA: Selasa, 14 Januari 2025 12.27.08 UTC
+- WIT: Selasa, 14 Januari 2025 13.27.08 UTC
 
 Kutipan Inspiratif:
-"Success is only meaningful and enjoyable if it feels like your own."
+"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
 
 
-Kategori: success
+Kategori: inspirational
 
