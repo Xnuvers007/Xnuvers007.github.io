@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 16 Januari 2025 00.22.22 UTC
-- WITA: Kamis, 16 Januari 2025 01.22.22 UTC
-- WIT: Kamis, 16 Januari 2025 02.22.22 UTC
+- WIB: Kamis, 16 Januari 2025 01.30.12 UTC
+- WITA: Kamis, 16 Januari 2025 02.30.12 UTC
+- WIT: Kamis, 16 Januari 2025 03.30.12 UTC
 
 Kutipan Inspiratif:
-"Technology gives us the facilities that lessen the barriers of time and distance - the telegraph and cable, the telephone, radio, and the rest."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: technology
+Kategori: attitude
 
