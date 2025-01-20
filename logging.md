@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 20 Januari 2025 09.51.42 UTC
-- WITA: Senin, 20 Januari 2025 10.51.42 UTC
-- WIT: Senin, 20 Januari 2025 11.51.42 UTC
+- WIB: Senin, 20 Januari 2025 10.27.13 UTC
+- WITA: Senin, 20 Januari 2025 11.27.13 UTC
+- WIT: Senin, 20 Januari 2025 12.27.13 UTC
 
 Kutipan Inspiratif:
-"God is really creative, I mean ...just look at me !"
+"Technology is not neutral."
 
 
-Kategori: attitude
+Kategori: technology
 
