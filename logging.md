@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 24 Januari 2025 05.24.11 UTC
-- WITA: Jumat, 24 Januari 2025 06.24.11 UTC
-- WIT: Jumat, 24 Januari 2025 07.24.11 UTC
+- WIB: Jumat, 24 Januari 2025 06.22.09 UTC
+- WITA: Jumat, 24 Januari 2025 07.22.09 UTC
+- WIT: Jumat, 24 Januari 2025 08.22.09 UTC
 
 Kutipan Inspiratif:
-"Keep moving! Nothing new to read"
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: attitude
+Kategori: inspirational
 
