@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 24 Januari 2025 06.22.09 UTC
-- WITA: Jumat, 24 Januari 2025 07.22.09 UTC
-- WIT: Jumat, 24 Januari 2025 08.22.09 UTC
+- WIB: Jumat, 24 Januari 2025 08.48.02 UTC
+- WITA: Jumat, 24 Januari 2025 09.48.02 UTC
+- WIT: Jumat, 24 Januari 2025 10.48.02 UTC
 
 Kutipan Inspiratif:
-"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
+"You create beauty with your attitude, your behaviours, and your actions. Its all up to you"
 
 
-Kategori: inspirational
+Kategori: attitude
 
