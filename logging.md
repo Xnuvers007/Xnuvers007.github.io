@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 29 Januari 2025 13.32.03 UTC
-- WITA: Rabu, 29 Januari 2025 14.32.03 UTC
-- WIT: Rabu, 29 Januari 2025 15.32.03 UTC
+- WIB: Rabu, 29 Januari 2025 14.21.47 UTC
+- WITA: Rabu, 29 Januari 2025 15.21.47 UTC
+- WIT: Rabu, 29 Januari 2025 16.21.47 UTC
 
 Kutipan Inspiratif:
-"Success depends upon previous preparation, and without such preparation there is sure to be failure."
+"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
 
 
-Kategori: success
+Kategori: motivational
 
