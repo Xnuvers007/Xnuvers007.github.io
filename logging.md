@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 29 Januari 2025 06.21.35 UTC
-- WITA: Rabu, 29 Januari 2025 07.21.35 UTC
-- WIT: Rabu, 29 Januari 2025 08.21.35 UTC
+- WIB: Rabu, 29 Januari 2025 08.47.15 UTC
+- WITA: Rabu, 29 Januari 2025 09.47.15 UTC
+- WIT: Rabu, 29 Januari 2025 10.47.15 UTC
 
 Kutipan Inspiratif:
-"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
 Kategori: attitude
