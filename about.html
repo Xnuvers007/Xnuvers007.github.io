@@ -332,17 +332,17 @@
 
     <div class="container pb-5">
         <div class="social-icons" data-aos="fade-up">
-            <a href="https://www.facebook.com/profile.php?id=100009439790329" class="social-link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=100009439790329" class="social-link" target="_blank" style="text-decoration: none;">
+                <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://github.com/Xnuvers007" class="social-link" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github">
+            <a href="https://github.com/Xnuvers007" class="social-link" target="_blank" style="text-decoration: none;">
+                <i class="fab fa-github"></i>
             </a>
-            <a href="http://instagram.com/Indradwi.25" class="social-link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram">
+            <a href="http://instagram.com/Indradwi.25" class="social-link" target="_blank" style="text-decoration: none;">
+                <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://www.youtube.com/channel/UCqmsJTrSUiP14M9rrhS3jYg" class="social-link" target="_blank">
-                <img src="https://w7.pngwing.com/pngs/1009/93/png-transparent-youtube-computer-icons-logo-youtube-angle-social-media-share-icon.png" alt="YouTube">
+            <a href="https://www.youtube.com/channel/UCqmsJTrSUiP14M9rrhS3jYg" class="social-link" target="_blank" style="text-decoration: none;">
+                <i class="fab fa-youtube"></i>
             </a>
         </div>
     </div>
@@ -389,34 +389,7 @@
                 }
             }
         });
-    
-        // Dark Mode Toggle
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.querySelector('.theme-toggle i');
-            
-            // Toggle dark mode class
-            body.classList.toggle('dark-mode');
-            
-            // Update icon
-            if (body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-    
-        // Load theme preference
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
-            }
-        });
-    
+        
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -525,37 +498,31 @@
             observer.observe(card);
         });
     
-        // Save theme preference
-        function saveThemePreference() {
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
-        }
-    
-        // Load theme preference
-        function loadThemePreference() {
-            const darkMode = localStorage.getItem('darkMode');
-            if (darkMode === 'true') {
-                document.body.classList.add('dark-mode');
-                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+        // Dark Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('.theme-toggle i');
+            
+            // Toggle dark mode class
+            body.classList.toggle('dark-mode');
+            
+            // Update icon
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
             }
         }
-    
-        // Load saved theme preference
+
+        // Load theme preference
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
                 document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
             }
-        });
-    
-        // Apply theme preference on load
-        document.addEventListener('DOMContentLoaded', loadThemePreference);
-    
-        // Update theme preference when toggled
-        document.querySelector('.theme-toggle').addEventListener('click', () => {
-            toggleTheme();
-            saveThemePreference();
         });
     </script>
 </body>
