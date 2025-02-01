@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>About Me - Xnuvers007</title>
-    <!-- Meta tags sama seperti sebelumnya -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -16,6 +15,9 @@
             --accent-color: #00cec9;
             --text-color: #2d3436;
             --light-bg: #f5f6fa;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2d2d2d;
+            --dark-text: #ffffff;
         }
 
         body {
@@ -23,6 +25,44 @@
             background: var(--light-bg);
             color: var(--text-color);
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .skill-card {
+            background: var(--dark-card);
+            color: var(--dark-text);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .social-link {
+            background: var(--dark-card);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .btn-custom {
+            background: var(--accent-color);
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .theme-toggle {
+            background: var(--dark-card);
+            color: var(--dark-text);
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode .loader {
+            border-color: var(--dark-card);
+            border-top-color: var(--accent-color);
+        }
+
+        body.dark-mode #loading {
+            background: var(--dark-bg);
         }
 
         /* Loader Animation */
@@ -35,6 +75,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            transition: background-color 0.3s ease;
         }
 
         .loader {
@@ -44,6 +85,7 @@
             border-top: 5px solid var(--secondary-color);
             border-radius: 50%;
             animation: spin 1s linear infinite;
+            transition: border-color 0.3s ease;
         }
 
         @keyframes spin {
@@ -95,7 +137,7 @@
             padding: 20px;
             margin: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
 
         .skill-card:hover {
@@ -198,11 +240,16 @@
             justify-content: center;
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .theme-toggle:hover {
             transform: rotate(180deg);
+        }
+        
+        .theme-toggle i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
         }
 
         /* Dark Mode Styles */
@@ -310,7 +357,7 @@
             duration: 1000,
             once: true
         });
-
+    
         // Loading Screen
         $(window).on('load', function() {
             setTimeout(function() {
@@ -321,7 +368,7 @@
                 });
             }, 1000);
         });
-
+    
         // Particles.js Configuration
         particlesJS('particles-js', {
             particles: {
@@ -342,19 +389,35 @@
                 }
             }
         });
-
+    
         // Dark Mode Toggle
         function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
+            const body = document.body;
             const icon = document.querySelector('.theme-toggle i');
-            if (document.body.classList.contains('dark-mode')) {
+            
+            // Toggle dark mode class
+            body.classList.toggle('dark-mode');
+            
+            // Update icon
+            if (body.classList.contains('dark-mode')) {
                 icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
             } else {
                 icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
             }
         }
-
-// Smooth Scroll
+    
+        // Load theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -363,7 +426,7 @@
                 });
             });
         });
-
+    
         // Tilt Effect for Profile Image
         const profileImg = document.querySelector('.profile-img');
         profileImg.addEventListener('mousemove', (e) => {
@@ -379,11 +442,11 @@
             
             profileImg.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
         });
-
+    
         profileImg.addEventListener('mouseleave', () => {
             profileImg.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
         });
-
+    
         // Scroll Progress Indicator
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -406,7 +469,7 @@
                 document.querySelector('.scroll-progress').style.width = scrolled + '%';
             }
         };
-
+    
         // Typing Effect for Hero Text
         function typeEffect(element, text, speed = 100) {
             let i = 0;
@@ -420,13 +483,13 @@
                 }
             }, speed);
         }
-
+    
         // Apply typing effect after page load
         window.addEventListener('load', () => {
             const heroText = document.querySelector('.lead');
             typeEffect(heroText, heroText.textContent, 50);
         });
-
+    
         // Hover Effect for Social Icons
         document.querySelectorAll('.social-link').forEach(link => {
             link.addEventListener('mouseenter', (e) => {
@@ -437,7 +500,7 @@
                 e.target.style.transform = 'translateY(0) rotate(0)';
             });
         });
-
+    
         // Add dynamic background color change on scroll
         window.addEventListener('scroll', () => {
             const scrolled = window.scrollY;
@@ -447,7 +510,7 @@
                 hsl(${hue}, 50%, 20%) 0%, 
                 hsl(${hue + 60}, 50%, 40%) 100%)`;
         });
-
+    
         // Add intersection observer for skill cards
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -457,17 +520,17 @@
                 }
             });
         }, { threshold: 0.5 });
-
+    
         document.querySelectorAll('.skill-card').forEach(card => {
             observer.observe(card);
         });
-
+    
         // Save theme preference
         function saveThemePreference() {
             const isDarkMode = document.body.classList.contains('dark-mode');
             localStorage.setItem('darkMode', isDarkMode);
         }
-
+    
         // Load theme preference
         function loadThemePreference() {
             const darkMode = localStorage.getItem('darkMode');
@@ -476,10 +539,19 @@
                 document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
             }
         }
-
+    
+        // Load saved theme preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    
         // Apply theme preference on load
         document.addEventListener('DOMContentLoaded', loadThemePreference);
-
+    
         // Update theme preference when toggled
         document.querySelector('.theme-toggle').addEventListener('click', () => {
             toggleTheme();
