@@ -1,139 +1,490 @@
 <!DOCTYPE html>
 <html lang="en" oncontextmenu="return false">
 <head>
-    <style>
-        #loading {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.7;
-    background-color: #fff;
-    z-index: 99;
-}
-  
-#loading-image {
-    z-index: 100;
-}
-    </style>
-    <script src="./js/cls.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <meta charset="utf-8">
     <meta charset="UTF-8">
-    <title>About Me</title>
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/62522733?v=4" type="image/x-icon">
-    <meta property="og:title" content="About Me">
-    <meta property="og:description" content="This is my about page">
-    <meta property="og:image" content="https://i.ibb.co/q0rGZ8X/Indra.png">
-    <meta property="og:url" content="https://xnuvers007.github.io/about.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Xnuvers007">
-    <meta property="og:locale" content="en_US">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@xnuvers007">
-    <meta name="twitter:creator" content="@xnuvers007">
-    <meta name="twitter:title" content="About Me">
-    <meta name="twitter:description" content="This is my about page">
-    <meta name="twitter:image" content="https://i.ibb.co/q0rGZ8X/Indra.png">
-    <meta name="twitter:url" content="https://xnuvers007.github.io/about.html">
-    <meta name="description" content="This is my about page">
-    <meta name="keywords" content="xnuvers007, about, about me, about page">
-    <meta name="author" content="xnuvers007">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Style-Type" content="text/css">
-    <link rel="stylesheet" href="./css/aboutme.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    </head>
-<body color="black">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>About Me - Xnuvers007</title>
+    <!-- Meta tags sama seperti sebelumnya -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --secondary-color: #0984e3;
+            --accent-color: #00cec9;
+            --text-color: #2d3436;
+            --light-bg: #f5f6fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--light-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Loader Animation */
+        #loading {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-bg);
+            border-top: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff10' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            opacity: 0.1;
+            animation: wave 15s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0) translateY(0) rotate(0); }
+            100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Skill Cards */
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) rotate(8deg);
+            background: var(--accent-color);
+        }
+
+        .social-link img {
+            width: 25px;
+            height: 25px;
+            transition: filter 0.3s ease;
+        }
+
+        .social-link:hover img {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Custom Button */
+        .btn-custom {
+            background: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Particle Effect */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        /* Skills Progress */
+        .skill-progress {
+            height: 8px;
+            background: var(--light-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: var(--secondary-color);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        body.dark-mode .skill-card {
+            background: #2d2d2d;
+            color: #ffffff;
+        }
+
+        body.dark-mode .social-link {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .btn-custom {
+            background: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
     <div id="loading">
-        <img id="loading-image" src="https://media.tenor.com/8KWBGNcD-zAAAAAC/loader.gif" alt="Loading..." />
+        <div class="loader"></div>
     </div>
 
-    <!-- <script type="application/javascript" src="./js/script.js"></script> -->
-    <script src="./js/script.js"></script>
-    <h1 id="ha">About Me</h1>
-    <br />
-
-    <strong><p id="what-is">This is my about page</p></strong>
-    <br />
-
-    <div class="separator" style="margin-bottom:2px; clear: both; text-align: center;">
-        <img src="https://i.ibb.co/q0rGZ8X/Indra.png" width="30%" height="30%" />
-    </div>
-    
-    <div style="margin-bottom:2px; text-align: center;">
-        <b>
-            <span style="font-size: large;">INDRA DWI ARYADI
-            </span>
-        </b>
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
     </div>
 
-    <div style="margin-bottom:3px; text-align: center;">
-        <article>
-        Hanya seorang Manusia yang berantusias terhadap Teknologi, terutama dalam bidang Programming dan Penetration Testing.
-        <br />
-        <br />
-        saya juga menyukai bahasa Pemrograman <strong><em>Python, PHP, Javascript, C, C++, Ruby</strong></em> dll.
-        saya juga menyukai hal-hal yang berhubungan dengan <strong><em>Cyber Security, seperti Web Hacking, Network Hacking</strong></em>, dan lain-lain.
-        kalian bisa mengeceknya di Portfolio saya di bawah ini.
-        <center>
-            <a href="https://xnuvers007.github.io/myportfolio" target="_blank">
-                <button class="btn btn-primary">Portfolio</button>
-            </a>
-        </center>
-        </article>
-        <br/>
-        <div style="text-align: left;">
-            <b>
-                <a id="ini-span" href="https://xnuvers007.github.io/index.html">
-                    <button class="btn btn-primary">
-                        <span style="font-size: large;">
-                            Back To Index
-                        </span>
-                    </button>
-                </a>
-            </b>
+    <div class="hero min-vh-100 d-flex align-items-center">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center" data-aos="fade-up">
+                <div class="col-md-8">
+                    <img src="https://i.ibb.co/q0rGZ8X/Indra.png" alt="Profile Picture" class="profile-img mb-4">
+                    <h1 class="display-4 fw-bold mb-4">Xnuvers007</h1>
+                    <p class="lead mb-4">Enthusiast in Technology, Programming, and Penetration Testing</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://xnuvers007.github.io/myportfolio" class="btn btn-custom" data-aos="fade-right">
+                            <i class="fas fa-briefcase me-2"></i>Portfolio
+                        </a>
+                        <a href="https://mykingbee.blogspot.com/" class="btn btn-custom" data-aos="fade-left">
+                            <i class="fas fa-blog me-2"></i>Blog
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div style="text-align: right;">
-            <a href="https://mykingbee.blogspot.com/" id="ini-span" target="_blank">
-                <button class="btn btn-primary">My Blog</b>
-            </a>
-            <br />
-            <a href="https://ndraeee25.000webhostapp.com/" id="ini-span" target="_blank">
-                <button class="btn btn-primary">My Project Website</b>
-            </a>
-        </div>
-
-        <div style="margin-bottom:5px; border-bottom: 2px solid #cccccc; padding: 3px; text-align: center;">
-        </div>
-
-        <div style="text-align: center;">
-            <a href="https://www.facebook.com/profile.php?id=100009439790329" target="_blank" title="Like/Follow">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" style="border: medium none; position: relative;" alt="facebook" height="5%" width="5%" />
-            </a>
-            <a href="https://github.com/Xnuvers007" target="_blank" title="Follow Me">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" style="border: medium none; position: relative;" alt="Github" width="5%" height="5%" />
-            </a>
-            <a href="http://instagram.com/Indradwi.25" target="_blank" title="Follow Me">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" style="border: medium none; position: relative;" width="5%" height="5%" alt="instagram"/>
-            </a>
-            <a href="https://www.youtube.com/channel/UCqmsJTrSUiP14M9rrhS3jYg" target="_blank" title="Subscribe">
-                <img src="https://w7.pngwing.com/pngs/1009/93/png-transparent-youtube-computer-icons-logo-youtube-angle-social-media-share-icon.png" style="border: medium none; position: relative;" width="5%" height="5%" alt="youtube"/>
-            </a>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </div>
-    <script type="application/javascript">
-        $(window).on('load', function () {
-            $('#loading').hide();
-          });
-        </script>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center mb-5" data-aos="fade-up">Technical Skills</h2>
+                <div class="row">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <div class="skill-card">
+                            <h5><i class="fas fa-code me-2"></i>Programming</h5>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="90"></div>
+                            </div>
+                            <p class="mt-2">Python, PHP, JavaScript, C++</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <div class="skill-card">
+                            <h5><i class="fas fa-shield-alt me-2"></i>Cyber Security</h5>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" data-progress="85"></div>
+                            </div>
+                            <p class="mt-2">Web & Network Security</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pb-5">
+        <div class="social-icons" data-aos="fade-up">
+            <a href="https://www.facebook.com/profile.php?id=100009439790329" class="social-link" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+            </a>
+            <a href="https://github.com/Xnuvers007" class="social-link" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github">
+            </a>
+            <a href="http://instagram.com/Indradwi.25" class="social-link" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram">
+            </a>
+            <a href="https://www.youtube.com/channel/UCqmsJTrSUiP14M9rrhS3jYg" class="social-link" target="_blank">
+                <img src="https://w7.pngwing.com/pngs/1009/93/png-transparent-youtube-computer-icons-logo-youtube-angle-social-media-share-icon.png" alt="YouTube">
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Loading Screen
+        $(window).on('load', function() {
+            setTimeout(function() {
+                $('#loading').fadeOut(500);
+                // Animate skill bars after loading
+                $('.skill-progress-bar').each(function() {
+                    $(this).css('width', $(this).data('progress') + '%');
+                });
+            }, 1000);
+        });
+
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, random: false }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            }
+        });
+
+        // Dark Mode Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.theme-toggle i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+
+// Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Tilt Effect for Profile Image
+        const profileImg = document.querySelector('.profile-img');
+        profileImg.addEventListener('mousemove', (e) => {
+            const rect = profileImg.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            profileImg.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        });
+
+        profileImg.addEventListener('mouseleave', () => {
+            profileImg.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+
+        // Scroll Progress Indicator
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            
+            const progressBar = document.createElement('div');
+            progressBar.style.position = 'fixed';
+            progressBar.style.top = '0';
+            progressBar.style.left = '0';
+            progressBar.style.height = '3px';
+            progressBar.style.width = scrolled + '%';
+            progressBar.style.backgroundColor = 'var(--accent-color)';
+            progressBar.style.zIndex = '1000';
+            
+            if (!document.querySelector('.scroll-progress')) {
+                progressBar.classList.add('scroll-progress');
+                document.body.appendChild(progressBar);
+            } else {
+                document.querySelector('.scroll-progress').style.width = scrolled + '%';
+            }
+        };
+
+        // Typing Effect for Hero Text
+        function typeEffect(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, speed);
+        }
+
+        // Apply typing effect after page load
+        window.addEventListener('load', () => {
+            const heroText = document.querySelector('.lead');
+            typeEffect(heroText, heroText.textContent, 50);
+        });
+
+        // Hover Effect for Social Icons
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                e.target.style.transform = 'translateY(-5px) rotate(8deg)';
+            });
+            
+            link.addEventListener('mouseleave', (e) => {
+                e.target.style.transform = 'translateY(0) rotate(0)';
+            });
+        });
+
+        // Add dynamic background color change on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const hero = document.querySelector('.hero');
+            const hue = (scrolled / 10) % 360;
+            hero.style.background = `linear-gradient(135deg, 
+                hsl(${hue}, 50%, 20%) 0%, 
+                hsl(${hue + 60}, 50%, 40%) 100%)`;
+        });
+
+        // Add intersection observer for skill cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.skill-progress-bar').style.width = 
+                        entry.target.querySelector('.skill-progress-bar').dataset.progress + '%';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.skill-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Save theme preference
+        function saveThemePreference() {
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Load theme preference
+        function loadThemePreference() {
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'true') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle i').classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // Apply theme preference on load
+        document.addEventListener('DOMContentLoaded', loadThemePreference);
+
+        // Update theme preference when toggled
+        document.querySelector('.theme-toggle').addEventListener('click', () => {
+            toggleTheme();
+            saveThemePreference();
+        });
+    </script>
 </body>
 </html>
