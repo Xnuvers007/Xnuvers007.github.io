@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 5 Februari 2025 15.28.43 UTC
-- WITA: Rabu, 5 Februari 2025 16.28.43 UTC
-- WIT: Rabu, 5 Februari 2025 17.28.43 UTC
+- WIB: Rabu, 5 Februari 2025 16.35.33 UTC
+- WITA: Rabu, 5 Februari 2025 17.35.33 UTC
+- WIT: Rabu, 5 Februari 2025 18.35.33 UTC
 
 Kutipan Inspiratif:
-"Technology is a useful servant but a dangerous master."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: technology
+Kategori: attitude
 
