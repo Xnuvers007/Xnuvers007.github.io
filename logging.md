@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 7 Februari 2025 23.29.36 UTC
-- WITA: Sabtu, 8 Februari 2025 00.29.36 UTC
-- WIT: Sabtu, 8 Februari 2025 01.29.36 UTC
+- WIB: Sabtu, 8 Februari 2025 00.22.51 UTC
+- WITA: Sabtu, 8 Februari 2025 01.22.51 UTC
+- WIT: Sabtu, 8 Februari 2025 02.22.51 UTC
 
 Kutipan Inspiratif:
-"Technology is not neutral."
+"i am what i am.. i will never try to be some one else."
 
 
-Kategori: technology
+Kategori: attitude
 
