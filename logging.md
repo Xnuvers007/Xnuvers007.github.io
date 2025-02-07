@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 7 Februari 2025 22.24.59 UTC
-- WITA: Jumat, 7 Februari 2025 23.24.59 UTC
-- WIT: Sabtu, 8 Februari 2025 00.24.59 UTC
+- WIB: Jumat, 7 Februari 2025 23.29.36 UTC
+- WITA: Sabtu, 8 Februari 2025 00.29.36 UTC
+- WIT: Sabtu, 8 Februari 2025 01.29.36 UTC
 
 Kutipan Inspiratif:
-"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
+"Technology is not neutral."
 
 
-Kategori: nature
+Kategori: technology
 
