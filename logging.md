@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 9 Februari 2025 01.29.07 UTC
-- WITA: Minggu, 9 Februari 2025 02.29.07 UTC
-- WIT: Minggu, 9 Februari 2025 03.29.07 UTC
+- WIB: Minggu, 9 Februari 2025 02.18.14 UTC
+- WITA: Minggu, 9 Februari 2025 03.18.14 UTC
+- WIT: Minggu, 9 Februari 2025 04.18.14 UTC
 
 Kutipan Inspiratif:
-"The sun, with all those planets revolving around it and dependent on it, can still ripen a bunch of grapes as if it had nothing else in the universe to do."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: nature
+Kategori: attitude
 
