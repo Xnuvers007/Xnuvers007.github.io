@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 9 Februari 2025 03.22.58 UTC
-- WITA: Minggu, 9 Februari 2025 04.22.58 UTC
-- WIT: Minggu, 9 Februari 2025 05.22.58 UTC
+- WIB: Minggu, 9 Februari 2025 04.21.32 UTC
+- WITA: Minggu, 9 Februari 2025 05.21.32 UTC
+- WIT: Minggu, 9 Februari 2025 06.21.32 UTC
 
 Kutipan Inspiratif:
-"Somebody asked me to explain the relationship between you and me, they expected the answer as, just friends. But I simply smiled and said. Gods gift."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: friendship
+Kategori: nature
 
