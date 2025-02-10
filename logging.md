@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 10 Februari 2025 11.30.20 UTC
-- WITA: Senin, 10 Februari 2025 12.30.20 UTC
-- WIT: Senin, 10 Februari 2025 13.30.20 UTC
+- WIB: Senin, 10 Februari 2025 12.26.00 UTC
+- WITA: Senin, 10 Februari 2025 13.26.00 UTC
+- WIT: Senin, 10 Februari 2025 14.26.00 UTC
 
 Kutipan Inspiratif:
-"People say me bad, trust me i am the worst!!!"
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: attitude
+Kategori: inspirational
 
