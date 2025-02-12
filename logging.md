@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 12 Februari 2025 11.28.20 UTC
-- WITA: Rabu, 12 Februari 2025 12.28.20 UTC
-- WIT: Rabu, 12 Februari 2025 13.28.20 UTC
+- WIB: Rabu, 12 Februari 2025 12.25.11 UTC
+- WITA: Rabu, 12 Februari 2025 13.25.11 UTC
+- WIT: Rabu, 12 Februari 2025 14.25.11 UTC
 
 Kutipan Inspiratif:
-"The further you get into technology, the further you go into gaming. That's the general rule."
+"Success and failure are both part of life. Both are not permanent."
 
 
-Kategori: technology
+Kategori: success
 
