@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 12 Februari 2025 18.20.09 UTC
-- WITA: Rabu, 12 Februari 2025 19.20.09 UTC
-- WIT: Rabu, 12 Februari 2025 20.20.09 UTC
+- WIB: Rabu, 12 Februari 2025 19.47.27 UTC
+- WITA: Rabu, 12 Februari 2025 20.47.27 UTC
+- WIT: Rabu, 12 Februari 2025 21.47.27 UTC
 
 Kutipan Inspiratif:
-"The size of your problems is nothing compared with your ability to solve them. Dont overestimate your problems and underestimate yourself."
+"i am what i am.. i will never try to be some one else."
 
 
-Kategori: motivational
+Kategori: attitude
 
