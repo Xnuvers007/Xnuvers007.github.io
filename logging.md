@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 14 Februari 2025 19.46.55 UTC
-- WITA: Jumat, 14 Februari 2025 20.46.55 UTC
-- WIT: Jumat, 14 Februari 2025 21.46.55 UTC
+- WIB: Jumat, 14 Februari 2025 20.28.49 UTC
+- WITA: Jumat, 14 Februari 2025 21.28.49 UTC
+- WIT: Jumat, 14 Februari 2025 22.28.49 UTC
 
 Kutipan Inspiratif:
-"Reading more books will only confuse you more and you will be dreaming about success instead of becoming successful yourself."
+"It's not the size of the dog in the fight, but the size of the fight in the dog."
 
 
-Kategori: success
+Kategori: motivational
 
