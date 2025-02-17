@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 18 Februari 2025 03.24.50 UTC
-- WITA: Selasa, 18 Februari 2025 04.24.50 UTC
-- WIT: Selasa, 18 Februari 2025 05.24.50 UTC
+- WIB: Selasa, 18 Februari 2025 04.21.48 UTC
+- WITA: Selasa, 18 Februari 2025 05.21.48 UTC
+- WIT: Selasa, 18 Februari 2025 06.21.48 UTC
 
 Kutipan Inspiratif:
-"When WORDS fail, eyes speak.When eyes fail,?HEART? speaks. When HEART fails, nothing speaks they put cotton in the nose"
+"It took me a long time not to judge myself through someone else's eyes"
 
 
-Kategori: funny
+Kategori: motivational
 
