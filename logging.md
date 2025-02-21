@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 21 Februari 2025 19.47.54 UTC
-- WITA: Jumat, 21 Februari 2025 20.47.54 UTC
-- WIT: Jumat, 21 Februari 2025 21.47.54 UTC
+- WIB: Jumat, 21 Februari 2025 20.28.01 UTC
+- WITA: Jumat, 21 Februari 2025 21.28.01 UTC
+- WIT: Jumat, 21 Februari 2025 22.28.01 UTC
 
 Kutipan Inspiratif:
-"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
+"I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.'"
 
 
-Kategori: motivational
+Kategori: inspirational
 
