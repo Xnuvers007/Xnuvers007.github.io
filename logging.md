@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 25 Februari 2025 00.22.16 UTC
-- WITA: Selasa, 25 Februari 2025 01.22.16 UTC
-- WIT: Selasa, 25 Februari 2025 02.22.16 UTC
+- WIB: Selasa, 25 Februari 2025 01.33.41 UTC
+- WITA: Selasa, 25 Februari 2025 02.33.41 UTC
+- WIT: Selasa, 25 Februari 2025 03.33.41 UTC
 
 Kutipan Inspiratif:
-"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: success
+Kategori: attitude
 
