@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 27 Februari 2025 16.26.25 UTC
-- WITA: Kamis, 27 Februari 2025 17.26.25 UTC
-- WIT: Kamis, 27 Februari 2025 18.26.25 UTC
+- WIB: Kamis, 27 Februari 2025 17.28.37 UTC
+- WITA: Kamis, 27 Februari 2025 18.28.37 UTC
+- WIT: Kamis, 27 Februari 2025 19.28.37 UTC
 
 Kutipan Inspiratif:
-"Sharing is good, and with digital technology, sharing is easy."
+"I failed in some subjects in exam, but my friend passed in all. Now he is an engineer in microsoft and i am the owner of microsoft."
 
 
-Kategori: technology
+Kategori: inspirational
 
