@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 27 Februari 2025 18.20.36 UTC
-- WITA: Kamis, 27 Februari 2025 19.20.36 UTC
-- WIT: Kamis, 27 Februari 2025 20.20.36 UTC
+- WIB: Kamis, 27 Februari 2025 19.49.25 UTC
+- WITA: Kamis, 27 Februari 2025 20.49.25 UTC
+- WIT: Kamis, 27 Februari 2025 21.49.25 UTC
 
 Kutipan Inspiratif:
-"Technology has become as ubiquitous as the air we breathe, so we are no longer conscious of its presence."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: technology
+Kategori: attitude
 
