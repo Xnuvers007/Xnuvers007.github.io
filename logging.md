@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 1 Maret 2025 08.59.48 UTC
-- WITA: Sabtu, 1 Maret 2025 09.59.48 UTC
-- WIT: Sabtu, 1 Maret 2025 10.59.48 UTC
+- WIB: Sabtu, 1 Maret 2025 10.02.19 UTC
+- WITA: Sabtu, 1 Maret 2025 11.02.19 UTC
+- WIT: Sabtu, 1 Maret 2025 12.02.19 UTC
 
 Kutipan Inspiratif:
-"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
+"Knowledge is like underwear. It is useful to have it, but not necessary to show it off."
 
 
-Kategori: attitude
+Kategori: funny
 
