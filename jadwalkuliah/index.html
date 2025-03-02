@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Kuliah | UNPAM</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1><i class="fas fa-calendar-alt"></i> Jadwal Kuliah</h1>
+            <p>Universitas Pamulang - Semester 7</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Summary Section -->
+        <div class="card">
+            <div class="summary-section">
+                <div class="summary-title">
+                    <i class="fas fa-chart-pie"></i> Ringkasan Jadwal
+                </div>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Total Mata Kuliah</h4>
+                        <p>8 MK</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Total SKS</h4>
+                        <p>19 SKS</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Kelas</h4>
+                        <p>07TPLP003</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Periode</h4>
+                        <p>Maret - Juli 2025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-item">
+                    <label for="filter-day"><i class="fas fa-calendar-day"></i> Hari</label>
+                    <select id="filter-day">
+                        <option value="all">Semua Hari</option>
+                        <option value="Senin">Senin</option>
+                        <option value="Selasa">Selasa</option>
+                        <option value="Rabu">Rabu</option>
+                        <option value="Kamis">Kamis</option>
+                        <option value="Jumat">Jumat</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="search-input"><i class="fas fa-search"></i> Cari</label>
+                    <input type="text" id="search-input" placeholder="Cari mata kuliah atau dosen...">
+                </div>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <div class="tab active" data-view="table">
+                    <i class="fas fa-table"></i> Tabel
+                </div>
+                <div class="tab" data-view="card">
+                    <i class="fas fa-th-large"></i> Kartu
+                </div>
+                <div class="tab" data-view="day">
+                    <i class="fas fa-calendar-week"></i> Hari
+                </div>
+            </div>
+            
+            <!-- Table View -->
+            <div id="table-view" class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-hashtag"></i> Kode</th>
+                            <th><i class="fas fa-book"></i> Mata Kuliah</th>
+                            <th><i class="fas fa-user-tie"></i> Dosen</th>
+                            <th><i class="fas fa-users"></i> Kelas</th>
+                            <th><i class="fas fa-calendar"></i> Hari</th>
+                            <th><i class="fas fa-clock"></i> Waktu</th>
+                            <th><i class="fas fa-hourglass-start"></i> Mulai</th>
+                            <th><i class="fas fa-hourglass-end"></i> Selesai</th>
+                            <th><i class="fas fa-layer-group"></i> Semester</th>
+                            <th><i class="fas fa-door-open"></i> Ruangan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jadwal-body">
+                        <!-- Data will be loaded here -->
+                    </tbody>
+                </table>
+                
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                </div>
+                
+                <div id="error-message" class="error-message" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    <p>Terjadi kesalahan saat memuat data jadwal. Silakan coba lagi nanti.</p>
+                </div>
+            </div>
+            
+            <!-- Card View -->
+            <div id="card-view" class="table-container" style="display: none;">
+                <div id="course-cards-container">
+                    <!-- Course cards will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Day View -->
+            <div id="day-view" class="day-view">
+                <!-- Day sections will be generated here -->
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 style="padding: 20px; border-bottom: 1px solid #e2e8f0;"><i class="fas fa-link"></i> Link Penting</h2>
+            <div class="quick-links">
+                <a href="https://mentari.unpam.ac.id/login" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <i class="fas fa-sun"></i>
+                    <span>Mentari E-Learning Baru</span>
+                </a>
+                <a href="https://my.unpam.ac.id/login" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>My UNPAM</span>
+                </a>
+                <a href="https://e-learning.unpam.ac.id/" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <i class="fas fa-laptop"></i>
+                    <span>E-Learning</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2025 Universitas Pamulang. All rights reserved.</p>
+            <p>Dikembangkan oleh Tim IT UNPAM</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

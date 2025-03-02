@@ -1,0 +1,98 @@
+[
+    {
+        "kode": "TPL0502",
+        "mata_kuliah": "KEAMANAN KOMPUTER",
+        "dosen": "MAULANA ARDHIANSYAH",
+        "kelas": "07TPLP003",
+        "hari": "Senin",
+        "waktu": "08.50 - 10.30",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    },
+    {
+        "kode": "TPL0473",
+        "mata_kuliah": "SISTEM PENUNJANG KEPUTUSAN",
+        "dosen": "NURJAYA",
+        "kelas": "07TPLP003",
+        "hari": "Senin",
+        "waktu": "14.40 - 16.20",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    },
+    {
+        "kode": "TPL0452",
+        "mata_kuliah": "MANAJEMEN PROYEK INFORMATIKA",
+        "dosen": "ICHSAN RAMDHANI",
+        "kelas": "07TPLP003",
+        "hari": "Selasa",
+        "waktu": "14.40 - 16.20",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    },
+    {
+        "kode": "TPL0492",
+        "mata_kuliah": "E-COMMERCE",
+        "dosen": "ENDAR NIRMALA",
+        "kelas": "07TPLP003",
+        "hari": "Rabu",
+        "waktu": "07.10 - 08.50",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    },
+    {
+        "kode": "TPL0462",
+        "mata_kuliah": "TEKNIK RISET OPERASIONAL",
+        "dosen": "FIFI JULFIATI",
+        "kelas": "07TPLP003",
+        "hari": "Rabu",
+        "waktu": "08.50 - 10.30",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    },
+    {
+        "kode": "TEK0052",
+        "mata_kuliah": "KEWIRAUSAHAAN",
+        "dosen": "MUKHAMAD KHOTIB ARIFAI",
+        "kelas": "07TPLP003",
+        "hari": "Rabu",
+        "waktu": "10.30 - 12.10",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    },
+    {
+        "kode": "TPL0483",
+        "mata_kuliah": "TESTING DAN QA PERANGKAT LUNAK",
+        "dosen": "SYAFRIL CHAIRIANSYAH",
+        "kelas": "07TPLP003",
+        "hari": "Rabu",
+        "waktu": "13.00 - 14.40",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    },
+    {
+        "kode": "TPL0443",
+        "mata_kuliah": "METODE NUMERIK",
+        "dosen": "ANIS MIRZA",
+        "kelas": "07TPLP003",
+        "hari": "Jumat",
+        "waktu": "10.30 - 12.10",
+        "mulai": "03 Maret 2025",
+        "selesai": "25 Juli 2025",
+        "semester": 7,
+        "ruangan": "VIKTOR, V.624"
+    }
+]
