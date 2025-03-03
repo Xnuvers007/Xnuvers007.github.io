@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doa Harian - Multi Server</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #14775b;
+            --secondary-color: #ffdda1;
+            --accent-color: #bc804d;
+            --dark-color: #1a3b47;
+            --light-color: #f8f5e9;
+            --text-color: #333;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 60px;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(248, 245, 233, 0.93);
+        }
+        
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .site-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .site-subtitle {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .main-container {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-top: 5px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url('/api/placeholder/150/150');
+            background-repeat: no-repeat;
+            background-position: top right;
+            opacity: 0.05;
+        }
+        
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 15px;
+        }
+        
+        .input-wrapper {
+            position: relative;
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--white);
+            color: var(--text-color);
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(20, 119, 91, 0.1);
+        }
+        
+        input[type="text"]::placeholder {
+            color: #aaa;
+        }
+        
+        select {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            background-color: var(--white);
+            cursor: pointer;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2314775b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 12px auto;
+            padding-right: 40px;
+            min-width: 140px;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(20, 119, 91, 0.1);
+        }
+        
+        button {
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+        }
+        
+        button:hover {
+            background-color: #0d5f49;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        button i {
+            margin-right: 8px;
+        }
+        
+        .result-container {
+            background-color: rgba(248, 245, 233, 0.7);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 20px;
+            text-align: left;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .result-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .result-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+        
+        .result-item {
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            font-weight: 600;
+            color: var(--dark-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .result-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            line-height: 2.2;
+            direction: rtl;
+            text-align: right;
+            margin: 20px 0;
+            color: var(--dark-color);
+        }
+        
+        .result-latin {
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .result-meaning {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .result-source {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .decorative-element {
+            position: absolute;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .decorative-element.top-left {
+            top: 20px;
+            left: 20px;
+            font-size: 100px;
+            transform: rotate(-15deg);
+            color: var(--primary-color);
+        }
+        
+        .decorative-element.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            font-size: 80px;
+            transform: rotate(15deg);
+            color: var(--accent-color);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .no-result {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .input-wrapper {
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            
+            select {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .site-title {
+                font-size: 2rem;
+            }
+            
+            .main-container {
+                padding: 20px;
+            }
+            
+            .result-arabic {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-mosque logo-icon"></i>
+                <div>
+                    <h1 class="site-title">Doa Harian</h1>
+                    <p class="site-subtitle">Temukan Doa-Doa Dalam Kehidupan Sehari-hari</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <i class="fas fa-star-and-crescent decorative-element top-left"></i>
+            <i class="fas fa-kaaba decorative-element bottom-right"></i>
+            
+            <form id="doa-form" class="search-form">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <i class="fas fa-search input-icon"></i>
+                        <input type="text" id="doa-input" placeholder="Masukkan kata kunci doa..." required>
+                    </div>
+                    
+                    <select id="server-select" title="Pilih server API">
+                        <option value="server1">Server 1</option>
+                        <option value="server2">Server 2</option>
+                    </select>
+                </div>
+                
+                <button type="submit">
+                    <i class="fas fa-book-open"></i>
+                    Cari Doa
+                </button>
+            </form>
+            
+            <div id="doa-output" class="result-container">
+                <div class="no-result">
+                    <i class="fas fa-book-reader" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                    <p>Hasil doa akan muncul di sini.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2025 Doa Harian | Semua hak cipta dilindungi</p>
+    </footer>
+
+    <script>
+        document.getElementById('doa-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const input = document.getElementById('doa-input').value.trim().toLowerCase();
+            const server = document.getElementById('server-select').value;
+            const doaOutput = document.getElementById('doa-output');
+            
+            // Show loading spinner
+            doaOutput.innerHTML = `
+                <div class="result-loading">
+                    <div class="spinner"></div>
+                </div>
+            `;
+
+            let apiUrl;
+            if (server === 'server1') {
+                apiUrl = `https://muslim-api-three.vercel.app/v1/doa/find?query=${encodeURIComponent(input)}`;
+            } else {
+                apiUrl = `https://doa-doa-api-ahmadramadhan.fly.dev/api/doa/${encodeURIComponent(input)}`;
+            }
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (server === 'server1' && data.status === 200 && data.data.length > 0) {
+                        const doa = data.data[0];
+                        doaOutput.innerHTML = `
+                            <h3 class="result-title">${doa.judul}</h3>
+                            
+                            <div class="result-item">
+                                <div class="result-arabic">${doa.arab}</div>
+                                <div class="result-meaning">${doa.indo}</div>
+                                <div class="result-source">Sumber: ${doa.source}</div>
+                            </div>
+                        `;
+                    } else if (server === 'server2' && data.doa) {
+                        doaOutput.innerHTML = `
+                            <h3 class="result-title">${data.doa}</h3>
+                            
+                            <div class="result-item">
+                                <div class="result-arabic">${data.ayat}</div>
+                                <div class="result-latin">${data.latin}</div>
+                                <div class="result-meaning">${data.artinya}</div>
+                            </div>
+                        `;
+                    } else {
+                        doaOutput.innerHTML = `
+                            <div class="no-result">
+                                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                                <p>Doa tidak ditemukan. Silakan coba dengan kata kunci lain.</p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    doaOutput.innerHTML = `
+                        <div class="no-result">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i>
+                            <p>Gagal memuat doa. Silakan coba lagi.</p>
+                        </div>
+                    `;
+                });
+        });
+    </script>
+</body>
+</html>
