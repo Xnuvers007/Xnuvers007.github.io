@@ -21,11 +21,11 @@ document
 
     let apiUrl;
     if (server === "server1") {
-      apiUrl = `https://muslim-api-three.vercel.app/v1/doa/find?query=${encodeURIComponent(
+      apiUrl = `https://api.allorigins.win/raw?url=https://muslim-api-three.vercel.app/v1/doa/find?query=${encodeURIComponent(
         query
       )}`;
     } else {
-      apiUrl = `https://doa-doa-api-ahmadramadhan.fly.dev/api/doa/${encodeURIComponent(
+      apiUrl = `https://api.allorigins.win/raw?url=https://doa-doa-api-ahmadramadhan.fly.dev/api/doa/${encodeURIComponent(
         query
       )}`;
     }
@@ -69,7 +69,7 @@ document
 
     try {
       const response = await fetch(
-        "https://doa-doa-api-ahmadramadhan.fly.dev/api/doa/v1/random"
+        "https://api.allorigins.win/raw?url=https://doa-doa-api-ahmadramadhan.fly.dev/api/doa/v1/random"
       );
       const data = await response.json();
 
