@@ -78,13 +78,11 @@ function fetchPrayerTimes(position) {
           timings.Firstthird;
         document.getElementById("akhirwaktu").textContent = timings.Lastthird;
 
-        // Update date with hijri date if available
-        if (data.data.date.hijri) {
-          const hijri = data.data.date.hijri;
-          document.getElementById(
-            "current-date"
-          ).textContent = `${date} | ${hijri.day} ${hijri.month.en} ${hijri.year}H`;
-        }
+        // Update date with hijri date using local calculation
+        const hijriDate = calculateHijriDate(new Date());
+        document.getElementById(
+          "current-date"
+        ).textContent = `${date} | ${hijriDate.day} ${hijriDate.month} ${hijriDate.year}H`;
       } else {
         document.getElementById("loading-indicator").innerHTML =
           "<p>Gagal mengambil data jadwal sholat</p>";
@@ -113,6 +111,29 @@ function showError(error) {
       break;
   }
   document.getElementById("loading-indicator").innerHTML = `<p>${message}</p>`;
+}
+
+// Fungsi untuk menghitung tanggal Hijriah
+function calculateHijriDate(date) {
+  const hijriMonths = [
+    "Muharram",
+    "Safar",
+    "Rabi'ul Awwal",
+    "Rabi'ul Akhir",
+    "Jumadil Awwal",
+    "Jumadil Akhir",
+    "Rajab",
+    "Sya'ban",
+    "Ramadhan",
+    "Syawwal",
+    "Dzulqa'dah",
+    "Dzulhijjah",
+  ];
+//   const hijriYear = Math.floor(date.getFullYear() - 622 + (date.getFullYear() - 622) / 32);
+  const hijriYear = Math.floor(date.getFullYear() - 579);
+  const hijriMonth = hijriMonths[date.getMonth() * 4];
+  const hijriDay = date.getDate();
+  return { day: hijriDay, month: hijriMonth, year: hijriYear };
 }
 
 // Set current date
