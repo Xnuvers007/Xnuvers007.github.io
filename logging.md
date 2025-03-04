@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 5 Maret 2025 01.34.48 UTC
-- WITA: Rabu, 5 Maret 2025 02.34.48 UTC
-- WIT: Rabu, 5 Maret 2025 03.34.48 UTC
+- WIB: Rabu, 5 Maret 2025 02.19.35 UTC
+- WITA: Rabu, 5 Maret 2025 03.19.35 UTC
+- WIT: Rabu, 5 Maret 2025 04.19.35 UTC
 
 Kutipan Inspiratif:
-"I am enough of an artist to draw freely upon my imagination. Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world."
+"It took me a long time not to judge myself through someone else's eyes"
 
 
-Kategori: inspirational
+Kategori: motivational
 
