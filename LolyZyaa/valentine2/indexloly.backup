@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth" oncontextmenu="return false;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>❤️ My Sweet Valentine Loly ❤️</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://i.pinimg.com/564x/0f/c4/c4/0fc4c46f554e2873f8f8779e5b6227cf.jpg"
+    />
+    <meta name="description" content="Hadiah Valentine Untuk Kamu" />
+    <meta property="og:title" content="Selamat Hari Valentin Sayang" />
+    <meta property="og:description" content="Hadiah Valentine Untuk Kamu" />
+    <meta
+      property="og:image"
+      content="https://i.pinimg.com/564x/0f/c4/c4/0fc4c46f554e2873f8f8779e5b6227cf.jpg"
+    />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap");
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff69b4, #ff1493, #ff69b4);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+        color: #000000;
+        position: relative;
+      }
+
+      .container {
+        max-width: 800px;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        font-family: "Dancing Script", cursive;
+        color: #fff;
+        font-size: 4em;
+        margin: 20px 0;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        animation: colorChange 3s infinite;
+      }
+
+      @keyframes colorChange {
+        0% {
+          color: #fff;
+        }
+        50% {
+          color: #ffd700;
+        }
+        100% {
+          color: #fff;
+        }
+      }
+
+      .heart {
+        color: #ff0000;
+        font-size: 2.5em;
+        display: inline-block;
+        animation: heartbeat 1.5s infinite;
+      }
+
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.3);
+        }
+        50% {
+          transform: scale(1);
+        }
+        75% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .message {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        margin: 30px 0;
+        color: #ff1493;
+        transform: translateY(0);
+        transition: transform 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .message:hover {
+        transform: translateY(-10px);
+      }
+
+      .message::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        animation: shine 3s infinite;
+      }
+
+      @keyframes shine {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .gift-box {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(45deg, #ff69b4, #ff1493);
+        position: relative;
+        margin: 40px auto;
+        cursor: pointer;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .gift-box:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      }
+
+      .gift-box::before {
+        content: "🎁";
+        position: absolute;
+        font-size: 80px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .gift-content {
+        display: none;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        margin-top: 20px;
+        color: #ff1493;
+        animation: popIn 0.5s ease-out;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .gif-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .gif-container img {
+        width: 300px;
+        height: 300px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+        object-fit: cover;
+      }
+
+      .gif-container img:hover {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .gif-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .main-gif {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      }
+
+      .main-gif:hover {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.5s;
+            object-fit: cover;
+            scale: 1;
+            image-rendering: optimizeQuality;
+        } */
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.03);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .gallery-title {
+        font-size: 1.5em;
+        font-family: "Dancing Script", cursive;
+        text-align: center;
+        padding: 20px;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-title {
+        transform: translateY(0);
+      }
+
+      /* Modal Styles */
+      /* .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+} */
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden; /* nambah ini */
+      }
+
+      /* .modal.show {
+    opacity: 1;
+} */
+
+      .modal.show {
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+} */
+
+      .modal.show {
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* .modal.show .modal-content {
+    transform: scale(1);
+} */
+
+      .modal.show .modal-content {
+        transform: scale(1);
+
+        transform: scale(1);
+        max-height: 80%; /* Membatasi ukuran tinggi konten */
+        overflow-y: auto; /* Memungkinkan scroll jika konten terlalu panjang */
+        padding: 20px;
+        background-color: white; /* Agar modal background berwarna putih */
+        border-radius: 10px;
+      }
+
+      .modal-close {
+        position: absolute;
+        right: 25px;
+        top: 15px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        z-index: 1001;
+      }
+
+      .modal-close:hover {
+        color: #ff69b4;
+      }
+
+      .modal-caption {
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 15px 0;
+        margin-top: 15px;
+        font-family: "Dancing Script", cursive;
+        font-size: 1.5em;
+
+        overflow-y: auto; /* Memungkinkan scroll */
+        max-height: 300px; /* Mengatur tinggi maksimal jika teks panjang */
+      }
+
+      .modal-caption::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .modal-caption::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 4px;
+      }
+
+      .modal-caption::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+      }
+
+      @media screen and (max-width: 768px) {
+        .modal {
+          padding: 15px;
+        }
+
+        .modal-content {
+          max-height: calc(70vh - 80px);
+        }
+
+        .modal-caption {
+          font-size: 1.2em;
+          padding: 10px 15px;
+        }
+      }
+
+      /* Specific adjustments for very small screens */
+      @media screen and (max-width: 645px) {
+        .modal {
+          padding: 10px;
+        }
+
+        .modal-content {
+          max-height: calc(65vh - 80px);
+          margin-bottom: 10px;
+        }
+
+        .modal-caption {
+          position: relative;
+          bottom: 0;
+          font-size: 1.1em;
+          padding: 8px 10px;
+          margin-top: 10px;
+        }
+
+        .modal-close {
+          right: 15px;
+          top: 10px;
+          font-size: 35px;
+        }
+      }
+
+      /* Animation for gallery items on page load */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .gallery-item {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+      }
+
+      .gallery-item:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .gallery-item:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .gallery-item:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .gallery-item:nth-child(4) {
+        animation-delay: 0.8s;
+      }
+
+      /* Add responsive styles */
+      @media (max-width: 768px) {
+        .gallery {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+          padding: 10px;
+        }
+
+        .gallery-item img {
+          height: 250px;
+        }
+
+        .gallery-title {
+          font-size: 1.2em;
+        }
+      }
+
+      .memory-box {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 15px;
+        margin: 30px 0;
+        color: #ff1493;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .memory-box h3 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2em;
+        margin-bottom: 15px;
+      }
+
+      .counter {
+        font-size: 1.2em;
+        margin: 20px 0;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        border-radius: 10px;
+        color: #ff1493;
+      }
+
+      .music-player {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 15px;
+        margin: 30px 0;
+        color: #ff1493;
+      }
+
+      button {
+        background: linear-gradient(45deg, #ff1493, #ff69b4);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1.2em;
+        margin: 15px;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      button::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transform: rotate(45deg);
+        animation: buttonShine 3s infinite;
+      }
+
+      @keyframes buttonShine {
+        0% {
+          transform: translateX(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) rotate(45deg);
+        }
+      }
+
+      .floating-hearts {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        left: 10px;
+      }
+
+      .floating-heart {
+        position: absolute;
+        font-size: 30px;
+        animation: floatUpAndRotate 6s linear infinite;
+      }
+
+      @keyframes floatUpAndRotate {
+        0% {
+          /* transform: translateY(100vh) rotate(0deg); */
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .love-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 15px;
+        display: none;
+        animation: popIn 0.5s ease-out;
+        z-index: 1000;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .linknya {
+        color: #ff1493;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .login-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 90%;
+        margin: 50px auto;
+        text-align: center;
+        color: #ff1493;
+      }
+
+      .login-container h2 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #ff1493;
+      }
+
+      .login-form input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #ff69b4;
+        border-radius: 10px;
+        font-size: 1.1em;
+        outline: none;
+        transition: all 0.3s;
+      }
+
+      .login-form input:focus {
+        border-color: #ff1493;
+        box-shadow: 0 0 10px rgba(255, 20, 147, 0.2);
+      }
+
+      .login-form button {
+        background: linear-gradient(45deg, #ff1493, #ff69b4);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1.2em;
+        margin-top: 20px;
+        transition: all 0.3s;
+      }
+
+      .login-form button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      #error-message {
+        color: #ff0000;
+        margin-top: 10px;
+        font-size: 0.9em;
+      }
+
+      /* Content container */
+      #content {
+        display: none;
+      }
+      .gambarDudu {
+        width: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="login-page" class="login-container">
+      <img
+        src="https://gifdb.com/images/high/bubu-drives-car-hello-dudu-j04qdpgora9dqs1l.webp"
+        alt="Bubu Drives Car"
+        class="gambarDudu"
+      />
+      <h2>Hawooooooooo :> ❤️</h2>
+      <div class="login-form">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button onclick="checkLogin()">Login</button>
+        <p id="error-message"></p>
+      </div>
+    </div>
+    <div id="content">
+      <audio
+        class="music"
+        id="linkmp3"
+        autoplay
+        loop
+        muted
+        style="display: none !important"
+      >
+        <source
+          src="./music/softlove-emptybottle.mp3"
+          type="audio/mpeg"
+        />
+        Your browser does not support the audio element.
+      </audio>
+      <div class="floating-hearts"></div>
+      <div class="container">
+        <h1>Happy Valentine's Day, Loly! <span class="heart">❤️</span></h1>
+
+        <div class="message">
+          <p style="font-size: 1.5em; margin-bottom: 15px">
+            Untuk Loly Yang Tercinta 💖
+          </p>
+          <p
+            style="
+              font-family: 'Dancing Script', cursive;
+              font-size: 1.8em;
+              margin: 15px 0;
+            "
+          >
+            Setiap detik bersamamu adalah hadiah terindah dalam hidupku.
+          </p>
+          <p style="margin: 15px 0">
+            Kamu adalah alasan mengapa hatiku selalu berdebar dengan penuh
+            cinta. Senyummu adalah matahari yang menerangi hariku. Hidup di
+            dunia ini memang menjijikan akan tetapi aku masih ingat bahwa aku
+            memiliki sesuatu yang indah, yaitu
+            <strong>SENYUM MU💝</strong>
+          </p>
+          <p style="font-size: 1.3em; margin-top: 15px">
+            Selamat Hari Valentine, Sayangku! 💝
+          </p>
+        </div>
+
+        <div class="gif-container">
+          <img
+            class="main-gif"
+            src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+            alt="Bear Kiss GIF"
+          />
+        </div>
+
+        <div class="counter">
+          <p>Hari-hari indah bersamamu:</p>
+          <div id="loveCounter">Loading...</div>
+        </div>
+
+        <div class="memory-box">
+          <h3>Kenangan Indah Kita 💕</h3>
+          <div class="gallery">
+            <div class="gallery-item">
+              <img src="./image/Loly-Indra-Toram.webp" alt="Memory 1" />
+              <div class="gallery-overlay">
+                <span class="gallery-title">
+                  Gaming Together :3 <br /><br />
+                  Tau gak sih kamu dulu ngebet banget buat aku main game ini,
+                  dan sekarang aku jadi ketagihan main game ini berkat kamu :3
+                  <br />
+                  kita main bersama dan petualangan kita di game ini sungguh
+                  menyenangkan :3 <br />
+                  aku harap kita bisa main game ini terus bersama-sama :3 <br />
+                  <br />
+                  jadi inget dulu kamu aku ajakin main Mobile Legends pertama
+                  kali, dan sekarang kamu jadi jago dan aku juga berterima kasih
+                  sama kamu <br />
+                  karena sudah menjadi support pribadi ku 💝💝💝
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="./image/Loly-indra.webp" alt="Memory 2" />
+              <div class="gallery-overlay">
+                <span class="gallery-title"
+                  >Sweet Moments <br /><br />
+                  Baik Dikala kita suka dan duka kita lewati :> <br />
+                  aku bersyukur punya kamu, ini adalah foto disaat ayang pergi
+                  Magang di RS :> <br />
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="./image/21Juni2021.webp" alt="Memory 3" />
+              <div class="gallery-overlay">
+                <span class="gallery-title"
+                  >Our Anniversary <br /><br />
+                  Aku kaget dan seneng banget karena kamu tiba tiba mengirim
+                  foto dan di edit seperti ini, dan aku salting >< <br />
+                  aku harap kita bisa terus bersama dan bahagia selamanya :>
+                  <br />
+                  aku sayang kamu, Loly 💝💝💝
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="./image/bonekadariindra.webp" alt="Memory 4" />
+              <div class="gallery-overlay">
+                <span class="gallery-title"
+                  >Special Gift <br /><br />
+                  Aku harap kamu suka dengan boneka ini, aku beli ini khusus
+                  untuk kamu :> <br />
+                  aku harap kamu bisa merawatnya dengan baik, karena boneka ini
+                  adalah simbol dari aku yang selalu ada di hatimu :> <br />
+                  Dan juga aku suka, seneng, ya itu karena mulutnya yang ":3"
+                  gemesss kayak kamu aku cinta kamu, SAYANGGGGGGGG!!!!!!! 💝💝💝
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" id="imageModal">
+          <span class="modal-close">&times;</span>
+          <img class="modal-content" id="modalImage" />
+          <div class="modal-caption"></div>
+        </div>
+
+        <div class="music-player">
+          <h3 style="font-family: 'Dancing Script', cursive">
+            Lagu Untuk Kita 🎵
+          </h3>
+          <p style="margin: 15px 0">
+            Playlist spesial untuk momen spesial kita:
+          </p>
+          <ul style="list-style: none; padding: 0">
+            <li>
+              <a
+                class="linknya"
+                href="https://www.youtube.com/watch?v=2Vv-BfVoq4g&pp=ygUScGVyZmVjdCBlZCBzaGVlcmFu"
+                >💝 Perfect - Ed Sheeran</a
+              >
+            </li>
+            <li>
+              <a
+                class="linknya"
+                href="https://www.youtube.com/watch?v=IpFX2vq8HKw&pp=ygUNYmx1ZSB5dW5nIGthaQ%3D%3D"
+                >💝 Blue - Yung Kai</a
+              >
+            </li>
+            <li>
+              <a
+                class="linknya"
+                href="https://www.youtube.com/watch?v=jia3fhBQ8qI&pp=ygUMcGVuamFnYSBoYXRp"
+                >💝 Penjaga Hati - Nadhif Basalamah</a
+              >
+            </li>
+            <li>
+              <a
+                class="linknya"
+                href="https://www.youtube.com/watch?v=3IGs5oWPlHY&pp=ygUWYmFieSBhbmdlbCB0cm95ZSBzaXZhbg%3D%3D"
+                >💝 Baby Angel - Troye Sivan</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="gift-box" onclick="openGift()"></div>
+        <div class="gift-content" id="giftContent">
+          <h2
+            style="
+              font-family: 'Dancing Script', cursive;
+              font-size: 2.5em;
+              margin: 20px 0;
+              color: #ff1493;
+              text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+              animation: colorChange 3s infinite;
+            "
+          >
+            Surprise! 🎁
+          </h2>
+          <p style="font-size: 1.2em; margin: 15px 0">
+            Hadiah spesial untuk orang spesial:
+          </p>
+          <ul style="list-style: none; padding: 20px; font-size: 1.1em">
+            <li>💝 Satu hari penuh kencan romantis bersamaku</li>
+            <li>🌹 Sebuket mawar merah spesial untukmu</li>
+            <li>🍫 Cokelat premium kesukaanmu</li>
+            <li>💌 Surat cinta yang kutulis dengan segenap hatiku</li>
+            <li>🎵 Playlist lagu romantis spesial untukmu</li>
+            <li>📸 Album foto kenangan kita berdua</li>
+            <li>🎪 Tiket untuk taman hiburan favoritmu</li>
+            <li>🌟 Kejutan spesial di tempat favorit kita</li>
+          </ul>
+          <button onclick="showLove()">
+            Klik Untuk Lebih Banyak Cinta! ❤️
+          </button>
+        </div>
+      </div>
+
+      <div class="love-message" id="loveMessage">
+        <span class="close-btn" onclick="closeLoveMessage()">×</span>
+        <div id="loveMessageContent"></div>
+      </div>
+
+      <script>
+        function createHearts() {
+          const heartsContainer = document.querySelector(".floating-hearts");
+          const heart = document.createElement("div");
+          heart.classList.add("floating-heart");
+          const hearts = [
+            "❤️",
+            "💖",
+            "💝",
+            "💕",
+            "💗",
+            "❤",
+            "🧡",
+            "💛",
+            "💚",
+            "💙",
+            "💜",
+            "🖤",
+          ];
+          heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+          heartsContainer.appendChild(heart);
+          setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(createHearts, 300);
+
+        function openGift() {
+          const giftContent = document.getElementById("giftContent");
+          if (
+            giftContent.style.display === "none" ||
+            !giftContent.style.display
+          ) {
+            giftContent.style.display = "block";
+            playPopSound();
+          } else {
+            giftContent.style.display = "none";
+          }
+        }
+
+        function showLove() {
+          const messages = [
+            `💖 Aku Sayang Kamu, Loly! 💖\nKamu adalah segalanya bagiku!`,
+            `⭐ Kamu adalah bintang terindah dalam hidupku ⭐\nYang selalu menerangi setiap langkahku`,
+            `💑 Bersamamu, setiap hari terasa seperti Valentine 💑\nKarena cintamu membuat hidupku sempurna`,
+            `💕 You're my everything! 💕\nMy love, my life, my world!`,
+            `🌈 Kamu membuat hidupku lebih berwarna 🌈\nSeperti pelangi yang indah setelah hujan`,
+            `💫 Setiap detik bersamamu adalah keajaiban 💫\nHidupku lebih indah karena ada kamu!`,
+            `🌹 Cinta kita seperti bunga yang selalu mekar, tak akan pernah layu 🌹\nKamu adalah wangi bunga yang selalu ada di hatiku`,
+            `✨ Kamu adalah impian yang jadi kenyataan ✨\nSaat aku menutup mata, aku hanya melihat kamu`,
+            `🌟 Kamu adalah sinar dalam hidupku, lebih terang dari bintang 🌟\nSetiap hari bersamamu adalah anugerah`,
+            `💌 Tak ada kata yang cukup untuk menggambarkan rasa cintaku 💌\nSetiap detik denganmu adalah kebahagiaan yang tak ternilai`,
+            `🌸 Hatiku milikmu, Loly 🌸\nTak ada yang lebih indah selain cintamu`,
+            `💖 Kamu adalah rumah hatiku 💖\nTempat aku kembali, tempat aku merasa aman dan dicintai`,
+            `💓 Setiap sentuhanmu membuat dunia ini terasa lebih indah 💓\nCintamu adalah kekuatan yang membuatku hidup`,
+            `🌷 Kamu adalah keindahan yang tak ternilai 🌷\nSetiap tatapanmu adalah kebahagiaan bagiku`,
+            `🌹 Kehadiranmu membuat dunia ini lebih manis 🌹\nKamu adalah alasan aku tersenyum setiap hari`,
+            `💞 Cintamu adalah hadiah terbesar dalam hidupku 💞\nTak ada yang bisa memisahkan kita, Loly!`,
+            `💖 Kamu membuatku merasa sempurna 💖\nSetiap hari bersamamu adalah keajaiban yang aku tak ingin lewatkan`,
+            `💘 Kamu adalah hatiku yang berdetak 💘\nDan aku ingin hidup bersamamu selamanya`,
+            `🌟 Tak ada yang lebih indah selain cinta kita 🌟\nKamu adalah bagian terbaik dari hidupku`,
+            `💎 Cinta kita lebih berharga dari permata 💎\nSetiap detik bersamamu adalah kenangan yang tak ternilai`,
+            `🦋 Setiap momen bersamamu terasa seperti terbang di atas awan 🦋\nKamu adalah kebahagiaanku, Loly`,
+            `🌻 Dengan kamu, aku merasa seperti bunga yang selalu mekar 🌻\nCintamu adalah segalanya bagi hidupku`,
+            `💖 Cinta kita adalah perjalanan yang tak akan pernah berakhir 💖\nSetiap langkahku selalu mengarah ke kamu`,
+            `💓 Kamu adalah kekuatan dalam hidupku 💓\nSaat kamu ada di dekatku, aku merasa bisa mengalahkan dunia`,
+            `💑 Bersamamu, hidup ini penuh dengan tawa dan kebahagiaan 💑\nKamu adalah teman terbaik, kekasih terbaik, dan segalanya bagiku`,
+            `🌸 Tiada yang lebih indah selain melihat senyumanmu 🌸\nKarena senyumanmu adalah sumber kebahagiaanku`,
+            `💖 Dalam dunia ini, hanya ada kamu dan aku 💖\nCintamu adalah segalanya yang aku perluka`,
+          ];
+
+          const tombolkirim = document.getElementById("giftContent");
+          tombolkirim.style.display = "none";
+
+          const randomMessage =
+            messages[Math.floor(Math.random() * messages.length)];
+          swal({
+            title: "Pesan Cinta",
+            html: true,
+            text: randomMessage,
+            buttons: {
+              cancel: "Tutup",
+              confirm: {
+                text: "Kirim ke WhatsApp",
+                value: true,
+              },
+            },
+          }).then((value) => {
+            if (value) {
+              // const userMessage = prompt("Masukkan pesan yang ingin Anda kirim:");
+              // if (userMessage) {
+              //     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(userMessage)}`;
+              //     window.open(whatsappUrl, '_blank');
+              // }
+              const userMessage = swal(
+                "Masukkan pesan yang ingin kamu kirim:",
+                {
+                  content: "input",
+                }
+              ).then((value) => {
+                if (value) {
+                  const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+                    value
+                  )}%0A+I+Love+You`;
+                  window.open(whatsappUrl, "_blank");
+                }
+              });
+            }
+          });
+
+          playPopSound();
+        }
+
+        function closeLoveMessage() {
+          document.getElementById("loveMessage").style.display = "none";
+        }
+
+        function playPopSound() {
+          // Tambahkan suara pop jika diinginkan
+          const audio = new Audio(
+            "./music/maro-jump-sound-effect_1.mp3"
+          );
+          audio.play();
+
+          // Tambahkan efek suara pop pada tombol
+          const button = document.querySelector("button");
+          button.style.transform = "scale(1.1)";
+
+          setTimeout(() => {
+            button.style.transform = "scale(1)";
+          }, 200);
+
+          setTimeout(() => {
+            button.style.transform = "scale(1.1)";
+          }, 400);
+
+          setTimeout(() => {
+            button.style.transform = "scale(1)";
+          }, 600);
+        }
+
+        function updateLoveCounter() {
+          const startDate = new Date("2021-06-21"); // Ganti dengan tanggal anniversary Anda
+          const today = new Date();
+          const diffTime = Math.abs(today - startDate);
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          document.getElementById("loveCounter").innerHTML = `
+                <p style="font-size: 1.5em; margin: 10px 0;">
+                    ${diffDays} Hari Penuh Cinta ❤️<br />I Love You Buat kamu sayanggg
+                </p>
+            `;
+        }
+
+        // Gallery Modal Functionality
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const modalCaption = document.querySelector(".modal-caption");
+        const closeBtn = document.querySelector(".modal-close");
+
+        // Get all gallery items
+        const galleryItems = document.querySelectorAll(".gallery-item");
+
+        galleryItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const img = this.querySelector("img");
+            const title = this.querySelector(".gallery-title").textContent;
+
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            modalCaption.textContent = title;
+
+            // Add show class after a small delay to trigger animation
+            setTimeout(() => {
+              modal.classList.add("show");
+            }, 10);
+          });
+        });
+
+        // Close modal when clicking the close button or outside the image
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        function closeModal() {
+          modal.classList.remove("show");
+          setTimeout(() => {
+            modal.style.display = "none";
+          }, 300);
+        }
+
+        // Add intersection observer for smooth loading animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "50px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        galleryItems.forEach((item) => {
+          observer.observe(item);
+        });
+
+        window.onload = function () {
+          const container = document.querySelector(".container");
+          container.style.opacity = 0;
+          let opacity = 0;
+          const fadeIn = setInterval(() => {
+            if (opacity >= 1) {
+              clearInterval(fadeIn);
+            }
+            container.style.opacity = opacity;
+            opacity += 0.02;
+          }, 20);
+          updateLoveCounter();
+
+          var audioElement = document.getElementById("linkmp3");
+
+          // Function to play audio
+          function playAudio() {
+            audioElement.muted = false;
+            audioElement.play().catch(function (error) {
+              console.log("Autoplay blocked by browser: ", error);
+            });
+          }
+
+          // Play audio on page load
+          playAudio();
+
+          // Add event listener for user interaction (e.g., clicking anywhere)
+          document.body.addEventListener("click", playAudio);
+
+          // Add event listener for scroll
+          window.addEventListener("scroll", playAudio);
+
+          // Ensure looping
+          audioElement.loop = true;
+          audioElement.volume = 1.0;
+
+          // Function to handle audio ending
+          audioElement.addEventListener("ended", function () {
+            audioElement.currentTime = 0;
+            audioElement.play();
+          });
+        };
+      </script>
+    </div>
+    <script>
+      const validCredentials = {
+        username: "aW5kcmE=",
+        password: "bG9seQ==",
+      };
+
+      function checkLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Convert input to base64
+        const encodedUsername = btoa(username);
+        const encodedPassword = btoa(password);
+
+        if (
+          encodedUsername === validCredentials.username &&
+          encodedPassword === validCredentials.password
+        ) {
+          // Hide login page
+          document.getElementById("login-page").style.display = "none";
+          // Show content
+          document.getElementById("content").style.display = "block";
+          // Start the valentine page animations
+          initValentinePage();
+        } else {
+          document.getElementById("error-message").textContent =
+            "Username atau password salah, coba lagi sayang ❤️";
+        }
+      }
+
+      // Add event listener for Enter key
+      document.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          checkLogin();
+        }
+      });
+
+      function initValentinePage() {
+        // Previous JavaScript initialization code
+        createHearts();
+        setInterval(createHearts, 300);
+        updateLoveCounter();
+
+        const container = document.querySelector(".container");
+        container.style.opacity = 0;
+        let opacity = 0;
+        const fadeIn = setInterval(() => {
+          if (opacity >= 1) {
+            clearInterval(fadeIn);
+          }
+          container.style.opacity = opacity;
+          opacity += 0.02;
+        }, 20);
+      }
+    </script>
+  </body>
+</html>
