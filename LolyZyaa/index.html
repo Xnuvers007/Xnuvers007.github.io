@@ -4,54 +4,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loly Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            min-height: 100vh;
+            background: #000;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=');
+            animation: stars 15s linear infinite;
+        }
+
+        @keyframes stars {
+            from { background-position: 0 0; }
+            to { background-position: 0 1000px; }
+        }
+
+        .wrapper {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
         }
+
         .container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.5);
         }
-        .btn-custom {
-            margin: 10px;
-            width: 150px;
-            font-size: 16px;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-        .btn-custom:hover {
-            transform: translateY(-5px);
-            background-color: #0056b3;
-        }
+
         .title {
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #007bff;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            color: #fff;
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 30px #fff, 0 0 40px #ff00de, 0 0 50px #ff00de; }
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .menu-item {
+            position: relative;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+            z-index: 1;
+        }
+
+        .menu-link {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            z-index: 2;
+            padding: 20px;
+            background: rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .menu-link:hover {
+            background: rgba(0,0,0,0.2);
+        }
+
+        .menu-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .loly { background: linear-gradient(45deg, #ff6b6b, #ff0844); }
+        .lily { background: linear-gradient(45deg, #da4453, #89216b); }
+        .valentine { background: linear-gradient(45deg, #ff0844, #ffb199); }
+        .valentine2 { background: linear-gradient(45deg, #fc466b, #3f5efb); }
+        .ultah { background: linear-gradient(45deg, #00c6ff, #0072ff); }
+        .anniversary { background: linear-gradient(45deg, #834d9b, #d04ed6); }
+        .gfday { background: linear-gradient(45deg, #ff758c, #ff7eb3); }
+
+        .menu-item:hover .menu-icon {
+            transform: scale(1.2) rotate(360deg);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .title {
+                font-size: 2.5rem;
+            }
+            .menu-grid {
+                gap: 20px;
+            }
+            .menu-item {
+                height: 150px;
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: white;
+            border-radius: 50%;
+            animation: particle 20s infinite linear;
+        }
+
+        @keyframes particle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(100px);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title">Loly Menu</div>
-        <a href="main/index.html" class="btn btn-primary btn-custom">Loly</a>
-        <a href="main/lily/index.html" class="btn btn-secondary btn-custom">Lily</a>
-        <a href="main/lily/valentine/index.html" class="btn btn-danger btn-custom">Valentine</a>
-        <a href="main/ultah/index.html" class="btn btn-success btn-custom">Ultah</a>
-		<a href="main/anniversary/" class="btn btn-primary btn-custom">Anniversary</a>
+    <div class="stars"></div>
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 14s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 16s;"></div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="wrapper">
+        <div class="container animate__animated animate__fadeIn">
+            <h1 class="title floating">Loly Menu</h1>
+            <div class="menu-grid">
+                <div class="menu-item loly">
+                    <a href="main/index.html" class="menu-link">
+                        <i class="fas fa-heart menu-icon"></i>
+                        <span class="menu-title">Loly</span>
+                    </a>
+                </div>
+                <div class="menu-item lily">
+                    <a href="main/lily/index.html" class="menu-link">
+                        <i class="fas fa-star menu-icon"></i>
+                        <span class="menu-title">Lily</span>
+                    </a>
+                </div>
+                <div class="menu-item valentine">
+                    <a href="main/lily/valentine/index.html" class="menu-link">
+                        <i class="fas fa-gift menu-icon"></i>
+                        <span class="menu-title">Valentine</span>
+                    </a>
+                </div>
+                <div class="menu-item valentine2">
+                    <a href="./valentine2/index.html" class="menu-link">
+                        <i class="fas fa-dove menu-icon"></i>
+                        <span class="menu-title">Valentine 2</span>
+                    </a>
+                </div>
+                <div class="menu-item ultah">
+                    <a href="main/ultah/index.html" class="menu-link">
+                        <i class="fas fa-birthday-cake menu-icon"></i>
+                        <span class="menu-title">Ultah</span>
+                    </a>
+                </div>
+                <div class="menu-item anniversary">
+                    <a href="main/anniversary/" class="menu-link">
+                        <i class="fas fa-ring menu-icon"></i>
+                        <span class="menu-title">Anniversary</span>
+                    </a>
+                </div>
+                <div class="menu-item gfday">
+                    <a href="./gfday/" class="menu-link">
+                        <i class="fas fa-heart menu-icon"></i>
+                        <span class="menu-title">Girlfriend Day</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
