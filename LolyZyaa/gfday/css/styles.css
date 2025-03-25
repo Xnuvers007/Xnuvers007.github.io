@@ -1,0 +1,105 @@
+body {
+    background-image: url('./media/Background.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 90%;
+    margin: 20px;
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+}
+
+.next-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(45deg, #ff0066, #ff66cc);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(255, 0, 102, 0.4);
+}
+
+.next-button:hover {
+    background: linear-gradient(45deg, #ff66cc, #ff0066);
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(255, 0, 102, 0.6);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .next-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.login-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: hwb(0 0% 100%);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ffffff;
+}
+
+.login-container input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 16px;
+    background-color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.login-container button {
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

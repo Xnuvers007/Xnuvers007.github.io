@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Girlfriend Day</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      .form-check {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .form-check-input {
+        margin-right: 50%;
+      }
+
+      .form-check-label {
+        margin-left: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container" id="login-container">
+      <h2>Login</h2>
+      <br />
+      <div id="jam"></div>
+      <br />
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required autocomplete="on" />
+        <input type="password" id="password" placeholder="Password" required autocomplete="on" />
+        <div class="form-check">
+          <label for="show-password" class="form-check-label">liat password</label>
+          <input type="checkbox" id="show-password" class="form-check-input" />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div id="login-error" class="text-danger mt-2"></div>
+      </form>
+    </div>
+
+    <div class="container mt-5 text-center hidden" id="content">
+      <div class="photo-container">
+        <img src="./media/Example.jpg" alt="Foto" class="photo" />
+      </div>
+      <a href="next.html" class="btn btn-primary next-button">Next</a>
+    </div>
+
+    <audio id="background-audio" autoplay loop>
+      <source src="./media/MyGirl.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <script src="./javascript/script.js"></script>
+    <script>
+      document
+        .querySelector(".next-button")
+        .addEventListener("click", function () {
+          const audio = document.getElementById("background-audio");
+          localStorage.setItem("audioCurrentTime", audio.currentTime);
+        });
+
+      document.getElementById('username').addEventListener('input', function() {
+        this.value = this.value.toLowerCase();
+      });
+
+      document.getElementById('password').addEventListener('input', function() {
+        this.value = this.value.toLowerCase();
+      });
+
+      document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const encodedUsername = 'bG9seQ==';
+        const encodedPassword = 'aW5kcmE=';
+        const correctUsername = atob(encodedUsername);
+        const correctPassword = atob(encodedPassword);
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const loginError = document.getElementById('login-error');
+
+        if (username === correctUsername && password === correctPassword) {
+          document.getElementById('login-container').classList.add('hidden');
+          document.getElementById('content').classList.remove('hidden');
+        } else {
+          loginError.textContent = 'Username atau password salah!';
+        }
+      });
+
+      document.getElementById('show-password').addEventListener('change', function() {
+        const passwordField = document.getElementById('password');
+        passwordField.type = this.checked ? 'text' : 'password';
+      });
+
+      function updateTime() {
+        const now = new Date();
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+
+        const timeWIB = now.toLocaleString('id-ID', { ...options, timeZone: 'Asia/Jakarta' });
+        const timeWITA = now.toLocaleString('id-ID', { ...options, timeZone: 'Asia/Makassar' });
+        const timeWIT = now.toLocaleString('id-ID', { ...options, timeZone: 'Asia/Jayapura' });
+
+        document.getElementById('jam').innerHTML = `
+          WIB: ${timeWIB}<br>
+          WITA: ${timeWITA}<br>
+          WIT: ${timeWIT}
+        `;
+      }
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
