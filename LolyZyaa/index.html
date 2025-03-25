@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loly Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Love's Journey</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #FF69B4;
+            --secondary-color: #FFD1DC;
+            --background-color: #FFFFFF;
+            --text-color: #333;
+            --accent-color: #8A2BE2;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,262 +21,287 @@
         }
 
         body {
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--background-color) 100%);
             min-height: 100vh;
-            background: #000;
-            font-family: 'Segoe UI', sans-serif;
+            perspective: 1500px;
             overflow-x: hidden;
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=');
-            animation: stars 15s linear infinite;
-        }
-
-        @keyframes stars {
-            from { background-position: 0 0; }
-            to { background-position: 0 1000px; }
-        }
-
-        .wrapper {
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+            background-attachment: fixed;
         }
 
-        .container {
+        .love-journey-container {
             max-width: 1200px;
-            width: 100%;
+            width: 95%;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 80px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.1);
+            backdrop-filter: blur(15px);
+            transform-style: preserve-3d;
+            transition: all 0.6s ease;
         }
 
-        .title {
+        .love-journey-title {
             text-align: center;
             margin-bottom: 50px;
-            position: relative;
-            color: #fff;
-            font-size: 4rem;
+            color: var(--accent-color);
+            font-size: 3.5rem;
             font-weight: 800;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            animation: glow 2s ease-in-out infinite alternate;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            transform: translateZ(50px);
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
-            to { text-shadow: 0 0 30px #fff, 0 0 40px #ff00de, 0 0 50px #ff00de; }
+        .love-journey-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
         }
 
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            padding: 20px;
+            transform-style: preserve-3d;
         }
 
-        .menu-item {
+        .menu-card {
             position: relative;
-            height: 200px;
+            height: 300px;
             border-radius: 20px;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.5s ease;
+            transition: all 0.6s ease;
+            transform-style: preserve-3d;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            will-change: transform;
         }
 
-        .menu-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .menu-item::before {
+        .menu-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
             z-index: 1;
+            transition: opacity 0.3s ease;
         }
 
-        .menu-link {
+        .menu-card-content {
             position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
+            padding: 25px;
             color: white;
             z-index: 2;
-            padding: 20px;
-            background: rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-        }
-
-        .menu-link:hover {
-            background: rgba(0,0,0,0.2);
-        }
-
-        .menu-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-title {
-            font-size: 1.5em;
-            font-weight: 600;
             text-align: center;
-            text-transform: uppercase;
+            text-decoration: none;
+            transform: translateZ(50px);
+            transition: all 0.4s ease;
+        }
+
+        .menu-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            transition: all 0.4s ease;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .menu-card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
             letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
         }
 
-        .loly { background: linear-gradient(45deg, #ff6b6b, #ff0844); }
-        .lily { background: linear-gradient(45deg, #da4453, #89216b); }
-        .valentine { background: linear-gradient(45deg, #ff0844, #ffb199); }
-        .valentine2 { background: linear-gradient(45deg, #fc466b, #3f5efb); }
-        .ultah { background: linear-gradient(45deg, #00c6ff, #0072ff); }
-        .anniversary { background: linear-gradient(45deg, #834d9b, #d04ed6); }
-        .gfday { background: linear-gradient(45deg, #ff758c, #ff7eb3); }
-
-        .menu-item:hover .menu-icon {
-            transform: scale(1.2) rotate(360deg);
-            color: #fff;
+        .menu-card:hover {
+            transform: 
+                translateZ(50px) 
+                rotateX(10deg) 
+                rotateY(-10deg) 
+                scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
+
+        .menu-card:hover .menu-card-icon {
+            transform: rotate(360deg) scale(1.3);
+            color: white;
+        }
+
+        .menu-card:hover .menu-card-title {
+            letter-spacing: 3px;
+        }
+
+        .menu-card:hover::before {
+            opacity: 0.8;
+        }
+
+        .loly { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/800x600?love,romantic'); }
+        .lily { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/800x600?flower,pink'); }
+        .valentine { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/800x600?heart,romance'); }
+        .valentine2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/800x600?kiss,couple'); }
+        .ultah { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/800x600?birthday,celebration'); }
+        .anniversary { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/800x600?wedding,love'); }
+        .gfday { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/800x600?girlfriend,happiness'); }
 
         @media (max-width: 768px) {
-            .container {
+            .love-journey-container {
                 padding: 20px;
             }
-            .title {
+            .love-journey-title {
                 font-size: 2.5rem;
             }
             .menu-grid {
-                gap: 20px;
+                grid-template-columns: 1fr;
             }
-            .menu-item {
-                height: 150px;
+            .menu-card {
+                height: 250px;
             }
         }
 
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        /* Cute Floating Hearts Background */
+        .floating-hearts {
+            position: fixed;
             top: 0;
             left: 0;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
         }
 
-        .particle {
+        .heart {
             position: absolute;
-            width: 5px;
-            height: 5px;
-            background: white;
-            border-radius: 50%;
-            animation: particle 20s infinite linear;
+            color: rgba(255,105,180,0.3);
+            font-size: 20px;
+            animation: float-heart linear infinite;
         }
 
-        @keyframes particle {
+        @keyframes float-heart {
             0% {
-                transform: translateY(0) translateX(0);
-                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.3;
             }
             100% {
-                transform: translateY(-1000px) translateX(100px);
+                transform: translateY(100vh) rotate(360deg);
                 opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="particles">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
-        <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
-        <div class="particle" style="left: 80%; animation-delay: 14s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 16s;"></div>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts">
+        <script>
+            function createFloatingHearts() {
+                const heartsContainer = document.querySelector('.floating-hearts');
+                for (let i = 0; i < 30; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.top = `${Math.random() * 100}%`;
+                    heart.style.animationDuration = `${10 + Math.random() * 20}s`;
+                    heart.style.fontSize = `${15 + Math.random() * 30}px`;
+                    heartsContainer.appendChild(heart);
+                }
+            }
+            createFloatingHearts();
+        </script>
     </div>
-    <div class="wrapper">
-        <div class="container animate__animated animate__fadeIn">
-            <h1 class="title floating">Loly Menu</h1>
-            <div class="menu-grid">
-                <div class="menu-item loly">
-                    <a href="main/index.html" class="menu-link">
-                        <i class="fas fa-heart menu-icon"></i>
-                        <span class="menu-title">Loly</span>
-                    </a>
-                </div>
-                <div class="menu-item lily">
-                    <a href="main/lily/index.html" class="menu-link">
-                        <i class="fas fa-star menu-icon"></i>
-                        <span class="menu-title">Lily</span>
-                    </a>
-                </div>
-                <div class="menu-item valentine">
-                    <a href="main/lily/valentine/index.html" class="menu-link">
-                        <i class="fas fa-gift menu-icon"></i>
-                        <span class="menu-title">Valentine</span>
-                    </a>
-                </div>
-                <div class="menu-item valentine2">
-                    <a href="./valentine2/index.html" class="menu-link">
-                        <i class="fas fa-dove menu-icon"></i>
-                        <span class="menu-title">Valentine 2</span>
-                    </a>
-                </div>
-                <div class="menu-item ultah">
-                    <a href="main/ultah/index.html" class="menu-link">
-                        <i class="fas fa-birthday-cake menu-icon"></i>
-                        <span class="menu-title">Ultah</span>
-                    </a>
-                </div>
-                <div class="menu-item anniversary">
-                    <a href="main/anniversary/" class="menu-link">
-                        <i class="fas fa-ring menu-icon"></i>
-                        <span class="menu-title">Anniversary</span>
-                    </a>
-                </div>
-                <div class="menu-item gfday">
-                    <a href="./gfday/" class="menu-link">
-                        <i class="fas fa-heart menu-icon"></i>
-                        <span class="menu-title">Girlfriend Day</span>
-                    </a>
-                </div>
+
+    <div class="love-journey-container">
+        <h1 class="love-journey-title">Love's Journey</h1>
+        <div class="menu-grid">
+            <div class="menu-card loly">
+                <a href="main/index.html" class="menu-card-content">
+                    <i class="fas fa-heart menu-card-icon"></i>
+                    <div class="menu-card-title">Our Love Story</div>
+                </a>
+            </div>
+            <div class="menu-card lily">
+                <a href="main/lily/index.html" class="menu-card-content">
+                    <i class="fas fa-flower menu-card-icon"></i>
+                    <div class="menu-card-title">Lily's Moments</div>
+                </a>
+            </div>
+            <div class="menu-card valentine">
+                <a href="main/lily/valentine/index.html" class="menu-card-content">
+                    <i class="fas fa-gift menu-card-icon"></i>
+                    <div class="menu-card-title">Valentine Memories</div>
+                </a>
+            </div>
+            <div class="menu-card valentine2">
+                <a href="./valentine2/index.html" class="menu-card-content">
+                    <i class="fas fa-dove menu-card-icon"></i>
+                    <div class="menu-card-title">Romance Continued</div>
+                </a>
+            </div>
+            <div class="menu-card ultah">
+                <a href="main/ultah/index.html" class="menu-card-content">
+                    <i class="fas fa-birthday-cake menu-card-icon"></i>
+                    <div class="menu-card-title">Birthday Celebration</div>
+                </a>
+            </div>
+            <div class="menu-card anniversary">
+                <a href="main/anniversary/" class="menu-card-content">
+                    <i class="fas fa-ring menu-card-icon"></i>
+                    <div class="menu-card-title">Anniversary Moments</div>
+                </a>
+            </div>
+            <div class="menu-card gfday">
+                <a href="./gfday/" class="menu-card-content">
+                    <i class="fas fa-heart menu-card-icon"></i>
+                    <div class="menu-card-title">Special Day</div>
+                </a>
             </div>
         </div>
     </div>
+
+    <script>
+        // Enhanced 3D Hover Effect
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = -(x - centerX) / 20;
+                
+                card.style.transform = `
+                    perspective(1000px) 
+                    rotateX(${rotateX}deg) 
+                    rotateY(${rotateY}deg) 
+                    scale(1.05)
+                `;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
