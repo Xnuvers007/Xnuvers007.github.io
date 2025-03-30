@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 31 Maret 2025 02.19.11 UTC
-- WITA: Senin, 31 Maret 2025 03.19.11 UTC
-- WIT: Senin, 31 Maret 2025 04.19.11 UTC
+- WIB: Senin, 31 Maret 2025 03.26.36 UTC
+- WITA: Senin, 31 Maret 2025 04.26.36 UTC
+- WIT: Senin, 31 Maret 2025 05.26.36 UTC
 
 Kutipan Inspiratif:
-"I quit being afraid when my first venture failed and the sky didn't fall down."
+"You're going to fail your way to success, you have nothing to be ashamed of so keep your head up. It’s much easier to come up with excuses of why you can't do it. If you do what is easy your life will be hard."
 
 
 Kategori: motivational
