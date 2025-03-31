@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 1 April 2025 02.20.56 UTC
-- WITA: Selasa, 1 April 2025 03.20.56 UTC
-- WIT: Selasa, 1 April 2025 04.20.56 UTC
+- WIB: Selasa, 1 April 2025 03.28.36 UTC
+- WITA: Selasa, 1 April 2025 04.28.36 UTC
+- WIT: Selasa, 1 April 2025 05.28.36 UTC
 
 Kutipan Inspiratif:
-"There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle"
+"People say me bad, trust me i am the worst!!!"
 
 
-Kategori: motivational
+Kategori: attitude
 
