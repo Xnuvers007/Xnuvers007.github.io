@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 2 April 2025 12.28.38 UTC
-- WITA: Rabu, 2 April 2025 13.28.38 UTC
-- WIT: Rabu, 2 April 2025 14.28.38 UTC
+- WIB: Rabu, 2 April 2025 13.36.11 UTC
+- WITA: Rabu, 2 April 2025 14.36.11 UTC
+- WIT: Rabu, 2 April 2025 15.36.11 UTC
 
 Kutipan Inspiratif:
-"Sharing is good, and with digital technology, sharing is easy."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: technology
+Kategori: attitude
 
