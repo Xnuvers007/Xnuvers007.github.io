@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 8 April 2025 19.52.53 UTC
-- WITA: Selasa, 8 April 2025 20.52.53 UTC
-- WIT: Selasa, 8 April 2025 21.52.53 UTC
+- WIB: Selasa, 8 April 2025 20.34.20 UTC
+- WITA: Selasa, 8 April 2025 21.34.20 UTC
+- WIT: Selasa, 8 April 2025 22.34.20 UTC
 
 Kutipan Inspiratif:
-"He who controls the past controls the future. He who controls the present controls the past."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: inspirational
+Kategori: attitude
 
