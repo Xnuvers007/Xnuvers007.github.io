@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 10 April 2025 10.40.43 UTC
-- WITA: Kamis, 10 April 2025 11.40.43 UTC
-- WIT: Kamis, 10 April 2025 12.40.43 UTC
+- WIB: Kamis, 10 April 2025 11.31.12 UTC
+- WITA: Kamis, 10 April 2025 12.31.12 UTC
+- WIT: Kamis, 10 April 2025 13.31.12 UTC
 
 Kutipan Inspiratif:
-"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
+"It's not the size of the dog in the fight, but the size of the fight in the dog."
 
 
-Kategori: nature
+Kategori: motivational
 
