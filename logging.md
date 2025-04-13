@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 14 April 2025 04.23.20 UTC
-- WITA: Senin, 14 April 2025 05.23.20 UTC
-- WIT: Senin, 14 April 2025 06.23.20 UTC
+- WIB: Senin, 14 April 2025 05.25.47 UTC
+- WITA: Senin, 14 April 2025 06.25.47 UTC
+- WIT: Senin, 14 April 2025 07.25.47 UTC
 
 Kutipan Inspiratif:
-"It's not the size of the dog in the fight, but the size of the fight in the dog."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: motivational
+Kategori: technology
 
