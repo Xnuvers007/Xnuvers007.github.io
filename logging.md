@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 14 April 2025 05.25.47 UTC
-- WITA: Senin, 14 April 2025 06.25.47 UTC
-- WIT: Senin, 14 April 2025 07.25.47 UTC
+- WIB: Senin, 14 April 2025 06.25.16 UTC
+- WITA: Senin, 14 April 2025 07.25.16 UTC
+- WIT: Senin, 14 April 2025 08.25.16 UTC
 
 Kutipan Inspiratif:
-"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
+"i am what i am.. i will never try to be some one else."
 
 
-Kategori: technology
+Kategori: attitude
 
