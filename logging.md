@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 20 April 2025 00.23.25 UTC
-- WITA: Minggu, 20 April 2025 01.23.25 UTC
-- WIT: Minggu, 20 April 2025 02.23.25 UTC
+- WIB: Minggu, 20 April 2025 01.32.12 UTC
+- WITA: Minggu, 20 April 2025 02.32.12 UTC
+- WIT: Minggu, 20 April 2025 03.32.12 UTC
 
 Kutipan Inspiratif:
-"Not always available, try your luck ;)"
+"We have more media than ever and more technology in our lives. It's supposed to help us communicate, but it has the opposite effect of isolating us."
 
 
-Kategori: attitude
+Kategori: technology
 
