@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 23 April 2025 18.23.17 UTC
-- WITA: Rabu, 23 April 2025 19.23.17 UTC
-- WIT: Rabu, 23 April 2025 20.23.17 UTC
+- WIB: Rabu, 23 April 2025 19.53.26 UTC
+- WITA: Rabu, 23 April 2025 20.53.26 UTC
+- WIT: Rabu, 23 April 2025 21.53.26 UTC
 
 Kutipan Inspiratif:
-"There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle"
+"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
 
 
-Kategori: motivational
+Kategori: attitude
 
