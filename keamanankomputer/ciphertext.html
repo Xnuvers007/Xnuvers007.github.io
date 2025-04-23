@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#"
+    oncontextmenu="return false;">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data:;">
+    <title>Vigenère Cipher Tool | Secure Encryption & Decryption</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.min.js"></script>
+
+    <!-- HTML Meta Tags -->
+    <meta name="description"
+        content="This is a classic Vigenère cipher tool for educational purposes only. It is not secure for real-world encryption needs.">
+    <meta name="language" content="id">
+    <meta name="author" content="Indra Dwi A">
+    <meta name="keywords"
+        content="cipher, text, chipertext, chiper text, keamanan, keamanankomputer, keamanan komputer, computersecurity, computer security">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Cipher Text">
+    <meta itemprop="description"
+        content="This is a classic Vigenère cipher tool for educational purposes only. It is not secure for real-world encryption needs.">
+    <meta itemprop="image"
+        content="https://cdn1.iconfinder.com/data/icons/cryptography-glyph/60/003_-_Cipher_Text-cryptography-cyber-security-512.png">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://xnuvers007.github.io/keamanankomputer/ciphertext.html">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cipher Tool" />
+    <meta property="og:description"
+        content="This is a classic Vigenère cipher tool for educational purposes only. It is not secure for real-world encryption needs." />
+    <meta property="og:image"
+        content="https://cdn1.iconfinder.com/data/icons/cryptography-glyph/60/003_-_Cipher_Text-cryptography-cyber-security-512.png" />
+    <meta property="og:site_name" content="Cipher Text" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cipher Tool" />
+    <meta name="twitter:description"
+        content="This is a classic Vigenère cipher tool for educational purposes only. It is not secure for real-world encryption needs." />
+    <meta name="twitter:image"
+        content="https://cdn1.iconfinder.com/data/icons/cryptography-glyph/60/003_-_Cipher_Text-cryptography-cyber-security-512.png" />
+
+    <!-- Meta Tags Generated via https://github.com/Xnuvers007/Meta-Generator -->
+
+    <link rel="icon" href="https://cdn1.iconfinder.com/data/icons/cryptography-glyph/60/003_-_Cipher_Text-cryptography-cyber-security-512.png"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://cdn1.iconfinder.com/data/icons/cryptography-glyph/60/003_-_Cipher_Text-cryptography-cyber-security-512.png">
+    <link rel="stylesheet" href="./style.css">
+    </head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-lock"></i> Vigenère Cipher Tool</h1>
+            <p>Secure Encryption & Decryption</p>
+            <span id="sdahdusa"></span>
+        </header>
+
+        <div class="notice">
+            <h3><i class="fas fa-exclamation-triangle"></i> Important Note</h3>
+            <p>This is a classic Vigenère cipher tool for educational purposes only. It is not secure for real-world
+                encryption needs.</p>
+            <p><strong>Character Support:</strong> A-Z, a-z (other characters remain unchanged)</p>
+            <p><strong>Key Format:</strong> Uppercase letters (A = 0, B = 1, ..., Z = 25)</p>
+        </div>
+
+        <div class="flex-container">
+            <div class="text-area card">
+                <h3><i class="fas fa-edit"></i> Text To Encode</h3>
+                <textarea id="encodeText" placeholder="Enter text to encode or decode..."></textarea>
+            </div>
+
+            <div class="text-area card">
+                <h3><i class="fas fa-lock"></i> Result</h3>
+                <textarea id="decodeText" readonly placeholder="Processed text will appear here..."></textarea>
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <div class="key-section">
+                <span class="key-label"><i class="fas fa-key"></i> KEY:</span>
+                <input type="text" id="keyInput" class="key-input" placeholder="Ex: CIPHER" maxlength="20" />
+                <button class="btn btn-light" id="randomKey"><i class="fas fa-random"></i> Generate Random Key</button>
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="encodeBtn" class="btn btn-primary"><i class="fas fa-lock"></i> Encode</button>
+                <button type="button" id="decodeBtn" class="btn btn-secondary"><i class="fas fa-unlock"></i>
+                    Decode</button>
+                <button type="button" id="clearTextarea" class="btn btn-accent"><i class="fas fa-trash-alt"></i> Clear
+                    All</button>
+                <button type="button" id="removeSpaces" class="btn btn-light"><i class="fas fa-compress-alt"></i> Remove
+                    Spaces</button>
+
+                <div class="space-options">
+                    <button type="button" id="addSpaces" class="btn btn-light"><i class="fas fa-expand-alt"></i> Add
+                        Spaces</button>
+                    <select id="spaceNumber" title="Number of spaces to add">
+                        <option value="1" selected>Every 1 char</option>
+                        <option value="2">Every 2 chars</option>
+                        <option value="3">Every 3 chars</option>
+                        <option value="4">Every 4 chars</option>
+                        <option value="5">Every 5 chars</option>
+                        <option value="6">Every 6 chars</option>
+                        <option value="7">Every 7 chars</option>
+                        <option value="8">Every 8 chars</option>
+                        <option value="9">Every 9 chars</option>
+                        <option value="10">Every 10 chars</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3><i class="fas fa-info-circle"></i> Message Information</h3>
+            <ul class="info-list" id="messageList">
+                <li>No message to display</li>
+            </ul>
+
+            <h3><i class="fas fa-key"></i> Current Key</h3>
+            <ul class="info-list">
+                <li id="currentKey">No key set</li>
+            </ul>
+
+            <h3><i class="fas fa-hashtag"></i> Shift Values</h3>
+            <div class="index-display" id="indexDisplay">
+            </div>
+
+            <h3><i class="fas fa-exchange-alt"></i> Result</h3>
+            <ul class="info-list" id="cipherList">
+                <li>No result to display</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Vigenère Cipher Tool &copy; <span id="years"></span> | Designed by <a
+                    href="https://github.com/Xnuvers007" target="_blank" rel="noopener noreferrer" title="Link Author"
+                    class="dekorasiteks"><span id="sdahdusa2"></span></a>
+                | Enhanced with modern design</p>
+        </footer>
+    </div>
+  <script src="./script.js" defer></script>
+</body>
+</html>
