@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 30 April 2025 14.25.30 UTC
-- WITA: Rabu, 30 April 2025 15.25.30 UTC
-- WIT: Rabu, 30 April 2025 16.25.30 UTC
+- WIB: Rabu, 30 April 2025 15.34.51 UTC
+- WITA: Rabu, 30 April 2025 16.34.51 UTC
+- WIT: Rabu, 30 April 2025 17.34.51 UTC
 
 Kutipan Inspiratif:
-"The only easy day was yesterday."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: motivational
+Kategori: attitude
 
