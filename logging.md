@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 30 April 2025 12.28.16 UTC
-- WITA: Rabu, 30 April 2025 13.28.16 UTC
-- WIT: Rabu, 30 April 2025 14.28.16 UTC
+- WIB: Rabu, 30 April 2025 13.37.24 UTC
+- WITA: Rabu, 30 April 2025 14.37.24 UTC
+- WIT: Rabu, 30 April 2025 15.37.24 UTC
 
 Kutipan Inspiratif:
-"I am a little pencil in the hand of a writing God who is sending a love letter to the world."
+"People say me bad, trust me i am the worst!!!"
 
 
-Kategori: inspirational
+Kategori: attitude
 
