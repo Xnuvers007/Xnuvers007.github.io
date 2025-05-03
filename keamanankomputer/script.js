@@ -61,6 +61,7 @@
 
 
         elements.keyInput.addEventListener('input', function (e) {
+            e.target.value = e.target.value.toUpperCase();
             const sanitizedValue = e.target.value.replace(/[^a-zA-Z]/g, '');
             if (e.target.value !== sanitizedValue) {
                 e.target.value = sanitizedValue;
@@ -366,15 +367,25 @@
             const text = elements.decodeText.value;
             const key = elements.keyInput.value;
 
-            if (!/^[a-zA-Z\s]+$/.test(text)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid Characters',
-                    text: 'Text can only contain letters and spaces!',
+            // if (!/^[a-zA-Z\s]+$/.test(text)) {
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'Invalid Characters',
+            //         text: 'Text can only contain letters and spaces!',
+            //         confirmButtonText: 'OK'
+            //     });
+            //     return;
+            // }
+
+            if (!text) {
+                Swal.fire({ title: 'No Text', text: 'Please enter text to decode',
+                    icon: 'info',
                     confirmButtonText: 'OK'
                 });
+                elements.decodeText.focus();
                 return;
             }
+            
 
             if (!key) {
                 Swal.fire({
