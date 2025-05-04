@@ -190,17 +190,21 @@ button {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
+    flex-wrap: wrap;
 }
 
 .results-header h2 {
     font-size: 18px;
     color: var(--primary-dark);
+    flex: 1 1 100%;
 }
 
 .results-actions {
     display: flex;
     gap: 10px;
     justify-content: center;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
     margin-bottom: 20px;
 }
 
@@ -291,20 +295,29 @@ button {
 }
 
 @media (max-width: 600px) {
-    .controls {
+    .results-actions {
+        justify-content: center;
+        margin-top: 15px;
         flex-direction: column;
     }
 
-    header h1 {
-        font-size: 20px;
-    }
-
-    .actions {
+    .results-header {
         flex-direction: column;
+        align-items: flex-start;
     }
 
-    #decryptBtn,
-    #clearBtn {
+    #results-container {
+        padding-bottom: 20px;
+    }
+
+    .results-actions button,
+    .results-actions input {
         width: 100%;
+        margin-top: 10px;
+    }
+
+    .results-actions button {
+        padding: 12px 24px;
+        font-size: 16px;
     }
 }
