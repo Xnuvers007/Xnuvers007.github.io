@@ -190,22 +190,23 @@ button {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Tombol bisa pindah ke bawah pada layar kecil */
 }
 
 .results-header h2 {
     font-size: 18px;
     color: var(--primary-dark);
-    flex: 1 1 100%;
+    flex: 1 1 100%; /* Menggunakan lebar penuh pada layar kecil */
+    margin-bottom: 10px;
 }
 
 .results-actions {
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-top: 10px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Tombol berpindah ke bawah pada layar kecil */
     width: 100%;
+    margin-top: 10px;
 }
 
 .results-actions button {
@@ -295,25 +296,40 @@ button {
 }
 
 @media (max-width: 600px) {
-    .results-header {
+    .controls {
         flex-direction: column;
-        align-items: flex-start;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .results-actions button {
+        width: 100%; /* Tombol ambil lebar penuh */
+        padding: 12px; /* Tombol lebih besar */
+    }
+
+    .filter-input {
+        width: 100%; /* Input lebar penuh */
+        margin-top: 10px;
+    }
+
+    .results-header {
+        flex-direction: column; /* Judul dan tombol vertikal */
+        align-items: flex-start; /* Menyusun elemen ke kiri */
     }
 
     .results-actions {
-        flex-direction: column;
+        flex-direction: column; /* Tombol jadi vertikal */
+        gap: 15px;
         width: 100%;
-        margin-top: 10px;
     }
 
     .results-actions button {
         width: 100%;
-        margin-top: 10px;
-        padding: 12px 24px;
-    }
-
-    .results-actions input {
-        width: 100%;
-        margin-top: 10px;
     }
 }
