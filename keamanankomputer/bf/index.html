@@ -50,16 +50,20 @@
       <div id="results-container">
         <div class="results-header">
           <h2>Hasil Dekripsi</h2>
-          <br />
-          <div class="results-actions">
-            <button id="sortKeyBtn">Urutkan Berdasarkan Kunci</button>
-            <br />
-            <button id="sortTextBtn">Urutkan Berdasarkan Teks</button>
-            <br />
-            <button id="sortScoreBtn">Urutkan Berdasarkan Skor</button>
-            <br />
-            <br />
-            <input type="text" class="filter-input" id="resultFilter" placeholder="Filter hasil...">
+          
+          <!-- New toggle button for mobile -->
+          <div class="results-controls-mobile">
+            <button id="toggleControlsBtn">Tampilkan/Sembunyikan Opsi</button>
+            
+            <!-- Mobile control panel -->
+            <div class="mobile-controls">
+              <div class="results-actions">
+                <button id="sortKeyBtn">Urutkan Berdasarkan Kunci</button>
+                <button id="sortTextBtn">Urutkan Berdasarkan Teks</button>
+                <button id="sortScoreBtn">Urutkan Berdasarkan Skor</button>
+                <input type="text" class="filter-input" id="resultFilter" placeholder="Filter hasil...">
+              </div>
+            </div>
           </div>
         </div>
         <div id="results"></div>
@@ -72,6 +76,6 @@
   </div>
 
   <script src="./bruteforce.js" type="text/javascript" defer></script>
-
+</div>
 </body>
 </html>
