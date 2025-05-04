@@ -291,20 +291,66 @@ button {
 }
 
 @media (max-width: 600px) {
-    .controls {
-        flex-direction: column;
-    }
-
+    /* Atur ukuran header */
     header h1 {
         font-size: 20px;
     }
 
-    .actions {
-        flex-direction: column;
+    /* Sesuaikan input dan tombol untuk tampilan kecil */
+    .input-group,
+    .controls {
+        margin-bottom: 15px;
     }
 
+    .input-group textarea,
+    .controls input {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Ubah lebar tombol di mobile */
     #decryptBtn,
     #clearBtn {
         width: 100%;
+    }
+
+    /* Hapus bagian pengurutan dan pencarian di mobile */
+    .results-actions,
+    .filter-input {
+        display: none;
+    }
+
+    /* Atur hasil dekripsi agar mudah dibaca di perangkat kecil */
+    #results-container {
+        margin-top: 16px;
+        overflow-y: scroll;
+        max-height: 400px;
+    }
+
+    /* Sesuaikan ukuran hasil dan tombol salin */
+    .result-item {
+        margin-bottom: 10px;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Tambahkan padding pada footer agar lebih baik di mobile */
+    .footer {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    /* Sesuaikan ukuran ikon untuk mobile */
+    .icon {
+        font-size: 20px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
     }
 }
