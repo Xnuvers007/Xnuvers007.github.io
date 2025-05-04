@@ -203,9 +203,9 @@ button {
     display: flex;
     gap: 10px;
     justify-content: center;
-    flex: 1 1 100%;
+    margin-top: 10px;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    width: 100%;
 }
 
 .results-actions button {
@@ -295,29 +295,25 @@ button {
 }
 
 @media (max-width: 600px) {
-    .results-actions {
-        justify-content: center;
-        margin-top: 15px;
-        flex-direction: column;
-    }
-
     .results-header {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    #results-container {
-        padding-bottom: 20px;
-    }
-
-    .results-actions button,
-    .results-actions input {
+    .results-actions {
+        flex-direction: column;
         width: 100%;
         margin-top: 10px;
     }
 
     .results-actions button {
+        width: 100%;
+        margin-top: 10px;
         padding: 12px 24px;
-        font-size: 16px;
+    }
+
+    .results-actions input {
+        width: 100%;
+        margin-top: 10px;
     }
 }
