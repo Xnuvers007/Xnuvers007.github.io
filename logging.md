@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 7 Mei 2025 19.56.49 UTC
-- WITA: Rabu, 7 Mei 2025 20.56.49 UTC
-- WIT: Rabu, 7 Mei 2025 21.56.49 UTC
+- WIB: Rabu, 7 Mei 2025 20.38.27 UTC
+- WITA: Rabu, 7 Mei 2025 21.38.27 UTC
+- WIT: Rabu, 7 Mei 2025 22.38.27 UTC
 
 Kutipan Inspiratif:
-"You make the world a better place by making yourself a better person."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: motivational
+Kategori: attitude
 
