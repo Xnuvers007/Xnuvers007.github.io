@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 13 Mei 2025 01.37.31 UTC
-- WITA: Selasa, 13 Mei 2025 02.37.31 UTC
-- WIT: Selasa, 13 Mei 2025 03.37.31 UTC
+- WIB: Selasa, 13 Mei 2025 02.22.12 UTC
+- WITA: Selasa, 13 Mei 2025 03.22.12 UTC
+- WIT: Selasa, 13 Mei 2025 04.22.12 UTC
 
 Kutipan Inspiratif:
-"When i was born..Devil said..?Oh Shit..!! Competition?"
+"The technology of the time dictated the way things looked."
 
 
-Kategori: attitude
+Kategori: technology
 
