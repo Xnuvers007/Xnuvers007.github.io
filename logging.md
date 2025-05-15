@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 15 Mei 2025 11.32.47 UTC
-- WITA: Kamis, 15 Mei 2025 12.32.47 UTC
-- WIT: Kamis, 15 Mei 2025 13.32.47 UTC
+- WIB: Kamis, 15 Mei 2025 12.29.00 UTC
+- WITA: Kamis, 15 Mei 2025 13.29.00 UTC
+- WIT: Kamis, 15 Mei 2025 14.29.00 UTC
 
 Kutipan Inspiratif:
-"Xcuse me, I found something under my shoes. Oh its your attitude."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: attitude
+Kategori: inspirational
 
