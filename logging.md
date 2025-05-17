@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 18 Mei 2025 02.22.32 UTC
-- WITA: Minggu, 18 Mei 2025 03.22.32 UTC
-- WIT: Minggu, 18 Mei 2025 04.22.32 UTC
+- WIB: Minggu, 18 Mei 2025 03.27.04 UTC
+- WITA: Minggu, 18 Mei 2025 04.27.04 UTC
+- WIT: Minggu, 18 Mei 2025 05.27.04 UTC
 
 Kutipan Inspiratif:
-"The road to success is not easy to navigate, but with hard work, drive and passion, it's possible to achieve the American dream."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: success
+Kategori: attitude
 
