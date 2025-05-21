@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 22 Mei 2025 03.29.46 UTC
-- WITA: Kamis, 22 Mei 2025 04.29.46 UTC
-- WIT: Kamis, 22 Mei 2025 05.29.46 UTC
+- WIB: Kamis, 22 Mei 2025 04.25.23 UTC
+- WITA: Kamis, 22 Mei 2025 05.25.23 UTC
+- WIT: Kamis, 22 Mei 2025 06.25.23 UTC
 
 Kutipan Inspiratif:
-"People say me bad, trust me i am the worst!!!"
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: attitude
+Kategori: technology
 
