@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 23 Mei 2025 14.26.43 UTC
-- WITA: Jumat, 23 Mei 2025 15.26.43 UTC
-- WIT: Jumat, 23 Mei 2025 16.26.43 UTC
+- WIB: Jumat, 23 Mei 2025 15.35.24 UTC
+- WITA: Jumat, 23 Mei 2025 16.35.24 UTC
+- WIT: Jumat, 23 Mei 2025 17.35.24 UTC
 
 Kutipan Inspiratif:
-"80% of boys have girlfriends.. Rest 20% are having brain."
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: funny
+Kategori: technology
 
