@@ -498,6 +498,63 @@
       font-size: 15px;
     }
   }
+
+  .upload-btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+    min-width: 140px;
+    text-align: center;
+  }
+
+  .upload-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4);
+  }
+
+  .upload-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+  }
+
+  .upload-btn:hover::before {
+    left: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .upload-btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  .drag-highlight {
+  background: rgba(52, 152, 219, 0.3);
+  border-color: rgba(52, 152, 219, 0.6);
+  transform: scale(1.02);
+}
+
+.input-wrapper {
+  transition: all 0.3s ease;
+}
 </style>
 </head>
 <body>
@@ -536,6 +593,10 @@
   <button onclick="loadPdf()">
     <span>📄 Tampilkan PDF</span>
   </button>
+  <label class="upload-btn">
+    <input type="file" id="pdfFileInput" accept="application/pdf" style="display: none;" onchange="loadLocalPdf(this)">
+    <span>📤 Unggah PDF</span>
+  </label>
   <button class="clear-btn" onclick="clearViewer()">
     <span>🗑️ Bersihkan</span>
   </button>
@@ -672,6 +733,47 @@
       });
 
       this.updateViewerOptionUI();
+
+        // Tambahkan dukungan drag-and-drop
+  const dropZone = document.querySelector('.input-wrapper');
+  
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, preventDefaults, false);
+  });
+  
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropZone.addEventListener(eventName, highlight, false);
+  });
+  
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, unhighlight, false);
+  });
+  
+  function highlight() {
+    dropZone.classList.add('drag-highlight');
+  }
+  
+  function unhighlight() {
+    dropZone.classList.remove('drag-highlight');
+  }
+  
+  dropZone.addEventListener('drop', handleDrop, false);
+  
+  function handleDrop(e) {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    
+    if (files.length > 0) {
+      const fileInput = document.getElementById('pdfFileInput');
+      fileInput.files = files;
+      loadLocalPdf(fileInput);
+    }
+  }
     },
 
     updateViewerOptionUI: function() {
@@ -988,6 +1090,49 @@
   }
 };
 
+function loadLocalPdf(input) {
+  if (!input.files || input.files.length === 0) {
+    return;
+  }
+  
+  const file = input.files[0];
+  
+  if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+    UI.showMessage('❌ File harus berupa PDF', 'error');
+    return;
+  }
+  
+  if (file.size > 20 * 1024 * 1024) {
+    UI.showMessage('❌ Ukuran file terlalu besar (maksimal 20 MB)', 'error');
+    return;
+  }
+  
+  UI.showMessage('🔄 Memuat PDF lokal...', 'loading');
+  
+  if (PDFLoader.fileObjectUrl) {
+    URL.revokeObjectURL(PDFLoader.fileObjectUrl);
+  }
+  
+  const fileUrl = URL.createObjectURL(file);
+  PDFLoader.fileObjectUrl = fileUrl;
+  
+  UI.elements.urlInput.value = file.name;
+  
+  PDFJSViewer.loadPdf(fileUrl)
+    .then(() => {
+      UI.showContainer();
+      UI.showMessage(`✅ File "${file.name}" berhasil dimuat!`, 'success');
+      PDFLoader.selectedServer = 'local';
+      UI.updateServerStatus('pdfjs', 'PDF.js (Local File)');
+    })
+    .catch(error => {
+      console.error('Error loading local PDF:', error);
+      UI.showMessage('❌ Gagal memuat PDF lokal', 'error');
+      URL.revokeObjectURL(fileUrl);
+      PDFLoader.fileObjectUrl = null;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   UI.init();
 });
@@ -1050,8 +1195,19 @@ function clearViewer() {
   UI.elements.urlInput.value = '';
   UI.hideContainer();
   UI.clearMessage();
+  
+  if (PDFLoader.fileObjectUrl) {
+    URL.revokeObjectURL(PDFLoader.fileObjectUrl);
+    PDFLoader.fileObjectUrl = null;
+  }
+  
   PDFLoader.currentUrl = null;
   PDFLoader.selectedServer = null;
+  
+  const fileInput = document.getElementById('pdfFileInput');
+  if (fileInput) {
+    fileInput.value = '';
+  }
 }
 
 document.getElementById('pdfFrame').addEventListener('error', function() {
