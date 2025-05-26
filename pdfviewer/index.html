@@ -567,7 +567,8 @@
 <div id="pdfContainer">
   <div class="server-status" id="serverStatus"></div>
   <div id="pdfViewerContainer"></div>
-  <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+  <!-- <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe> -->
+  <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-scripts allow-forms allow-downloads" allow="fullscreen"></iframe>
 </div>
 
 <div class="message" id="messageBox"></div>
@@ -897,13 +898,22 @@ const PDFLoader = {
   
   loadWithPdfJs: async function(url) {
     try {
-      const proxiedUrl = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(url))
+      const proxiedUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
       await PDFJSViewer.loadPdf(proxiedUrl);
       UI.updateServerStatus('pdfjs', 'PDF.js Native');
       this.selectedServer = 'pdfjs';
       return true;
     } catch (error) {
       console.error('Error loading with PDF.js:', error);
+      if (error.message && error.message.includes('NetworkError') && error.message.includes('network error')) {
+        UI.showMessage('⚠️ Network error. Mencoba metode alternatif...', 'warning');
+        return this.loadWithServer(url, 'server1');
+      } else if (error.message && error.message.includes('PDF.js') && error.message.includes('failed to load')) {
+        UI.showMessage('⚠️ PDF.js gagal memuat PDF. Mencoba server alternatif...', 'warning');
+      } else {
+        UI.showMessage('❌ Gagal memuat PDF dengan PDF.js', 'error');
+      }
+
       if (this.failoverMode) {
         UI.showMessage('⚠️ PDF.js gagal memuat PDF. Mencoba server alternatif...', 'warning');
         return this.tryAlternateServers(url);
