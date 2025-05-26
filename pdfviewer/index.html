@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PDF Viewer | Xnuvers007</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://docs.google.com; connect-src 'self' https:;">
+<title>PDF Viewer tanpa .pdf wajib</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://docs.google.com https://mozilla.github.io; connect-src 'self' https:; worker-src 'self' https://cdnjs.cloudflare.com;">
 <style>
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -170,6 +170,43 @@
     box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
   }
 
+  .viewer-options {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .viewer-option {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .viewer-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .viewer-option.active {
+    background: var(--primary-gradient);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .viewer-option input[type="radio"] {
+    display: none;
+  }
+
   .button-container {
     display: flex;
     gap: 15px;
@@ -251,11 +288,52 @@
     transform: translateY(0);
   }
 
+  #pdfViewerContainer {
+    width: 100%;
+    height: 100%;
+    background: #2c3e50;
+    border-radius: 16px;
+    display: none;
+  }
+
   iframe {
     width: 100%;
     height: 100%;
     border: none;
     border-radius: 16px;
+  }
+
+  .server-status {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: white;
+    font-weight: 500;
+    z-index: 10;
+  }
+
+  .server-status.server1 {
+    background: rgba(39, 174, 96, 0.2);
+    border-color: rgba(39, 174, 96, 0.4);
+    color: #27ae60;
+  }
+
+  .server-status.server2 {
+    background: rgba(243, 156, 18, 0.2);
+    border-color: rgba(243, 156, 18, 0.4);
+    color: #f39c12;
+  }
+
+  .server-status.pdfjs {
+    background: rgba(52, 152, 219, 0.2);
+    border-color: rgba(52, 152, 219, 0.4);
+    color: #3498db;
   }
 
   .message {
@@ -385,6 +463,15 @@
     .input-container {
       max-width: 100%;
     }
+
+    .viewer-options {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .viewer-option {
+      width: 200px;
+    }
   }
 
   @media (max-width: 480px) {
@@ -417,13 +504,32 @@
 <div class="header">
   <div class="logo-container"></div>
   <h1>PDF Viewer Created by Xnuvers007</h1>
-  <p class="subtitle">Powerful & Secure Document Viewer</p>
+  <p class="subtitle">Powerful & Secure Document Viewer with Multiple Servers</p>
 </div>
 
 <div class="input-container">
   <div class="input-wrapper">
     <input type="url" id="pdfUrl" placeholder="Tempel URL file PDF di sini..." required autocomplete="off" spellcheck="false" />
   </div>
+</div>
+
+<div class="viewer-options">
+  <label class="viewer-option active">
+    <input type="radio" name="viewer" value="auto" checked>
+    🔄 Auto Failover
+  </label>
+  <label class="viewer-option">
+    <input type="radio" name="viewer" value="pdfjs">
+    📋 PDF.js Native
+  </label>
+  <label class="viewer-option">
+    <input type="radio" name="viewer" value="server1">
+    🌐 Server 1 (ViewerNG)
+  </label>
+  <label class="viewer-option">
+    <input type="radio" name="viewer" value="server2">
+    🔧 Server 2 (GView)
+  </label>
 </div>
 
 <div class="button-container">
@@ -437,36 +543,59 @@
 
 <div class="feature-grid">
   <div class="feature-card">
-    <div class="feature-icon">🔒</div>
-    <div class="feature-title">Keamanan Tinggi</div>
-    <div class="feature-desc">Dilindungi dari XSS dan serangan injeksi lainnya</div>
+    <div class="feature-icon">🔄</div>
+    <div class="feature-title">Auto Failover</div>
+    <div class="feature-desc">Otomatis beralih server jika server utama gagal</div>
   </div>
   <div class="feature-card">
     <div class="feature-icon">⚡</div>
-    <div class="feature-title">Performa Cepat</div>
-    <div class="feature-desc">Loading yang optimal dengan caching pintar</div>
+    <div class="feature-title">PDF.js Native</div>
+    <div class="feature-desc">Viewer PDF JavaScript yang powerful dan cepat</div>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔒</div>
+    <div class="feature-title">Multi-Server</div>
+    <div class="feature-desc">3 server berbeda untuk maksimum reliability</div>
   </div>
   <div class="feature-card">
     <div class="feature-icon">📱</div>
-    <div class="feature-title">Responsif</div>
+    <div class="feature-title">Responsive</div>
     <div class="feature-desc">Bekerja sempurna di semua perangkat</div>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🌐</div>
-    <div class="feature-title">Universal</div>
-    <div class="feature-desc">Mendukung berbagai format dokumen</div>
   </div>
 </div>
 
 <div id="pdfContainer">
-  <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-popups allow-forms" src=""></iframe>
+  <div class="server-status" id="serverStatus"></div>
+  <div id="pdfViewerContainer"></div>
+  <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
 </div>
 
 <div class="message" id="messageBox"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
   'use strict';
   
+  // PDF.js Configuration
+  if (typeof pdfjsLib !== 'undefined') {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+
+  // Server Configuration
+  const SERVERS = {
+    server1: {
+      name: 'ViewerNG',
+      url: 'https://docs.google.com/viewerng/viewer?url=',
+      class: 'server1'
+    },
+    server2: {
+      name: 'GView',
+      url: 'https://docs.google.com/gview?embedded=true&url=',
+      class: 'server2'
+    }
+  };
+
+  // Security: Input sanitization and validation
   const SecurityUtils = {
     sanitizeUrl: function(url) {
       if (typeof url !== 'string') return '';
@@ -501,20 +630,28 @@
     }
   };
 
+  // UI Management
   const UI = {
     elements: {
       urlInput: null,
       container: null,
       iframe: null,
-      messageBox: null
+      pdfViewerContainer: null,
+      messageBox: null,
+      serverStatus: null,
+      viewerOptions: null
     },
     
     init: function() {
       this.elements.urlInput = document.getElementById('pdfUrl');
       this.elements.container = document.getElementById('pdfContainer');
       this.elements.iframe = document.getElementById('pdfFrame');
+      this.elements.pdfViewerContainer = document.getElementById('pdfViewerContainer');
       this.elements.messageBox = document.getElementById('messageBox');
+      this.elements.serverStatus = document.getElementById('serverStatus');
+      this.elements.viewerOptions = document.querySelectorAll('input[name="viewer"]');
       
+      // Add event listeners
       this.elements.urlInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
           e.preventDefault();
@@ -525,6 +662,26 @@
       this.elements.urlInput.addEventListener('input', () => {
         this.clearMessage();
       });
+
+      // Add viewer option listeners
+      this.elements.viewerOptions.forEach(option => {
+        option.addEventListener('change', () => {
+          this.updateViewerOptionUI();
+        });
+      });
+
+      this.updateViewerOptionUI();
+    },
+
+    updateViewerOptionUI: function() {
+      document.querySelectorAll('.viewer-option').forEach(option => {
+        option.classList.remove('active');
+      });
+      
+      const selectedOption = document.querySelector('input[name="viewer"]:checked');
+      if (selectedOption) {
+        selectedOption.closest('.viewer-option').classList.add('active');
+      }
     },
     
     showMessage: function(text, type = 'error') {
@@ -560,100 +717,152 @@
       setTimeout(() => {
         this.elements.container.style.display = 'none';
         this.elements.iframe.src = '';
+        this.elements.pdfViewerContainer.style.display = 'none';
+        this.elements.pdfViewerContainer.innerHTML = '';
       }, 500);
+    },
+
+    updateServerStatus: function(serverType, serverName) {
+      const statusElement = this.elements.serverStatus;
+      statusElement.textContent = `📡 ${serverName}`;
+      statusElement.className = `server-status ${serverType}`;
+    },
+
+    showIframe: function() {
+      this.elements.iframe.style.display = 'block';
+      this.elements.pdfViewerContainer.style.display = 'none';
+    },
+
+    showPdfViewer: function() {
+      this.elements.iframe.style.display = 'none';
+      this.elements.pdfViewerContainer.style.display = 'block';
     }
   };
 
-  function loadPdf() {
-    const urlInput = UI.elements.urlInput;
-    const rawUrl = urlInput.value;
-    
-    UI.clearMessage();
-    UI.hideContainer();
-    
-    if (!rawUrl) {
-      UI.showMessage('❌ Mohon masukkan URL file PDF.', 'error');
-      urlInput.focus();
-      return;
-    }
-    
-    const sanitizedUrl = SecurityUtils.sanitizeUrl(rawUrl);
-    if (!sanitizedUrl) {
-      UI.showMessage('❌ URL mengandung karakter yang tidak diizinkan.', 'error');
-      return;
-    }
-    
-    if (!SecurityUtils.validateUrl(sanitizedUrl)) {
-      UI.showMessage('❌ Format URL tidak valid. Gunakan URL yang dimulai dengan http:// atau https://', 'error');
-      return;
-    }
-    
-    if (!SecurityUtils.isPotentialPdf(sanitizedUrl)) {
-      UI.showMessage('⚠️ URL ini mungkin bukan file PDF. Tetap melanjutkan...', 'warning');
-    }
-    
-    UI.showMessage('🔄 Memuat dokumen PDF...', 'loading');
-    
-    try {
-      const encodedUrl = encodeURIComponent(sanitizedUrl);
-      const viewerUrl = `https://docs.google.com/gview?embedded=true&url=${encodedUrl}`;
-      
-      const iframe = UI.elements.iframe;
-      iframe.src = viewerUrl;
-      
-      iframe.onload = function() {
-        UI.clearMessage();
-        UI.showMessage('✅ PDF berhasil dimuat!', 'success');
+  // PDF.js Viewer Implementation
+  const PDFJSViewer = {
+    currentPdf: null,
+    currentPage: 1,
+    totalPages: 0,
+    scale: 1.2,
+
+    async loadPdf(url) {
+      try {
+        UI.showMessage('🔄 Memuat PDF dengan PDF.js...', 'loading');
+        
+        // Clear previous content
+        UI.elements.pdfViewerContainer.innerHTML = '';
+        
+        // Create viewer structure
+        const viewerHTML = `
+          <div style="background: #2c3e50; height: 100%; display: flex; flex-direction: column;">
+            <div style="background: #34495e; padding: 10px; display: flex; justify-content: space-between; align-items: center; color: white; font-size: 14px;">
+              <div>
+                <button onclick="PDFJSViewer.previousPage()" style="background: #3498db; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-right: 5px; cursor: pointer;">◀ Prev</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button onclick="PDFJSViewer.nextPage()" style="background: #3498db; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-left: 5px; cursor: pointer;">Next ▶</button>
+              </div>
+              <div>
+                <button onclick="PDFJSViewer.zoomOut()" style="background: #e74c3c; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-right: 5px; cursor: pointer;">-</button>
+                <span id="zoomLevel">120%</span>
+                <button onclick="PDFJSViewer.zoomIn()" style="background: #27ae60; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-left: 5px; cursor: pointer;">+</button>
+              </div>
+            </div>
+            <div id="pdfCanvas" style="flex: 1; overflow: auto; background: #2c3e50; padding: 20px; text-align: center;"></div>
+          </div>
+        `;
+        
+        UI.elements.pdfViewerContainer.innerHTML = viewerHTML;
+        
+        // Load PDF
+        const loadingTask = pdfjsLib.getDocument(url);
+        this.currentPdf = await loadingTask.promise;
+        this.totalPages = this.currentPdf.numPages;
+        this.currentPage = 1;
+        
+        await this.renderPage(1);
+        this.updatePageInfo();
+        
+        UI.showPdfViewer();
+        UI.updateServerStatus('pdfjs', 'PDF.js Native');
         UI.showContainer();
-      };
-      
-      iframe.onerror = function() {
-        UI.showMessage('❌ Gagal memuat PDF. Periksa URL dan coba lagi.', 'error');
-        UI.hideContainer();
-      };
-      
-      setTimeout(() => {
-        if (UI.elements.messageBox.classList.contains('loading')) {
-          UI.clearMessage();
-          UI.showContainer();
-        }
-      }, 5000);
-      
-    } catch (error) {
-      console.error('Error loading PDF:', error);
-      UI.showMessage('❌ Terjadi kesalahan saat memuat PDF.', 'error');
+        UI.showMessage('✅ PDF berhasil dimuat dengan PDF.js!', 'success');
+        
+        return true;
+      } catch (error) {
+        console.error('PDF.js loading error:', error);
+        throw error;
+      }
+    },
+
+    async renderPage(pageNum) {
+      try {
+        const page = await this.currentPdf.getPage(pageNum);
+        const viewport = page.getViewport({ scale: this.scale });
+        
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        canvas.style.maxWidth = '100%';
+        canvas.style.height = 'auto';
+        canvas.style.boxShadow = '0 4px 8px rgba(0,0,0,0.3)';
+        canvas.style.borderRadius = '8px';
+        
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        
+        await page.render(renderContext).promise;
+        
+        const canvasContainer = document.getElementById('pdfCanvas');
+        canvasContainer.innerHTML = '';
+        canvasContainer.appendChild(canvas);
+        
+      } catch (error) {
+        console.error('Error rendering page:', error);
+      }
+    },
+
+    async previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+        await this.renderPage(this.currentPage);
+        this.updatePageInfo();
+      }
+    },
+
+    async nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+        await this.renderPage(this.currentPage);
+        this.updatePageInfo();
+      }
+    },
+
+    async zoomIn() {
+      this.scale = Math.min(this.scale + 0.2, 3.0);
+      await this.renderPage(this.currentPage);
+      this.updateZoomInfo();
+    },
+
+    async zoomOut() {
+      this.scale = Math.max(this.scale - 0.2, 0.5);
+      await this.renderPage(this.currentPage);
+      this.updateZoomInfo();
+    },
+
+    updatePageInfo() {
+      const pageInfo = document.getElementById('pageInfo');
+      if (pageInfo) {
+        pageInfo.textContent = `Page ${this.currentPage} of ${this.totalPages}`;
+      }
+    },
+
+    updateZoomInfo() {
+      const zoomLevel = document.getElementById('zoomLevel');
+      if (zoomLevel) {
+        zoomLevel.textContent = `${Math.round(this.scale * 100)}%`;
+      }
     }
-  }
-
-  function clearViewer() {
-    UI.elements.urlInput.value = '';
-    UI.hideContainer();
-    UI.clearMessage();
-    UI.elements.urlInput.focus();
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    UI.init();
-    
-    setTimeout(() => {
-      UI.elements.urlInput.focus();
-    }, 500);
-  });
-
-  document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName === 'IFRAME') {
-      e.preventDefault();
-    }
-  });
-
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-      console.log('Page hidden - pausing operations');
-    } else {
-      console.log('Page visible - resuming operations');
-    }
-  });
-</script>
-
-</body>
-</html>
