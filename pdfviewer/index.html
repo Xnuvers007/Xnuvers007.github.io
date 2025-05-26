@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PDF Viewer tanpa .pdf wajib</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://docs.google.com https://mozilla.github.io; connect-src 'self' https:; worker-src 'self' https://cdnjs.cloudflare.com;">
+<title>PDF Viewer | Xnuvers007</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://docs.google.com https://mozilla.github.io https://api.allorigins.win; connect-src 'self' https: https://api.allorigins.win; worker-src 'self' https://cdnjs.cloudflare.com blob:;">
 <style>
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -897,7 +897,9 @@ const PDFLoader = {
   
   loadWithPdfJs: async function(url) {
     try {
-      await PDFJSViewer.loadPdf(url);
+      const proxiedUrl = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(url))
+      await PDFJSViewer.loadPdf(proxiedUrl);
+      UI.updateServerStatus('pdfjs', 'PDF.js Native');
       this.selectedServer = 'pdfjs';
       return true;
     } catch (error) {
