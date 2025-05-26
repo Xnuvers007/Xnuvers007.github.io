@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PDF Viewer | Xnuvers007</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://docs.google.com https://mozilla.github.io https://api.allorigins.win; connect-src 'self' https: https://api.allorigins.win; worker-src 'self' https://cdnjs.cloudflare.com blob:;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://docs.google.com https://mozilla.github.io https://api.allorigins.win https://thingproxy.freeboard.io; connect-src 'self' https: https://api.allorigins.win https://thingproxy.freeboard.io; worker-src 'self' https://cdnjs.cloudflare.com blob:;"> 
 <style>
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -568,7 +568,7 @@
   <div class="server-status" id="serverStatus"></div>
   <div id="pdfViewerContainer"></div>
 <!--   <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe> -->
-  <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads" allow="fullscreen"></iframe> -->
+  <iframe id="pdfFrame" title="PDF Viewer" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-downloads" allow="fullscreen"></iframe>
 </div>
 
 <div class="message" id="messageBox"></div>
@@ -869,17 +869,34 @@
     }
   };
 
-const PDFLoader = {
+  const PDFLoader = {
   selectedServer: null,
   currentUrl: null,
   failoverMode: false,
+  currentProxyIndex: 0,
+  corsProxies: [
+    {
+      url: 'https://api.allorigins.win/raw?url='
+    },
+    {
+      url: 'https://thingproxy.freeboard.io/fetch/'
+    }
+  ],
+  
+  resetProxyIndex: function() {
+    this.currentProxyIndex = 0;
+  },
+  
+  getNextProxy: function() {
+    this.currentProxyIndex = (this.currentProxyIndex + 1) % this.corsProxies.length;
+    return this.corsProxies[this.currentProxyIndex];
+  },
   
   loadWithServer: function(url, serverType) {
     this.currentUrl = url;
     
     if (serverType === 'pdfjs') {
-      this.loadWithPdfJs(url);
-      return;
+      return this.loadWithPdfJs(url);
     }
     
     const server = SERVERS[serverType];
@@ -897,30 +914,40 @@ const PDFLoader = {
   },
   
   loadWithPdfJs: async function(url) {
-    try {
-      const proxiedUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-      await PDFJSViewer.loadPdf(proxiedUrl);
-      UI.updateServerStatus('pdfjs', 'PDF.js Native');
-      this.selectedServer = 'pdfjs';
-      return true;
-    } catch (error) {
-      console.error('Error loading with PDF.js:', error);
-      if (error.message && error.message.includes('NetworkError') && error.message.includes('network error')) {
-        UI.showMessage('⚠️ Network error. Mencoba metode alternatif...', 'warning');
-        return this.loadWithServer(url, 'server1');
-      } else if (error.message && error.message.includes('PDF.js') && error.message.includes('failed to load')) {
-        UI.showMessage('⚠️ PDF.js gagal memuat PDF. Mencoba server alternatif...', 'warning');
-      } else {
-        UI.showMessage('❌ Gagal memuat PDF dengan PDF.js', 'error');
+    this.resetProxyIndex();
+    let lastError = null;
+    
+    for (let attempt = 0; attempt < this.corsProxies.length; attempt++) {
+      const currentProxy = this.corsProxies[this.currentProxyIndex];
+      const proxiedUrl = currentProxy.url + encodeURIComponent(url);
+      
+      UI.showMessage(`🔄 Memuat PDF dengan proxy ${this.currentProxyIndex + 1}/${this.corsProxies.length}...`, 'loading');
+      console.log(`Mencoba proxy: ${currentProxy.url}`);
+      
+      try {
+        await PDFJSViewer.loadPdf(proxiedUrl);
+        this.selectedServer = 'pdfjs';
+        return true;
+      } catch (error) {
+        console.error(`Error dengan proxy ${currentProxy.url}:`, error);
+        lastError = error;
+        
+        if (attempt < this.corsProxies.length - 1) {
+          UI.showMessage(`⚠️ Gagal dengan proxy ${this.currentProxyIndex + 1}. Mencoba proxy berikutnya...`, 'warning');
+          this.getNextProxy();
+          continue;
+        }
       }
-
-      if (this.failoverMode) {
-        UI.showMessage('⚠️ PDF.js gagal memuat PDF. Mencoba server alternatif...', 'warning');
-        return this.tryAlternateServers(url);
-      } else {
-        UI.showMessage('❌ Gagal memuat PDF dengan PDF.js', 'error');
-        return false;
-      }
+    }
+    
+    console.error('Semua proxy gagal:', lastError);
+    
+    if (this.failoverMode) {
+      UI.showMessage('⚠️ PDF.js gagal memuat PDF. Mencoba server alternatif...', 'warning');
+      return this.tryAlternateServers(url);
+    } else {
+      UI.showMessage('❌ Gagal memuat PDF dengan PDF.js', 'error');
+      return false;
     }
   },
   
@@ -941,7 +968,6 @@ const PDFLoader = {
     }
   }
 };
-
 
 document.addEventListener('DOMContentLoaded', function() {
   UI.init();
@@ -967,6 +993,7 @@ function loadPdf() {
   }
   
   UI.showMessage('🔄 Memuat PDF...', 'loading');
+  PDFLoader.resetProxyIndex();
   
   const selectedViewer = document.querySelector('input[name="viewer"]:checked').value;
   
@@ -979,6 +1006,11 @@ function loadPdf() {
         } else {
           UI.hideContainer();
         }
+      })
+      .catch(error => {
+        console.error('Final error:', error);
+        UI.showMessage('❌ Gagal memuat PDF dengan semua metode', 'error');
+        UI.hideContainer();
       });
   } else {
     PDFLoader.failoverMode = false;
@@ -995,7 +1027,6 @@ function loadPdf() {
   }
 }
 
-
 function clearViewer() {
   UI.elements.urlInput.value = '';
   UI.hideContainer();
@@ -1003,7 +1034,6 @@ function clearViewer() {
   PDFLoader.currentUrl = null;
   PDFLoader.selectedServer = null;
 }
-
 
 document.getElementById('pdfFrame').addEventListener('error', function() {
   if (PDFLoader.failoverMode && PDFLoader.selectedServer) {
