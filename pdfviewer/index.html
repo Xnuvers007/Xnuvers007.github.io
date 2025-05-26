@@ -576,12 +576,12 @@
 <script>
   'use strict';
   
-  // PDF.js Configuration
+  
   if (typeof pdfjsLib !== 'undefined') {
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
   }
 
-  // Server Configuration
+  
   const SERVERS = {
     server1: {
       name: 'ViewerNG',
@@ -595,7 +595,7 @@
     }
   };
 
-  // Security: Input sanitization and validation
+  
   const SecurityUtils = {
     sanitizeUrl: function(url) {
       if (typeof url !== 'string') return '';
@@ -630,7 +630,7 @@
     }
   };
 
-  // UI Management
+  
   const UI = {
     elements: {
       urlInput: null,
@@ -651,7 +651,7 @@
       this.elements.serverStatus = document.getElementById('serverStatus');
       this.elements.viewerOptions = document.querySelectorAll('input[name="viewer"]');
       
-      // Add event listeners
+      
       this.elements.urlInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
           e.preventDefault();
@@ -663,7 +663,7 @@
         this.clearMessage();
       });
 
-      // Add viewer option listeners
+      
       this.elements.viewerOptions.forEach(option => {
         option.addEventListener('change', () => {
           this.updateViewerOptionUI();
@@ -739,7 +739,7 @@
     }
   };
 
-  // PDF.js Viewer Implementation
+  
   const PDFJSViewer = {
     currentPdf: null,
     currentPage: 1,
@@ -750,10 +750,10 @@
       try {
         UI.showMessage('🔄 Memuat PDF dengan PDF.js...', 'loading');
         
-        // Clear previous content
+        
         UI.elements.pdfViewerContainer.innerHTML = '';
         
-        // Create viewer structure
+        
         const viewerHTML = `
           <div style="background: #2c3e50; height: 100%; display: flex; flex-direction: column;">
             <div style="background: #34495e; padding: 10px; display: flex; justify-content: space-between; align-items: center; color: white; font-size: 14px;">
@@ -774,7 +774,7 @@
         
         UI.elements.pdfViewerContainer.innerHTML = viewerHTML;
         
-        // Load PDF
+        
         const loadingTask = pdfjsLib.getDocument(url);
         this.currentPdf = await loadingTask.promise;
         this.totalPages = this.currentPdf.numPages;
@@ -866,3 +866,145 @@
         zoomLevel.textContent = `${Math.round(this.scale * 100)}%`;
       }
     }
+  };
+
+const PDFLoader = {
+  selectedServer: null,
+  currentUrl: null,
+  failoverMode: false,
+  
+  loadWithServer: function(url, serverType) {
+    this.currentUrl = url;
+    
+    if (serverType === 'pdfjs') {
+      this.loadWithPdfJs(url);
+      return;
+    }
+    
+    const server = SERVERS[serverType];
+    if (!server) {
+      UI.showMessage('❌ Server tidak dikenali', 'error');
+      return Promise.reject(new Error('Unknown server'));
+    }
+    
+    this.selectedServer = serverType;
+    UI.showIframe();
+    UI.elements.iframe.src = server.url + encodeURIComponent(url);
+    UI.updateServerStatus(server.class, server.name);
+    
+    return Promise.resolve();
+  },
+  
+  loadWithPdfJs: async function(url) {
+    try {
+      await PDFJSViewer.loadPdf(url);
+      this.selectedServer = 'pdfjs';
+      return true;
+    } catch (error) {
+      console.error('Error loading with PDF.js:', error);
+      if (this.failoverMode) {
+        UI.showMessage('⚠️ PDF.js gagal memuat PDF. Mencoba server alternatif...', 'warning');
+        return this.tryAlternateServers(url);
+      } else {
+        UI.showMessage('❌ Gagal memuat PDF dengan PDF.js', 'error');
+        return false;
+      }
+    }
+  },
+  
+  tryAlternateServers: async function(url) {
+    try {
+      await this.loadWithServer(url, 'server1');
+      UI.showMessage('✅ PDF berhasil dimuat dengan server alternatif!', 'success');
+      return true;
+    } catch (error) {
+      try {
+        await this.loadWithServer(url, 'server2');
+        UI.showMessage('✅ PDF berhasil dimuat dengan server alternatif!', 'success');
+        return true;
+      } catch (error2) {
+        UI.showMessage('❌ Gagal memuat PDF dengan semua server', 'error');
+        return false;
+      }
+    }
+  }
+};
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  UI.init();
+});
+
+
+function loadPdf() {
+  const pdfUrl = UI.elements.urlInput.value;
+  const sanitizedUrl = SecurityUtils.sanitizeUrl(pdfUrl);
+  
+  if (!sanitizedUrl) {
+    UI.showMessage('❌ URL tidak valid', 'error');
+    return;
+  }
+  
+  if (!SecurityUtils.validateUrl(sanitizedUrl)) {
+    UI.showMessage('❌ URL harus diawali dengan http:// atau https://', 'error');
+    return;
+  }
+  
+  if (!SecurityUtils.isPotentialPdf(sanitizedUrl)) {
+    UI.showMessage('⚠️ URL tidak terlihat seperti file PDF, tapi akan dicoba...', 'warning');
+  }
+  
+  UI.showMessage('🔄 Memuat PDF...', 'loading');
+  
+  const selectedViewer = document.querySelector('input[name="viewer"]:checked').value;
+  
+  if (selectedViewer === 'auto') {
+    PDFLoader.failoverMode = true;
+    PDFLoader.loadWithPdfJs(sanitizedUrl)
+      .then(success => {
+        if (success) {
+          UI.showContainer();
+        } else {
+          UI.hideContainer();
+        }
+      });
+  } else {
+    PDFLoader.failoverMode = false;
+    PDFLoader.loadWithServer(sanitizedUrl, selectedViewer)
+      .then(() => {
+        UI.showContainer();
+        UI.showMessage('✅ PDF berhasil dimuat!', 'success');
+      })
+      .catch(error => {
+        console.error('Error loading PDF:', error);
+        UI.showMessage('❌ Gagal memuat PDF. Coba server lain atau periksa URL', 'error');
+        UI.hideContainer();
+      });
+  }
+}
+
+
+function clearViewer() {
+  UI.elements.urlInput.value = '';
+  UI.hideContainer();
+  UI.clearMessage();
+  PDFLoader.currentUrl = null;
+  PDFLoader.selectedServer = null;
+}
+
+
+document.getElementById('pdfFrame').addEventListener('error', function() {
+  if (PDFLoader.failoverMode && PDFLoader.selectedServer) {
+    UI.showMessage('⚠️ Server gagal memuat PDF. Mencoba server alternatif...', 'warning');
+    const nextServer = PDFLoader.selectedServer === 'server1' ? 'server2' : 'server1';
+    PDFLoader.loadWithServer(PDFLoader.currentUrl, nextServer);
+  } else {
+    UI.showMessage('❌ Gagal memuat PDF. Coba server lain atau periksa URL', 'error');
+  }
+});
+
+
+window.PDFJSViewer = PDFJSViewer;
+</script>
+</body>
+</html>
