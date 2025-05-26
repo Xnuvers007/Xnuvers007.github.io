@@ -925,6 +925,25 @@
       console.log(`Mencoba proxy: ${currentProxy.url}`);
       
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+        
+        try {
+          const testResponse = await fetch(proxiedUrl, { 
+            method: 'HEAD',
+            signal: controller.signal,
+            mode: 'cors'
+          });
+          
+          if (!testResponse.ok) {
+            throw new Error(`HTTP error: ${testResponse.status}`);
+          }
+        } catch (fetchError) {
+          console.log(`Preflight check failed for ${currentProxy.name}: ${fetchError.message}`);
+        } finally {
+          clearTimeout(timeoutId);
+        }
+        
         await PDFJSViewer.loadPdf(proxiedUrl);
         this.selectedServer = 'pdfjs';
         return true;
