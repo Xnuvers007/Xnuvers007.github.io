@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 2 Juni 2025 19.56.40 UTC
-- WITA: Senin, 2 Juni 2025 20.56.40 UTC
-- WIT: Senin, 2 Juni 2025 21.56.40 UTC
+- WIB: Senin, 2 Juni 2025 20.38.34 UTC
+- WITA: Senin, 2 Juni 2025 21.38.34 UTC
+- WIT: Senin, 2 Juni 2025 22.38.34 UTC
 
 Kutipan Inspiratif:
-"I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.'"
+"I quit being afraid when my first venture failed and the sky didn't fall down."
 
 
-Kategori: inspirational
+Kategori: motivational
 
