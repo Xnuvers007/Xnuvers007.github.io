@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 7 Juni 2025 00.27.42 UTC
-- WITA: Sabtu, 7 Juni 2025 01.27.42 UTC
-- WIT: Sabtu, 7 Juni 2025 02.27.42 UTC
+- WIB: Sabtu, 7 Juni 2025 01.38.04 UTC
+- WITA: Sabtu, 7 Juni 2025 02.38.04 UTC
+- WIT: Sabtu, 7 Juni 2025 03.38.04 UTC
 
 Kutipan Inspiratif:
-"When i was born..Devil said..?Oh Shit..!! Competition?"
+"It's not a faith in technology. It's faith in people."
 
 
-Kategori: attitude
+Kategori: technology
 
