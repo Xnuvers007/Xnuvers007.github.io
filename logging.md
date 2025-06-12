@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 12 Juni 2025 11.36.05 UTC
-- WITA: Kamis, 12 Juni 2025 12.36.05 UTC
-- WIT: Kamis, 12 Juni 2025 13.36.05 UTC
+- WIB: Kamis, 12 Juni 2025 12.29.28 UTC
+- WITA: Kamis, 12 Juni 2025 13.29.28 UTC
+- WIT: Kamis, 12 Juni 2025 14.29.28 UTC
 
 Kutipan Inspiratif:
-"Prosperity makes friends, adversity tries them."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: success
+Kategori: inspirational
 
