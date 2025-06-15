@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 15 Juni 2025 19.51.51 UTC
-- WITA: Minggu, 15 Juni 2025 20.51.51 UTC
-- WIT: Minggu, 15 Juni 2025 21.51.51 UTC
+- WIB: Minggu, 15 Juni 2025 20.32.45 UTC
+- WITA: Minggu, 15 Juni 2025 21.32.45 UTC
+- WIT: Minggu, 15 Juni 2025 22.32.45 UTC
 
 Kutipan Inspiratif:
-"The negative side of the American Dream comes when people pursue success at any cost, which in turn destroys the vision and the dream."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: success
+Kategori: inspirational
 
