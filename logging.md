@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 15 Juni 2025 11.37.35 UTC
-- WITA: Minggu, 15 Juni 2025 12.37.35 UTC
-- WIT: Minggu, 15 Juni 2025 13.37.35 UTC
+- WIB: Minggu, 15 Juni 2025 12.28.07 UTC
+- WITA: Minggu, 15 Juni 2025 13.28.07 UTC
+- WIT: Minggu, 15 Juni 2025 14.28.07 UTC
 
 Kutipan Inspiratif:
-"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
+"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
 
 
-Kategori: inspirational
+Kategori: motivational
 
