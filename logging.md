@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 15 Juni 2025 23.31.46 UTC
-- WITA: Senin, 16 Juni 2025 00.31.46 UTC
-- WIT: Senin, 16 Juni 2025 01.31.46 UTC
+- WIB: Senin, 16 Juni 2025 00.24.40 UTC
+- WITA: Senin, 16 Juni 2025 01.24.40 UTC
+- WIT: Senin, 16 Juni 2025 02.24.40 UTC
 
 Kutipan Inspiratif:
-"I am not bound to win, but i am bound to be true. I am not bound to succeed, but i am bound to live up to what light i have."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: success
+Kategori: attitude
 
