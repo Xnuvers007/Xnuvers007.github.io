@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 26 Juni 2025 12.30.49 UTC
-- WITA: Kamis, 26 Juni 2025 13.30.49 UTC
-- WIT: Kamis, 26 Juni 2025 14.30.49 UTC
+- WIB: Kamis, 26 Juni 2025 13.40.54 UTC
+- WITA: Kamis, 26 Juni 2025 14.40.54 UTC
+- WIT: Kamis, 26 Juni 2025 15.40.54 UTC
 
 Kutipan Inspiratif:
-"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: success
+Kategori: inspirational
 
