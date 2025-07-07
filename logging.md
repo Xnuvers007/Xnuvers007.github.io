@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 7 Juli 2025 09.24.22 UTC
-- WITA: Senin, 7 Juli 2025 10.24.22 UTC
-- WIT: Senin, 7 Juli 2025 11.24.22 UTC
+- WIB: Senin, 7 Juli 2025 10.58.52 UTC
+- WITA: Senin, 7 Juli 2025 11.58.52 UTC
+- WIT: Senin, 7 Juli 2025 12.58.52 UTC
 
 Kutipan Inspiratif:
-"Technology gives us the facilities that lessen the barriers of time and distance - the telegraph and cable, the telephone, radio, and the rest."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
 Kategori: technology
