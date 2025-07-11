@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 11 Juli 2025 09.23.40 UTC
-- WITA: Jumat, 11 Juli 2025 10.23.40 UTC
-- WIT: Jumat, 11 Juli 2025 11.23.40 UTC
+- WIB: Jumat, 11 Juli 2025 11.02.27 UTC
+- WITA: Jumat, 11 Juli 2025 12.02.27 UTC
+- WIT: Jumat, 11 Juli 2025 13.02.27 UTC
 
 Kutipan Inspiratif:
-"Technology is the fashion of the '90s. It affects everyone, and everyone is interested in it - either from fear of being left behind or because they have a real need to use technology."
+"People say me bad, trust me i am the worst!!!"
 
 
-Kategori: technology
+Kategori: attitude
 
