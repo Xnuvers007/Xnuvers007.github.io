@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 15 Juli 2025 03.32.05 UTC
-- WITA: Selasa, 15 Juli 2025 04.32.05 UTC
-- WIT: Selasa, 15 Juli 2025 05.32.05 UTC
+- WIB: Selasa, 15 Juli 2025 04.28.10 UTC
+- WITA: Selasa, 15 Juli 2025 05.28.10 UTC
+- WIT: Selasa, 15 Juli 2025 06.28.10 UTC
 
 Kutipan Inspiratif:
-"She is a friend of my mind. She gather me, man. The pieces I am, she gather them and give them back to me in all the right order."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: friendship
+Kategori: inspirational
 
