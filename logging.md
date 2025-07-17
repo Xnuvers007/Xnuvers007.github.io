@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 17 Juli 2025 13.44.25 UTC
-- WITA: Kamis, 17 Juli 2025 14.44.25 UTC
-- WIT: Kamis, 17 Juli 2025 15.44.25 UTC
+- WIB: Kamis, 17 Juli 2025 14.30.37 UTC
+- WITA: Kamis, 17 Juli 2025 15.30.37 UTC
+- WIT: Kamis, 17 Juli 2025 16.30.37 UTC
 
 Kutipan Inspiratif:
-"Just saw the most smartest person when i was in front of the mirror"
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: funny
+Kategori: inspirational
 
