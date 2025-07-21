@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Kompetensi Kerja | MyLSP Unpam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .competency-group > h3 {
+            cursor: pointer;
+            padding: 1rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .competency-group > h3:hover {
+            background-color: #f9fafb;
+        }
+        .competency-group .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 1rem;
+        }
+        .competency-group.open .details {
+            max-height: 4000px;
+            transition: max-height 0.7s ease-in, padding 0.7s ease-in;
+            padding: 1rem 1rem;
+        }
+        .competency-group h3 .arrow {
+            transition: transform 0.3s ease-in-out;
+        }
+        .competency-group.open h3 .arrow {
+            transform: rotate(90deg);
+        }
+        .custom-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .custom-list > li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .custom-list > li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .nested-list {
+             list-style-type: none;
+             padding-left: 1rem;
+             margin-top: 0.5rem;
+        }
+        .nested-list > li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+        .nested-list > li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #6b7280;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Standar Kompetensi Kerja</h1>
+            <p class="mt-2 text-md text-gray-600">Daftar unit kompetensi untuk berbagai peran di bidang teknologi.</p>
+        </header>
+
+        <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
+            <h2 class="text-2xl font-semibold p-5 bg-blue-600 text-white">Associate Data Scientist</h2>
+            <div class="p-5 divide-y divide-gray-200">
+            </div>
+        </div>
+
+        <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
+            <h2 class="text-2xl font-semibold p-5 bg-green-600 text-white">Network Administrator</h2>
+            <div class="p-5 divide-y divide-gray-200">
+            </div>
+        </div>
+
+        <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
+            <h2 class="text-2xl font-semibold p-5 bg-purple-600 text-white">Associate Data Analyst</h2>
+            <div class="p-5 divide-y divide-gray-200">
+            </div>
+        </div>
+
+        <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
+            <h2 class="text-2xl font-semibold p-5 bg-red-600 text-white">Programming</h2>
+            <div class="p-5 divide-y divide-gray-200">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const data = {
+                "Associate Data Scientist": {
+                    color: "blue",
+                    competencies: [
+                        { id: "J.62DMI00.004.1", title: "Mengumpulkan Data", items: [
+                            { name: "Menentukan kebutuhan data", sub: ["Kebutuhan data diidentifikasi sesuai tujuan teknis data science.", "Kebutuhan data diperiksa ketersediaannya sesuai aturan yang berlaku.", "Kebutuhan data ditentukan volumenya sesuai tujuan teknis data science."] },
+                            { name: "Mengambil Data", sub: ["Metode dan tools pengambilan data diidentifikasi sesuai tujuan teknis data science", "Tools pengambilan data ditentukan sesuai tujuan teknis data science", "Tools pengambilan data disiapkan sesuai tujuan teknis data science", "Proses pengambilan data dijalankan sesuai dengan tools yang telah disiapkan"] },
+                            { name: "Mengintegrasikan data", sub: ["Integritas data diperiksa sesuai tujuan teknis data science", "Data diintegrasikan sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.005.1", title: "Menelaah Data", items: [
+                            { name: "Menganalisis tipe dan relasi data", sub: ["Tipe data yang terkumpul diidentifikasi sesuai tujuan teknis", "Nilai atribut data yang terkumpul diuraikan sesuai dengan batasan konteks bisnisnya", "Relasi antar data yang terkumpul diidentifikasi sesuai dengan tujuan teknis"] },
+                            { name: "Menganalisis karakteristik data", sub: ["Karakteristik data yang terkumpul disajikan dengan deskripsi statistik dasar", "Karakteristik data yang terkumpul disajikan dengan visualisasi grafik", "Hasil penyajian data dianalisis karakteristiknya untuk telaah data"] },
+                            { name: "Membuat laporan telaah data", sub: ["Hasil analisis didokumentasikan dalam bentuk laporan sesuai dengan tujuan teknis", "Hipotesis disusun berdasar hasil analisis sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.006.1", title: "Memvalidasi Data", items: [
+                            { name: "Melakukan pengecekan kelengkapan data", sub: ["Penilaian kualitas data dari hasil telaah disajikan sesuai tujuan teknis data science.", "Penilaian tingkat kecukupan data dari hasil telaah disajikan sesuai tujuan teknis data science."] },
+                            { name: "Membuat rekomendasi kelengkapan data", sub: ["Rekomendasi hasil penilaian kualitas disusun sesuai tujuan teknis data science", "Rekomendasi hasil penilaian kecukupan data disusun sesuai tujuan teknis data science."] }
+                        ]},
+                        { id: "J.62DMI00.007.1", title: "Menentukan Objek Data", items: [
+                            { name: "Memutuskan kriteria dan teknik pemilihan data", sub: ["Kriteria pemilihan data diidentifikasi sesuai dengan tujuan teknis dan aturan yang berlaku", "Teknik pemilihan data ditetapkan sesuai dengan kriteria pemilihan data."] },
+                            { name: "Menentukan attributes (columns) dan records (row) data", sub: ["Attributes (columns) data diidentifikasi sesuai dengan kriteria pemilihan data.", "Records (row) data diidentifikasi sesuai dengan kriteria pemilihan data."] }
+                        ]},
+                        { id: "J.62DMI00.008.1", title: "Membersihkan Data", items: [
+                            { name: "Melakukan pembersihan data yang kotor", sub: ["Strategi pembersihan data ditentukan berdasarkan hasil telaah data.", "Data yang kotor dikoreksi berdasarkan strategi pembersihan data."] },
+                            { name: "Membuat laporan dan rekomendasi hasil membersihkan data", sub: ["Masalah dan teknis koreksi data dideskripsikan sesuai dengan kondisi data dan strategi pembersihan data.", "Evaluasi dihasilkan berdasarkan analisis koreksi yang telah dilakukan.", "Evaluasi proses dan hasilnya didokumentasikan."] }
+                        ]},
+                        { id: "J.62DMI00.009.1", title: "Mengkonstruksi Data", items: [
+                            { name: "Menganalisis teknik transformasi data", sub: ["Analisis data untuk menentukan representasi fitur data awal.", "Analisis representasi fitur data awal untuk menentukan teknik rekayasa fitur yang diperlukan untuk pembangunan model data science."] },
+                            { name: "Melakukan transformasi data", sub: ["Transformasi dilakukan untuk mendapatkan fitur data awal.", "Rekayasa fitur data dilakukan untuk mendapatkan fitur baru yang diperlukan untuk pembangunan model data science."] },
+                            { name: "Membuat dokumentasi konstruksi data", sub: ["Teknis transformasi data dijabarkan dalam bentuk tertulis.", "Hasil transformasi data dan rekomendasi hasil transformasi dituangkan dalam bentuk tertulis."] }
+                        ]},
+                        { id: "J.62DMI00.010.1", title: "Menentukan Label data", items: [
+                            { name: "Melakukan pelabelan data", sub: ["Analisis hasil pelabelan data sejenis yang sudah ada diuraikan kesesuaiannya dengan Standard Operating Procedure (SOP) pelabelan.", "Pelabelan data dilakukan sesuai dengan SOP pelabelan."] },
+                            { name: "Membuat laporan hasil pelabelan data", sub: ["Statistik hasil pelabelan diuraikan pada laporan.", "Evaluasi proses pelabelan diuraikan pada laporan."] }
+                        ]},
+                        { id: "J.62DMI00.013.1", title: "Membangun Model", items: [
+                            { name: "Menyiapkan parameter model", sub: ["Parameter-parameter yang sesuai dengan model diidentifikasi.", "Nilai toleransi parameter evaluasi pengujian ditetapkan sesuai dengan tujuan teknis."] },
+                            { name: "Menggunakan tools pemodelan", sub: ["Tools untuk membuat model diidentifikasi sesuai dengan tujuan teknis data science.", "Algoritma untuk teknik pemodelan yang ditentukan dibangun menggunakan tools yang dipilih.", "Algoritma pemodelan dieksekusi sesuai dengan skenario pengujian dan tools untuk membuat model yang telah ditetapkan.", "Parameter model algoritma dioptimasi untuk menghasilkan nilai parameter evaluasi yang sesuai dengan skenario pengujian."] }
+                        ]},
+                        { id: "J.62DMI00.014.1", title: "Mengevaluasi Hasil Pemodelan", items: [
+                            { name: "Menggunakan model dengan data riil", sub: ["Data baru untuk evaluasi pemodelan dikumpulkan sesuai kebutuhan yang mengacu kepada parameter evaluasi.", "Model diuji dengan menggunakan data riil yang telah dikumpulkan."] },
+                            { name: "Menilai hasil pemodelan", sub: ["Keluaran pengujian model dinilai berdasarkan metrik kesuksesan.", "Hasil penilaian didokumentasikan sesuai standar yang berlaku."] }
+                        ]}
+                    ]
+                },
+                "Network Administrator": {
+                    color: "green",
+                    competencies: [
+                        { id: "J.611000.003.02", title: "Merancang topologi jaringan", items: [{ name: "Menentukan kebutuhan pengguna secara keseluruhan", sub: [] }, { name: "Membuat spesifikasi topologi jaringan", sub: [] }] },
+                        { id: "J.611000.006.01", title: "Merancang keamanan jaringan", items: [{ name: "Mendefinisikan risikokeamanan jaringan", sub: [] }, { name: "Menganalisis risiko keamanan jaringan", sub: [] }, { name: "Membuat rancangan keamanan jaringan", sub: [] }] },
+                        { id: "J.611000.014.02", title: "Mengkonfigurasi routing pada perangkat jaringan antar autonomous system", items: [{ name: "Mengkonfigurasi router pada stub AS", sub: [] }, { name: "Mengkonfigurasi router pada multi-home AS", sub: [] }, { name: "Mengkonfigurasi router pada core AS", sub: [] }] },
+                        { id: "J.611000.015.01", title: "Memonitor keamanan dan pengaturan akun pengguna dalam jaringan komputer", items: [{ name: "Mengidentifikasi dan memodifikasi akun pengguna agar selalu terkendali.", sub: [] }, { name: "Memastikan akses yang aman ke file dan sumber daya", sub: [] }, { name: "Mengembangkan Service Level Agreement (Perjanjian Tingkat Layanan) atau SLA", sub: [] }] },
+                        { id: "J.611000.016.02", title: "Mengatasi serangan pada jaringan", items: [{ name: "Mengidentifikasi jenis serangan", sub: [] }, { name: "Menghentikan serangan", sub: [] }, { name: "Melakukan proses pemulihan", sub: [] }, { name: "Melakukan dokumentasi", sub: [] }] },
+                        { id: "J.611000.017.01", title: "Mengidentifikasi sumber kerusakan", items: [{ name: "Menyiapkan data dukumentasi dari jaringan yang bermasalah.", sub: [] }, { name: "Menganalisis problem dari sisi end point secara logical", sub: [] }, { name: "Mengidentifikasi problem secara physical", sub: [] }] },
+                        { id: "J.611000.018.01", title: "Memperbaiki kerusakan konfigurasi jaringan", items: [{ name: "Mendefinisikan masalah", sub: [] }, { name: "Mengumpulkan fakta", sub: [] }, { name: "Menganalisis informasi", sub: [] }, { name: "Memperbaiki kerusakan konfigurasi jaringan", sub: [] }, { name: "Mendokumentasikan tindakan terhadap perbaikan kerusakan konfigurasi", sub: [] }] },
+                        { id: "J.611000.020.01", title: "Mengoptimalkan kinerja sistem jaringan", items: [{ name: "Mengidentifikasi kinerja sistem", sub: [] }, { name: "Menentukan metode untuk memperbaikikinerja sistem", sub: [] }, { name: "Mengatur sistem dan memonitor kinerja sistem", sub: [] }, { name: "Mendokumentasikan tindakan mengoptimalkan sistem jaringan", sub: [] }] },
+                        { id: "J.611000.022.01", title: "Melakukan backup dan restore konfigurasi perangkat jaringan", items: [{ name: "Menentukan data penting yang harus dibackup", sub: [] }, { name: "Melakukan restore konfigurasi perangkat jaringan", sub: [] }, { name: "Mengembangkan prosedur backup dan restore konfigurasi jaringan", sub: [] }] }
+                    ]
+                },
+                "Associate Data Analyst": {
+                    color: "purple",
+                    competencies: [
+                        { id: "J.62DMI00.004.1", title: "Mengumpulkan Data", items: [
+                            { name: "Menentukan Kebutuhan Data", sub: ["Kebutuhan data diidentifikasi sesuai tujuan teknis data science", "Kebutuhan data diperiksa ketersediaannya sesuai aturan yang berlaku", "Kebutuhan data ditentukan volumenya sesuai tujuan teknis data science."] },
+                            { name: "Mengambil data", sub: ["Metode dan tools pengambilan data diidentifikasi sesuai tujuan teknis data science", "Tools pengambilan data ditentukan sesuai tujuan teknis data science", "Tools pengambilan data disiapkan sesuai tujuan teknis data science", "Proses pengambilan data dijalankan sesuai dengan tools yang telah disiapkan"] },
+                            { name: "Mengintegrasikan data", sub: ["Integritas data diperiksa sesuai tujuan teknis data science", "Data diintegrasikan sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.005.1", title: "Menelaah Data", items: [
+                            { name: "Menganalisis tipe dan relasi data", sub: ["Tipe data yang terkumpul diidentifikasi sesuai tujuan teknis", "Nilai atribut data yang terkumpul diuraikan sesuai dengan batasan konteks bisnisnya", "Relasi antar data yang terkumpul diidentifikasi sesuai dengan tujuan teknis"] },
+                            { name: "Menganalisis karakteristik data", sub: ["Karakteristik data yang terkumpul disajikan dengan deskripsi statistik dasar", "Karakteristik data yang terkumpul disajikan dengan visualisasi grafik", "Hasil penyajian data dianalisis karakteristiknya untuk telaah data"] },
+                            { name: "Membuat laporan telaah data", sub: ["Hasil analisis didokumentasikan dalam bentuk laporan sesuai dengan tujuan teknis", "Hipotesis disusun berdasar hasil analisis sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.006.1", title: "Memvalidasi Data", items: [
+                            { name: "Melakukan pengecekan kelengkapan data", sub: ["Penilaian kualitas data dari hasil telaah disajikan sesuai tujuan teknis data science", "Penilaian tingkat kecukupan data dari hasil telaah disajikan sesuai tujuan teknis data science."] },
+                            { name: "Membuat rekomendasi kelengkapan data", sub: ["Rekomendasi hasil penilaian kualitas disusun sesuai tujuan teknis data science", "Rekomendasi hasil penilaian kecukupan data disusun sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.007.1", title: "Menentukan Objek Data", items: [
+                            { name: "Memutuskan kriteria dan teknik pemilihan data", sub: ["Kriteria pemilihan data diidentifikasi sesuai dengan tujuan teknis dan aturan yang berlaku", "Teknik pemilihan data ditetapkan sesuai dengan kriteria pemilihan data"] },
+                            { name: "Menentukan attributes (columns) dan records (row) data", sub: ["Attributes (columns) data diidentifikasi sesuai dengan kriteria pemilihan data", "Records (row) data diidentifikasi sesuai dengan kriteria pemilihan data"] }
+                        ]},
+                        { id: "J.620100.021.02", title: "Menerapkan Akses Basis Data", items: [
+                            { name: "Membuat berbagai operasi terhadap basis data", sub: ["Data dapat disimpan/diubah ke dalam format basis data", "Informasi yang diinginkan dapat dihasilkan menggunakan query tersebut", "Indeks dipergunakan untuk mempercepat akses"] },
+                            { name: "Membuat prosedur akses terhadap basis data", sub: ["Library akses basis data dapat diterapkan", "Perintah akses data yang relevan dengan teknologi atau jenis baru data, diterapkan untuk mengakses data"] },
+                            { name: "Membuat koneksi basis data", sub: ["Teknologi koneksi yang sesuai dipilih", "Keamanan koneksi ditentukan", "Hak setiap pengguna ditentukan"] },
+                            { name: "Menguji program basis data", sub: ["Skenario pengujian disiapkan", "Logika pemrograman mengacu pada kinerja statement akses data yang akan dibaca", "Performansi mengacu pada kinerja statement akses data yang akan dibaca data diuji"] }
+                        ]}
+                    ]
+                },
+                "Programming": {
+                    color: "red",
+                    competencies: [
+                        { id: "J.620100.009.01", title: "Menggunakan Spesifikasi Program", items: [
+                            { name: "Menggunakan metode pengembangan program", sub: ["Apakah Anda dapat mendefinisikan metode pengembangan aplikasi?", "Apakah Anda dapat memilih metode pengembangan aplikasi (software development) sesuai kebutuhan?"] },
+                            { name: "Menggunakan diagram program dan deskripsi program", sub: ["Apakah Anda dapat mendefinisikan diagram program dengan metodologi pengembangan sistem?", "Apakah Anda dapat menggunakan metode pemodelan diagram objek dan diagram komponen?"] },
+                            { name: "Menerapkan hasil pemodelan ke dalam pengembangan program", sub: ["Apakah Anda dapat memilih hasil pemodelan yang mendukung kemampuan metodelogi yang sesuai dengan spesifikasi?", "Apakah Anda dapat memilih hasil pemrograman (IDE) yang mendukung bahasa pemrograman sesuai spesifikasi??"] }
+                        ]},
+                        { id: "J.620100.016.01", title: "Menulis Kode dengan Prinsip sesuai Guidelines dan Best Practices", items: [
+                            { name: "Menerapkan coding-guidelines dan best practices dalam penulisan program (kode sumber)", sub: ["Apakah Anda dapat Menuliskan kode sumber mengikuti coding-guidelines dan best practices?", "Apakah Anda dapat membuat struktur program yang sesuai dengan konsep paradigmanya?", "Apakah Anda dapat menangani galat/error?"] },
+                            { name: "Menggunakan ukuran performansi dalam menuliskan kode sumber", sub: ["Apakah Anda dapat menghitung Efisiensi penggunaan resources oleh kode?", "Apakah Anda dapat mengimplementasikan selalu kemudahaan interaksi sesuai standar berlaku?"] }
+                        ]},
+                        { id: "J.620100.017.02", title: "Mengimplementasikan Pemrograman Terstruktur", items: [
+                            { name: "Menggunakan Tipe Data dan Control Program", sub: ["Apakah Anda dapat menentukan tipe data yang sesuai standar ?", "Apakah Anda dapat menguasai syntax program yang sesuai standar ?", "Apakah Anda dapat menguasai struktur control program yang sesuai standar ?"] },
+                            { name: "Membuat Program Sederhana", sub: ["Apakah Anda dapat membuat program baca tulis untuk memasukkan data dari keyboard dan menampilkan ke layar monitor termasuk variasinya ?", "Apakah Anda dapat menggunakan struktur control percabangan dan pengulangan dalam membuat program ?"] },
+                            { name: "Membuat Program Menggunakan Prosedur dan Fungsi", sub: ["Apakah Anda dapat membuat program sesuai dengan prosedur aturan yang ada ?", "Apakah Anda dapat membuat program sesuai dengan fungsi aturan yang ada ?", "Apakah Anda dapat membuat program dengan prosedur dan fungsi aturan yang ada secara bersama-sama", "Apakah Anda dapat memberikan keterangan untuk setiap prosedur dan fungsi"] },
+                            { name: "Membuat program menggunakan array", sub: ["Apakah Anda dapat menentukan dimensi array ?", "Apakah Anda dapat menentukan tipe data array?", "Apakah Anda dapat menentukan panjang array?", "Apakah Anda dapat menentukan pengurutan array?"] },
+                            { name: "Membuat Program Untuk Akses File", sub: ["Apakah Anda dapat membuat program menulis data dalam media penyimpanan?", "Apakah Anda dapat membuat program membaca data dalam media penyimpanan?"] },
+                            { name: "Mengkompilasi Program", sub: ["Apakah Anda dapat mengkoreksi kesalahan program?", "Apakah Anda dapat membebaskan kesalahan syntax dalam program?"] }
+                        ]},
+                        { id: "J.620100.018.02", title: "Mengimplementasikan Pemrograman Berorientasi Objek", items: [
+                            { name: "Membuat program berorientasi objek dengan memanfaatkan class", sub: ["Apakah Anda dapat membuat program dengna menggunakan class?", "Apakah Anda dapat membuat property class yang akan direalisasikan dalam bentuk prosedur/fungsi ?", "Apakah Anda dapat membuat data dalam class ?", "Apakah Anda dapat mengelola hak akses dari tipe data ( private, protected, public ) ?"] },
+                            { name: "Menggunakan tipe data dan control program pada metode atau operasi dari suatu kelas", sub: ["Apakah Anda dapat mengidentifikasikan tipe data?", "Apakah Anda dapat menguasai sintaks program sesuai dengan bahasa program ?", "Apakah Anda dapat menguasai control program ?"] },
+                            { name: "Membuat program dengan konsep berbasis objek", sub: ["Apakah Anda dapat menerapkan inheritance pada class?", "Apakah Anda dapat menerapkan polymorphism pada class ?", "Apakah Anda dapat menerapkan overloading pada class ?"] },
+                            { name: "Membuat program object oriented dengan interface dan paket", sub: ["Apakah Anda dapat membuat interface class program?", "Apakah Anda dapat membuat paket dengan program ?"] },
+                            { name: "Mengkompilasi program", sub: ["Apakah Anda dapat mengoreksi kesalahan?", "Apakah Anda dapat menghasilkan program bebas dari salah sintaks ?"] }
+                        ]},
+                        { id: "J.620100.019.02", title: "Menggunakan Library Atau Komponen Pre-Existing", items: [
+                            { name: "Melakukan pemilihan unit-unit reuse yang potensial", sub: ["Apakah Anda dapat mengidentifikasikan class unit-unit reuse (dari aplikasi lain) yang sesuai?", "Apakah Anda dapat menghitung keuntungan efisiensi dari pemanfaatan komponen reuse?", "Apakah Anda dapat untuk tidak melanggar Lisensi, Hak cipta dan hak paten dalam pemanfaatan komponen reuse tersebut?"] },
+                            { name: "Melakukan integrasi library atau komponen pre-existing dengan source code yang ada", sub: ["Apakah Anda dapat mengidentifikasikan ketergantungan antar unit?", "Apakah Anda dapat menghindari penggunaan komponen yang sudah obsolete?", "Apakah Anda dapat menerapkan program dengan library yang dihubungkan?"] },
+                            { name: "Melakukan pembaharuan library atau komponen pre-existing yang digunakan", sub: ["Apakah Anda dapat mengidentifikasikan cara-cara pembaharuan library atau komponen pre-existing?", "Apakah Anda dapat melakukan pembaharuan library atau komponen pre-existing?"] }
+                        ]},
+                        { id: "J.620100.021.02", title: "Menerapkan Akses Basis Data", items: [
+                            { name: "Membuat berbagai operasi terhadap basis data", sub: ["Apakah Anda dapat menyimpan/mengubah data ke dalam format basis data ?", "Apakah Anda dapat menghasilkan Informasi yang diinginkan menggunakan query ?", "Apakah Anda dapat menggunakan indeks untuk mempercepat akses ?"] },
+                            { name: "Membuat prosedur akses terhadap basis data", sub: ["Apakah Anda dapat menerapkan Library akses basis data ?", "Apakah Anda dapat menerapkan perintah akses data yang relevan dengan teknologi atau jenis baru data, untuk mengakses data ?"] },
+                            { name: "Membuat koneksi basis data", sub: ["Apakah Anda dapat memilih Teknologi koneksi yang sesuai ?", "Apakah Anda dapat menentukan Keamanan koneksi ?", "Apakah Anda dapat menentukan Hak setiap pengguna ?"] },
+                            { name: "Menguji program basis data", sub: ["Apakah Anda dapat menyiapkan Skenario pengujian ?", "Apakah Anda dapat membaca kinerja statement akses data pada Logika Pemrograman ?", "Apakah Anda dapat membaca statement akses data pada Performansi data diuji ?"] }
+                        ]},
+                        { id: "J.620100.023.02", title: "Membuat Dokumen Kode Program", items: [
+                            { name: "Melakukan identifikasi kode program", sub: ["Apakah Anda dapat mengidentifikasikan modul program?", "Apakah Anda dapat mengidentifikasikan parameter yang digunakan?", "Apakah Anda dapat menjelaskan cara kerja algoritma?", "Apakah Anda dapat memberikan komentar setiap baris kodetermasuk data, eksepsi, fungsi, prosedur dan class (bila ada)?"] },
+                            { name: "Membuat dokumentasi modul program", sub: ["Apakah Anda dapat membuat dokumentasi modul yang sesuai dengan identitas untuk memudahkan pelacakan?", "Apakah Anda dapat menerapkan identifikasi dokumentasi?", "Apakah Anda dapat menjelaskan kegunaan modul?", "Apakah Anda dapat merevisi dokumen sesuai perubahan kode program?"] },
+                            { name: "Membuat dokumentasi fungsi, prosedur atau method program", sub: ["Apakah Anda dapat membuat dokumentasi fungsi, prosedur atau method?", "Apakah Anda dapat menjelaskan kemungkinan eksepsi?", "Apakah Anda dapat merevisi dokumen sesuai perubahan kode program?"] },
+                            { name: "Men-generate dokumentasi", sub: ["Apakah Anda dapat mengidentifikasikan tools untuk generate?", "Apakah Anda dapat melakukan generate dokumentasi?"] }
+                        ]},
+                        { id: "J.620100.025.02", title: "Melakukan Debugging", items: [
+                            { name: "Mempersiapkan Kode Program", sub: ["Apakah Anda dapat menyiapkan Kode program yang sesuai ?", "Apakah Anda dapat menyiapkan Debugging tools untuk melihat proses suatu modul ?"] },
+                            { name: "Melakukan debugging", sub: ["Apakah Anda dapat menyapkan kode program dikompilasi sesuai bahasa pemrograman?", "Apakah Anda dapat menganalisis kriteria lulus build ?", "Apakah Anda dapat menganalisis kriteria eksekusi aplikasi ?", "Apakah Anda dapat mencatat kode kesalahan?"] },
+                            { name: "Memperbaiki Program", sub: ["Apakah Anda dapat merumuskan perbaikan terhadap kesalahan kompilasi maupun build?", "Apakah Anda dapat melakukan perbaikan?"] }
+                        ]},
+                        { id: "J.620100.033.02", title: "Melaksanakan Pengujian Unit Program", items: [
+                            { name: "Menentukan kebutuhan uji coba dalam pengembangan", sub: ["Apakah Anda dapat mengidentifikasikan prosedur uji coba aplikasi sesuai dengan software development life cycle ?", "Apakah Anda dapat menentukan tools uji coba ?", "Apakah Anda dapat mengidentifikasi standard dan kondisi uji coba?"] },
+                            { name: "Mempersiapkan dokumentasi uji coba", sub: ["Apakah Anda dapat menentukan kebutuhan untuk uji coba?", "Apakah Anda dapat melaksanakan uji coba dengan variasi kondisi?", "Apakah Anda dapat membuat skenario uji coba?"] },
+                            { name: "Mempersiapkan data uji", sub: ["Apakah Anda dapat mengidentifikasi data uji unit tes?", "Apakah Anda dapat membangkitkan data uji unit test?"] },
+                            { name: "Melaksanakan prosedur uji coba", sub: ["Apakah Anda dapat mendesain skenario uji coba?", "Apakah Anda dapat mendesain prosedur uji coba dalam algoritma?", "Apakah Anda dapat melaksanakan uji coba?"] },
+                            { name: "Mengevaluasi hasil uji coba", sub: ["Apakah Anda dapat mencatat hasil uji coba?", "Apakah Anda dapat menganalisa hasil uji coba?", "Apakah Anda dapat melaporkan prosedur uji coba?", "Apakah Anda dapat menyelesaikan kesalahan/error?"] }
+                        ]}
+                    ]
+                }
+            };
+
+            function createCompetencyHTML(comp, index, color) {
+                let itemsHTML = comp.items.map(item => {
+                    let subItemsHTML = item.sub.length > 0 ? `<ul class="nested-list">${item.sub.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
+                    return `<li>${item.name}${subItemsHTML}</li>`;
+                }).join('');
+
+                return `
+                    <div class="competency-group">
+                        <h3 class="text-lg font-semibold text-gray-800 flex justify-between items-center">
+                            <span>${index + 1} (${comp.id}) - ${comp.title}</span>
+                            <span class="arrow text-${color}-500 transform transition-transform duration-300">&#9654;</span>
+                        </h3>
+                        <div class="details text-gray-700">
+                            <ul class="custom-list">${itemsHTML}</ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const allH2s = Array.from(document.querySelectorAll('h2'));
+            for (const role in data) {
+                const roleData = data[role];
+                const roleH2 = allH2s.find(h2 => h2.textContent.trim() === role);
+
+                if (roleH2) {
+                    const container = roleH2.nextElementSibling;
+                    if (container) {
+                        let html = roleData.competencies.map((comp, index) => createCompetencyHTML(comp, index, roleData.color)).join('');
+                        container.innerHTML = html;
+                    }
+                }
+            }
+            
+            document.querySelectorAll('.competency-group > h3').forEach(header => {
+                header.addEventListener('click', () => {
+                    header.parentElement.classList.toggle('open');
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
