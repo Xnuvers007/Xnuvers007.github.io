@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -77,6 +78,13 @@
             font-weight: bold;
             font-size: 1.25rem;
         }
+        .info-card ul {
+            padding-left: 1.5rem;
+            list-style-type: decimal;
+        }
+        .info-card ul ul {
+            list-style-type: lower-alpha;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 p-4 sm:p-6 md:p-8">
@@ -96,30 +104,96 @@
         </header>
 
         <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
-            <h2 class="text-2xl font-semibold p-5 bg-blue-600 text-white">Associate Data Scientist</h2>
-            <div class="p-5 divide-y divide-gray-200">
+            <h2 class="text-2xl font-semibold p-5 bg-gray-700 text-white">Tautan Penting</h2>
+            <div class="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="https://www.instagram.com/pelatihan_unpam/?hl=id" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">Informasi Pelatihan</a>
+                <a href="https://xnuvers007.github.io/mylsp/surat%20izin%20kerja.pdf" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">Download Surat Rekomendasi</a>
+                <a href="https://xnuvers007.github.io/mylsp/Tata%20Cara%20Validasi%20Telegram.pdf" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">Validasi Telegram</a>
+                <a href="http://bit.ly/SurPelatihan" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">Kuisioner Pelatihan</a>
+                <a href="https://xnuvers007.github.io/mylsp/surat%20izin%20kerja.pdf" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">Download Surat Izin Kerja</a>
             </div>
         </div>
 
         <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
-            <h2 class="text-2xl font-semibold p-5 bg-green-600 text-white">Network Administrator</h2>
-            <div class="p-5 divide-y divide-gray-200">
-            </div>
+            <h2 class="text-2xl font-semibold p-5 bg-blue-600 text-white" data-role="Associate Data Scientist">Associate Data Scientist</h2>
+            <div class="p-5 divide-y divide-gray-200"></div>
         </div>
-
         <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
-            <h2 class="text-2xl font-semibold p-5 bg-purple-600 text-white">Associate Data Analyst</h2>
-            <div class="p-5 divide-y divide-gray-200">
-            </div>
+            <h2 class="text-2xl font-semibold p-5 bg-green-600 text-white" data-role="Network Administrator">Network Administrator</h2>
+            <div class="p-5 divide-y divide-gray-200"></div>
         </div>
-
         <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
-            <h2 class="text-2xl font-semibold p-5 bg-red-600 text-white">Programming</h2>
-            <div class="p-5 divide-y divide-gray-200">
+            <h2 class="text-2xl font-semibold p-5 bg-purple-600 text-white" data-role="Associate Data Analyst">Associate Data Analyst</h2>
+            <div class="p-5 divide-y divide-gray-200"></div>
+        </div>
+        <div class="mb-8 bg-white rounded-lg shadow-md overflow-hidden">
+            <h2 class="text-2xl font-semibold p-5 bg-red-600 text-white" data-role="Programming">Programming</h2>
+            <div class="p-5 divide-y divide-gray-200"></div>
+        </div>
+        
+        <div class="space-y-8">
+            <div class="info-card bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Terkait Pendaftaran Uji Kompetensi & Pencegahan COVID-19 Selama New Normal</h3>
+                <p class="mb-4 text-gray-600">Diberitahukan kepada seluruh peserta Uji Kompetensi Universitas Pamulang, mengingat penyebaran Corona Virus Disease (COVID-19) yang semakin meluas, untuk langkah Pencegahan tersebut sesuai dengan surat edaran rektor nomor 363/A/Ed/UNPAM/III/2020 kami memberitahuakan bahwa:</p>
+                <ul class="space-y-3 text-gray-600">
+                    <li>Bagi Calon Peserta Uji Kompetensi Yang Ingin Melakukan Pendaftaran untuk tidak Validasi tatap muka ke bagian administrasi LSP UNPAM. diganti dengan mahsiswa mengecek kembali data validasi melalui Web unpam.ac.id masing-masing peserta.</li>
+                    <li>Bagi peserta yang sudah mendaftar Uji Kompetensi Online melalui web mylsp.unpam.ac.id sampai dengan tahap terakhir dapat mengecek status Validasinya 2-3 hari setelah melakukan pendaftaran, Berikut ini tata cara Pengecekan status Validasi :
+                        <ul class="mt-2 space-y-2">
+                            <li>Mahsiswa yang berhasil registrasi online dan sudah melakukan pembayaran, dapat langsung mengecek status validasi dengan:
+                                <ul class="list-disc pl-5 mt-1">
+                                    <li>Log SSO mylsp.unpam.ac.id</li>
+                                    <li>Mengklik Riwayat Sertifikasi</li>
+                                    <li>Klik nama peserta masing-masing</li>
+                                    <li>Geser kebagian Berkas pastikan data sudah VALID, jika data TIDAK VALID akan diberikan keterangan mengenai berkas data yang salah dan wajib di perbarui oleh peserta dengan mengklik keterangan UBAH</li>
+                                    <li>Pastikan kembali data yang di perbarui sudah VALID</li>
+                                </ul>
+                            </li>
+                            <li>Di rekomendasikan pengecekan melalui Komputer atau laptop</li>
+                        </ul>
+                    </li>
+                    <li>Bukti pembayaran Uji kompetensi di simpan dengan baik</li>
+                    <li>Untuk Seluruh pengecekan informasi peserta dapat menghubungi Admin LSP UNPAM melalui, Whatsapp Admin LSP : 0881-1521-527, Web unpam.ac.id, Instagram @lsp_unpam, Facebook lspunpam, Twiter @lspunpam</li>
+                    <li>Di mohon untuk bersabar dalam menunggu respon Admin, serta menghubungi admin sesuai dengan jam operasional 09.00-18.00 WIB</li>
+                </ul>
+            </div>
+
+            <div class="info-card bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Syarat & Peraturan Selama Uji Kompetensi</h3>
+                <ul class="space-y-2 text-gray-600">
+                    <li>Peserta Diwajibkan Hadir Sebelum Setengah Jam Sebelum Ujian Dimulai.</li>
+                    <li>Peserta Diwajibkan Membawa Almamater Selama Ujian Berlangsung.</li>
+                    <li>Peserta Diwajibkan Membawa Alat Tulis & Membawa KTP & KTM Selama Ujian Berlangsung.</li>
+                    <li>Peserta Wajib Mengikuti Peraturan Yang Telah Diberitahukan Oleh Asesor Penguji Selama Ujian Berlangsung</li>
+                </ul>
+            </div>
+            
+            <div class="info-card bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Kode Ruangan Uji Kompetensi</h3>
+                <ul class="space-y-2 text-gray-600 list-none p-0">
+                    <li><span class="font-semibold">Kode A & B:</span> Gedung Unpam Pusat di Jl. Surya Kencana, Pamulang</li>
+                    <li><span class="font-semibold">Kode V:</span> Gedung Unpam Viktor Jl.Raya Puspitek, Buaran, Serpong</li>
+                    <li><span class="font-semibold">Kode Web-Lab:</span> Kampus Witanaharja Pamulang</li>
+                </ul>
             </div>
         </div>
 
     </div>
+
+    <footer class="mt-12 bg-gray-800 text-white py-8">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h3 class="text-xl font-bold mb-4">Informasi Lembaga Sertifikasi Profesi</h3>
+            <p class="mb-6 text-gray-300">Untuk Seluruh Informasi Tentang Lembaga Sertifikasi Profesi Universitas Pamulang, Dapat Bertanya Langsung Pada Kontak Yang Tertera.</p>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="https://www.instagram.com/lsp_unpam" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors"><i class="fab fa-instagram fa-2x"></i><span class="sr-only">Instagram</span></a>
+                <a href="https://twitter.com/lspunpam" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors"><i class="fab fa-twitter fa-2x"></i><span class="sr-only">Twitter</span></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fab fa-facebook fa-2x"></i><span class="sr-only">Facebook</span></a>
+                <a href="https://wa.me/628811521527" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors"><i class="fab fa-whatsapp fa-2x"></i><span class="sr-only">WhatsApp</span></a>
+            </div>
+            <div class="mt-6 text-gray-400 text-sm">
+                WhatsApp: 0881-1521-527
+            </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -271,7 +345,7 @@
                 }
             };
 
-            function createCompetencyHTML(comp, index, color) {
+            function createCompetencyHTML(comp, index, color, role) {
                 let itemsHTML = comp.items.map(item => {
                     let subItemsHTML = item.sub.length > 0 ? `<ul class="nested-list">${item.sub.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
                     return `<li>${item.name}${subItemsHTML}</li>`;
@@ -290,16 +364,15 @@
                 `;
             }
 
-            const allH2s = Array.from(document.querySelectorAll('h2'));
+            const allH2s = Array.from(document.querySelectorAll('h2[data-role]'));
             for (const role in data) {
                 const roleData = data[role];
-                const roleH2 = allH2s.find(h2 => h2.textContent.trim() === role);
+                const roleH2 = allH2s.find(h2 => h2.dataset.role === role);
 
                 if (roleH2) {
                     const container = roleH2.nextElementSibling;
                     if (container) {
-                        let html = roleData.competencies.map((comp, index) => createCompetencyHTML(comp, index, roleData.color)).join('');
-                        container.innerHTML = html;
+                        container.innerHTML = roleData.competencies.map((comp, index) => createCompetencyHTML(comp, index, roleData.color, role)).join('');
                     }
                 }
             }
