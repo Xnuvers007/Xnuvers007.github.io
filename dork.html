@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Dorking Tool - Sistem Informasi Pengadaan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 15px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-group label {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        select, input {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .search-engines {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .engine-btn {
+            padding: 15px 10px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .engine-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .engine-btn:hover::before {
+            left: 100%;
+        }
+
+        .google { background: linear-gradient(45deg, #4285f4, #34a853); color: white; }
+        .duckduckgo { background: linear-gradient(45deg, #de5833, #f57c00); color: white; }
+        .bing { background: linear-gradient(45deg, #0078d4, #106ebe); color: white; }
+        .yandex { background: linear-gradient(45deg, #ff3333, #ffcc00); color: white; }
+        .ecosia { background: linear-gradient(45deg, #4caf50, #8bc34a); color: white; }
+        .searx { background: linear-gradient(45deg, #3f51b5, #9c27b0); color: white; }
+
+        .engine-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .engine-icon {
+            font-size: 1.2em;
+        }
+
+        .dorking-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .dorking-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+
+        .dorking-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .dorking-item code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85em;
+            color: #2c3e50;
+            display: block;
+            word-break: break-all;
+        }
+
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .copy-notification.show {
+            transform: translateX(0);
+        }
+
+        .year-filter {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .year-filter:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-engines {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+            
+            .dorking-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Google Dorking Tool</h1>
+            <p>Sistem Informasi Perbaikan Pengadaan Sarana & Prasarana Berbasis Web</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="yearFilter">Filter Tahun:</label>
+                <select id="yearFilter">
+                    <option value="">Semua Tahun</option>
+                    <option value="after:2019">5 Tahun Terakhir (2020-2025)</option>
+                    <option value="after:2020">4 Tahun Terakhir (2021-2025)</option>
+                    <option value="after:2021">3 Tahun Terakhir (2022-2025)</option>
+                    <option value="after:2020 before:2024">2020-2023</option>
+                    <option value="after:2021 before:2024">2021-2023</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="fileType">Tipe File:</label>
+                <select id="fileType">
+                    <option value="filetype:pdf">PDF</option>
+                    <option value="filetype:doc">DOC</option>
+                    <option value="filetype:docx">DOCX</option>
+                    <option value="filetype:ppt">PPT</option>
+                    <option value="">Semua File</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="siteFilter">Filter Site:</label>
+                <select id="siteFilter">
+                    <option value="">Semua Site</option>
+                    <option value="site:ac.id">Akademik Indonesia (.ac.id)</option>
+                    <option value="site:scholar.google.com">Google Scholar</option>
+                    <option value="site:neliti.com">Neliti</option>
+                    <option value="site:garuda.ristekbrin.go.id">Garuda</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="search-engines">
+            <a href="#" class="engine-btn google" data-engine="google">
+                <span class="engine-icon">🔍</span>
+                <span>Google</span>
+            </a>
+            <a href="#" class="engine-btn duckduckgo" data-engine="duckduckgo">
+                <span class="engine-icon">🦆</span>
+                <span>DuckDuckGo</span>
+            </a>
+            <a href="#" class="engine-btn bing" data-engine="bing">
+                <span class="engine-icon">🅱️</span>
+                <span>Bing</span>
+            </a>
+            <a href="#" class="engine-btn yandex" data-engine="yandex">
+                <span class="engine-icon">Я</span>
+                <span>Yandex</span>
+            </a>
+            <a href="#" class="engine-btn ecosia" data-engine="ecosia">
+                <span class="engine-icon">🌱</span>
+                <span>Ecosia</span>
+            </a>
+            <a href="#" class="engine-btn searx" data-engine="searx">
+                <span class="engine-icon">🔒</span>
+                <span>SearX</span>
+            </a>
+        </div>
+
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Generating search links...</p>
+        </div>
+
+        <div class="dorking-categories" id="dorkingCategories">
+            <!-- Categories will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div class="copy-notification" id="copyNotification">
+        Query berhasil disalin ke clipboard!
+    </div>
+
+    <script>
+        const searchEngines = {
+            google: 'https://www.google.com/search?q=',
+            duckduckgo: 'https://duckduckgo.com/?q=',
+            bing: 'https://www.bing.com/search?q=',
+            yandex: 'https://yandex.com/search/?text=',
+            ecosia: 'https://www.ecosia.org/search?q=',
+            searx: 'https://searx.org/?q='
+        };
+
+        const dorkingQueries = {
+            "Sistem Informasi Pengadaan": [
+                '"sistem informasi pengadaan"',
+                '"sistem informasi pengadaan barang"',
+                '"rancang bangun sistem pengadaan"',
+                '"sistem informasi e-procurement"',
+                '"web based procurement system"',
+                '"procurement management system"',
+                '"electronic procurement system"',
+                '"sistem pengadaan online"'
+            ],
+            "Sarana & Prasarana": [
+                '"sistem informasi sarana prasarana"',
+                '"manajemen sarana prasarana sekolah"',
+                '"sistem informasi aset sekolah"',
+                '"facility management system"',
+                '"asset management information system"',
+                '"sistem informasi inventaris"',
+                '"school facility management"',
+                '"educational facility management"'
+            ],
+            "Sekolah Dasar & Pendidikan": [
+                '"sistem informasi sekolah dasar"',
+                '"aplikasi sekolah berbasis web"',
+                '"sistem informasi pendidikan" "sekolah dasar"',
+                '"school information system"',
+                '"educational management system"',
+                '"web based school system"',
+                '"sistem informasi manajemen sekolah"'
+            ],
+            "Repository Universitas": [
+                'site:repository.upi.edu "sistem informasi pengadaan"',
+                'site:eprints.undip.ac.id "sistem informasi sekolah"',
+                'site:repository.its.ac.id "procurement system"',
+                'site:digilib.unila.ac.id "sistem informasi"',
+                'site:repository.unpad.ac.id "pengadaan"',
+                'site:eprints.ums.ac.id "sistem informasi"',
+                'site:repository.ugm.ac.id "procurement"'
+            ],
+            "Teknologi & Framework": [
+                '"Laravel" "sistem informasi"',
+                '"PHP" "sistem informasi pengadaan"',
+                '"MySQL" "sistem informasi"',
+                '"CodeIgniter" "sistem informasi sekolah"',
+                '"bootstrap" "sistem informasi"',
+                '"responsive web design" "sistem informasi"',
+                '"Progressive Web App" "sistem informasi"'
+            ],
+            "Metodologi Penelitian": [
+                '"metode penelitian sistem informasi"',
+                '"black box testing" "sistem informasi"',
+                '"user acceptance testing"',
+                '"system usability scale"',
+                '"kuesioner sistem informasi"',
+                '"validasi sistem informasi"',
+                '"pengujian sistem berbasis web"'
+            ]
+        };
+
+        let selectedEngine = 'google';
+
+        function initializePage() {
+            renderCategories();
+            attachEventListeners();
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('dorkingCategories');
+            container.innerHTML = '';
+
+            Object.entries(dorkingQueries).forEach(([category, queries]) => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                
+                const categoryTitle = document.createElement('h3');
+                categoryTitle.textContent = category;
+                categoryDiv.appendChild(categoryTitle);
+
+                queries.forEach(query => {
+                    const queryDiv = document.createElement('div');
+                    queryDiv.className = 'dorking-item';
+                    queryDiv.innerHTML = `<code>${query}</code>`;
+                    queryDiv.addEventListener('click', () => copyToClipboard(query));
+                    categoryDiv.appendChild(queryDiv);
+                });
+
+                container.appendChild(categoryDiv);
+            });
+        }
+
+        function attachEventListeners() {
+            // Search engine selection
+            document.querySelectorAll('.engine-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    selectedEngine = btn.dataset.engine;
+                    
+                    // Update active state
+                    document.querySelectorAll('.engine-btn').forEach(b => b.style.opacity = '0.7');
+                    btn.style.opacity = '1';
+                    
+                    updateAllLinks();
+                });
+            });
+
+            // Filter changes
+            ['yearFilter', 'fileType', 'siteFilter'].forEach(id => {
+                document.getElementById(id).addEventListener('change', updateAllLinks);
+            });
+        }
+
+        function buildQuery(baseQuery) {
+            const yearFilter = document.getElementById('yearFilter').value;
+            const fileType = document.getElementById('fileType').value;
+            const siteFilter = document.getElementById('siteFilter').value;
+
+            let fullQuery = baseQuery;
+
+            if (fileType) fullQuery += ` ${fileType}`;
+            if (siteFilter) fullQuery += ` ${siteFilter}`;
+            if (yearFilter) fullQuery += ` ${yearFilter}`;
+
+            return fullQuery.trim();
+        }
+
+        function updateAllLinks() {
+            document.querySelectorAll('.dorking-item').forEach(item => {
+                const baseQuery = item.querySelector('code').textContent;
+                const fullQuery = buildQuery(baseQuery);
+                const searchUrl = searchEngines[selectedEngine] + encodeURIComponent(fullQuery);
+                
+                item.onclick = () => {
+                    copyToClipboard(fullQuery);
+                    window.open(searchUrl, '_blank');
+                };
+            });
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function showNotification() {
+            const notification = document.getElementById('copyNotification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializePage);
+        
+        // Set default selected engine
+        document.querySelector('.google').style.opacity = '1';
+        document.querySelectorAll('.engine-btn:not(.google)').forEach(btn => {
+            btn.style.opacity = '0.7';
+        });
+    </script>
+</body>
+</html>
