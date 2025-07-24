@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 24 Juli 2025 09.26.16 UTC
-- WITA: Kamis, 24 Juli 2025 10.26.16 UTC
-- WIT: Kamis, 24 Juli 2025 11.26.16 UTC
+- WIB: Kamis, 24 Juli 2025 11.04.24 UTC
+- WITA: Kamis, 24 Juli 2025 12.04.24 UTC
+- WIT: Kamis, 24 Juli 2025 13.04.24 UTC
 
 Kutipan Inspiratif:
-"I failed in some subjects in exam, but my friend passed in all. Now he is an engineer in microsoft and i am the owner of microsoft."
+"You're going to fail your way to success, you have nothing to be ashamed of so keep your head up. It’s much easier to come up with excuses of why you can't do it. If you do what is easy your life will be hard."
 
 
-Kategori: inspirational
+Kategori: motivational
 
