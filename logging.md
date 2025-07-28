@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 28 Juli 2025 22.33.45 UTC
-- WITA: Senin, 28 Juli 2025 23.33.45 UTC
-- WIT: Selasa, 29 Juli 2025 00.33.45 UTC
+- WIB: Senin, 28 Juli 2025 23.39.18 UTC
+- WITA: Selasa, 29 Juli 2025 00.39.18 UTC
+- WIT: Selasa, 29 Juli 2025 01.39.18 UTC
 
 Kutipan Inspiratif:
-"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
+"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
 
 
-Kategori: motivational
+Kategori: attitude
 
