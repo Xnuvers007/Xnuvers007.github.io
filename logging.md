@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 31 Juli 2025 22.33.16 UTC
-- WITA: Kamis, 31 Juli 2025 23.33.16 UTC
-- WIT: Jumat, 1 Agustus 2025 00.33.16 UTC
+- WIB: Kamis, 31 Juli 2025 23.38.54 UTC
+- WITA: Jumat, 1 Agustus 2025 00.38.54 UTC
+- WIT: Jumat, 1 Agustus 2025 01.38.54 UTC
 
 Kutipan Inspiratif:
-"No one who achieves success does so without acknowledging the help of others. The wise and confident acknowledge this help with gratitude."
+"When i was born..Devil said..?Oh Shit..!! Competition?"
 
 
-Kategori: success
+Kategori: attitude
 
