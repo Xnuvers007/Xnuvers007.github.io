@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 19 Agustus 2025 05.26.16 UTC
-- WITA: Selasa, 19 Agustus 2025 06.26.16 UTC
-- WIT: Selasa, 19 Agustus 2025 07.26.16 UTC
+- WIB: Selasa, 19 Agustus 2025 06.25.27 UTC
+- WITA: Selasa, 19 Agustus 2025 07.25.27 UTC
+- WIT: Selasa, 19 Agustus 2025 08.25.27 UTC
 
 Kutipan Inspiratif:
-"The size of your problems is nothing compared with your ability to solve them. Dont overestimate your problems and underestimate yourself."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: motivational
+Kategori: attitude
 
