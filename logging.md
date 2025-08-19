@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 19 Agustus 2025 06.25.27 UTC
-- WITA: Selasa, 19 Agustus 2025 07.25.27 UTC
-- WIT: Selasa, 19 Agustus 2025 08.25.27 UTC
+- WIB: Selasa, 19 Agustus 2025 07.26.57 UTC
+- WITA: Selasa, 19 Agustus 2025 08.26.57 UTC
+- WIT: Selasa, 19 Agustus 2025 09.26.57 UTC
 
 Kutipan Inspiratif:
-"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
+"We have more media than ever and more technology in our lives. It's supposed to help us communicate, but it has the opposite effect of isolating us."
 
 
-Kategori: attitude
+Kategori: technology
 
