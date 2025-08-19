@@ -1,1 +1,605 @@
-<!doctype html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daftar Kompetensi Kerja | MyLSP Unpam</title><script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>*{font-family:Inter,sans-serif}body{background:linear-gradient(135deg,#f5f7fa 0,#c3cfe2 100%);min-height:100vh}.glass-card{background:rgba(255,255,255,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}.competency-card{background:rgba(255,255,255,.95);transition:all .3s ease;border-left:5px solid transparent}.competency-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.1)}.competency-header{cursor:pointer;transition:all .3s ease;position:relative}.competency-header:hover{background:rgba(59,130,246,.05)}.competency-content{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1),padding .5s cubic-bezier(.4,0,.2,1);padding:0 1.5rem}.competency-card.open .competency-content{max-height:4000px;padding:1.5rem}.competency-arrow{transition:transform .3s ease}.competency-card.open .competency-arrow{transform:rotate(90deg)}.hero-gradient{background:linear-gradient(135deg,#667eea 0,#764ba2 100%)}.card-hover-effect{transition:all .3s cubic-bezier(.4,0,.2,1)}.card-hover-effect:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 50px rgba(0,0,0,.15)}.glow-effect{box-shadow:0 0 20px rgba(59,130,246,.3)}.badge{background:rgba(255,255,255,.2);color:#fff;padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:600;display:inline-block}.stats-card{background:rgba(255,255,255,.1);backdrop-filter:blur(15px);border-radius:20px;padding:2rem;text-align:center;transition:all .3s ease;border:1px solid rgba(255,255,255,.2)}.stats-card:hover{transform:translateY(-10px);background:rgba(255,255,255,.2)}.fade-in{animation:fadeIn 1s ease-out}@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.stagger-animation>*{animation:slideInUp .8s ease-out;animation-fill-mode:both}.stagger-animation>:first-child{animation-delay:.1s}.stagger-animation>:nth-child(2){animation-delay:.2s}.stagger-animation>:nth-child(3){animation-delay:.3s}.stagger-animation>:nth-child(4){animation-delay:.4s}.stagger-animation>:nth-child(5){animation-delay:.5s}.stagger-animation>:nth-child(6){animation-delay:.6s}@keyframes slideInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}.role-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.5rem;color:#fff}.noscript-warning{display:flex;background-color:#f8d7da;color:#721c24;padding:.75rem 1.25rem;border:1px solid #f5c6cb;border-radius:.25rem;margin-bottom:1rem}</style></head><body class="text-gray-800"><div class="hero-gradient min-h-screen flex items-center justify-center p-4 relative overflow-hidden"><div class="absolute inset-0 bg-black opacity-20"></div><div class="relative z-10 text-center text-white max-w-6xl mx-auto fade-in"><div class="mb-8"><h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">MyLSP UNPAM</h1><p class="text-xl md:text-2xl mb-8 text-blue-100 font-light leading-relaxed">Platform Standar Kompetensi Kerja untuk Berbagai Peran di Bidang Teknologi</p><div class="flex flex-col sm:flex-row gap-4 justify-center items-center"><a href="#competencies" class="px-8 py-4 bg-white text-indigo-600 font-bold rounded-full hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-2xl glow-effect"><i class="fas fa-rocket mr-2"></i>Jelajahi Kompetensi</a><a href="https://mylsp.unpam.ac.id/" target="_blank" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105"><i class="fas fa-external-link-alt mr-2"></i>Kunjungi Website</a></div></div><div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 stagger-animation"><div class="stats-card"><div class="role-icon bg-gradient-to-r from-blue-500 to-purple-500"><i class="fas fa-sitemap"></i></div><h3 class="text-2xl font-bold text-white">4</h3><p class="text-blue-200">Role Tersedia</p></div><div class="stats-card"><div class="role-icon bg-gradient-to-r from-green-500 to-teal-500"><i class="fas fa-tasks"></i></div><h3 class="text-2xl font-bold text-white">31</h3><p class="text-blue-200">Unit Kompetensi</p></div><div class="stats-card"><div class="role-icon bg-gradient-to-r from-purple-500 to-pink-500"><i class="fas fa-certificate"></i></div><h3 class="text-2xl font-bold text-white">100+</h3><p class="text-blue-200">Kriteria Penilaian</p></div><div class="stats-card"><div class="role-icon bg-gradient-to-r from-orange-500 to-red-500"><i class="fas fa-users"></i></div><h3 class="text-2xl font-bold text-white">1000+</h3><p class="text-blue-200">Peserta Aktif</p></div></div></div></div><div class="py-16 bg-white"><div class="max-w-7xl mx-auto px-4"><div class="text-center mb-12"><h2 class="text-4xl font-bold text-gray-900 mb-4">Akses Cepat</h2><p class="text-xl text-gray-600">Dapatkan informasi dan layanan yang Anda butuhkan</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-animation"><a href="https://www.instagram.com/pelatihan_unpam/?hl=id" target="_blank" class="card-hover-effect bg-gradient-to-br from-pink-500 to-rose-500 text-white p-6 rounded-2xl shadow-lg"><i class="fab fa-instagram text-3xl mb-4"></i><h3 class="text-xl font-bold mb-2">Informasi Pelatihan</h3><p class="opacity-90">Ikuti update terbaru pelatihan dan sertifikasi</p></a><a href="https://xnuvers007.github.io/mylsp/surat%20izin%20kerja.pdf" target="_blank" class="card-hover-effect bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-6 rounded-2xl shadow-lg"><i class="fas fa-download text-3xl mb-4"></i><h3 class="text-xl font-bold mb-2">Surat Rekomendasi</h3><p class="opacity-90">Download template surat rekomendasi</p></a><a href="https://xnuvers007.github.io/mylsp/Tata%20Cara%20Validasi%20Telegram.pdf" target="_blank" class="card-hover-effect bg-gradient-to-br from-sky-500 to-cyan-500 text-white p-6 rounded-2xl shadow-lg"><i class="fab fa-telegram text-3xl mb-4"></i><h3 class="text-xl font-bold mb-2">Validasi Telegram</h3><p class="opacity-90">Panduan validasi melalui Telegram</p></a><a href="http://bit.ly/SurPelatihan" target="_blank" class="card-hover-effect bg-gradient-to-br from-purple-500 to-violet-500 text-white p-6 rounded-2xl shadow-lg"><i class="fas fa-clipboard-list text-3xl mb-4"></i><h3 class="text-xl font-bold mb-2">Kuisioner Pelatihan</h3><p class="opacity-90">Berikan feedback untuk pelatihan</p></a><a href="https://xnuvers007.github.io/mylsp/surat%20izin%20kerja.pdf" target="_blank" class="card-hover-effect bg-gradient-to-br from-orange-500 to-amber-500 text-white p-6 rounded-2xl shadow-lg"><i class="fas fa-file-alt text-3xl mb-4"></i><h3 class="text-xl font-bold mb-2">Surat Izin Kerja</h3><p class="opacity-90">Download template surat izin kerja</p></a><br><hr><a href="https://wa.me/6287850339368" target="_blank" class="card-hover-effect bg-gradient-to-br from-green-600 to-emerald-500 text-white p-6 rounded-2xl shadow-lg"><i class="fab fa-whatsapp text-3xl mb-4"></i><h3 class="text-xl font-bold mb-2">Hubungi Admin</h3><p class="opacity-90">Chat langsung dengan admin LSP</p></a><a href="https://wa.me/6287850332606" target="_blank" class="card-hover-effect bg-gradient-to-br from-green-600 to-emerald-500 text-white p-6 rounded-2xl shadow-lg"><i class="fab fa-whatsapp text-3xl mb-4"></i><h3 class="text-xl font-bold mb-2">Hubungi Admin ke-2</h3><p class="opacity-90">Chat langsung dengan admin LSP yang ke-2</p></a></div></div></div><div id="competencies" class="py-16 bg-gray-50"><div class="max-w-7xl mx-auto px-4"><div class="text-center mb-12"><h2 class="text-4xl font-bold text-gray-900 mb-4">Standar Kompetensi Kerja</h2><p class="text-xl text-gray-600">Pilih role yang sesuai dengan minat dan keahlian Anda</p></div><div class="space-y-8" id="competency-container"></div></div></div><div class="py-16 bg-white"><div class="max-w-7xl mx-auto px-4"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 stagger-animation"><div class="glass-card p-8 rounded-3xl shadow-lg"><div class="flex items-center mb-6"><div class="bg-yellow-500 rounded-full p-3 mr-4"><i class="fas fa-shield-virus text-white text-xl"></i></div><h3 class="text-2xl font-bold text-gray-900">Info Pendaftaran & COVID-19</h3></div><div class="space-y-4 text-gray-700"><p class="leading-relaxed">Mengingat penyebaran COVID-19, validasi pendaftaran dilakukan secara online melalui website mylsp.unpam.ac.id</p><div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg"><h4 class="font-semibold mb-2">Langkah Validasi Online:</h4><ol class="list-decimal list-inside space-y-1 text-sm"><li>Login ke SSO mylsp.unpam.ac.id</li><li>Klik "Riwayat Sertifikasi"</li><li>Periksa status validasi berkas</li><li>Update data jika diperlukan</li></ol></div><div class="mt-6 space-y-4"><div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0"><a href="https://wa.me/6287850339368" class="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors w-full sm:w-auto text-sm font-medium"><i class="fab fa-whatsapp mr-2"></i>Hubungi Admin (no CALL!)</a><a href="https://wa.me/6287850332606" class="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors w-full sm:w-auto text-sm font-medium"><i class="fab fa-whatsapp mr-2"></i>Hubungi Admin ke-2 (no CALL!)</a></div><div class="bg-gray-100 p-4 rounded-lg border border-gray-200 text-gray-700 text-sm"><h4 class="font-semibold mb-2 text-gray-900">Jam Operasional Admin:</h4><dl class="grid grid-cols-2 gap-x-4 gap-y-1"><dt>Senin - Jumat</dt><dd>08:30 - 20:00 WIB</dd><dt>Sabtu</dt><dd>08:30 - 15:00 WIB</dd></dl></div></div></div></div><div class="glass-card p-8 rounded-3xl shadow-lg"><div class="flex items-center mb-6"><div class="bg-blue-500 rounded-full p-3 mr-4"><i class="fas fa-clipboard-check text-white text-xl"></i></div><h3 class="text-2xl font-bold text-gray-900">Syarat & Peraturan Ujian</h3></div><div class="space-y-4"><div class="flex items-start space-x-3"><i class="fas fa-clock text-blue-500 mt-1"></i><p class="text-gray-700">Hadir 30 menit sebelum ujian dimulai</p></div><div class="flex items-start space-x-3"><i class="fas fa-graduation-cap text-blue-500 mt-1"></i><p class="text-gray-700">Wajib membawa almamater selama ujian</p></div><div class="flex items-start space-x-3"><i class="fas fa-id-card text-blue-500 mt-1"></i><p class="text-gray-700">Membawa KTP, KTM, dan alat tulis</p></div><div class="flex items-start space-x-3"><i class="fas fa-user-tie text-blue-500 mt-1"></i><p class="text-gray-700">Mengikuti instruksi asesor penguji</p></div></div><div class="mt-6 pt-6 border-t border-gray-200"><h4 class="font-semibold text-gray-900 mb-3">Kode Ruangan Ujian:</h4><div class="space-y-2 text-sm text-gray-700"><div><span class="font-medium text-gray-800">Kode A & B:</span>Gedung UNPAM Pusat, Pamulang</div><div><span class="font-medium text-gray-800">Kode V:</span>Gedung Viktor, Serpong</div><div><span class="font-medium text-gray-800">Kode Web-Lab:</span>Kampus Witanaharja</div></div></div></div></div></div></div><footer class="bg-gradient-to-r from-gray-900 to-blue-900 text-white py-16"><div class="max-w-7xl mx-auto px-4"><div class="text-center mb-12"><h3 class="text-3xl font-bold mb-4">Lembaga Sertifikasi Profesi</h3><p class="text-xl text-blue-200 mb-8">Universitas Pamulang</p><p class="text-gray-300 max-w-2xl mx-auto leading-relaxed">Untuk informasi lengkap tentang Lembaga Sertifikasi Profesi Universitas Pamulang, silakan hubungi kontak yang tertera di bawah ini.</p></div><div class="flex justify-center items-center space-x-6 mb-12"><a href="https://www.instagram.com/lsp_unpam" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-3xl group-hover:text-pink-400 transition-colors"></i></a><a href="https://twitter.com/lspunpam" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter text-3xl group-hover:text-blue-400 transition-colors"></i></a><a href="#" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook text-3xl group-hover:text-blue-500 transition-colors"></i></a><a href="https://wa.me/6287850332606" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-whatsapp text-3xl group-hover:text-green-400 transition-colors"></i></a><a href="https://wa.me/6287850339368" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-whatsapp text-3xl group-hover:text-green-400 transition-colors"></i></a></div><div class="text-center text-gray-500 text-sm"><p>&copy;<span id="current-year"></span>Xnuvers007 All rights reserved.</p><br><p>Jam Operasional Admin:</p><dl><dt>senin - jumat</dt><dd>08:30 - 20:00 WIB</dd><dt>sabtu</dt><dd>08:30 - 15:00 WIB</dd><dl><p></p></dl></dl></div><script>document.addEventListener("DOMContentLoaded",function(){document.getElementById("current-year").textContent=(new Date).getFullYear()})</script></div></footer><script>document.addEventListener("DOMContentLoaded",(function(){const a={"Associate Data Scientist":{color:"#3b82f6",icon:"fa-chart-line",description:"Analisis data dan pembelajaran mesin",competencies:[{id:"J.62DMI00.004.1",title:"Mengumpulkan Data",items:[{name:"Menentukan kebutuhan data",sub:["Kebutuhan data diidentifikasi sesuai tujuan teknis data science.","Kebutuhan data diperiksa ketersediaannya sesuai aturan yang berlaku.","Kebutuhan data ditentukan volumenya sesuai tujuan teknis data science."]},{name:"Mengambil Data",sub:["Metode dan tools pengambilan data diidentifikasi sesuai tujuan teknis data science","Tools pengambilan data ditentukan sesuai tujuan teknis data science","Tools pengambilan data disiapkan sesuai tujuan teknis data science","Proses pengambilan data dijalankan sesuai dengan tools yang telah disiapkan"]},{name:"Mengintegrasikan data",sub:["Integritas data diperiksa sesuai tujuan teknis data science","Data diintegrasikan sesuai tujuan teknis data science"]}]},{id:"J.62DMI00.005.1",title:"Menelaah Data",items:[{name:"Menganalisis tipe dan relasi data",sub:["Tipe data yang terkumpul diidentifikasi sesuai tujuan teknis","Nilai atribut data yang terkumpul diuraikan sesuai dengan batasan konteks bisnisnya","Relasi antar data yang terkumpul diidentifikasi sesuai dengan tujuan teknis"]},{name:"Menganalisis karakteristik data",sub:["Karakteristik data yang terkumpul disajikan dengan deskripsi statistik dasar","Karakteristik data yang terkumpul disajikan dengan visualisasi grafik","Hasil penyajian data dianalisis karakteristiknya untuk telaah data"]},{name:"Membuat laporan telaah data",sub:["Hasil analisis didokumentasikan dalam bentuk laporan sesuai dengan tujuan teknis","Hipotesis disusun berdasar hasil analisis sesuai tujuan teknis data science"]}]},{id:"J.62DMI00.006.1",title:"Memvalidasi Data",items:[{name:"Melakukan pengecekan kelengkapan data",sub:["Penilaian kualitas data dari hasil telaah disajikan sesuai tujuan teknis data science.","Penilaian tingkat kecukupan data dari hasil telaah disajikan sesuai tujuan teknis data science."]},{name:"Membuat rekomendasi kelengkapan data",sub:["Rekomendasi hasil penilaian kualitas disusun sesuai tujuan teknis data science","Rekomendasi hasil penilaian kecukupan data disusun sesuai tujuan teknis data science."]}]},{id:"J.62DMI00.007.1",title:"Menentukan Objek Data",items:[{name:"Memutuskan kriteria dan teknik pemilihan data",sub:["Kriteria pemilihan data diidentifikasi sesuai dengan tujuan teknis dan aturan yang berlaku","Teknik pemilihan data ditetapkan sesuai dengan kriteria pemilihan data."]},{name:"Menentukan attributes (columns) dan records (row) data",sub:["Attributes (columns) data diidentifikasi sesuai dengan kriteria pemilihan data.","Records (row) data diidentifikasi sesuai dengan kriteria pemilihan data."]}]},{id:"J.62DMI00.008.1",title:"Membersihkan Data",items:[{name:"Melakukan pembersihan data yang kotor",sub:["Strategi pembersihan data ditentukan berdasarkan hasil telaah data.","Data yang kotor dikoreksi berdasarkan strategi pembersihan data."]},{name:"Membuat laporan dan rekomendasi hasil membersihkan data",sub:["Masalah dan teknis koreksi data dideskripsikan sesuai dengan kondisi data dan strategi pembersihan data.","Evaluasi dihasilkan berdasarkan analisis koreksi yang telah dilakukan.","Evaluasi proses dan hasilnya didokumentasikan."]}]},{id:"J.62DMI00.009.1",title:"Mengkonstruksi Data",items:[{name:"Menganalisis teknik transformasi data",sub:["Analisis data untuk menentukan representasi fitur data awal.","Analisis representasi fitur data awal untuk menentukan teknik rekayasa fitur yang diperlukan untuk pembangunan model data science."]},{name:"Melakukan transformasi data",sub:["Transformasi dilakukan untuk mendapatkan fitur data awal.","Rekayasa fitur data dilakukan untuk mendapatkan fitur baru yang diperlukan untuk pembangunan model data science."]},{name:"Membuat dokumentasi konstruksi data",sub:["Teknis transformasi data dijabarkan dalam bentuk tertulis.","Hasil transformasi data dan rekomendasi hasil transformasi dituangkan dalam bentuk tertulis."]}]},{id:"J.62DMI00.010.1",title:"Menentukan Label data",items:[{name:"Melakukan pelabelan data",sub:["Analisis hasil pelabelan data sejenis yang sudah ada diuraikan kesesuaiannya dengan Standard Operating Procedure (SOP) pelabelan.","Pelabelan data dilakukan sesuai dengan SOP pelabelan."]},{name:"Membuat laporan hasil pelabelan data",sub:["Statistik hasil pelabelan diuraikan pada laporan.","Evaluasi proses pelabelan diuraikan pada laporan."]}]},{id:"J.62DMI00.013.1",title:"Membangun Model",items:[{name:"Menyiapkan parameter model",sub:["Parameter-parameter yang sesuai dengan model diidentifikasi.","Nilai toleransi parameter evaluasi pengujian ditetapkan sesuai dengan tujuan teknis."]},{name:"Menggunakan tools pemodelan",sub:["Tools untuk membuat model diidentifikasi sesuai dengan tujuan teknis data science.","Algoritma untuk teknik pemodelan yang ditentukan dibangun menggunakan tools yang dipilih.","Algoritma pemodelan dieksekusi sesuai dengan skenario pengujian dan tools untuk membuat model yang telah ditetapkan.","Parameter model algoritma dioptimasi untuk menghasilkan nilai parameter evaluasi yang sesuai dengan skenario pengujian."]}]},{id:"J.62DMI00.014.1",title:"Mengevaluasi Hasil Pemodelan",items:[{name:"Menggunakan model dengan data riil",sub:["Data baru untuk evaluasi pemodelan dikumpulkan sesuai kebutuhan yang mengacu kepada parameter evaluasi.","Model diuji dengan menggunakan data riil yang telah dikumpulkan."]},{name:"Menilai hasil pemodelan",sub:["Keluaran pengujian model dinilai berdasarkan metrik kesuksesan.","Hasil penilaian didokumentasikan sesuai standar yang berlaku."]}]}]},"Network Administrator":{color:"#10b981",icon:"fa-network-wired",description:"Pengelolaan dan keamanan jaringan",competencies:[{id:"J.611000.003.02",title:"Merancang topologi jaringan",items:[{name:"Menentukan kebutuhan pengguna secara keseluruhan",sub:[]},{name:"Membuat spesifikasi topologi jaringan",sub:[]}]},{id:"J.611000.006.01",title:"Merancang keamanan jaringan",items:[{name:"Mendefinisikan risikokeamanan jaringan",sub:[]},{name:"Menganalisis risiko keamanan jaringan",sub:[]},{name:"Membuat rancangan keamanan jaringan",sub:[]}]},{id:"J.611000.014.02",title:"Mengkonfigurasi routing pada perangkat jaringan antar autonomous system",items:[{name:"Mengkonfigurasi router pada stub AS",sub:[]},{name:"Mengkonfigurasi router pada multi-home AS",sub:[]},{name:"Mengkonfigurasi router pada core AS",sub:[]}]},{id:"J.611000.015.01",title:"Memonitor keamanan dan pengaturan akun pengguna dalam jaringan komputer",items:[{name:"Mengidentifikasi dan memodifikasi akun pengguna agar selalu terkendali.",sub:[]},{name:"Memastikan akses yang aman ke file dan sumber daya",sub:[]},{name:"Mengembangkan Service Level Agreement (Perjanjian Tingkat Layanan) atau SLA",sub:[]}]},{id:"J.611000.016.02",title:"Mengatasi serangan pada jaringan",items:[{name:"Mengidentifikasi jenis serangan",sub:[]},{name:"Menghentikan serangan",sub:[]},{name:"Melakukan proses pemulihan",sub:[]},{name:"Melakukan dokumentasi",sub:[]}]},{id:"J.611000.017.01",title:"Mengidentifikasi sumber kerusakan",items:[{name:"Menyiapkan data dukumentasi dari jaringan yang bermasalah.",sub:[]},{name:"Menganalisis problem dari sisi end point secara logical",sub:[]},{name:"Mengidentifikasi problem secara physical",sub:[]}]},{id:"J.611000.018.01",title:"Memperbaiki kerusakan konfigurasi jaringan",items:[{name:"Mendefinisikan masalah",sub:[]},{name:"Mengumpulkan fakta",sub:[]},{name:"Menganalisis informasi",sub:[]},{name:"Memperbaiki kerusakan konfigurasi jaringan",sub:[]},{name:"Mendokumentasikan tindakan terhadap perbaikan kerusakan konfigurasi",sub:[]}]},{id:"J.611000.020.01",title:"Mengoptimalkan kinerja sistem jaringan",items:[{name:"Mengidentifikasi kinerja sistem",sub:[]},{name:"Menentukan metode untuk memperbaikikinerja sistem",sub:[]},{name:"Mengatur sistem dan memonitor kinerja sistem",sub:[]},{name:"Mendokumentasikan tindakan mengoptimalkan sistem jaringan",sub:[]}]},{id:"J.611000.022.01",title:"Melakukan backup dan restore konfigurasi perangkat jaringan",items:[{name:"Menentukan data penting yang harus dibackup",sub:[]},{name:"Melakukan restore konfigurasi perangkat jaringan",sub:[]},{name:"Mengembangkan prosedur backup dan restore konfigurasi jaringan",sub:[]}]}]},"Associate Data Analyst":{color:"#8b5cf6",icon:"fa-chart-bar",description:"Analisis dan interpretasi data",competencies:[{id:"J.62DMI00.004.1",title:"Mengumpulkan Data",items:[{name:"Menentukan Kebutuhan Data",sub:["Kebutuhan data diidentifikasi sesuai tujuan teknis data science","Kebutuhan data diperiksa ketersediaannya sesuai aturan yang berlaku","Kebutuhan data ditentukan volumenya sesuai tujuan teknis data science."]},{name:"Mengambil data",sub:["Metode dan tools pengambilan data diidentifikasi sesuai tujuan teknis data science","Tools pengambilan data ditentukan sesuai tujuan teknis data science","Tools pengambilan data disiapkan sesuai tujuan teknis data science","Proses pengambilan data dijalankan sesuai dengan tools yang telah disiapkan"]},{name:"Mengintegrasikan data",sub:["Integritas data diperiksa sesuai tujuan teknis data science","Data diintegrasikan sesuai tujuan teknis data science"]}]},{id:"J.62DMI00.005.1",title:"Menelaah Data",items:[{name:"Menganalisis tipe dan relasi data",sub:["Tipe data yang terkumpul diidentifikasi sesuai tujuan teknis","Nilai atribut data yang terkumpul diuraikan sesuai dengan batasan konteks bisnisnya","Relasi antar data yang terkumpul diidentifikasi sesuai dengan tujuan teknis"]},{name:"Menganalisis karakteristik data",sub:["Karakteristik data yang terkumpul disajikan dengan deskripsi statistik dasar","Karakteristik data yang terkumpul disajikan dengan visualisasi grafik","Hasil penyajian data dianalisis karakteristiknya untuk telaah data"]},{name:"Membuat laporan telaah data",sub:["Hasil analisis didokumentasikan dalam bentuk laporan sesuai dengan tujuan teknis","Hipotesis disusun berdasar hasil analisis sesuai tujuan teknis data science"]}]},{id:"J.62DMI00.006.1",title:"Memvalidasi Data",items:[{name:"Melakukan pengecekan kelengkapan data",sub:["Penilaian kualitas data dari hasil telaah disajikan sesuai tujuan teknis data science","Penilaian tingkat kecukupan data dari hasil telaah disajikan sesuai tujuan teknis data science."]},{name:"Membuat rekomendasi kelengkapan data",sub:["Rekomendasi hasil penilaian kualitas disusun sesuai tujuan teknis data science","Rekomendasi hasil penilaian kecukupan data disusun sesuai tujuan teknis data science"]}]},{id:"J.62DMI00.007.1",title:"Menentukan Objek Data",items:[{name:"Memutuskan kriteria dan teknik pemilihan data",sub:["Kriteria pemilihan data diidentifikasi sesuai dengan tujuan teknis dan aturan yang berlaku","Teknik pemilihan data ditetapkan sesuai dengan kriteria pemilihan data"]},{name:"Menentukan attributes (columns) dan records (row) data",sub:["Attributes (columns) data diidentifikasi sesuai dengan kriteria pemilihan data","Records (row) data diidentifikasi sesuai dengan kriteria pemilihan data"]}]},{id:"J.620100.021.02",title:"Menerapkan Akses Basis Data",items:[{name:"Membuat berbagai operasi terhadap basis data",sub:["Data dapat disimpan/diubah ke dalam format basis data","Informasi yang diinginkan dapat dihasilkan menggunakan query tersebut","Indeks dipergunakan untuk mempercepat akses"]},{name:"Membuat prosedur akses terhadap basis data",sub:["Library akses basis data dapat diterapkan","Perintah akses data yang relevan dengan teknologi atau jenis baru data, diterapkan untuk mengakses data"]},{name:"Membuat koneksi basis data",sub:["Teknologi koneksi yang sesuai dipilih","Keamanan koneksi ditentukan","Hak setiap pengguna ditentukan"]},{name:"Menguji program basis data",sub:["Skenario pengujian disiapkan","Logika pemrograman mengacu pada kinerja statement akses data yang akan dibaca","Performansi mengacu pada kinerja statement akses data yang akan dibaca data diuji"]}]}]},Programming:{color:"#ef4444",icon:"fa-code",description:"Pengembangan perangkat lunak",competencies:[{id:"J.620100.009.01",title:"Menggunakan Spesifikasi Program",items:[{name:"Menggunakan metode pengembangan program",sub:["Apakah Anda dapat mendefinisikan metode pengembangan aplikasi?","Apakah Anda dapat memilih metode pengembangan aplikasi (software development) sesuai kebutuhan?"]},{name:"Menggunakan diagram program dan deskripsi program",sub:["Apakah Anda dapat mendefinisikan diagram program dengan metodologi pengembangan sistem?","Apakah Anda dapat menggunakan metode pemodelan diagram objek dan diagram komponen?"]},{name:"Menerapkan hasil pemodelan ke dalam pengembangan program",sub:["Apakah Anda dapat memilih hasil pemodelan yang mendukung kemampuan metodelogi yang sesuai dengan spesifikasi?","Apakah Anda dapat memilih hasil pemrograman (IDE) yang mendukung bahasa pemrograman sesuai spesifikasi??"]}]},{id:"J.620100.016.01",title:"Menulis Kode dengan Prinsip sesuai Guidelines dan Best Practices",items:[{name:"Menerapkan coding-guidelines dan best practices dalam penulisan program (kode sumber)",sub:["Apakah Anda dapat Menuliskan kode sumber mengikuti coding-guidelines dan best practices?","Apakah Anda dapat membuat struktur program yang sesuai dengan konsep paradigmanya?","Apakah Anda dapat menangani galat/error?"]},{name:"Menggunakan ukuran performansi dalam menuliskan kode sumber",sub:["Apakah Anda dapat menghitung Efisiensi penggunaan resources oleh kode?","Apakah Anda dapat mengimplementasikan selalu kemudahaan interaksi sesuai standar berlaku?"]}]},{id:"J.620100.017.02",title:"Mengimplementasikan Pemrograman Terstruktur",items:[{name:"Menggunakan Tipe Data dan Control Program",sub:["Apakah Anda dapat menentukan tipe data yang sesuai standar ?","Apakah Anda dapat menguasai syntax program yang sesuai standar ?","Apakah Anda dapat menguasai struktur control program yang sesuai standar ?"]},{name:"Membuat Program Sederhana",sub:["Apakah Anda dapat membuat program baca tulis untuk memasukkan data dari keyboard dan menampilkan ke layar monitor termasuk variasinya ?","Apakah Anda dapat menggunakan struktur control percabangan dan pengulangan dalam membuat program ?"]},{name:"Membuat Program Menggunakan Prosedur dan Fungsi",sub:["Apakah Anda dapat membuat program sesuai dengan prosedur aturan yang ada ?","Apakah Anda dapat membuat program sesuai dengan fungsi aturan yang ada ?","Apakah Anda dapat membuat program dengan prosedur dan fungsi aturan yang ada secara bersama-sama","Apakah Anda dapat memberikan keterangan untuk setiap prosedur dan fungsi"]},{name:"Membuat program menggunakan array",sub:["Apakah Anda dapat menentukan dimensi array ?","Apakah Anda dapat menentukan tipe data array?","Apakah Anda dapat menentukan panjang array?","Apakah Anda dapat menentukan pengurutan array?"]},{name:"Membuat Program Untuk Akses File",sub:["Apakah Anda dapat membuat program menulis data dalam media penyimpanan?","Apakah Anda dapat membuat program membaca data dalam media penyimpanan?"]},{name:"Mengkompilasi Program",sub:["Apakah Anda dapat mengkoreksi kesalahan program?","Apakah Anda dapat membebaskan kesalahan syntax dalam program?"]}]},{id:"J.620100.018.02",title:"Mengimplementasikan Pemrograman Berorientasi Objek",items:[{name:"Membuat program berorientasi objek dengan memanfaatkan class",sub:["Apakah Anda dapat membuat program dengna menggunakan class?","Apakah Anda dapat membuat property class yang akan direalisasikan dalam bentuk prosedur/fungsi ?","Apakah Anda dapat membuat data dalam class ?","Apakah Anda dapat mengelola hak akses dari tipe data ( private, protected, public ) ?"]},{name:"Menggunakan tipe data dan control program pada metode atau operasi dari suatu kelas",sub:["Apakah Anda dapat mengidentifikasikan tipe data?","Apakah Anda dapat menguasai sintaks program sesuai dengan bahasa program ?","Apakah Anda dapat menguasai control program ?"]},{name:"Membuat program dengan konsep berbasis objek",sub:["Apakah Anda dapat menerapkan inheritance pada class?","Apakah Anda dapat menerapkan polymorphism pada class ?","Apakah Anda dapat menerapkan overloading pada class ?"]},{name:"Membuat program object oriented dengan interface dan paket",sub:["Apakah Anda dapat membuat interface class program?","Apakah Anda dapat membuat paket dengan program ?"]},{name:"Mengkompilasi program",sub:["Apakah Anda dapat mengoreksi kesalahan?","Apakah Anda dapat menghasilkan program bebas dari salah sintaks ?"]}]},{id:"J.620100.019.02",title:"Menggunakan Library Atau Komponen Pre-Existing",items:[{name:"Melakukan pemilihan unit-unit reuse yang potensial",sub:["Apakah Anda dapat mengidentifikasikan class unit-unit reuse (dari aplikasi lain) yang sesuai?","Apakah Anda dapat menghitung keuntungan efisiensi dari pemanfaatan komponen reuse?","Apakah Anda dapat untuk tidak melanggar Lisensi, Hak cipta dan hak paten dalam pemanfaatan komponen reuse tersebut?"]},{name:"Melakukan integrasi library atau komponen pre-existing dengan source code yang ada",sub:["Apakah Anda dapat mengidentifikasikan ketergantungan antar unit?","Apakah Anda dapat menghindari penggunaan komponen yang sudah obsolete?","Apakah Anda dapat menerapkan program dengan library yang dihubungkan?"]},{name:"Melakukan pembaharuan library atau komponen pre-existing yang digunakan",sub:["Apakah Anda dapat mengidentifikasikan cara-cara pembaharuan library atau komponen pre-existing?","Apakah Anda dapat melakukan pembaharuan library atau komponen pre-existing?"]}]},{id:"J.620100.021.02",title:"Menerapkan Akses Basis Data",items:[{name:"Membuat berbagai operasi terhadap basis data",sub:["Apakah Anda dapat menyimpan/mengubah data ke dalam format basis data ?","Apakah Anda dapat menghasilkan Informasi yang diinginkan menggunakan query ?","Apakah Anda dapat menggunakan indeks untuk mempercepat akses ?"]},{name:"Membuat prosedur akses terhadap basis data",sub:["Apakah Anda dapat menerapkan Library akses basis data ?","Apakah Anda dapat menerapkan perintah akses data yang relevan dengan teknologi atau jenis baru data, untuk mengakses data ?"]},{name:"Membuat koneksi basis data",sub:["Apakah Anda dapat memilih Teknologi koneksi yang sesuai ?","Apakah Anda dapat menentukan Keamanan koneksi ?","Apakah Anda dapat menentukan Hak setiap pengguna ?"]},{name:"Menguji program basis data",sub:["Apakah Anda dapat menyiapkan Skenario pengujian ?","Apakah Anda dapat membaca kinerja statement akses data pada Logika Pemrograman ?","Apakah Anda dapat membaca statement akses data pada Performansi data diuji ?"]}]},{id:"J.620100.023.02",title:"Membuat Dokumen Kode Program",items:[{name:"Melakukan identifikasi kode program",sub:["Apakah Anda dapat mengidentifikasikan modul program?","Apakah Anda dapat mengidentifikasikan parameter yang digunakan?","Apakah Anda dapat menjelaskan cara kerja algoritma?","Apakah Anda dapat memberikan komentar setiap baris kodetermasuk data, eksepsi, fungsi, prosedur dan class (bila ada)?"]},{name:"Membuat dokumentasi modul program",sub:["Apakah Anda dapat membuat dokumentasi modul yang sesuai dengan identitas untuk memudahkan pelacakan?","Apakah Anda dapat menerapkan identifikasi dokumentasi?","Apakah Anda dapat menjelaskan kegunaan modul?","Apakah Anda dapat merevisi dokumen sesuai perubahan kode program?"]},{name:"Membuat dokumentasi fungsi, prosedur atau method program",sub:["Apakah Anda dapat membuat dokumentasi fungsi, prosedur atau method?","Apakah Anda dapat menjelaskan kemungkinan eksepsi?","Apakah Anda dapat merevisi dokumen sesuai perubahan kode program?"]},{name:"Men-generate dokumentasi",sub:["Apakah Anda dapat mengidentifikasikan tools untuk generate?","Apakah Anda dapat melakukan generate dokumentasi?"]}]},{id:"J.620100.025.02",title:"Melakukan Debugging",items:[{name:"Mempersiapkan Kode Program",sub:["Apakah Anda dapat menyiapkan Kode program yang sesuai ?","Apakah Anda dapat menyiapkan Debugging tools untuk melihat proses suatu modul ?"]},{name:"Melakukan debugging",sub:["Apakah Anda dapat menyapkan kode program dikompilasi sesuai bahasa pemrograman?","Apakah Anda dapat menganalisis kriteria lulus build ?","Apakah Anda dapat menganalisis kriteria eksekusi aplikasi ?","Apakah Anda dapat mencatat kode kesalahan?"]},{name:"Memperbaiki Program",sub:["Apakah Anda dapat merumuskan perbaikan terhadap kesalahan kompilasi maupun build?","Apakah Anda dapat melakukan perbaikan?"]}]},{id:"J.620100.033.02",title:"Melaksanakan Pengujian Unit Program",items:[{name:"Menentukan kebutuhan uji coba dalam pengembangan",sub:["Apakah Anda dapat mengidentifikasikan prosedur uji coba aplikasi sesuai dengan software development life cycle ?","Apakah Anda dapat menentukan tools uji coba ?","Apakah Anda dapat mengidentifikasi standard dan kondisi uji coba?"]},{name:"Mempersiapkan dokumentasi uji coba",sub:["Apakah Anda dapat menentukan kebutuhan untuk uji coba?","Apakah Anda dapat melaksanakan uji coba dengan variasi kondisi?","Apakah Anda dapat membuat skenario uji coba?"]},{name:"Mempersiapkan data uji",sub:["Apakah Anda dapat mengidentifikasi data uji unit tes?","Apakah Anda dapat membangkitkan data uji unit test?"]},{name:"Melaksanakan prosedur uji coba",sub:["Apakah Anda dapat mendesain skenario uji coba?","Apakah Anda dapat mendesain prosedur uji coba dalam algoritma?","Apakah Anda dapat melaksanakan uji coba?"]},{name:"Mengevaluasi hasil uji coba",sub:["Apakah Anda dapat mencatat hasil uji coba?","Apakah Anda dapat menganalisa hasil uji coba?","Apakah Anda dapat melaporkan prosedur uji coba?","Apakah Anda dapat menyelesaikan kesalahan/error?"]}]}]}},n=document.getElementById("competency-container");function e(a){let n=a.items.map((a=>{let n=a.sub.length>0?`<ul class="nested-list">${a.sub.map((a=>`<li>${a}</li>`)).join("")}</ul>`:"";return`<li>${a.name}${n}</li>`})).join("");return`\n <div class="border-t border-gray-200 py-4">\n <h4 class="font-semibold text-gray-800">${a.title} (${a.id})</h4>\n <div class="pt-2 text-sm text-gray-600">\n <ul class="custom-list">${n}</ul>\n </div>\n </div>\n `}for(const i in a){const t=a[i],s=document.createElement("div");s.className="competency-card rounded-3xl shadow-lg overflow-hidden",s.style.borderLeftColor=t.color;const d=t.competencies.map(e).join("");s.innerHTML=`\n <div class="competency-header p-6 flex justify-between items-center">\n <div class="flex items-center">\n <div class="bg-gray-200 rounded-full p-3 mr-4" style="background-color: ${t.color}20;">\n <i class="fas ${t.icon} text-2xl" style="color: ${t.color};"></i>\n </div>\n <div>\n <h3 class="text-2xl font-bold text-gray-900">${i}</h3>\n <p class="text-gray-500">${t.description}</p>\n </div>\n </div>\n <div class="flex items-center space-x-4">\n <span class="badge text-xs" style="background: ${t.color}; color: white;">${t.competencies.length} Unit Kompetensi</span>\n <i class="fas fa-chevron-right competency-arrow text-2xl text-gray-400"></i>\n </div>\n </div>\n <div class="competency-content">\n <div class="p-6 space-y-4">${d}</div>\n </div>\n `,n.appendChild(s)}document.querySelectorAll(".competency-header").forEach((a=>{a.addEventListener("click",(()=>{a.parentElement.classList.toggle("open")}))}))}))</script><noscript><br><br><div class="noscript-warning"><p>Website ini memerlukan JavaScript untuk berfungsi dengan baik. Mohon aktifkan JavaScript pada peramban Anda.</p></div></noscript></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Kompetensi Kerja | MyLSP Unpam</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .competency-card {
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+        }
+        
+        .competency-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .competency-header {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .competency-header:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .competency-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1.5rem;
+        }
+        
+        .competency-card.open .competency-content {
+            max-height: 4000px;
+            padding: 1.5rem;
+        }
+        
+        .competency-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .competency-card.open .competency-arrow {
+            transform: rotate(90deg);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover-effect:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .stats-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stagger-animation > * {
+            animation: slideInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+        .stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .role-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        .noscript-warning {
+    display: flex;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Hero Section -->
+    <div class="hero-gradient min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="relative z-10 text-center text-white max-w-6xl mx-auto fade-in">
+            <div class="mb-8">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                    MyLSP UNPAM
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-blue-100 font-light leading-relaxed">
+                    Platform Standar Kompetensi Kerja untuk Berbagai Peran di Bidang Teknologi
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#competencies" class="px-8 py-4 bg-white text-indigo-600 font-bold rounded-full hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-2xl glow-effect">
+                        <i class="fas fa-rocket mr-2"></i>Jelajahi Kompetensi
+                    </a>
+                    <a href="https://mylsp.unpam.ac.id/" target="_blank" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-indigo-600 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-external-link-alt mr-2"></i>Kunjungi Website
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 stagger-animation">
+                <div class="stats-card">
+                    <div class="role-icon bg-gradient-to-r from-blue-500 to-purple-500"><i class="fas fa-sitemap"></i></div>
+                    <h3 class="text-2xl font-bold text-white">4</h3>
+                    <p class="text-blue-200">Role Tersedia</p>
+                </div>
+                <div class="stats-card">
+                    <div class="role-icon bg-gradient-to-r from-green-500 to-teal-500"><i class="fas fa-tasks"></i></div>
+                    <h3 class="text-2xl font-bold text-white">31</h3>
+                    <p class="text-blue-200">Unit Kompetensi</p>
+                </div>
+                <div class="stats-card">
+                    <div class="role-icon bg-gradient-to-r from-purple-500 to-pink-500"><i class="fas fa-certificate"></i></div>
+                    <h3 class="text-2xl font-bold text-white">100+</h3>
+                    <p class="text-blue-200">Kriteria Penilaian</p>
+                </div>
+                <div class="stats-card">
+                    <div class="role-icon bg-gradient-to-r from-orange-500 to-red-500"><i class="fas fa-users"></i></div>
+                    <h3 class="text-2xl font-bold text-white">1000+</h3>
+                    <p class="text-blue-200">Peserta Aktif</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Akses Cepat</h2>
+                <p class="text-xl text-gray-600">Dapatkan informasi dan layanan yang Anda butuhkan</p>
+            </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-animation">
+  <a href="https://www.instagram.com/pelatihan_unpam/?hl=id" target="_blank" 
+     class="card-hover-effect bg-gradient-to-br from-pink-500 to-rose-500 text-white p-6 rounded-2xl shadow-lg">
+    <i class="fab fa-instagram text-3xl mb-4"></i>
+    <h3 class="text-xl font-bold mb-2">Informasi Pelatihan</h3>
+    <p class="opacity-90">Ikuti update terbaru pelatihan dan sertifikasi</p>
+  </a>
+
+  <a href="https://xnuvers007.github.io/mylsp/surat%20izin%20kerja.pdf" target="_blank" 
+     class="card-hover-effect bg-gradient-to-br from-blue-500 to-indigo-500 text-white p-6 rounded-2xl shadow-lg">
+    <i class="fas fa-download text-3xl mb-4"></i>
+    <h3 class="text-xl font-bold mb-2">Surat Rekomendasi</h3>
+    <p class="opacity-90">Download template surat rekomendasi</p>
+  </a>
+
+  <a href="https://xnuvers007.github.io/mylsp/Tata%20Cara%20Validasi%20Telegram.pdf" target="_blank" 
+     class="card-hover-effect bg-gradient-to-br from-sky-500 to-cyan-500 text-white p-6 rounded-2xl shadow-lg">
+    <i class="fab fa-telegram text-3xl mb-4"></i>
+    <h3 class="text-xl font-bold mb-2">Validasi Telegram</h3>
+    <p class="opacity-90">Panduan validasi melalui Telegram</p>
+  </a>
+
+  <a href="http://bit.ly/SurPelatihan" target="_blank" 
+     class="card-hover-effect bg-gradient-to-br from-purple-500 to-violet-500 text-white p-6 rounded-2xl shadow-lg">
+    <i class="fas fa-clipboard-list text-3xl mb-4"></i>
+    <h3 class="text-xl font-bold mb-2">Kuisioner Pelatihan</h3>
+    <p class="opacity-90">Berikan feedback untuk pelatihan</p>
+  </a>
+
+  <a href="https://xnuvers007.github.io/mylsp/surat%20izin%20kerja.pdf" target="_blank" 
+     class="card-hover-effect bg-gradient-to-br from-orange-500 to-amber-500 text-white p-6 rounded-2xl shadow-lg">
+    <i class="fas fa-file-alt text-3xl mb-4"></i>
+    <h3 class="text-xl font-bold mb-2">Surat Izin Kerja</h3>
+    <p class="opacity-90">Download template surat izin kerja</p>
+  </a>
+
+  <!-- Admin 1 -->
+  <a href="https://wa.me/6287850339368" target="_blank" 
+     class="card-hover-effect bg-gradient-to-br from-green-600 to-emerald-500 text-white p-6 rounded-2xl shadow-lg">
+    <i class="fab fa-whatsapp text-3xl mb-4"></i>
+    <h3 class="text-xl font-bold mb-2">Hubungi Admin</h3>
+    <p class="opacity-90">Chat langsung dengan admin LSP</p>
+  </a>
+
+  <!-- Admin 2 -->
+  <a href="https://wa.me/6287850332606" target="_blank" 
+     class="card-hover-effect bg-gradient-to-br from-green-600 to-emerald-500 text-white p-6 rounded-2xl shadow-lg">
+    <i class="fab fa-whatsapp text-3xl mb-4"></i>
+    <h3 class="text-xl font-bold mb-2">Hubungi Admin ke-2</h3>
+    <p class="opacity-90">Chat langsung dengan admin LSP yang ke-2</p>
+  </a>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Competencies Section -->
+    <div id="competencies" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Standar Kompetensi Kerja</h2>
+                <p class="text-xl text-gray-600">Pilih role yang sesuai dengan minat dan keahlian Anda</p>
+            </div>
+            <div class="space-y-8" id="competency-container">
+                 <!-- Competency Cards will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Information Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 stagger-animation">
+                <div class="glass-card p-8 rounded-3xl shadow-lg">
+                    <div class="flex items-center mb-6"><div class="bg-yellow-500 rounded-full p-3 mr-4"><i class="fas fa-shield-virus text-white text-xl"></i></div><h3 class="text-2xl font-bold text-gray-900">Info Pendaftaran & COVID-19</h3></div>
+                    <div class="space-y-4 text-gray-700">
+                        <p class="leading-relaxed">Mengingat penyebaran COVID-19, validasi pendaftaran dilakukan secara online melalui website mylsp.unpam.ac.id</p>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+                            <h4 class="font-semibold mb-2">Langkah Validasi Online:</h4>
+                            <ol class="list-decimal list-inside space-y-1 text-sm">
+                                <li>Login ke SSO mylsp.unpam.ac.id</li>
+                                <li>Klik "Riwayat Sertifikasi"</li>
+                                <li>Periksa status validasi berkas</li>
+                                <li>Update data jika diperlukan</li>
+                            </ol>
+                        </div>
+<div class="mt-6 space-y-4">
+    <!-- Admin Contact Buttons -->
+    <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+        <a href="https://wa.me/6287850339368" class="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors w-full sm:w-auto text-sm font-medium">
+            <i class="fab fa-whatsapp mr-2"></i>Hubungi Admin (no CALL!)
+        </a>
+        <a href="https://wa.me/6287850332606" class="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors w-full sm:w-auto text-sm font-medium">
+            <i class="fab fa-whatsapp mr-2"></i>Hubungi Admin ke-2 (no CALL!)
+        </a>
+    </div>
+
+    <!-- Operational Hours -->
+    <div class="bg-gray-100 p-4 rounded-lg border border-gray-200 text-gray-700 text-sm">
+        <h4 class="font-semibold mb-2 text-gray-900">Jam Operasional Admin:</h4>
+        <dl class="grid grid-cols-2 gap-x-4 gap-y-1">
+            <dt>Senin - Jumat</dt>
+            <dd>08:30 - 20:00 WIB</dd>
+            <dt>Sabtu</dt>
+            <dd>08:30 - 15:00 WIB</dd>
+        </dl>
+    </div>
+</div>
+
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl shadow-lg">
+                    <div class="flex items-center mb-6"><div class="bg-blue-500 rounded-full p-3 mr-4"><i class="fas fa-clipboard-check text-white text-xl"></i></div><h3 class="text-2xl font-bold text-gray-900">Syarat & Peraturan Ujian</h3></div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3"><i class="fas fa-clock text-blue-500 mt-1"></i><p class="text-gray-700">Hadir 30 menit sebelum ujian dimulai</p></div>
+                        <div class="flex items-start space-x-3"><i class="fas fa-graduation-cap text-blue-500 mt-1"></i><p class="text-gray-700">Wajib membawa almamater selama ujian</p></div>
+                        <div class="flex items-start space-x-3"><i class="fas fa-id-card text-blue-500 mt-1"></i><p class="text-gray-700">Membawa KTP, KTM, dan alat tulis</p></div>
+                        <div class="flex items-start space-x-3"><i class="fas fa-user-tie text-blue-500 mt-1"></i><p class="text-gray-700">Mengikuti instruksi asesor penguji</p></div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-900 mb-3">Kode Ruangan Ujian:</h4>
+                        <div class="space-y-2 text-sm text-gray-700">
+                            <div><span class="font-medium text-gray-800">Kode A & B:</span> Gedung UNPAM Pusat, Pamulang</div>
+                            <div><span class="font-medium text-gray-800">Kode V:</span> Gedung Viktor, Serpong</div>
+                            <div><span class="font-medium text-gray-800">Kode Web-Lab:</span> Kampus Witanaharja</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 to-blue-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-4">Lembaga Sertifikasi Profesi</h3>
+                <p class="text-xl text-blue-200 mb-8">Universitas Pamulang</p>
+                <p class="text-gray-300 max-w-2xl mx-auto leading-relaxed">Untuk informasi lengkap tentang Lembaga Sertifikasi Profesi Universitas Pamulang, silakan hubungi kontak yang tertera di bawah ini.</p>
+            </div>
+            <div class="flex justify-center items-center space-x-6 mb-12">
+                <a href="https://www.instagram.com/lsp_unpam" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-3xl group-hover:text-pink-400 transition-colors"></i></a>
+                <a href="https://twitter.com/lspunpam" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter text-3xl group-hover:text-blue-400 transition-colors"></i></a>
+                <a href="#" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook text-3xl group-hover:text-blue-500 transition-colors"></i></a>
+                <a href="https://wa.me/6287850332606" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-whatsapp text-3xl group-hover:text-green-400 transition-colors"></i></a>
+                <a href="https://wa.me/6287850339368" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-whatsapp text-3xl group-hover:text-green-400 transition-colors"></i></a>
+            </div>
+            <div class="text-center text-gray-500 text-sm">
+                <p>&copy; <span id="current-year"></span> Xnuvers007 All rights reserved.</p>
+                <br />
+                <p>Jam Operasional Admin: 
+                <dl>
+                            	<dt>senin - jumat</dt>
+                                <dd>08:30 - 20:00 WIB</dd>
+                                <dt>sabtu</dt>
+                                <dd>08:30 - 15:00 WIB</dd>
+                 <dl>
+                </p>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                });
+            </script>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const data = {
+                "Associate Data Scientist": {
+                    color: "#3b82f6",
+                    icon: "fa-chart-line",
+                    description: "Analisis data dan pembelajaran mesin",
+                    competencies: [
+                        { id: "J.62DMI00.004.1", title: "Mengumpulkan Data", items: [
+                            { name: "Menentukan kebutuhan data", sub: ["Kebutuhan data diidentifikasi sesuai tujuan teknis data science.", "Kebutuhan data diperiksa ketersediaannya sesuai aturan yang berlaku.", "Kebutuhan data ditentukan volumenya sesuai tujuan teknis data science."] },
+                            { name: "Mengambil Data", sub: ["Metode dan tools pengambilan data diidentifikasi sesuai tujuan teknis data science", "Tools pengambilan data ditentukan sesuai tujuan teknis data science", "Tools pengambilan data disiapkan sesuai tujuan teknis data science", "Proses pengambilan data dijalankan sesuai dengan tools yang telah disiapkan"] },
+                            { name: "Mengintegrasikan data", sub: ["Integritas data diperiksa sesuai tujuan teknis data science", "Data diintegrasikan sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.005.1", title: "Menelaah Data", items: [
+                            { name: "Menganalisis tipe dan relasi data", sub: ["Tipe data yang terkumpul diidentifikasi sesuai tujuan teknis", "Nilai atribut data yang terkumpul diuraikan sesuai dengan batasan konteks bisnisnya", "Relasi antar data yang terkumpul diidentifikasi sesuai dengan tujuan teknis"] },
+                            { name: "Menganalisis karakteristik data", sub: ["Karakteristik data yang terkumpul disajikan dengan deskripsi statistik dasar", "Karakteristik data yang terkumpul disajikan dengan visualisasi grafik", "Hasil penyajian data dianalisis karakteristiknya untuk telaah data"] },
+                            { name: "Membuat laporan telaah data", sub: ["Hasil analisis didokumentasikan dalam bentuk laporan sesuai dengan tujuan teknis", "Hipotesis disusun berdasar hasil analisis sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.006.1", title: "Memvalidasi Data", items: [
+                            { name: "Melakukan pengecekan kelengkapan data", sub: ["Penilaian kualitas data dari hasil telaah disajikan sesuai tujuan teknis data science.", "Penilaian tingkat kecukupan data dari hasil telaah disajikan sesuai tujuan teknis data science."] },
+                            { name: "Membuat rekomendasi kelengkapan data", sub: ["Rekomendasi hasil penilaian kualitas disusun sesuai tujuan teknis data science", "Rekomendasi hasil penilaian kecukupan data disusun sesuai tujuan teknis data science."] }
+                        ]},
+                        { id: "J.62DMI00.007.1", title: "Menentukan Objek Data", items: [
+                            { name: "Memutuskan kriteria dan teknik pemilihan data", sub: ["Kriteria pemilihan data diidentifikasi sesuai dengan tujuan teknis dan aturan yang berlaku", "Teknik pemilihan data ditetapkan sesuai dengan kriteria pemilihan data."] },
+                            { name: "Menentukan attributes (columns) dan records (row) data", sub: ["Attributes (columns) data diidentifikasi sesuai dengan kriteria pemilihan data.", "Records (row) data diidentifikasi sesuai dengan kriteria pemilihan data."] }
+                        ]},
+                        { id: "J.62DMI00.008.1", title: "Membersihkan Data", items: [
+                            { name: "Melakukan pembersihan data yang kotor", sub: ["Strategi pembersihan data ditentukan berdasarkan hasil telaah data.", "Data yang kotor dikoreksi berdasarkan strategi pembersihan data."] },
+                            { name: "Membuat laporan dan rekomendasi hasil membersihkan data", sub: ["Masalah dan teknis koreksi data dideskripsikan sesuai dengan kondisi data dan strategi pembersihan data.", "Evaluasi dihasilkan berdasarkan analisis koreksi yang telah dilakukan.", "Evaluasi proses dan hasilnya didokumentasikan."] }
+                        ]},
+                        { id: "J.62DMI00.009.1", title: "Mengkonstruksi Data", items: [
+                            { name: "Menganalisis teknik transformasi data", sub: ["Analisis data untuk menentukan representasi fitur data awal.", "Analisis representasi fitur data awal untuk menentukan teknik rekayasa fitur yang diperlukan untuk pembangunan model data science."] },
+                            { name: "Melakukan transformasi data", sub: ["Transformasi dilakukan untuk mendapatkan fitur data awal.", "Rekayasa fitur data dilakukan untuk mendapatkan fitur baru yang diperlukan untuk pembangunan model data science."] },
+                            { name: "Membuat dokumentasi konstruksi data", sub: ["Teknis transformasi data dijabarkan dalam bentuk tertulis.", "Hasil transformasi data dan rekomendasi hasil transformasi dituangkan dalam bentuk tertulis."] }
+                        ]},
+                        { id: "J.62DMI00.010.1", title: "Menentukan Label data", items: [
+                            { name: "Melakukan pelabelan data", sub: ["Analisis hasil pelabelan data sejenis yang sudah ada diuraikan kesesuaiannya dengan Standard Operating Procedure (SOP) pelabelan.", "Pelabelan data dilakukan sesuai dengan SOP pelabelan."] },
+                            { name: "Membuat laporan hasil pelabelan data", sub: ["Statistik hasil pelabelan diuraikan pada laporan.", "Evaluasi proses pelabelan diuraikan pada laporan."] }
+                        ]},
+                        { id: "J.62DMI00.013.1", title: "Membangun Model", items: [
+                            { name: "Menyiapkan parameter model", sub: ["Parameter-parameter yang sesuai dengan model diidentifikasi.", "Nilai toleransi parameter evaluasi pengujian ditetapkan sesuai dengan tujuan teknis."] },
+                            { name: "Menggunakan tools pemodelan", sub: ["Tools untuk membuat model diidentifikasi sesuai dengan tujuan teknis data science.", "Algoritma untuk teknik pemodelan yang ditentukan dibangun menggunakan tools yang dipilih.", "Algoritma pemodelan dieksekusi sesuai dengan skenario pengujian dan tools untuk membuat model yang telah ditetapkan.", "Parameter model algoritma dioptimasi untuk menghasilkan nilai parameter evaluasi yang sesuai dengan skenario pengujian."] }
+                        ]},
+                        { id: "J.62DMI00.014.1", title: "Mengevaluasi Hasil Pemodelan", items: [
+                            { name: "Menggunakan model dengan data riil", sub: ["Data baru untuk evaluasi pemodelan dikumpulkan sesuai kebutuhan yang mengacu kepada parameter evaluasi.", "Model diuji dengan menggunakan data riil yang telah dikumpulkan."] },
+                            { name: "Menilai hasil pemodelan", sub: ["Keluaran pengujian model dinilai berdasarkan metrik kesuksesan.", "Hasil penilaian didokumentasikan sesuai standar yang berlaku."] }
+                        ]}
+                    ]
+                },
+                "Network Administrator": {
+                    color: "#10b981",
+                    icon: "fa-network-wired",
+                    description: "Pengelolaan dan keamanan jaringan",
+                    competencies: [
+                        { id: "J.611000.003.02", title: "Merancang topologi jaringan", items: [{ name: "Menentukan kebutuhan pengguna secara keseluruhan", sub: [] }, { name: "Membuat spesifikasi topologi jaringan", sub: [] }] },
+                        { id: "J.611000.006.01", title: "Merancang keamanan jaringan", items: [{ name: "Mendefinisikan risikokeamanan jaringan", sub: [] }, { name: "Menganalisis risiko keamanan jaringan", sub: [] }, { name: "Membuat rancangan keamanan jaringan", sub: [] }] },
+                        { id: "J.611000.014.02", title: "Mengkonfigurasi routing pada perangkat jaringan antar autonomous system", items: [{ name: "Mengkonfigurasi router pada stub AS", sub: [] }, { name: "Mengkonfigurasi router pada multi-home AS", sub: [] }, { name: "Mengkonfigurasi router pada core AS", sub: [] }] },
+                        { id: "J.611000.015.01", title: "Memonitor keamanan dan pengaturan akun pengguna dalam jaringan komputer", items: [{ name: "Mengidentifikasi dan memodifikasi akun pengguna agar selalu terkendali.", sub: [] }, { name: "Memastikan akses yang aman ke file dan sumber daya", sub: [] }, { name: "Mengembangkan Service Level Agreement (Perjanjian Tingkat Layanan) atau SLA", sub: [] }] },
+                        { id: "J.611000.016.02", title: "Mengatasi serangan pada jaringan", items: [{ name: "Mengidentifikasi jenis serangan", sub: [] }, { name: "Menghentikan serangan", sub: [] }, { name: "Melakukan proses pemulihan", sub: [] }, { name: "Melakukan dokumentasi", sub: [] }] },
+                        { id: "J.611000.017.01", title: "Mengidentifikasi sumber kerusakan", items: [{ name: "Menyiapkan data dukumentasi dari jaringan yang bermasalah.", sub: [] }, { name: "Menganalisis problem dari sisi end point secara logical", sub: [] }, { name: "Mengidentifikasi problem secara physical", sub: [] }] },
+                        { id: "J.611000.018.01", title: "Memperbaiki kerusakan konfigurasi jaringan", items: [{ name: "Mendefinisikan masalah", sub: [] }, { name: "Mengumpulkan fakta", sub: [] }, { name: "Menganalisis informasi", sub: [] }, { name: "Memperbaiki kerusakan konfigurasi jaringan", sub: [] }, { name: "Mendokumentasikan tindakan terhadap perbaikan kerusakan konfigurasi", sub: [] }] },
+                        { id: "J.611000.020.01", title: "Mengoptimalkan kinerja sistem jaringan", items: [{ name: "Mengidentifikasi kinerja sistem", sub: [] }, { name: "Menentukan metode untuk memperbaikikinerja sistem", sub: [] }, { name: "Mengatur sistem dan memonitor kinerja sistem", sub: [] }, { name: "Mendokumentasikan tindakan mengoptimalkan sistem jaringan", sub: [] }] },
+                        { id: "J.611000.022.01", title: "Melakukan backup dan restore konfigurasi perangkat jaringan", items: [{ name: "Menentukan data penting yang harus dibackup", sub: [] }, { name: "Melakukan restore konfigurasi perangkat jaringan", sub: [] }, { name: "Mengembangkan prosedur backup dan restore konfigurasi jaringan", sub: [] }] }
+                    ]
+                },
+                "Associate Data Analyst": {
+                    color: "#8b5cf6",
+                    icon: "fa-chart-bar",
+                    description: "Analisis dan interpretasi data",
+                    competencies: [
+                        { id: "J.62DMI00.004.1", title: "Mengumpulkan Data", items: [
+                            { name: "Menentukan Kebutuhan Data", sub: ["Kebutuhan data diidentifikasi sesuai tujuan teknis data science", "Kebutuhan data diperiksa ketersediaannya sesuai aturan yang berlaku", "Kebutuhan data ditentukan volumenya sesuai tujuan teknis data science."] },
+                            { name: "Mengambil data", sub: ["Metode dan tools pengambilan data diidentifikasi sesuai tujuan teknis data science", "Tools pengambilan data ditentukan sesuai tujuan teknis data science", "Tools pengambilan data disiapkan sesuai tujuan teknis data science", "Proses pengambilan data dijalankan sesuai dengan tools yang telah disiapkan"] },
+                            { name: "Mengintegrasikan data", sub: ["Integritas data diperiksa sesuai tujuan teknis data science", "Data diintegrasikan sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.005.1", title: "Menelaah Data", items: [
+                            { name: "Menganalisis tipe dan relasi data", sub: ["Tipe data yang terkumpul diidentifikasi sesuai tujuan teknis", "Nilai atribut data yang terkumpul diuraikan sesuai dengan batasan konteks bisnisnya", "Relasi antar data yang terkumpul diidentifikasi sesuai dengan tujuan teknis"] },
+                            { name: "Menganalisis karakteristik data", sub: ["Karakteristik data yang terkumpul disajikan dengan deskripsi statistik dasar", "Karakteristik data yang terkumpul disajikan dengan visualisasi grafik", "Hasil penyajian data dianalisis karakteristiknya untuk telaah data"] },
+                            { name: "Membuat laporan telaah data", sub: ["Hasil analisis didokumentasikan dalam bentuk laporan sesuai dengan tujuan teknis", "Hipotesis disusun berdasar hasil analisis sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.006.1", title: "Memvalidasi Data", items: [
+                            { name: "Melakukan pengecekan kelengkapan data", sub: ["Penilaian kualitas data dari hasil telaah disajikan sesuai tujuan teknis data science", "Penilaian tingkat kecukupan data dari hasil telaah disajikan sesuai tujuan teknis data science."] },
+                            { name: "Membuat rekomendasi kelengkapan data", sub: ["Rekomendasi hasil penilaian kualitas disusun sesuai tujuan teknis data science", "Rekomendasi hasil penilaian kecukupan data disusun sesuai tujuan teknis data science"] }
+                        ]},
+                        { id: "J.62DMI00.007.1", title: "Menentukan Objek Data", items: [
+                            { name: "Memutuskan kriteria dan teknik pemilihan data", sub: ["Kriteria pemilihan data diidentifikasi sesuai dengan tujuan teknis dan aturan yang berlaku", "Teknik pemilihan data ditetapkan sesuai dengan kriteria pemilihan data"] },
+                            { name: "Menentukan attributes (columns) dan records (row) data", sub: ["Attributes (columns) data diidentifikasi sesuai dengan kriteria pemilihan data", "Records (row) data diidentifikasi sesuai dengan kriteria pemilihan data"] }
+                        ]},
+                        { id: "J.620100.021.02", title: "Menerapkan Akses Basis Data", items: [
+                            { name: "Membuat berbagai operasi terhadap basis data", sub: ["Data dapat disimpan/diubah ke dalam format basis data", "Informasi yang diinginkan dapat dihasilkan menggunakan query tersebut", "Indeks dipergunakan untuk mempercepat akses"] },
+                            { name: "Membuat prosedur akses terhadap basis data", sub: ["Library akses basis data dapat diterapkan", "Perintah akses data yang relevan dengan teknologi atau jenis baru data, diterapkan untuk mengakses data"] },
+                            { name: "Membuat koneksi basis data", sub: ["Teknologi koneksi yang sesuai dipilih", "Keamanan koneksi ditentukan", "Hak setiap pengguna ditentukan"] },
+                            { name: "Menguji program basis data", sub: ["Skenario pengujian disiapkan", "Logika pemrograman mengacu pada kinerja statement akses data yang akan dibaca", "Performansi mengacu pada kinerja statement akses data yang akan dibaca data diuji"] }
+                        ]}
+                    ]
+                },
+                "Programming": {
+                    color: "#ef4444",
+                    icon: "fa-code",
+                    description: "Pengembangan perangkat lunak",
+                    competencies: [
+                        { id: "J.620100.009.01", title: "Menggunakan Spesifikasi Program", items: [
+                            { name: "Menggunakan metode pengembangan program", sub: ["Apakah Anda dapat mendefinisikan metode pengembangan aplikasi?", "Apakah Anda dapat memilih metode pengembangan aplikasi (software development) sesuai kebutuhan?"] },
+                            { name: "Menggunakan diagram program dan deskripsi program", sub: ["Apakah Anda dapat mendefinisikan diagram program dengan metodologi pengembangan sistem?", "Apakah Anda dapat menggunakan metode pemodelan diagram objek dan diagram komponen?"] },
+                            { name: "Menerapkan hasil pemodelan ke dalam pengembangan program", sub: ["Apakah Anda dapat memilih hasil pemodelan yang mendukung kemampuan metodelogi yang sesuai dengan spesifikasi?", "Apakah Anda dapat memilih hasil pemrograman (IDE) yang mendukung bahasa pemrograman sesuai spesifikasi??"] }
+                        ]},
+                        { id: "J.620100.016.01", title: "Menulis Kode dengan Prinsip sesuai Guidelines dan Best Practices", items: [
+                            { name: "Menerapkan coding-guidelines dan best practices dalam penulisan program (kode sumber)", sub: ["Apakah Anda dapat Menuliskan kode sumber mengikuti coding-guidelines dan best practices?", "Apakah Anda dapat membuat struktur program yang sesuai dengan konsep paradigmanya?", "Apakah Anda dapat menangani galat/error?"] },
+                            { name: "Menggunakan ukuran performansi dalam menuliskan kode sumber", sub: ["Apakah Anda dapat menghitung Efisiensi penggunaan resources oleh kode?", "Apakah Anda dapat mengimplementasikan selalu kemudahaan interaksi sesuai standar berlaku?"] }
+                        ]},
+                        { id: "J.620100.017.02", title: "Mengimplementasikan Pemrograman Terstruktur", items: [
+                            { name: "Menggunakan Tipe Data dan Control Program", sub: ["Apakah Anda dapat menentukan tipe data yang sesuai standar ?", "Apakah Anda dapat menguasai syntax program yang sesuai standar ?", "Apakah Anda dapat menguasai struktur control program yang sesuai standar ?"] },
+                            { name: "Membuat Program Sederhana", sub: ["Apakah Anda dapat membuat program baca tulis untuk memasukkan data dari keyboard dan menampilkan ke layar monitor termasuk variasinya ?", "Apakah Anda dapat menggunakan struktur control percabangan dan pengulangan dalam membuat program ?"] },
+                            { name: "Membuat Program Menggunakan Prosedur dan Fungsi", sub: ["Apakah Anda dapat membuat program sesuai dengan prosedur aturan yang ada ?", "Apakah Anda dapat membuat program sesuai dengan fungsi aturan yang ada ?", "Apakah Anda dapat membuat program dengan prosedur dan fungsi aturan yang ada secara bersama-sama", "Apakah Anda dapat memberikan keterangan untuk setiap prosedur dan fungsi"] },
+                            { name: "Membuat program menggunakan array", sub: ["Apakah Anda dapat menentukan dimensi array ?", "Apakah Anda dapat menentukan tipe data array?", "Apakah Anda dapat menentukan panjang array?", "Apakah Anda dapat menentukan pengurutan array?"] },
+                            { name: "Membuat Program Untuk Akses File", sub: ["Apakah Anda dapat membuat program menulis data dalam media penyimpanan?", "Apakah Anda dapat membuat program membaca data dalam media penyimpanan?"] },
+                            { name: "Mengkompilasi Program", sub: ["Apakah Anda dapat mengkoreksi kesalahan program?", "Apakah Anda dapat membebaskan kesalahan syntax dalam program?"] }
+                        ]},
+                        { id: "J.620100.018.02", title: "Mengimplementasikan Pemrograman Berorientasi Objek", items: [
+                            { name: "Membuat program berorientasi objek dengan memanfaatkan class", sub: ["Apakah Anda dapat membuat program dengna menggunakan class?", "Apakah Anda dapat membuat property class yang akan direalisasikan dalam bentuk prosedur/fungsi ?", "Apakah Anda dapat membuat data dalam class ?", "Apakah Anda dapat mengelola hak akses dari tipe data ( private, protected, public ) ?"] },
+                            { name: "Menggunakan tipe data dan control program pada metode atau operasi dari suatu kelas", sub: ["Apakah Anda dapat mengidentifikasikan tipe data?", "Apakah Anda dapat menguasai sintaks program sesuai dengan bahasa program ?", "Apakah Anda dapat menguasai control program ?"] },
+                            { name: "Membuat program dengan konsep berbasis objek", sub: ["Apakah Anda dapat menerapkan inheritance pada class?", "Apakah Anda dapat menerapkan polymorphism pada class ?", "Apakah Anda dapat menerapkan overloading pada class ?"] },
+                            { name: "Membuat program object oriented dengan interface dan paket", sub: ["Apakah Anda dapat membuat interface class program?", "Apakah Anda dapat membuat paket dengan program ?"] },
+                            { name: "Mengkompilasi program", sub: ["Apakah Anda dapat mengoreksi kesalahan?", "Apakah Anda dapat menghasilkan program bebas dari salah sintaks ?"] }
+                        ]},
+                        { id: "J.620100.019.02", title: "Menggunakan Library Atau Komponen Pre-Existing", items: [
+                            { name: "Melakukan pemilihan unit-unit reuse yang potensial", sub: ["Apakah Anda dapat mengidentifikasikan class unit-unit reuse (dari aplikasi lain) yang sesuai?", "Apakah Anda dapat menghitung keuntungan efisiensi dari pemanfaatan komponen reuse?", "Apakah Anda dapat untuk tidak melanggar Lisensi, Hak cipta dan hak paten dalam pemanfaatan komponen reuse tersebut?"] },
+                            { name: "Melakukan integrasi library atau komponen pre-existing dengan source code yang ada", sub: ["Apakah Anda dapat mengidentifikasikan ketergantungan antar unit?", "Apakah Anda dapat menghindari penggunaan komponen yang sudah obsolete?", "Apakah Anda dapat menerapkan program dengan library yang dihubungkan?"] },
+                            { name: "Melakukan pembaharuan library atau komponen pre-existing yang digunakan", sub: ["Apakah Anda dapat mengidentifikasikan cara-cara pembaharuan library atau komponen pre-existing?", "Apakah Anda dapat melakukan pembaharuan library atau komponen pre-existing?"] }
+                        ]},
+                        { id: "J.620100.021.02", title: "Menerapkan Akses Basis Data", items: [
+                            { name: "Membuat berbagai operasi terhadap basis data", sub: ["Apakah Anda dapat menyimpan/mengubah data ke dalam format basis data ?", "Apakah Anda dapat menghasilkan Informasi yang diinginkan menggunakan query ?", "Apakah Anda dapat menggunakan indeks untuk mempercepat akses ?"] },
+                            { name: "Membuat prosedur akses terhadap basis data", sub: ["Apakah Anda dapat menerapkan Library akses basis data ?", "Apakah Anda dapat menerapkan perintah akses data yang relevan dengan teknologi atau jenis baru data, untuk mengakses data ?"] },
+                            { name: "Membuat koneksi basis data", sub: ["Apakah Anda dapat memilih Teknologi koneksi yang sesuai ?", "Apakah Anda dapat menentukan Keamanan koneksi ?", "Apakah Anda dapat menentukan Hak setiap pengguna ?"] },
+                            { name: "Menguji program basis data", sub: ["Apakah Anda dapat menyiapkan Skenario pengujian ?", "Apakah Anda dapat membaca kinerja statement akses data pada Logika Pemrograman ?", "Apakah Anda dapat membaca statement akses data pada Performansi data diuji ?"] }
+                        ]},
+                        { id: "J.620100.023.02", title: "Membuat Dokumen Kode Program", items: [
+                            { name: "Melakukan identifikasi kode program", sub: ["Apakah Anda dapat mengidentifikasikan modul program?", "Apakah Anda dapat mengidentifikasikan parameter yang digunakan?", "Apakah Anda dapat menjelaskan cara kerja algoritma?", "Apakah Anda dapat memberikan komentar setiap baris kodetermasuk data, eksepsi, fungsi, prosedur dan class (bila ada)?"] },
+                            { name: "Membuat dokumentasi modul program", sub: ["Apakah Anda dapat membuat dokumentasi modul yang sesuai dengan identitas untuk memudahkan pelacakan?", "Apakah Anda dapat menerapkan identifikasi dokumentasi?", "Apakah Anda dapat menjelaskan kegunaan modul?", "Apakah Anda dapat merevisi dokumen sesuai perubahan kode program?"] },
+                            { name: "Membuat dokumentasi fungsi, prosedur atau method program", sub: ["Apakah Anda dapat membuat dokumentasi fungsi, prosedur atau method?", "Apakah Anda dapat menjelaskan kemungkinan eksepsi?", "Apakah Anda dapat merevisi dokumen sesuai perubahan kode program?"] },
+                            { name: "Men-generate dokumentasi", sub: ["Apakah Anda dapat mengidentifikasikan tools untuk generate?", "Apakah Anda dapat melakukan generate dokumentasi?"] }
+                        ]},
+                        { id: "J.620100.025.02", title: "Melakukan Debugging", items: [
+                            { name: "Mempersiapkan Kode Program", sub: ["Apakah Anda dapat menyiapkan Kode program yang sesuai ?", "Apakah Anda dapat menyiapkan Debugging tools untuk melihat proses suatu modul ?"] },
+                            { name: "Melakukan debugging", sub: ["Apakah Anda dapat menyapkan kode program dikompilasi sesuai bahasa pemrograman?", "Apakah Anda dapat menganalisis kriteria lulus build ?", "Apakah Anda dapat menganalisis kriteria eksekusi aplikasi ?", "Apakah Anda dapat mencatat kode kesalahan?"] },
+                            { name: "Memperbaiki Program", sub: ["Apakah Anda dapat merumuskan perbaikan terhadap kesalahan kompilasi maupun build?", "Apakah Anda dapat melakukan perbaikan?"] }
+                        ]},
+                        { id: "J.620100.033.02", title: "Melaksanakan Pengujian Unit Program", items: [
+                            { name: "Menentukan kebutuhan uji coba dalam pengembangan", sub: ["Apakah Anda dapat mengidentifikasikan prosedur uji coba aplikasi sesuai dengan software development life cycle ?", "Apakah Anda dapat menentukan tools uji coba ?", "Apakah Anda dapat mengidentifikasi standard dan kondisi uji coba?"] },
+                            { name: "Mempersiapkan dokumentasi uji coba", sub: ["Apakah Anda dapat menentukan kebutuhan untuk uji coba?", "Apakah Anda dapat melaksanakan uji coba dengan variasi kondisi?", "Apakah Anda dapat membuat skenario uji coba?"] },
+                            { name: "Mempersiapkan data uji", sub: ["Apakah Anda dapat mengidentifikasi data uji unit tes?", "Apakah Anda dapat membangkitkan data uji unit test?"] },
+                            { name: "Melaksanakan prosedur uji coba", sub: ["Apakah Anda dapat mendesain skenario uji coba?", "Apakah Anda dapat mendesain prosedur uji coba dalam algoritma?", "Apakah Anda dapat melaksanakan uji coba?"] },
+                            { name: "Mengevaluasi hasil uji coba", sub: ["Apakah Anda dapat mencatat hasil uji coba?", "Apakah Anda dapat menganalisa hasil uji coba?", "Apakah Anda dapat melaporkan prosedur uji coba?", "Apakah Anda dapat menyelesaikan kesalahan/error?"] }
+                        ]}
+                    ]
+                }
+            };
+
+            const competencyContainer = document.getElementById('competency-container');
+
+            function createUnitCompetencyHTML(unit) {
+                let itemsHTML = unit.items.map(item => {
+                    let subItemsHTML = item.sub.length > 0 ? `<ul class="nested-list">${item.sub.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
+                    return `<li>${item.name}${subItemsHTML}</li>`;
+                }).join('');
+
+                return `
+                    <div class="border-t border-gray-200 py-4">
+                        <h4 class="font-semibold text-gray-800">${unit.title} (${unit.id})</h4>
+                        <div class="pt-2 text-sm text-gray-600">
+                            <ul class="custom-list">${itemsHTML}</ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            for (const role in data) {
+                const roleData = data[role];
+                const card = document.createElement('div');
+                card.className = 'competency-card rounded-3xl shadow-lg overflow-hidden';
+                card.style.borderLeftColor = roleData.color;
+
+                const unitsHTML = roleData.competencies.map(createUnitCompetencyHTML).join('');
+
+                card.innerHTML = `
+                    <div class="competency-header p-6 flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 rounded-full p-3 mr-4" style="background-color: ${roleData.color}20;">
+                                <i class="fas ${roleData.icon} text-2xl" style="color: ${roleData.color};"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">${role}</h3>
+                                <p class="text-gray-500">${roleData.description}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="badge text-xs" style="background: ${roleData.color}; color: white;">${roleData.competencies.length} Unit Kompetensi</span>
+                            <i class="fas fa-chevron-right competency-arrow text-2xl text-gray-400"></i>
+                        </div>
+                    </div>
+                    <div class="competency-content">
+                        <div class="p-6 space-y-4">${unitsHTML}</div>
+                    </div>
+                `;
+                competencyContainer.appendChild(card);
+            }
+
+            document.querySelectorAll('.competency-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    header.parentElement.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+    <noscript>
+            <br />
+            <br />
+            <div class="noscript-warning">
+                <p>Website ini memerlukan JavaScript untuk berfungsi dengan baik. Mohon aktifkan JavaScript pada peramban Anda.</p>
+            </div>
+    </noscript>
+</body>
+</html>
