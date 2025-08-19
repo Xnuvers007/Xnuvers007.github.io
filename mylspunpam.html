@@ -145,6 +145,15 @@
             font-size: 1.5rem;
             color: white;
         }
+        .noscript-warning {
+    display: flex;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
     </style>
 </head>
 <body class="text-gray-800">
@@ -229,10 +238,17 @@
                     <h3 class="text-xl font-bold mb-2">Surat Izin Kerja</h3>
                     <p class="opacity-90">Download template surat izin kerja</p>
                 </a>
-                <a href="https://wa.me/628811521527" target="_blank" class="card-hover-effect bg-gradient-to-br from-green-600 to-emerald-500 text-white p-6 rounded-2xl shadow-lg">
+                <br />
+                <hr>
+                <a href="https://wa.me/6287850339368" target="_blank" class="card-hover-effect bg-gradient-to-br from-green-600 to-emerald-500 text-white p-6 rounded-2xl shadow-lg">
                     <i class="fab fa-whatsapp text-3xl mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">Hubungi Admin</h3>
                     <p class="opacity-90">Chat langsung dengan admin LSP</p>
+                </a>
+                <a href="https://wa.me/6287850332606" target="_blank" class="card-hover-effect bg-gradient-to-br from-green-600 to-emerald-500 text-white p-6 rounded-2xl shadow-lg">
+                    <i class="fab fa-whatsapp text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Hubungi Admin ke-2</h3>
+                    <p class="opacity-90">Chat langsung dengan admin LSP yang ke-2</p>
                 </a>
             </div>
         </div>
@@ -268,10 +284,29 @@
                                 <li>Update data jika diperlukan</li>
                             </ol>
                         </div>
-                        <div class="flex items-center space-x-4 mt-6">
-                            <a href="https://wa.me/628811521527" class="inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors"><i class="fab fa-whatsapp mr-2"></i><span class="text-sm font-medium">Hubungi Admin</span></a>
-                            <span class="text-sm text-gray-500">Jam operasional: 09:00-18:00 WIB</span>
-                        </div>
+<div class="mt-6 space-y-4">
+    <!-- Admin Contact Buttons -->
+    <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+        <a href="https://wa.me/6287850339368" class="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors w-full sm:w-auto text-sm font-medium">
+            <i class="fab fa-whatsapp mr-2"></i>Hubungi Admin (no CALL!)
+        </a>
+        <a href="https://wa.me/6287850332606" class="flex items-center justify-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors w-full sm:w-auto text-sm font-medium">
+            <i class="fab fa-whatsapp mr-2"></i>Hubungi Admin ke-2 (no CALL!)
+        </a>
+    </div>
+
+    <!-- Operational Hours -->
+    <div class="bg-gray-100 p-4 rounded-lg border border-gray-200 text-gray-700 text-sm">
+        <h4 class="font-semibold mb-2 text-gray-900">Jam Operasional Admin:</h4>
+        <dl class="grid grid-cols-2 gap-x-4 gap-y-1">
+            <dt>Senin - Jumat</dt>
+            <dd>08:30 - 20:00 WIB</dd>
+            <dt>Sabtu</dt>
+            <dd>08:30 - 15:00 WIB</dd>
+        </dl>
+    </div>
+</div>
+
                     </div>
                 </div>
                 <div class="glass-card p-8 rounded-3xl shadow-lg">
@@ -307,12 +342,26 @@
                 <a href="https://www.instagram.com/lsp_unpam" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-3xl group-hover:text-pink-400 transition-colors"></i></a>
                 <a href="https://twitter.com/lspunpam" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter text-3xl group-hover:text-blue-400 transition-colors"></i></a>
                 <a href="#" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook text-3xl group-hover:text-blue-500 transition-colors"></i></a>
-                <a href="https://wa.me/628811521527" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-whatsapp text-3xl group-hover:text-green-400 transition-colors"></i></a>
+                <a href="https://wa.me/6287850332606" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-whatsapp text-3xl group-hover:text-green-400 transition-colors"></i></a>
+                <a href="https://wa.me/6287850339368" target="_blank" class="group text-gray-400 hover:text-white transition-colors"><i class="fab fa-whatsapp text-3xl group-hover:text-green-400 transition-colors"></i></a>
             </div>
             <div class="text-center text-gray-500 text-sm">
-                <p>&copy; 2025 Xnuvers007 All rights reserved.</p>
-                <p>Jam Operasional Admin: 09:00 - 18:00 WIB</p>
+                <p>&copy; <span id="current-year"></span> Xnuvers007 All rights reserved.</p>
+                <br />
+                <p>Jam Operasional Admin: 
+                <dl>
+                            	<dt>senin - jumat</dt>
+                                <dd>08:30 - 20:00 WIB</dd>
+                                <dt>sabtu</dt>
+                                <dd>08:30 - 15:00 WIB</dd>
+                 <dl>
+                </p>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('current-year').textContent = new Date().getFullYear();
+                });
+            </script>
         </div>
     </footer>
 
@@ -530,5 +579,12 @@
             });
         });
     </script>
+    <noscript>
+            <br />
+            <br />
+            <div class="noscript-warning">
+                <p>Website ini memerlukan JavaScript untuk berfungsi dengan baik. Mohon aktifkan JavaScript pada peramban Anda.</p>
+            </div>
+    </noscript>
 </body>
 </html>
