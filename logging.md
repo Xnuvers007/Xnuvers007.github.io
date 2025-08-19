@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 19 Agustus 2025 16.29.42 UTC
-- WITA: Selasa, 19 Agustus 2025 17.29.42 UTC
-- WIT: Selasa, 19 Agustus 2025 18.29.42 UTC
+- WIB: Selasa, 19 Agustus 2025 17.31.32 UTC
+- WITA: Selasa, 19 Agustus 2025 18.31.32 UTC
+- WIT: Selasa, 19 Agustus 2025 19.31.32 UTC
 
 Kutipan Inspiratif:
-"Im sorry my fault. I forgot youre an Idiot."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: attitude
+Kategori: technology
 
