@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Senin, 25 Agustus 2025 14.27.29 UTC
-- WITA: Senin, 25 Agustus 2025 15.27.29 UTC
-- WIT: Senin, 25 Agustus 2025 16.27.29 UTC
+- WIB: Senin, 25 Agustus 2025 15.37.47 UTC
+- WITA: Senin, 25 Agustus 2025 16.37.47 UTC
+- WIT: Senin, 25 Agustus 2025 17.37.47 UTC
 
 Kutipan Inspiratif:
-"I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.'"
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: inspirational
+Kategori: technology
 
