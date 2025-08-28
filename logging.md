@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 28 Agustus 2025 20.34.40 UTC
-- WITA: Kamis, 28 Agustus 2025 21.34.40 UTC
-- WIT: Kamis, 28 Agustus 2025 22.34.40 UTC
+- WIB: Kamis, 28 Agustus 2025 21.28.40 UTC
+- WITA: Kamis, 28 Agustus 2025 22.28.40 UTC
+- WIT: Kamis, 28 Agustus 2025 23.28.40 UTC
 
 Kutipan Inspiratif:
-"Xcuse me, I found something under my shoes. Oh its your attitude."
+"Take chances, make mistakes. That's how you grow. Pain nourishes your courage. You have to fail in order to practice being brave."
 
 
-Kategori: attitude
+Kategori: motivational
 
