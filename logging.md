@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 2 September 2025 23.33.51 UTC
-- WITA: Rabu, 3 September 2025 00.33.51 UTC
-- WIT: Rabu, 3 September 2025 01.33.51 UTC
+- WIB: Rabu, 3 September 2025 00.23.34 UTC
+- WITA: Rabu, 3 September 2025 01.23.34 UTC
+- WIT: Rabu, 3 September 2025 02.23.34 UTC
 
 Kutipan Inspiratif:
-"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
+"It took me a long time not to judge myself through someone else's eyes"
 
 
-Kategori: inspirational
+Kategori: motivational
 
