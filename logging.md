@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 11 September 2025 04.23.19 UTC
-- WITA: Kamis, 11 September 2025 05.23.19 UTC
-- WIT: Kamis, 11 September 2025 06.23.19 UTC
+- WIB: Kamis, 11 September 2025 05.25.22 UTC
+- WITA: Kamis, 11 September 2025 06.25.22 UTC
+- WIT: Kamis, 11 September 2025 07.25.22 UTC
 
 Kutipan Inspiratif:
-"When one door closes, another door opens; but we so often look so long and regretfully upon the closed door, that we do not see the ones which open for us."
+"Technology is the fashion of the '90s. It affects everyone, and everyone is interested in it - either from fear of being left behind or because they have a real need to use technology."
 
 
-Kategori: inspirational
+Kategori: technology
 
