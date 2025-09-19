@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 19 September 2025 10.05.54 UTC
-- WITA: Jumat, 19 September 2025 11.05.54 UTC
-- WIT: Jumat, 19 September 2025 12.05.54 UTC
+- WIB: Jumat, 19 September 2025 10.38.36 UTC
+- WITA: Jumat, 19 September 2025 11.38.36 UTC
+- WIT: Jumat, 19 September 2025 12.38.36 UTC
 
 Kutipan Inspiratif:
-"Two fundamentals of cool life  Walk like you are the king OR walk like you dont care ,who is the king."
+"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
 
 
-Kategori: attitude
+Kategori: motivational
 
