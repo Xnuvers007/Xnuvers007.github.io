@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 21 September 2025 12.26.05 UTC
-- WITA: Minggu, 21 September 2025 13.26.05 UTC
-- WIT: Minggu, 21 September 2025 14.26.05 UTC
+- WIB: Minggu, 21 September 2025 13.35.52 UTC
+- WITA: Minggu, 21 September 2025 14.35.52 UTC
+- WIT: Minggu, 21 September 2025 15.35.52 UTC
 
 Kutipan Inspiratif:
-"I quit being afraid when my first venture failed and the sky didn't fall down."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: motivational
+Kategori: attitude
 
