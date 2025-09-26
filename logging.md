@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 27 September 2025 01.34.49 UTC
-- WITA: Sabtu, 27 September 2025 02.34.49 UTC
-- WIT: Sabtu, 27 September 2025 03.34.49 UTC
+- WIB: Sabtu, 27 September 2025 02.20.10 UTC
+- WITA: Sabtu, 27 September 2025 03.20.10 UTC
+- WIT: Sabtu, 27 September 2025 04.20.10 UTC
 
 Kutipan Inspiratif:
-"You will never know what you are capable of until you take that first step and go for it."
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: motivational
+Kategori: technology
 
