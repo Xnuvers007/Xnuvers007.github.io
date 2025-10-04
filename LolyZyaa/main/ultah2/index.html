@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>Selamat Ulang Tahun Sayangku! 💜</title>
+
+    <meta name="title" content="Selamat Ulang Tahun Loly" />
+    <meta name="description" content="Selamat ulang tahun Loly Sayangku" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="../ultah2/" />
+    <meta property="og:title" content="Selamat Ulang Tahun Loly" />
+    <meta property="og:description" content="Selamat ulang tahun Loly Sayangku" />
+    <meta property="og:image" content="../ultah/gambar/loly.png" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="../ultah2/" />
+    <meta property="twitter:title" content="Selamat Ulang Tahun Loly" />
+    <meta property="twitter:description" content="Selamat ulang tahun Loly Sayangku" />
+    <meta property="twitter:image" content="../ultah/gambar/loly.png" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    <div class="bubbles-container" id="bubblesContainer"></div>
+    
+    <div class="container">
+        <section class="welcome-section active" id="welcomeSection">
+            <div class="welcome-content">
+                <h1 class="glowing-text">Selamat Ulang Tahun</h1>
+                <h2 class="typewriter" id="typewriter">Sayangku... 💜 Yang ke-21</h2>
+                <div class="cake-animation">
+                    <div class="cake">
+                        <div class="candles">
+                            <div class="candle-number">
+                                <div class="number">2</div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle-number">
+                                <div class="number">1</div>
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="start-btn" id="startBtn">Buka Hadiah! 🎁</button>
+                <br />
+                <p class="slide-text">Coba pencet api nya di lilin yaa... 🕯️<br /> sama pencet logo lagu nya yah </p>
+            </div>
+        </section>
+
+        <section class="main-content" id="mainContent">
+            <div class="nav-buttons">
+                <button type="button" class="nav-btn" id="prevBtn">← Sebelumnya</button>
+                <span class="page-indicator" id="pageIndicator">1 / 7</span>
+                <button type="button" class="nav-btn" id="nextBtn">Selanjutnya →</button>
+            </div>
+
+            <div class="slide active" data-slide="1">
+                <div class="slide-content">
+                    <h2 class="slide-title bounce-in">Hai Sayangku! <span class="emoji">💕</span></h2>
+                    <div class="character-animation">
+                        <div class="keroppi-jump">🐸</div>
+                    </div>
+                    <p class="slide-text fade-in">Hari ini hari spesial kamu! Aku buat website ini khusus buat kamu dengan penuh cinta 💜</p>
+                    <div class="floating-items">
+                        <span class="float-item">💜</span>
+                        <span class="float-item">💚</span>
+                        <span class="float-item">🎂</span>
+                        <span class="float-item">🎉</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" data-slide="2">
+                <div class="slide-content">
+                    <h2 class="slide-title pulse"><span class="gradient-text">Hal yang Kamu Suka!</span> <span class="emoji">😊</span></h2>
+                    <div class="favorites-grid">
+                        <div class="fav-card rotate-in">
+                            <div class="fav-icon">❤️</div>
+                            <p>Suka Aku</p>
+                            <small>(Yang paling penting! 🥰)</small>
+                        </div>
+                        <div class="fav-card rotate-in delay-1">
+                            <div class="fav-icon">🍤</div>
+                            <p>Tempe Goreng</p>
+                            <small>(Kriuk kriuk enak! 😋)</small>
+                        </div>
+                        <div class="fav-card rotate-in delay-2">
+                            <div class="fav-icon">💜</div>
+                            <p>Warna Ungu</p>
+                            <small>(Cantik kayak kamu! ✨)</small>
+                        </div>
+                        <div class="fav-card rotate-in delay-3">
+                            <div class="fav-icon">💚</div>
+                            <p>Warna Hijau</p>
+                            <small>(Seperti Floryn Hijau menghidupkan Dunia :3 🌿)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" data-slide="3">
+                <div class="slide-content">
+                    <h2 class="slide-title wobble"><span class="gradient-text">Makanan Favorit!</span> <span class="emoji">🍽️</span></h2>
+                    <div class="food-carousel">
+                        <div class="food-item bounce">
+                            <div class="food-emoji">🥗</div>
+                            <p>Gado-Gado</p>
+                        </div>
+                        <div class="food-item bounce delay-1">
+                            <div class="food-emoji">🍞</div>
+                            <p>Roti Aoka</p>
+                        </div>
+                        <div class="food-item bounce delay-2">
+                            <div class="food-emoji">🍦</div>
+                            <p>Es Krim</p>
+                        </div>
+                        <div class="food-item bounce delay-3">
+                            <div class="food-emoji">🍮</div>
+                            <p>Puding Coklat</p>
+                        </div>
+                        <div class="food-item bounce delay-4">
+                            <div class="food-emoji">🍬</div>
+                            <p>Dodol</p>
+                        </div>
+                    </div>
+                    <p class="slide-text">Kapan-kapan aku beliin semuanya ya! 😘</p>
+                </div>
+            </div>
+
+            <div class="slide" data-slide="4">
+                <div class="slide-content">
+                    <h2 class="slide-title shake"><span class="gradient-text">Galeri Kenangan!</span> <span class="emoji">📸</span></h2>
+                    <p class="slide-text">Kamu suka di-spam foto kan? Nih! 💕</p>
+                    <div class="photo-gallery">
+                        <div class="photo-frame spin-in">
+                            <div class="photo-placeholder">
+                                <span class="photo-icon"><img src="image/gambar1.webp" alt="Foto 1" class="photo-image"></span>
+                                <p>makan gulali dan melihat kembang api serta hiburan malam bersama</p>
+                            </div>
+                        </div>
+                        <div class="photo-frame spin-in delay-1">
+                            <div class="photo-placeholder">
+                                <span class="photo-icon"><img src="image/gambar2.webp" alt="Foto 2" class="photo-image"></span>
+                                <p>Foto yang kamu berikan kepadaku, yang ini lucu judes gimana gitu :' tapi aku suka 💘♥ (26 agustus 2025) 12.25</p>
+                            </div>
+                        </div>
+                        <div class="photo-frame spin-in delay-2">
+                            <div class="photo-placeholder">
+                                <span class="photo-icon"><img src="image/gambar3.webp" alt="Foto 3" class="photo-image"></span>
+                                <p>Foto dimana kamu merayakan Idul Adha dan sholat Ied bersama keluarga pada 6 Juni 2025</p>
+                            </div>
+                        </div>
+                        <div class="photo-frame spin-in delay-3">
+                            <div class="photo-placeholder">
+                                <span class="photo-icon"><img src="image/gambar4.webp" alt="Foto 4" class="photo-image"></span>
+                                <p>Foto ke 4 yang dimana kamu jalan jalan bersama keluarga pada 17 oktober 2024 </p>
+                            </div>
+                        </div>
+                        <div class="photo-frame spin-in delay-4">
+                            <div class="photo-placeholder">
+                                <span class="photo-icon"><img src="image/gambar5.webp" alt="Foto 5" class="photo-image"></span>
+                                <p>Foto pas kamu masih kicikkkk :> lucunyaaaaa :3 </p>
+                            </div>
+                        </div>
+                        <div class="photo-frame spin-in delay-5">
+                            <div class="photo-placeholder">
+                                <span class="photo-icon"><img src="image/gambar6.webp" alt="Foto 6" class="photo-image"></span>
+                                <p>Aku mencium kamu di pipi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="hint-text">Semoga kamu sehat selalu ya sayang ♥ semakin kamu tua, semakin kamu cantik ♥😊</small>
+                </div>
+            </div>
+
+            <div class="slide" data-slide="5">
+                <div class="slide-content">
+                    <h2 class="slide-title flip"><span class="gradient-text">Keroppi & Indra :3 !</span> <span class="emoji">🐸💚</span></h2>
+                    <div class="keroppi-section">
+                        <div class="keroppi-large">
+                            <div class="keroppi-animated">🐸</div>
+                            <p class="keroppi-text">Keroppi sayang kamu! 💚</p>
+                            <p class="keroppi-subtext">Dia (Indra) juga suka kamu loh! 😄</p>
+                        </div>
+                        <div class="idcium-box">
+                            <p class="idcium-text">💖 Zona Indra & Loly 💖</p>
+                            <div class="particles">
+                                <span>🐸</span>
+                                <span>💜</span>
+                                <span>🎂</span>
+                                <span>🎉</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" data-slide="6">
+                <div class="slide-content">
+                    <h2 class="slide-title rainbow"><span class="gradient-text">Momen Lucu Kita!</span> <span class="emoji">😂</span></h2>
+                    <div class="funny-section">
+                        <div class="angry-emoji-container">
+                            <div class="angry-emoji">😤</div>
+                            <div class="angry-emoji delay-1">😠</div>
+                            <div class="angry-emoji delay-2">🤬</div>
+                        </div>
+                        <p class="funny-text slide-up">Kalau kamu lagi marah-marah dan ngamuk ke aku...</p>
+                        <p class="funny-text slide-up delay-1">Aku tetap sayang kamu kok! 💕</p>
+                        <p class="funny-text slide-up delay-2">Soalnya kamu lucu banget kalau marah! 😆</p>
+                        <div class="peace-sign">✌️😁</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" data-slide="7">
+                <div class="slide-content">
+                    <h2 class="slide-title glow-pulse"><span class="gradient-text">Pesan Terakhir...</span> <span class="emoji">💌</span></h2>
+                    <div class="final-message">
+                        <p class="heart-text zoom-in">Selamat ulang tahun sayangku! 🎂</p>
+                        <p class="heart-text zoom-in delay-1">Semoga panjang umur, sehat selalu 💪</p>
+                        <p class="heart-text zoom-in delay-2">Makin cantik, makin baik hati 😇</p>
+                        <p class="heart-text zoom-in delay-3">Dan yang paling penting...</p>
+                        <p class="heart-text zoom-in delay-4 big">AKU SAYANG KAMU BANGET! 💜💚</p>
+                        <div class="balloons-animation">
+                            <div class="balloon">🎈</div>
+                            <div class="balloon delay-1">🎈</div>
+                            <div class="balloon delay-2">🎈</div>
+                            <div class="balloon delay-3">🎈</div>
+                            <div class="balloon delay-4">🎈</div>
+                        </div>
+                    </div>
+                    <div class="celebration">
+                        <button type="button" class="start-btn celebration-btn" id="celebrateBtn">🎉 RAYAKAN! 🎉</button>
+                        <br />
+                        <br />
+                        <input type="text" id="whatsappMessage" placeholder="Tulis pesanmu di sini..." class="message-input">
+                        <button type="button" id="sendMessageBtn">Kirim ke WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="fireworks-container" id="fireworksContainer"></div>
+
+        <div class="music-player">
+            <button type="button" class="music-btn" id="musicBtn" aria-label="Play/Pause Music" title="Klik untuk pilih lagu">
+                <span class="music-icon">🎵</span>
+            </button>
+            <div class="music-note" id="musicNote">♪</div>
+            <div class="now-playing" id="nowPlaying"></div>
+        </div>
+    </div>
+
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
