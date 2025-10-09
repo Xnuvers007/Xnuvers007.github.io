@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 9 Oktober 2025 19.55.55 UTC
-- WITA: Kamis, 9 Oktober 2025 20.55.55 UTC
-- WIT: Kamis, 9 Oktober 2025 21.55.55 UTC
+- WIB: Kamis, 9 Oktober 2025 20.36.09 UTC
+- WITA: Kamis, 9 Oktober 2025 21.36.09 UTC
+- WIT: Kamis, 9 Oktober 2025 22.36.09 UTC
 
 Kutipan Inspiratif:
-"If you work just for money, you'll never make it, but if you love what you're doing and you always put the customer first, success will be yours."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: success
+Kategori: attitude
 
