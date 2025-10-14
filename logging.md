@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 14 Oktober 2025 19.57.26 UTC
-- WITA: Selasa, 14 Oktober 2025 20.57.26 UTC
-- WIT: Selasa, 14 Oktober 2025 21.57.26 UTC
+- WIB: Selasa, 14 Oktober 2025 20.36.38 UTC
+- WITA: Selasa, 14 Oktober 2025 21.36.38 UTC
+- WIT: Selasa, 14 Oktober 2025 22.36.38 UTC
 
 Kutipan Inspiratif:
-"Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
+"I quit being afraid when my first venture failed and the sky didn't fall down."
 
 
-Kategori: success
+Kategori: motivational
 
