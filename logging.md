@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 15 Oktober 2025 16.29.45 UTC
-- WITA: Rabu, 15 Oktober 2025 17.29.45 UTC
-- WIT: Rabu, 15 Oktober 2025 18.29.45 UTC
+- WIB: Rabu, 15 Oktober 2025 17.32.10 UTC
+- WITA: Rabu, 15 Oktober 2025 18.32.10 UTC
+- WIT: Rabu, 15 Oktober 2025 19.32.10 UTC
 
 Kutipan Inspiratif:
-"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
+"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
 
 
-Kategori: inspirational
+Kategori: motivational
 
