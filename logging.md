@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 18 Oktober 2025 23.30.03 UTC
-- WITA: Minggu, 19 Oktober 2025 00.30.03 UTC
-- WIT: Minggu, 19 Oktober 2025 01.30.03 UTC
+- WIB: Minggu, 19 Oktober 2025 00.22.02 UTC
+- WITA: Minggu, 19 Oktober 2025 01.22.02 UTC
+- WIT: Minggu, 19 Oktober 2025 02.22.02 UTC
 
 Kutipan Inspiratif:
-"Xcuse me, I found something under my shoes. Oh its your attitude."
+"Nobody can make you feel inferior without your consent."
 
 
-Kategori: attitude
+Kategori: motivational
 
