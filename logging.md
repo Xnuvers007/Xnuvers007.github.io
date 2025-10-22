@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 22 Oktober 2025 11.32.37 UTC
-- WITA: Rabu, 22 Oktober 2025 12.32.37 UTC
-- WIT: Rabu, 22 Oktober 2025 13.32.37 UTC
+- WIB: Rabu, 22 Oktober 2025 12.28.37 UTC
+- WITA: Rabu, 22 Oktober 2025 13.28.37 UTC
+- WIT: Rabu, 22 Oktober 2025 14.28.37 UTC
 
 Kutipan Inspiratif:
-"People say me bad, trust me i am the worst!!!"
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
-Kategori: attitude
+Kategori: technology
 
