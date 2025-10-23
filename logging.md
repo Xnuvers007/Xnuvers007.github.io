@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 23 Oktober 2025 13.39.50 UTC
-- WITA: Kamis, 23 Oktober 2025 14.39.50 UTC
-- WIT: Kamis, 23 Oktober 2025 15.39.50 UTC
+- WIB: Kamis, 23 Oktober 2025 14.26.39 UTC
+- WITA: Kamis, 23 Oktober 2025 15.26.39 UTC
+- WIT: Kamis, 23 Oktober 2025 16.26.39 UTC
 
 Kutipan Inspiratif:
-"Stop checking my status ! Go Get A Life "
+"It took me a long time not to judge myself through someone else's eyes"
 
 
-Kategori: attitude
+Kategori: motivational
 
