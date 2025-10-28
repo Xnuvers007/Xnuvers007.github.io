@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Selasa, 28 Oktober 2025 21.30.55 UTC
-- WITA: Selasa, 28 Oktober 2025 22.30.55 UTC
-- WIT: Selasa, 28 Oktober 2025 23.30.55 UTC
+- WIB: Selasa, 28 Oktober 2025 22.30.52 UTC
+- WITA: Selasa, 28 Oktober 2025 23.30.52 UTC
+- WIT: Rabu, 29 Oktober 2025 00.30.52 UTC
 
 Kutipan Inspiratif:
-"My task, which I am trying to achieve is, by the power of the written word, to make you hear, to make you feel--it is, before all, to make you see."
+"Therefore, you are not training young people for the world of today and the world of tomorrow unless you are doing proven technology training. That is one of the reasons I'm so concerned."
 
 
-Kategori: inspirational
+Kategori: technology
 
