@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultivation Tools</title>
+    <!-- Icon -->
+    <link rel="icon" type="image/webp" href="https://tr.rbxcdn.com/180DAY-e3b172c999c4bbc6ef671fcad60e51d0/256/256/Image/Webp/noFilter">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #d1d5db; /* Light gray text */
+        }
+        .card {
+            background-color: #1f2937; /* Darker card background */
+            border-radius: 0.75rem;
+            border: 1px solid #374151;
+            padding: 1.5rem;
+            margin-bottom: 0;
+        }
+        .input-group {
+            margin-bottom: 1rem;
+        }
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+        .input-group label {
+            display: block;
+            color: #9ca3af;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .input-field {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #4b5563;
+            border-radius: 0.375rem;
+            background-color: #374151;
+            color: #e5e7eb;
+            transition: border-color 0.2s;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgb(59 130 246 / 0.4);
+        }
+        .output-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            margin-top: 0.5rem;
+            background-color: #374151;
+        }
+        .output-group:first-of-type {
+            margin-top: 0;
+        }
+        .output-label {
+            font-weight: 500;
+            color: #d1d5db;
+        }
+        .output-value {
+            font-weight: 700;
+            color: #60a5fa; /* Light blue for values */
+            text-align: right;
+            font-family: 'monospace';
+            font-size: 1.1rem;
+        }
+        .highlight-output {
+            background-color: #1e40af;
+            color: white;
+        }
+        .highlight-output .output-label {
+             color: #dbeafe;
+        }
+        .highlight-output .output-value {
+            color: #ffffff;
+            font-size: 1.25rem;
+        }
+        /* link di sidebar */
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            color: #d1d5db;
+            transition: background-color 0.2s, color 0.2s;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .sidebar-link.active, .sidebar-link:hover {
+            background-color: #374151;
+            color: #ffffff;
+        }
+        .sidebar-link .icon {
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            width: 1.5rem; /* 24px */
+            height: 1.5rem; /* 24px */
+        }
+        .sidebar-header {
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        /* Elixir Checkbox */
+        .elixir-checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: 2px solid transparent;
+            background-color: #374151;
+            transition: all 0.2s;
+            width: 120px;
+        }
+        .elixir-checkbox:checked + .elixir-checkbox-label {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+        .compare-table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+        }
+        .compare-table th, .compare-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #374151;
+        }
+        .compare-table th {
+            color: #9ca3af;
+            font-weight: 600;
+        }
+        .compare-table td {
+            color: #d1d5db;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Sidebar btn -->
+    <button id="sidebar-toggle" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-400 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 fixed top-2 left-2 z-50">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen p-4 transition-transform -translate-x-full bg-gray-800">
+        <nav class="flex flex-col space-y-1 mt-10">
+            <!-- Tools Section -->
+            <h3 class="sidebar-header">Tools</h3>
+            <a id="nav-wing-calculator" class="sidebar-link active">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662a48.678 48.678 0 007.462 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12v3.25A15.953 15.953 0 0112 15.75v-3.75m-7.5 3.75c-1.258-1.03-2.336-2.318-3.15-3.75m16.35 0c.814 1.432 1.892 2.72 3.15 3.75M12 15.75c-3.314 0-6-1.48-6-3.25v-3.25a15.953 15.953 0 016-1.5v4.75z" /></svg>
+                <span>Wing Calculator</span>
+            </a>
+            <a id="nav-elixir-calculator" class="sidebar-link">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662a48.678 48.678 0 007.462 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12v3.25A15.953 15.953 0 0112 15.75v-3.75m-7.5 3.75c-1.258-1.03-2.336-2.318-3.15-3.75m16.35 0c.814 1.432 1.892 2.72 3.15 3.75M12 15.75c-3.314 0-6-1.48-6-3.25v-3.25a15.953 15.953 0 016-1.5v4.75z" /></svg>
+                <span>Elixir Calculator</span>
+            </a>
+            <a id="nav-world-calculator" class="sidebar-link">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+                <span>World Calculator</span>
+            </a>
+
+            <!-- Markeplace Section -->
+            <h3 class="sidebar-header pt-4">Marketplace</h3>
+            <a id="nav-marketplace" class="sidebar-link">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+                <span>Marketplace</span>
+            </a>
+
+            <!-- Social Links Section -->
+            <h3 class="sidebar-header pt-4">Social Links</h3>
+            <a href="https://www.roblox.com/games/18645473062/Guild-War-V35-Cultivation-Mortal-to-Immortal" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                <img src="https://images.rbxcdn.com/e854eb7b2951ac03edba9a2681032bba.ico" alt="Roblox Icon" class="icon" style="padding: 2px;">
+                <span>Roblox Game</span>
+            </a>
+            <a href="https://discord.com/invite/gFgcEavupb" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                <img src="https://uploads.onecompiler.io/43qb4srk5/43qddp2a8/discord.png" alt="Discord Icon" class="icon" onerror="this.onerror=null;this.src='https://placehold.co/24x24/374151/ffffff?text=D';">
+                <span>Official Discord Server</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-gray-900/80 z-30 hidden"></div>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto">
+        <!-- Wing Calculator Page -->
+        <div id="page-wing-calculator" class="container mx-auto p-4 md:p-8 max-w-7xl">
+            <header class="text-center mb-8"><h1 class="text-3xl md:text-4xl font-bold text-white">Wing Calculator</h1><p class="text-gray-400 mt-2">ATBM & Coefficient Wing Calculator By @supluckydior.</p><p class="text-gray-600 mt-2">Website By @raamyyyy</p></header>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="text-center mb-8"><p class="text-red-400 mt-2 text-center mb-2">Warning. best way to get accurate stats of scarce wing its trade wing to low level alts as it would give 3 decimal instead of 1 decimal such on picture</p><img class="mx-auto" src="https://uploads.onecompiler.io/43qb4srk5/43qddp2a8/wing.png" onerror="this.onerror=null;this.src='https://placehold.co/600x100/1f2937/d1d5db?text=Wing+Example+Image';" /></div>
+                <div class="card mb-8">
+                    <h2 class="text-xl font-bold text-white border-b border-gray-600 pb-3 mb-4">Max Wing Coefficients</h2>
+                    <div class="space-y-2">
+                        <div class="output-group">
+                            <span class="output-label">ATBM</span>
+                            <span class="output-value">1.500</span>
+                        </div>
+                        <div class="output-group">
+                            <span class="output-label">DTM</span>
+                            <span class="output-value">1.200</span>
+                        </div>
+                        <div class="output-group">
+                            <span class="output-label">DTP</span>
+                            <span class="output-value">1.050</span>
+                        </div>
+                        <div class="output-group">
+                            <span class="output-label">HPBM</span>
+                            <span class="output-value">1.500</span>
+                        </div>
+                        <div class="output-group">
+                            <span class="output-label">Speed</span>
+                            <span class="output-value">0.900</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card" id="coeff-calculator"><h2 class="text-2xl font-bold text-white border-b border-gray-600 pb-3 mb-4">1. Wing Coefficient Calculation</h2><div class="input-group"><label for="coeff-atbm-percent">Wing Percentage (%)</label><input type="number" id="coeff-atbm-percent" class="input-field" value="0" step="0.001"></div><div class="input-group"><label for="coeff-level">Level</label><input type="number" id="coeff-level" class="input-field" value="1"></div><div class="input-group"><label for="coeff-rarity">Rarity Wing</label><select id="coeff-rarity" class="input-field"></select></div><div class="mt-6"><h3 class="text-lg font-semibold text-white mb-2">Result:</h3><div class="output-group highlight-output"><span class="output-label">Wing Coefficient</span><span id="coeff-final-result" class="output-value"></span></div></div></div>
+                <div class="card" id="atbm-calculator"><h2 class="text-2xl font-bold text-white border-b border-gray-600 pb-3 mb-4">2. Wing Percentage Calculation</h2><div class="input-group"><label for="atbm-wing-coeff">Wing Coefficient</label><input type="number" id="atbm-wing-coeff" class="input-field" value="0" step="0.001"></div><div class="input-group"><label for="atbm-level">Level</label><input type="number" id="atbm-level" class="input-field" value="1"></div><div class="input-group"><label for="atbm-rarity">Rarity Wing</label><select id="atbm-rarity" class="input-field"></select></div><div class="mt-6"><h3 class="text-lg font-semibold text-white mb-2">Result:</h3><div class="output-group highlight-output"><span class="output-label">Final Wing Percentage</span><span id="atbm-final-result" class="output-value"></span></div></div></div>
+            </div>
+        </div>
+
+        <!-- Elixir Calculator Page -->
+        <div id="page-elixir-calculator" class="hidden container mx-auto p-4 md:p-8 max-w-7xl">
+             <header class="text-center mb-8"><h1 class="text-3xl md:text-4xl font-bold text-white">Elixir Calculator</h1><p class="text-gray-400 mt-2">Calculate total points and stats from your elixirs.</p></header>
+             <div class="card">
+                 <div id="elixir-checkbox-container" class="flex flex-wrap gap-2 mb-6 justify-center"></div>
+                 <div id="elixir-sections-container" class="space-y-6"></div>
+             </div>
+             <div class="card mt-6">
+                 <h3 class="text-xl font-semibold text-white mb-4">Total Points</h3>
+                 <div id="elixir-totals-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+             </div>
+             <div class="card mt-6">
+                 <h3 class="text-xl font-semibold text-white mb-4">Total Absorb Stats</h3>
+                 <div id="elixir-absorb-totals-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+             </div>
+        </div>
+        
+        <!-- World Calculator Page -->
+        <div id="page-world-calculator" class="hidden container mx-auto p-4 md:p-8 max-w-7xl">
+            <header class="text-center mb-8"><h1 class="text-3xl md:text-4xl font-bold text-white">World Rate Calculator</h1><p class="text-gray-400 mt-2">Calculate your farming rate per hour.</p></header>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="card"><h3 class="text-xl font-semibold text-white mb-4">World Selection</h3><div class="input-group"><label for="difficulty-select">Difficulty</label><select id="difficulty-select" class="input-field"></select></div><div class="input-group"><label for="world-select">World</label><select id="world-select" class="input-field"></select></div></div>
+                
+                <div class="card"><h3 class="text-xl font-semibold text-white mb-4">Base Stats</h3><div class="output-group !bg-gray-800"><span class="output-label">Exp / Clear</span><span id="base-xp" class="output-value"></span></div><div class="output-group !bg-gray-800"><span class="output-label">Ore / Drop</span><span id="base-ore" class="output-value"></span></div><div class="output-group !bg-gray-800"><span class="output-label">Gold / Clear</span><span id="base-coins" class="output-value"></span></div></div>
+                
+                <div class="card"><h3 class="text-xl font-semibold text-white mb-4">Clear Time</h3><div class="input-group"><label for="clear-time">Clear Time (seconds)</label><input type="number" id="clear-time" class="input-field" value="0" min="0"></div></div>
+
+                <div class="card">
+                  
+                  <h3 class="text-xl font-semibold text-white mb-4">Drop Buff Adjustment</h3>
+                  
+                  <div class="input-group">
+                    <label for="gold-drop-rate">Gold Drop Rate (%)</label>
+                    <input type="number" id="gold-drop-rate" class="input-field" value="100" min="100">
+                  </div>
+                  
+                  <div class="input-group">
+                    <label for="ore-drop-rate">Ore Drop Rate (%)</label>
+                    <input type="number" id="ore-drop-rate" class="input-field" value="100" min="100">
+                  </div>
+                  
+                  <div class="input-group">
+                    <label for="exp-gain-rate">Exp Gain Rate (%)</label>
+                    <input type="number" id="exp-gain-rate" class="input-field" value="100" min="100">
+                  </div>
+                  
+                </div>
+
+                <div class="card">
+                  
+                  <h3 class="text-xl font-semibold text-white mb-4">Extra Drop Adjustment</h3>
+                  
+                  <div class="input-group">
+                    <label for="gold-extra-drop">Extra Gold Drop</label>
+                    <input type="number" id="gold-extra-drop" class="input-field" value="0" min="0">
+                  </div>
+                  
+                  <div class="input-group">
+                    <label for="exp-extra-drop">Extra Exp Drop</label>
+                    <input type="number" id="exp-extra-drop" class="input-field" value="0" min="0">
+                  </div>
+                  
+                </div>
+                
+                <div class="card bg-blue-900/50 border-blue-700"><h3 class="text-xl font-semibold text-white mb-4">Results</h3><div class="output-group !bg-transparent"><span class="output-label">Exp / Hour</span><span id="result-xp" class="output-value text-green-400"></span></div><div class="output-group !bg-transparent"><span class="output-label">Ore / Hour</span><span id="result-ore" class="output-value text-green-400"></span></div><div class="output-group !bg-transparent"><span class="output-label">Gold / Hour</span><span id="result-coins" class="output-value text-green-400"></span></div><div class="output-group !bg-transparent"><span class="output-label">Clears / Hour</span><span id="result-clears" class="output-value text-green-400"></span></div><div class="mt-4 text-center"><button id="compare-btn" class="btn btn-primary w-full">Add to Compare</button></div></div>
+
+                <!-- World Compare Card -->
+                <div class="card md:col-span-2 lg:col-span-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-white">World Comparison</h3>
+                        <button id="clear-compare-btn" class="btn btn-danger">Clear</button>
+                    </div>
+                    <div id="compare-container" class="overflow-x-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Page Navigation Logic ---
+            const navWingCalculator = document.getElementById('nav-wing-calculator');
+            const navElixirCalculator = document.getElementById('nav-elixir-calculator');
+            const navWorldCalculator = document.getElementById('nav-world-calculator');
+            const pageWingCalculator = document.getElementById('page-wing-calculator');
+            const pageElixirCalculator = document.getElementById('page-elixir-calculator');
+            const pageWorldCalculator = document.getElementById('page-world-calculator');
+            
+            const navLinks = [navWingCalculator, navElixirCalculator, navWorldCalculator];
+            const pages = [pageWingCalculator, pageElixirCalculator, pageWorldCalculator];
+
+            function showPage(pageToShow) {
+                pages.forEach(page => page.classList.add('hidden'));
+                pageToShow.classList.remove('hidden');
+            }
+
+            function setActiveLink(linkToActivate) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                linkToActivate.classList.add('active');
+            }
+
+            navWingCalculator.addEventListener('click', () => { showPage(pageWingCalculator); setActiveLink(navWingCalculator); });
+            navElixirCalculator.addEventListener('click', () => { showPage(pageElixirCalculator); setActiveLink(navElixirCalculator); });
+            navWorldCalculator.addEventListener('click', () => { showPage(pageWorldCalculator); setActiveLink(navWorldCalculator); });
+
+            // --- Sidebar Toggle Logic ---
+            const sidebar = document.getElementById('sidebar');
+            const toggleBtn = document.getElementById('sidebar-toggle');
+            const overlay = document.getElementById('sidebar-overlay');
+            const toggleSidebar = () => {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
+            };
+            toggleBtn.addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', toggleSidebar);
+
+            // --- Elixir Calculator Logic ---
+            const elixirData = {
+                rarities: [
+                    { name: 'Common', value: 1, id: 'common', defaultChecked: true },
+                    { name: 'Good', value: 2, id: 'good', defaultChecked: true },
+                    { name: 'Sturdy', value: 3, id: 'sturdy', defaultChecked: false },
+                    { name: 'Rare', value: 4, id: 'rare', defaultChecked: false },
+                    { name: 'Perfect', value: 5, id: 'perfect', defaultChecked: false },
+                    { name: 'Scarce', value: 6, id: 'scarce', defaultChecked: false },
+                    { name: 'Epic', value: 8, id: 'epic', defaultChecked: false },
+                    { name: 'Legendary', value: 10, id: 'legendary', defaultChecked: false },
+                    { name: 'Immortal', value: 14, id: 'immortal', defaultChecked: false },
+                    { name: 'Myth', value: 20, id: 'myth', defaultChecked: false },
+                    { name: 'Eternal', value: 28, id: 'eternal', defaultChecked: false }
+                ],
+                stats: [
+                    { name: 'Attack', id: 'attack', isPercentage: false },
+                    { name: 'Critical Hit Damage', id: 'crit', isPercentage: true, decimals: 2 },
+                    { name: 'Talisman Damage', id: 'talisman', isPercentage: true, decimals: 3 },
+                    { name: 'HP', id: 'hp', isPercentage: false },
+                    { name: 'Skill Damage', id: 'skill', isPercentage: true, decimals: 3 }
+                ],
+                colors: {
+                    common:    { bg: '#dcdcdc', text: '#333333' },
+                    good:      { bg: '#90ee90', text: '#333333' },
+                    sturdy:    { bg: '#00ffff', text: '#333333' },
+                    rare:      { bg: '#32cd32', text: '#ffffff' },
+                    perfect:   { bg: '#1e90ff', text: '#ffffff' },
+                    scarce:    { bg: '#dda0dd', text: '#333333' },
+                    epic:      { bg: '#ff8c00', text: '#ffffff' },
+                    legendary: { bg: '#9932cc', text: '#ffffff' },
+                    immortal:  { bg: '#ff1493', text: '#ffffff' },
+                    myth:      { bg: '#ff4500', text: '#ffffff' },
+                    eternal:   { bg: '#ffd700', text: '#333333' }
+                }
+            };
+            
+            const elixirAbsorbData = {
+                common:    { attack: 100,  crit: 0.01, talisman: 0.001, hp: 10000,  skill: 0.002 },
+                good:      { attack: 200,  crit: 0.02, talisman: 0.002, hp: 20000,  skill: 0.004 },
+                sturdy:    { attack: 300,  crit: 0.03, talisman: 0.003, hp: 30000,  skill: 0.006 },
+                rare:      { attack: 400,  crit: 0.04, talisman: 0.004, hp: 40000,  skill: 0.008 },
+                perfect:   { attack: 600,  crit: 0.05, talisman: 0.005, hp: 60000,  skill: 0.010 },
+                scarce:    { attack: 800,  crit: 0.06, talisman: 0.006, hp: 80000,  skill: 0.012 },
+                epic:      { attack: 1200, crit: 0.08, talisman: 0.008, hp: 120000, skill: 0.016 },
+                legendary: { attack: 1600, crit: 0.10, talisman: 0.010, hp: 160000, skill: 0.020 },
+                immortal:  { attack: 2400, crit: 0.14, talisman: 0.014, hp: 240000, skill: 0.028 },
+                myth:      { attack: 4000, crit: 0.20, talisman: 0.020, hp: 400000, skill: 0.040 },
+                eternal:   { attack: 6000, crit: 0.28, talisman: 0.028, hp: 600000, skill: 0.056 }
+            };
+
+            const checkboxContainer = document.getElementById('elixir-checkbox-container');
+            const sectionsContainer = document.getElementById('elixir-sections-container');
+            const totalsContainer = document.getElementById('elixir-totals-container');
+            const absorbTotalsContainer = document.getElementById('elixir-absorb-totals-container');
+
+            function formatStatNumber(num) {
+                // Check for Billions first
+                if (num >= 1000000000) {
+                    return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'B';
+                }
+                // Then check for Millions
+                if (num >= 1000000) {
+                    return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+                }
+                // Then check for Thousands
+                if (num >= 1000) {
+                    return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+                }
+                // Otherwise, return the number as is with locale formatting
+                return num.toLocaleString('id-ID');
+            }
+
+            function calculateElixirTotals() {
+                const pointTotals = {};
+                const absorbTotals = {};
+                elixirData.stats.forEach(stat => {
+                    pointTotals[stat.id] = 0;
+                    absorbTotals[stat.id] = 0;
+                });
+
+                elixirData.rarities.forEach(rarity => {
+                    const checkbox = document.getElementById(`elixir-check-${rarity.id}`);
+                    if (checkbox.checked) {
+                        elixirData.stats.forEach(stat => {
+                            const input = document.getElementById(`elixir-qty-${rarity.id}-${stat.id}`);
+                            const quantity = parseInt(input.value) || 0;
+                            pointTotals[stat.id] += quantity * rarity.value;
+                            absorbTotals[stat.id] += quantity * elixirAbsorbData[rarity.id][stat.id];
+                        });
+                    }
+                });
+
+                elixirData.stats.forEach(stat => {
+                    // Update Point Totals
+                    const totalEl = document.getElementById(`elixir-total-${stat.id}`);
+                    totalEl.textContent = formatStatNumber(pointTotals[stat.id]);
+                    
+                    // Update Absorb Stat Totals
+                    const absorbTotalEl = document.getElementById(`elixir-absorb-total-${stat.id}`);
+                    if (stat.isPercentage) {
+                        absorbTotalEl.textContent = `${(absorbTotals[stat.id]).toFixed(stat.decimals)}%`;
+                    } else {
+                        absorbTotalEl.textContent = formatStatNumber(absorbTotals[stat.id]);
+                    }
+                });
+            }
+
+            function initElixirCalculator() {
+                if (!checkboxContainer) return;
+                // Generate Checkboxes
+                elixirData.rarities.forEach(rarity => {
+                    const div = document.createElement('div');
+                    const checkboxId = `elixir-check-${rarity.id}`;
+                    const colors = elixirData.colors[rarity.id] || { bg: '#374151', text: '#d1d5db' };
+                    div.innerHTML = `
+                        <input type="checkbox" id="${checkboxId}" class="hidden elixir-checkbox" ${rarity.defaultChecked ? 'checked' : ''}>
+                        <label for="${checkboxId}" class="elixir-checkbox-label" style="background-color: ${colors.bg}; color: ${colors.text}; text-shadow: 1px 1px 2px rgba(0,0,0,0.4);">
+                            ${rarity.name}
+                        </label>
+                    `;
+                    checkboxContainer.appendChild(div);
+                });
+
+                // Generate Rarity Sections
+                elixirData.rarities.forEach(rarity => {
+                    const section = document.createElement('div');
+                    section.id = `elixir-section-${rarity.id}`;
+                    section.className = `p-4 border border-gray-700 rounded-lg ${!rarity.defaultChecked ? 'hidden' : ''}`;
+                    
+                    let inputsHTML = '';
+                    elixirData.stats.forEach(stat => {
+                        inputsHTML += `
+                            <div class="input-group">
+                                <label for="elixir-qty-${rarity.id}-${stat.id}">${stat.name}</label>
+                                <input type="number" id="elixir-qty-${rarity.id}-${stat.id}" class="input-field" value="0" min="0">
+                            </div>
+                        `;
+                    });
+
+                    section.innerHTML = `
+                        <h4 class="text-lg font-bold text-white mb-4">${rarity.name}</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                            ${inputsHTML}
+                        </div>
+                    `;
+                    sectionsContainer.appendChild(section);
+                });
+
+                // Generate Totals Sections (Points and Absorb)
+                elixirData.stats.forEach(stat => {
+                    // Points
+                    const pointDiv = document.createElement('div');
+                    pointDiv.className = "text-center";
+                    pointDiv.innerHTML = `
+                        <div class="text-sm text-gray-400">${stat.name}</div>
+                        <div id="elixir-total-${stat.id}" class="text-2xl font-bold text-blue-400 mt-1">0</div>
+                    `;
+                    totalsContainer.appendChild(pointDiv);
+                    
+                    // Absorb
+                    const absorbDiv = document.createElement('div');
+                    absorbDiv.className = "text-center";
+                    absorbDiv.innerHTML = `
+                        <div class="text-sm text-gray-400">${stat.name}</div>
+                        <div id="elixir-absorb-total-${stat.id}" class="text-2xl font-bold text-green-400 mt-1">0</div>
+                    `;
+                    absorbTotalsContainer.appendChild(absorbDiv);
+                });
+
+                // Add Event Listeners
+                elixirData.rarities.forEach(rarity => {
+                    const checkbox = document.getElementById(`elixir-check-${rarity.id}`);
+                    const section = document.getElementById(`elixir-section-${rarity.id}`);
+                    checkbox.addEventListener('change', () => {
+                        section.classList.toggle('hidden', !checkbox.checked);
+                        calculateElixirTotals();
+                    });
+
+                    elixirData.stats.forEach(stat => {
+                        const input = document.getElementById(`elixir-qty-${rarity.id}-${stat.id}`);
+                        input.addEventListener('input', calculateElixirTotals);
+                    });
+                });
+
+                calculateElixirTotals();
+            }
+
+
+            // --- World Calculator Logic ---
+            const worldData = {
+                Easy: Array.from({length: 20}, (_, i) => ({ id: i + 1, name: `World Easy ${i + 1}` })),
+                Normal: Array.from({length: 20}, (_, i) => ({ id: i + 21, name: `World Normal ${i + 1}` })),
+                Hard: Array.from({length: 20}, (_, i) => ({ id: i + 41, name: `World Hard ${i + 1}` })),
+                Expert: Array.from({length: 20}, (_, i) => ({ id: i + 61, name: `World Expert ${i + 1}` })),
+                Master: Array.from({length: 20}, (_, i) => ({ id: i + 81, name: `World Master ${i + 1}` }))
+            };
+            const worldStats = {
+                1:{xp:500,ore:1,coins:1500},2:{xp:500,ore:1,coins:1500},3:{xp:500,ore:1,coins:1500},4:{xp:500,ore:2,coins:1500},5:{xp:500,ore:2,coins:1500},6:{xp:550,ore:2,coins:1500},7:{xp:550,ore:2,coins:2000},8:{xp:550,ore:3,coins:2600},9:{xp:600,ore:3,coins:3200},10:{xp:600,ore:3,coins:3200},11:{xp:700,ore:3,coins:3500},12:{xp:1000,ore:3,coins:3500},13:{xp:1000,ore:4,coins:3500},14:{xp:1000,ore:4,coins:3800},15:{xp:1000,ore:4,coins:4000},16:{xp:1000,ore:4,coins:4100},17:{xp:1500,ore:4,coins:4200},18:{xp:1500,ore:5,coins:4600},19:{xp:2000,ore:5,coins:5000},20:{xp:2000,ore:5,coins:7600},21:{xp:2500,ore:5,coins:8600},22:{xp:2500,ore:5,coins:9300},23:{xp:3000,ore:5,coins:10000},24:{xp:3000,ore:6,coins:10600},25:{xp:3500,ore:6,coins:11300},26:{xp:3500,ore:6,coins:12000},27:{xp:3500,ore:6,coins:13300},28:{xp:4500,ore:6,coins:14000},29:{xp:4500,ore:7,coins:14600},30:{xp:5000,ore:7,coins:16000},31:{xp:5000,ore:7,coins:16600},32:{xp:5000,ore:7,coins:17300},33:{xp:5500,ore:7,coins:18000},34:{xp:5500,ore:7,coins:18600},35:{xp:6000,ore:8,coins:19300},36:{xp:6500,ore:8,coins:20600},37:{xp:6500,ore:8,coins:20600},38:{xp:6500,ore:8,coins:22600},39:{xp:7000,ore:9,coins:22600},40:{xp:7500,ore:9,coins:26000},41:{xp:8500,ore:9,coins:50000},42:{xp:8500,ore:9,coins:52600},43:{xp:9500,ore:9,coins:56000},44:{xp:9500,ore:9,coins:57300},45:{xp:10000,ore:10,coins:59300},46:{xp:10000,ore:10,coins:61300},47:{xp:10000,ore:10,coins:63300},48:{xp:11000,ore:10,coins:64600},49:{xp:11000,ore:10,coins:66600},50:{xp:11000,ore:11,coins:67600},51:{xp:12000,ore:11,coins:70600},52:{xp:12000,ore:11,coins:72600},53:{xp:12000,ore:12,coins:74600},54:{xp:13000,ore:11,coins:76600},55:{xp:13000,ore:11,coins:78000},56:{xp:16500,ore:12,coins:79300},57:{xp:18500,ore:12,coins:81300},58:{xp:20500,ore:12,coins:82000},59:{xp:25000,ore:12,coins:84600},60:{xp:27500,ore:12,coins:86600},61:{xp:31500,ore:13,coins:100400},62:{xp:32300,ore:13,coins:101000},63:{xp:32800,ore:13,coins:101200},64:{xp:33200,ore:13,coins:101600},65:{xp:33700,ore:13,coins:103000},66:{xp:34200,ore:13,coins:104900},67:{xp:35000,ore:14,coins:106500},68:{xp:35500,ore:14,coins:108700},69:{xp:35900,ore:14,coins:110300},70:{xp:36900,ore:14,coins:112300},71:{xp:41800,ore:14,coins:125300},72:{xp:42300,ore:15,coins:127500},73:{xp:43100,ore:15,coins:129900},74:{xp:44100,ore:15,coins:132000},75:{xp:44400,ore:15,coins:134400},76:{xp:46000,ore:15,coins:137100},77:{xp:46300,ore:16,coins:139700},78:{xp:47200,ore:16,coins:143700},79:{xp:48100,ore:16,coins:145200},80:{xp:49400,ore:16,coins:148300},81:{xp:50000,ore:16,coins:152800},82:{xp:52000,ore:16,coins:154800},83:{xp:52800,ore:16,coins:157200},84:{xp:53600,ore:16,coins:160400},85:{xp:54400,ore:16,coins:163600},86:{xp:55600,ore:16,coins:167600},87:{xp:57200,ore:16,coins:171200},88:{xp:58400,ore:16,coins:174400},89:{xp:59200,ore:16,coins:180600},90:{xp:60000,ore:17,coins:181600},
+                91:{xp:60800,ore:18,coins:183080},92:{xp:62800,ore:19,coins:187080},93:{xp:64800,ore:19,coins:191080},94:{xp:65000,ore:19,coins:195080},95:{xp:66800,ore:19,coins:201080},96:{xp:68800,ore:19,coins:203080},97:{xp:70800,ore:19,coins:205480},98:{xp:73000,ore:19,coins:211080},99:{xp:76560,ore:19,coins:215080},100:{xp:78800,ore:19,coins:219080}
+            };
+            const worldCalcInputs = [document.getElementById('difficulty-select'), document.getElementById('world-select'), document.getElementById('exp-gain-rate'), document.getElementById('ore-drop-rate'), document.getElementById('gold-drop-rate'), document.getElementById('exp-extra-drop'), document.getElementById('gold-extra-drop'), document.getElementById('clear-time')];
+            let comparisonData = [];
+            
+            function calculateWorldRates() {
+                const worldId = document.getElementById('world-select').value;
+                if (!worldId || !worldStats[worldId]) return;
+
+                const stats = worldStats[worldId];
+                const expGainRate = parseFloat(document.getElementById('exp-gain-rate').value) / 100 || 1;
+                const oreDropRate = parseFloat(document.getElementById('ore-drop-rate').value) / 100 || 1;
+                const goldDropRate = parseFloat(document.getElementById('gold-drop-rate').value) / 100 || 1;
+                const expExtraDrop = parseFloat(document.getElementById('exp-extra-drop').value) || 0;
+                const goldExtraDrop = parseFloat(document.getElementById('gold-extra-drop').value) || 0;
+                const clearTime = parseFloat(document.getElementById('clear-time').value) || 0;
+
+                const timeFactor = clearTime > 0 ? 3600 / (clearTime + 5) : 0;
+                
+                const xpHour = timeFactor * (stats.xp + 460 * expExtraDrop) * expGainRate;
+                const oreHour = timeFactor * stats.ore * oreDropRate;
+                const coinsHour = timeFactor * (stats.coins + 460 * goldExtraDrop) * goldDropRate;
+                const clearsHour = timeFactor;
+
+                document.getElementById('base-xp').textContent = stats.xp.toLocaleString('id-ID');
+                document.getElementById('base-ore').textContent = stats.ore.toLocaleString('id-ID');
+                document.getElementById('base-coins').textContent = stats.coins.toLocaleString('id-ID');
+
+                document.getElementById('result-xp').textContent = Math.round(xpHour).toLocaleString('id-ID');
+                document.getElementById('result-ore').textContent = Math.round(oreHour).toLocaleString('id-ID');
+                document.getElementById('result-coins').textContent = Math.round(coinsHour).toLocaleString('id-ID');
+                document.getElementById('result-clears').textContent = clearsHour.toFixed(1);
+            }
+
+            function populateWorlds() {
+                const difficulty = document.getElementById('difficulty-select').value;
+                const worldSelect = document.getElementById('world-select');
+                worldSelect.innerHTML = '';
+                if (worldData[difficulty]) {
+                    worldData[difficulty].forEach(world => {
+                        const option = document.createElement('option');
+                        option.value = world.id;
+                        option.textContent = `${world.name} (${world.id})`;
+                        worldSelect.appendChild(option);
+                    });
+                }
+                calculateWorldRates();
+            }
+
+            function renderCompareTable() {
+                const container = document.getElementById('compare-container');
+                if (comparisonData.length === 0) {
+                    container.innerHTML = '<p class="text-gray-500 mt-4 text-center">Add worlds to compare their rates.</p>';
+                    return;
+                }
+
+                const table = document.createElement('table');
+                table.className = 'compare-table';
+                table.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>World</th>
+                            <th>Exp/Hour</th>
+                            <th>Ore/Hour</th>
+                            <th>Gold/Hour</th>
+                            <th>Clears/Hour</th>
+                            <th>Clear Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${comparisonData.map(data => `
+                            <tr>
+                                <td>${data.name}</td>
+                                <td>${data.xp.toLocaleString('id-ID')}</td>
+                                <td>${data.ore.toLocaleString('id-ID')}</td>
+                                <td>${data.coins.toLocaleString('id-ID')}</td>
+                                <td>${data.clears}</td>
+                                <td>${data.clearTime}s</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                `;
+                container.innerHTML = '';
+                container.appendChild(table);
+            }
+
+            function addToCompare() {
+                const worldSelect = document.getElementById('world-select');
+                const selectedOption = worldSelect.options[worldSelect.selectedIndex];
+                
+                const worldName = selectedOption.textContent;
+                const xpHour = parseInt(document.getElementById('result-xp').textContent.replace(/\./g, '')) || 0;
+                const oreHour = parseInt(document.getElementById('result-ore').textContent.replace(/\./g, '')) || 0;
+                const coinsHour = parseInt(document.getElementById('result-coins').textContent.replace(/\./g, '')) || 0;
+                const clearsHour = document.getElementById('result-clears').textContent;
+                const clearTime = document.getElementById('clear-time').value;
+
+                comparisonData.push({
+                    name: worldName,
+                    xp: xpHour,
+                    ore: oreHour,
+                    coins: coinsHour,
+                    clears: clearsHour,
+                    clearTime: clearTime,
+                });
+
+                renderCompareTable();
+            }
+
+            function clearCompare() {
+                comparisonData = [];
+                renderCompareTable();
+            }
+            
+            function initWorldCalculator() {
+                const difficultySelect = document.getElementById('difficulty-select');
+                if (!difficultySelect) return;
+
+                Object.keys(worldData).forEach(difficulty => {
+                    const option = document.createElement('option');
+                    option.value = difficulty;
+                    option.textContent = difficulty;
+                    difficultySelect.appendChild(option);
+                });
+                difficultySelect.addEventListener('change', populateWorlds);
+                worldCalcInputs.forEach(input => {
+                    if(input) input.addEventListener('input', calculateWorldRates)
+                });
+                
+                document.getElementById('compare-btn').addEventListener('click', addToCompare);
+                document.getElementById('clear-compare-btn').addEventListener('click', clearCompare);
+
+                populateWorlds();
+                renderCompareTable();
+            }
+            
+            // --- Wing Calculator Logic ---
+            const wingRarityData = {'scarce':{value:6,name:'Scarce'},'epic':{value:7,name:'Epic'},'legendary':{value:8,name:'Legendary'},'immortal':{value:9,name:'Immortal'},'myth':{value:10,name:'Myth'},'eternal':{value:11,name:'Eternal'},'celestial':{value:12,name:'Celestial'}};
+            const WING_LEVEL_MULTIPLIER = 0.0000555555555555556;
+            const atbmCoeffInput = document.getElementById('atbm-wing-coeff');
+            const atbmLevelInput = document.getElementById('atbm-level');
+            const atbmRaritySelect = document.getElementById('atbm-rarity');
+            const atbmFinalResult = document.getElementById('atbm-final-result');
+            const coeffPercentInput = document.getElementById('coeff-atbm-percent');
+            const coeffLevelInput = document.getElementById('coeff-level');
+            const coeffRaritySelect = document.getElementById('coeff-rarity');
+            const coeffFinalResult = document.getElementById('coeff-final-result');
+
+            function populateWingRaritySelects() {
+                const selects = [atbmRaritySelect, coeffRaritySelect];
+                selects.forEach(select => {
+                    if (!select) return;
+                    select.innerHTML = '';
+                    for (const key in wingRarityData) {
+                        const option = document.createElement('option');
+                        option.value = key;
+                        option.textContent = wingRarityData[key].name;
+                        select.appendChild(option);
+                    }
+                });
+                if (atbmRaritySelect) atbmRaritySelect.value = 'scarce';
+                if (coeffRaritySelect) coeffRaritySelect.value = 'scarce';
+            }
+
+            function calculateWingBaseFormula(level, rarityValue) {
+                if (rarityValue <= 5) return 0;
+                const term1 = 0.05 + (level - 1) * WING_LEVEL_MULTIPLIER;
+                const term2 = 1 + (rarityValue - 5) * 0.1;
+                const term3 = 6.25;
+                const term4 = (rarityValue - 5) / 7;
+                return term1 * term2 * term3 * term4;
+            }
+
+            function calculateATBM() {
+                if (!atbmCoeffInput) return;
+                const wingCoeff = parseFloat(atbmCoeffInput.value) || 0;
+                const level = parseInt(atbmLevelInput.value) || 1;
+                const rarityValue = wingRarityData[atbmRaritySelect.value].value;
+                const baseResult = calculateWingBaseFormula(level, rarityValue);
+                const finalATBM = wingCoeff * baseResult * 100;
+                atbmFinalResult.textContent = `${finalATBM.toFixed(3)}%`;
+            }
+
+            function calculateCoefficient() {
+                if(!coeffPercentInput) return;
+                const atbmPercent = parseFloat(coeffPercentInput.value) || 0;
+                const level = parseInt(coeffLevelInput.value) || 1;
+                const rarityValue = wingRarityData[coeffRaritySelect.value].value;
+                const baseResult = calculateWingBaseFormula(level, rarityValue);
+                let wingCoeff = 0;
+                if (baseResult !== 0) {
+                    wingCoeff = (atbmPercent / 100) / baseResult;
+                }
+                coeffFinalResult.textContent = wingCoeff.toFixed(5);
+            }
+
+            const atbmInputs = [atbmCoeffInput, atbmLevelInput, atbmRaritySelect];
+            atbmInputs.forEach(input => {
+                if(input) input.addEventListener('input', calculateATBM)
+            });
+            const coeffInputs = [coeffPercentInput, coeffLevelInput, coeffRaritySelect];
+            coeffInputs.forEach(input => {
+                if(input) input.addEventListener('input', calculateCoefficient)
+            });
+            
+            // Initialize all calculators
+            populateWingRaritySelects();
+            calculateATBM();
+            calculateCoefficient();
+            initElixirCalculator();
+            initWorldCalculator();
+        });
+    </script>
+
+</body>
+</html>
