@@ -7,7 +7,44 @@
     <link rel="icon" type="image/webp" href="https://tr.rbxcdn.com/180DAY-e3b172c999c4bbc6ef671fcad60e51d0/256/256/Image/Webp/noFilter">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e293b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <style>
+[id^="page-"] {
+  transition: opacity 360ms cubic-bezier(.2,.9,.2,1), transform 360ms cubic-bezier(.2,.9,.2,1);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+[id^="page-"].visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+[id^="page-"].leaving {
+  opacity: 0;
+  transform: translateX(-14px);
+  pointer-events: none;
+}
+
+/* Small install button */
+#install-btn {
+  display: none;
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  z-index: 60;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#10b981,#06b6d4);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(6,95,70,0.12);
+}
+#install-btn.show { display: inline-flex; }
+
         * {
             margin: 0;
             padding: 0;
@@ -595,6 +632,8 @@
         </svg>
     </button>
 
+    <button id="install-btn" aria-hidden="true">Install App</button>
+
     <aside id="sidebar" class="fixed top-0 left-0 z-40 w-80 h-screen p-6 transition-transform -translate-x-full">
         <nav class="flex flex-col space-y-1 mt-14 relative z-10">
             <h3 class="sidebar-header">Tools</h3>
@@ -896,9 +935,29 @@
             const navLinks = [navWingCalculator, navElixirCalculator, navWorldCalculator];
             const pages = [pageWingCalculator, pageElixirCalculator, pageWorldCalculator];
 
+            pageWingCalculator.classList.add('visible');
+
             function showPage(pageToShow) {
-                pages.forEach(page => page.classList.add('hidden'));
-                pageToShow.classList.remove('hidden');
+                const animDuration = 360;
+                pages.forEach(p => {
+                    if (p === pageToShow) {
+                        // reveal target
+                        p.classList.remove('hidden', 'leaving');
+                        // force reflow then add visible to animate in
+                        void p.offsetWidth;
+                        p.classList.add('visible');
+                    } else if (!p.classList.contains('hidden')) {
+                        // animate out, then hide after duration
+                        p.classList.remove('visible');
+                        p.classList.add('leaving');
+                        setTimeout(() => {
+                            p.classList.add('hidden');
+                            p.classList.remove('leaving');
+                        }, animDuration);
+                    } else {
+                        p.classList.remove('visible', 'leaving');
+                    }
+                });
             }
 
             function setActiveLink(linkToActivate) {
@@ -909,6 +968,35 @@
             navWingCalculator.addEventListener('click', () => { showPage(pageWingCalculator); setActiveLink(navWingCalculator); });
             navElixirCalculator.addEventListener('click', () => { showPage(pageElixirCalculator); setActiveLink(navElixirCalculator); });
             navWorldCalculator.addEventListener('click', () => { showPage(pageWorldCalculator); setActiveLink(navWorldCalculator); });
+
+            const installBtn = document.getElementById('install-btn');
+            let deferredPrompt = null;
+
+            // show native install prompt available
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                installBtn.classList.add('show');
+                installBtn.setAttribute('aria-hidden','false');
+            });
+
+            installBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) return;
+                deferredPrompt.prompt();
+                const choice = await deferredPrompt.userChoice;
+                // hide button after user choice
+                installBtn.classList.remove('show');
+                deferredPrompt = null;
+            });
+
+            // register service worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').then(reg => {
+                    console.log('SW registered', reg.scope);
+                }).catch(err => {
+                    console.warn('SW registration failed', err);
+                });
+            }
 
             // Sidebar Toggle
             const sidebar = document.getElementById('sidebar');

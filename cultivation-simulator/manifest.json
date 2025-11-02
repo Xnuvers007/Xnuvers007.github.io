@@ -1,0 +1,26 @@
+{
+  "name": "Cultivation Tools",
+  "short_name": "Cult Tools",
+  "description": "Wing, Elixir and World calculators — installable PWA.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "https://tr.rbxcdn.com/180DAY-e3b172c999c4bbc6ef671fcad60e51d0/256/256/Image/Webp/noFilter",
+      "sizes": "256x256",
+      "type": "image/webp"
+    },
+    {
+      "src": "https://tr.rbxcdn.com/180DAY-e3b172c999c4bbc6ef671fcad60e51d0/256/256/Image/Webp/noFilter",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://tr.rbxcdn.com/180DAY-e3b172c999c4bbc6ef671fcad60e51d0/256/256/Image/Webp/noFilter",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
