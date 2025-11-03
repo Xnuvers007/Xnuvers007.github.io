@@ -5,624 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cultivation Tools</title>
     <link rel="icon" type="image/webp" href="https://tr.rbxcdn.com/180DAY-e3b172c999c4bbc6ef671fcad60e51d0/256/256/Image/Webp/noFilter">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="./assets/tailwind.min.js"></script>
+    <link href="./assets/inter.woff2.css" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e293b">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Cultivation Tools">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <style>
-[id^="page-"] {
-  transition: opacity 360ms cubic-bezier(.2,.9,.2,1), transform 360ms cubic-bezier(.2,.9,.2,1);
-  opacity: 0;
-  transform: translateY(12px);
-  pointer-events: none;
-}
-[id^="page-"].visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-[id^="page-"].leaving {
-  opacity: 0;
-  transform: translateX(-14px);
-  pointer-events: none;
-}
-
-/* Small install button */
-#install-btn {
-  display: none;
-  position: fixed;
-  right: 12px;
-  top: 12px;
-  z-index: 60;
-  padding: 8px 10px;
-  border-radius: 10px;
-  background: linear-gradient(135deg,#10b981,#06b6d4);
-  color: #fff;
-  font-weight: 700;
-  box-shadow: 0 8px 24px rgba(6,95,70,0.12);
-}
-#install-btn.show { display: inline-flex; }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #312e81 50%, #1e293b 75%, #0f172a 100%);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            background-attachment: fixed;
-            color: #e2e8f0;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(99,102,241,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .card {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            border-radius: 1.25rem;
-            border: 1px solid rgba(99, 102, 241, 0.25);
-            padding: 2rem;
-            margin-bottom: 0;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(99, 102, 241, 0.15);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .card:hover::before {
-            left: 100%;
-        }
-        
-        .card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(99, 102, 241, 0.25);
-            border-color: rgba(99, 102, 241, 0.4);
-        }
-        
-        .input-group {
-            margin-bottom: 1.25rem;
-        }
-        
-        .input-group:last-child {
-            margin-bottom: 0;
-        }
-        
-        .input-group label {
-            display: block;
-            color: #cbd5e1;
-            font-weight: 600;
-            margin-bottom: 0.625rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
-        
-        .input-field {
-            width: 100%;
-            padding: 0.875rem 1.25rem;
-            border: 2px solid rgba(71, 85, 105, 0.6);
-            border-radius: 0.75rem;
-            background: linear-gradient(135deg, rgba(51, 65, 85, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
-            color: #f1f5f9;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        
-        .input-field:focus {
-            outline: none;
-            border-color: #6366f1;
-            background: rgba(51, 65, 85, 1);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2), 0 6px 16px rgba(99, 102, 241, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .output-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.125rem 1.5rem;
-            border-radius: 0.75rem;
-            margin-top: 0.75rem;
-            background: linear-gradient(135deg, rgba(71, 85, 105, 0.4) 0%, rgba(51, 65, 85, 0.4) 100%);
-            border: 1px solid rgba(99, 102, 241, 0.15);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .output-group::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: linear-gradient(180deg, #6366f1, #8b5cf6);
-            transform: scaleY(0);
-            transition: transform 0.3s;
-        }
-        
-        .output-group:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .output-group:first-of-type {
-            margin-top: 0;
-        }
-        
-        .output-group:hover {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(71, 85, 105, 0.5) 100%);
-            border-color: rgba(99, 102, 241, 0.35);
-            transform: translateX(6px);
-        }
-        
-        .output-label {
-            font-weight: 600;
-            color: #e2e8f0;
-            font-size: 1rem;
-        }
-        
-        .output-value {
-            font-weight: 700;
-            color: #818cf8;
-            text-align: right;
-            font-family: 'monospace';
-            font-size: 1.25rem;
-            text-shadow: 0 2px 8px rgba(129, 140, 248, 0.3);
-        }
-        
-        .highlight-output {
-            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #7c3aed 100%);
-            background-size: 200% 200%;
-            animation: gradientFlow 3s ease infinite;
-            color: white;
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .highlight-output:hover {
-            transform: translateX(6px) scale(1.02);
-            box-shadow: 0 8px 28px rgba(99, 102, 241, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        
-        .highlight-output .output-label {
-            color: #e0e7ff;
-            font-weight: 700;
-        }
-        
-        .highlight-output .output-value {
-            color: #ffffff;
-            font-size: 1.5rem;
-            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        .sidebar-link {
-            display: flex;
-            align-items: center;
-            padding: 1rem 1.25rem;
-            border-radius: 0.875rem;
-            color: #cbd5e1;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-        }
-        
-        .sidebar-link::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(180deg, #6366f1, #8b5cf6);
-            transform: scaleY(0);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .sidebar-link::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .sidebar-link.active::before,
-        .sidebar-link:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .sidebar-link.active::after,
-        .sidebar-link:hover::after {
-            opacity: 1;
-        }
-        
-        .sidebar-link.active,
-        .sidebar-link:hover {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.15) 100%);
-            color: #ffffff;
-            transform: translateX(6px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-        }
-        
-        .sidebar-link .icon {
-            margin-right: 1rem;
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 1.5rem;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .sidebar-link:hover .icon {
-            transform: scale(1.15) rotate(8deg);
-        }
-        
-        .sidebar-header {
-            padding: 1rem 1.25rem 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: #a5b4fc;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            position: relative;
-            margin-top: 1rem;
-        }
-        
-        .sidebar-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 1.25rem;
-            right: 1.25rem;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
-        }
-        
-        .elixir-checkbox-label {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: 700;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.625rem;
-            border: 2px solid transparent;
-            background-color: rgba(51, 65, 85, 0.8);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            width: 130px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .elixir-checkbox-label::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .elixir-checkbox-label:hover::before {
-            opacity: 1;
-        }
-        
-        .elixir-checkbox:checked + .elixir-checkbox-label {
-            border-color: currentColor;
-            box-shadow: 0 0 0 3px currentColor, 0 4px 12px currentColor;
-            transform: scale(1.05);
-        }
-        
-        .btn {
-            padding: 0.875rem 1.75rem;
-            border-radius: 0.75rem;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: none;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-size: 0.875rem;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:active::before {
-            width: 400px;
-            height: 400px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.5);
-            transform: translateY(-3px);
-        }
-        
-        .btn-danger {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-            box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
-        }
-        
-        .btn-danger:hover {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.5);
-            transform: translateY(-3px);
-        }
-        
-        .compare-table {
-            width: 100%;
-            margin-top: 1.5rem;
-            border-collapse: separate;
-            border-spacing: 0 0.5rem;
-        }
-        
-        .compare-table th,
-        .compare-table td {
-            padding: 1rem 1.25rem;
-            text-align: left;
-        }
-        
-        .compare-table th {
-            color: #a5b4fc;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.1));
-            border-radius: 0.5rem;
-        }
-        
-        .compare-table tbody tr {
-            background: linear-gradient(135deg, rgba(51, 65, 85, 0.4), rgba(30, 41, 59, 0.4));
-            transition: all 0.3s;
-            border-radius: 0.5rem;
-        }
-        
-        .compare-table tbody tr:hover {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15));
-            transform: translateX(4px);
-        }
-        
-        .compare-table td {
-            color: #e2e8f0;
-            font-weight: 500;
-        }
-        
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .icon-container {
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-        
-        .icon-box {
-            width: 5rem;
-            height: 5rem;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            border-radius: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            animation: float 3s ease-in-out infinite;
-            position: relative;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .icon-box::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
-            border-radius: 1.5rem;
-            opacity: 0.5;
-            filter: blur(8px);
-            z-index: -1;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.8; }
-        }
-        
-        .page-title {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 40px rgba(129, 140, 248, 0.5);
-        }
-        
-        .page-subtitle {
-            color: #cbd5e1;
-            font-size: 1.125rem;
-            margin-top: 1rem;
-            font-weight: 500;
-        }
-        
-        .page-credit {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
-        
-        #sidebar-toggle {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(99, 102, 241, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        
-        #sidebar-toggle:hover {
-            background: linear-gradient(135deg, rgba(51, 65, 85, 0.95), rgba(30, 41, 59, 0.95));
-            border-color: #6366f1;
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
-            transform: scale(1.05);
-        }
-        
-        #sidebar {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
-            backdrop-filter: blur(20px);
-            border-right: 1px solid rgba(99, 102, 241, 0.25);
-            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
-        }
-        
-        #sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-            pointer-events: none;
-        }
-        
-        .warning-box {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.1));
-            border: 2px solid rgba(239, 68, 68, 0.3);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .warning-text {
-            color: #fca5a5;
-            font-weight: 600;
-            line-height: 1.6;
-        }
-        
-        .stats-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 1rem;
-            padding: 1.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .icon-box {
-                width: 4rem;
-                height: 4rem;
-            }
-        }
-        
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <button id="sidebar-toggle" type="button" class="inline-flex items-center p-3 mt-2 ml-3 text-sm text-gray-200 rounded-xl fixed top-2 left-2 z-50">
@@ -656,6 +48,21 @@
                 <span>World Calculator</span>
             </a>
 
+            <a id="nav-changelog" class="sidebar-link">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Changelog</span>
+            </a>
+
+            <a id="nav-comments" class="sidebar-link">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-3.86 8.25-8.625 8.25a9.065 9.065 0 01-5.83-2.111l-3.111.933a.75.75 0 01-.944-.944l.933-3.111A9.065 9.065 0 013.375 12C3.375 7.444 7.235 3.75 12 3.75s8.625 3.694 8.625 8.25z" />
+                </svg>
+                <span>Comments</span>
+            </a>
+
             <h3 class="sidebar-header">Marketplace</h3>
             <a id="nav-marketplace" class="sidebar-link">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -666,11 +73,11 @@
 
             <h3 class="sidebar-header">Social Links</h3>
             <a href="https://www.roblox.com/games/18645473062/Guild-War-V35-Cultivation-Mortal-to-Immortal" target="_blank" rel="noopener noreferrer" class="sidebar-link">
-                <img src="https://images.rbxcdn.com/e854eb7b2951ac03edba9a2681032bba.ico" alt="Roblox" class="icon" style="padding: 2px;">
+                <img src="./assets/roblox.ico" alt="Roblox" class="icon" style="padding: 2px;">
                 <span>Roblox Game</span>
             </a>
             <a href="https://discord.com/invite/gFgcEavupb" target="_blank" rel="noopener noreferrer" class="sidebar-link">
-                <img src="https://uploads.onecompiler.io/43qb4srk5/43qddp2a8/discord.png" alt="Discord" class="icon" onerror="this.onerror=null;this.src='https://placehold.co/24x24/5865F2/ffffff?text=D';">
+                <img src="./assets/discord.png" alt="Discord" class="icon" onerror="this.onerror=null;this.src='https://placehold.co/24x24/5865F2/ffffff?text=D';">
                 <span>Official Discord</span>
             </a>
         </nav>
@@ -697,7 +104,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div class="warning-box">
                     <p class="warning-text">⚠️ Warning: Best way to get accurate stats of scarce wing is to trade wing to low level alts as it would give 3 decimal instead of 1 decimal</p>
-                    <img class="mx-auto mt-4 rounded-lg shadow-lg" src="https://uploads.onecompiler.io/43qb4srk5/43qddp2a8/wing.png" onerror="this.onerror=null;this.src='https://placehold.co/600x100/1f2937/d1d5db?text=Wing+Example';" />
+                    <img class="mx-auto mt-4 rounded-lg shadow-lg" src="./assets/wing.png" onerror="this.onerror=null;this.src='https://placehold.co/600x100/1f2937/d1d5db?text=Wing+Example';" />
                 </div>
                 
                 <div class="card stats-card">
@@ -920,495 +327,84 @@
                 </div>
             </div>
         </div>
+        <div id="page-changelog" class="hidden container mx-auto p-4 md:p-8 max-w-7xl relative z-10">
+            <header class="page-header">
+                <div class="icon-container">
+                    <div class="icon-box">
+                        <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="page-title">Changelog — Update 6.2</h1>
+                <p class="page-subtitle">Ringkasan pembaruan terbaru</p>
+            </header>
+
+            <div class="card">
+                <h3 class="text-xl font-bold text-white mb-4">New</h3>
+                <ul class="mb-6" style="color: #cbd5e1; line-height:1.8;">
+                    <li>Pets: Added 5 new pets (15 new appearances)</li>
+                    <li>Pet Egg: Added 1 new type of pet egg.</li>
+                    <li>World: Added new pet egg drop.</li>
+                    <li>World: Added worlds 110-130.</li>
+                    <li>Title: God of War.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mb-4">Changes</h3>
+                <ul class="mb-6" style="color: #cbd5e1; line-height:1.8;">
+                    <li>Dungeon: Increased maximum difficulty level to 1800.</li>
+                    <li>Elixirs: Added HP and Attack absorption attributes to Elixirs.</li>
+                    <li>Hover Sword: Level cap increased to 6000.</li>
+                    <li>Market: Added server list display.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mb-4">Fixes</h3>
+                <ul style="color: #cbd5e1; line-height:1.8;">
+                    <li>Fixed an issue where clicking on the main quest did not provide any prompt.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="page-comments" class="hidden container mx-auto p-4 md:p-8 max-w-7xl relative z-10">
+    <header class="page-header">
+        <div class="icon-container">
+            <div class="icon-box">
+                <svg class="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-3.86 8.25-8.625 8.25a9.065 9.065 0 01-5.83-2.111l-3.111.933a.75.75 0 01-.944-.944l.933-3.111A9.065 9.065 0 013.375 12C3.375 7.444 7.235 3.75 12 3.75s8.625 3.694 8.625 8.25z" />
+                </svg>
+            </div>
+        </div>
+        <h1 class="page-title">Comments</h1>
+            <p class="page-subtitle">Leave a message, suggestion, or bug report here.</p>
+        </header>
+
+        <div class="card mb-8">
+            <h2 class="text-2xl font-bold text-white border-b-2 border-indigo-500/30 pb-4 mb-6">Tulis Komentar Baru</h2>
+            <form id="comment-form">
+                <div class="input-group">
+                    <label for="comment-username">Username</label>
+                    <input type="text" id="comment-username" class="input-field" placeholder="Your Username..." required maxlength="100">
+                </div>
+                <div class="input-group">
+                    <label for="comment-text">Comment</label>
+                    <textarea id="comment-text" class="input-field" rows="4" placeholder="Your Comment..." required></textarea>
+                </div>
+                <div class="mt-6">
+                    <button type="submit" id="comment-submit-btn" class="btn btn-primary w-full">Submit Comment</button>
+                </div>
+                <div id="comment-status" class="text-center mt-4"></div>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2 class="text-2xl font-bold text-white mb-6">Recent Comments</h2>
+            <div id="comments-list-container" class="space-y-6">
+                <p class="text-gray-400">Loading comments...</p>
+            </div>
+        </div>
+    </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Page Navigation
-            const navWingCalculator = document.getElementById('nav-wing-calculator');
-            const navElixirCalculator = document.getElementById('nav-elixir-calculator');
-            const navWorldCalculator = document.getElementById('nav-world-calculator');
-            const pageWingCalculator = document.getElementById('page-wing-calculator');
-            const pageElixirCalculator = document.getElementById('page-elixir-calculator');
-            const pageWorldCalculator = document.getElementById('page-world-calculator');
-            
-            const navLinks = [navWingCalculator, navElixirCalculator, navWorldCalculator];
-            const pages = [pageWingCalculator, pageElixirCalculator, pageWorldCalculator];
-
-            pageWingCalculator.classList.add('visible');
-
-            function showPage(pageToShow) {
-                const animDuration = 360;
-                pages.forEach(p => {
-                    if (p === pageToShow) {
-                        // reveal target
-                        p.classList.remove('hidden', 'leaving');
-                        // force reflow then add visible to animate in
-                        void p.offsetWidth;
-                        p.classList.add('visible');
-                    } else if (!p.classList.contains('hidden')) {
-                        // animate out, then hide after duration
-                        p.classList.remove('visible');
-                        p.classList.add('leaving');
-                        setTimeout(() => {
-                            p.classList.add('hidden');
-                            p.classList.remove('leaving');
-                        }, animDuration);
-                    } else {
-                        p.classList.remove('visible', 'leaving');
-                    }
-                });
-            }
-
-            function setActiveLink(linkToActivate) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                linkToActivate.classList.add('active');
-            }
-
-            navWingCalculator.addEventListener('click', () => { showPage(pageWingCalculator); setActiveLink(navWingCalculator); });
-            navElixirCalculator.addEventListener('click', () => { showPage(pageElixirCalculator); setActiveLink(navElixirCalculator); });
-            navWorldCalculator.addEventListener('click', () => { showPage(pageWorldCalculator); setActiveLink(navWorldCalculator); });
-
-            const installBtn = document.getElementById('install-btn');
-            let deferredPrompt = null;
-
-            // show native install prompt available
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-                installBtn.classList.add('show');
-                installBtn.setAttribute('aria-hidden','false');
-            });
-
-            installBtn.addEventListener('click', async () => {
-                if (!deferredPrompt) return;
-                deferredPrompt.prompt();
-                const choice = await deferredPrompt.userChoice;
-                // hide button after user choice
-                installBtn.classList.remove('show');
-                deferredPrompt = null;
-            });
-
-            // register service worker
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/cultivation-simulator/sw.js').then(reg => {
-                    console.log('SW registered', reg.scope);
-                }).catch(err => {
-                    console.warn('SW registration failed', err);
-                });
-            }
-
-            // Sidebar Toggle
-            const sidebar = document.getElementById('sidebar');
-            const toggleBtn = document.getElementById('sidebar-toggle');
-            const overlay = document.getElementById('sidebar-overlay');
-            const toggleSidebar = () => {
-                sidebar.classList.toggle('-translate-x-full');
-                overlay.classList.toggle('hidden');
-            };
-            toggleBtn.addEventListener('click', toggleSidebar);
-            overlay.addEventListener('click', toggleSidebar);
-
-            // Elixir Calculator
-            const elixirData = {
-                rarities: [
-                    { name: 'Common', value: 1, id: 'common', defaultChecked: true },
-                    { name: 'Good', value: 2, id: 'good', defaultChecked: true },
-                    { name: 'Sturdy', value: 3, id: 'sturdy', defaultChecked: false },
-                    { name: 'Rare', value: 4, id: 'rare', defaultChecked: false },
-                    { name: 'Perfect', value: 5, id: 'perfect', defaultChecked: false },
-                    { name: 'Scarce', value: 6, id: 'scarce', defaultChecked: false },
-                    { name: 'Epic', value: 8, id: 'epic', defaultChecked: false },
-                    { name: 'Legendary', value: 10, id: 'legendary', defaultChecked: false },
-                    { name: 'Immortal', value: 14, id: 'immortal', defaultChecked: false },
-                    { name: 'Myth', value: 20, id: 'myth', defaultChecked: false },
-                    { name: 'Eternal', value: 28, id: 'eternal', defaultChecked: false }
-                ],
-                stats: [
-                    { name: 'Attack', id: 'attack', isPercentage: false },
-                    { name: 'Critical Hit Damage', id: 'crit', isPercentage: true, decimals: 2 },
-                    { name: 'Talisman Damage', id: 'talisman', isPercentage: true, decimals: 3 },
-                    { name: 'HP', id: 'hp', isPercentage: false },
-                    { name: 'Skill Damage', id: 'skill', isPercentage: true, decimals: 3 }
-                ],
-                colors: {
-                    common: { bg: '#dcdcdc', text: '#333333' },
-                    good: { bg: '#90ee90', text: '#333333' },
-                    sturdy: { bg: '#00ffff', text: '#333333' },
-                    rare: { bg: '#32cd32', text: '#ffffff' },
-                    perfect: { bg: '#1e90ff', text: '#ffffff' },
-                    scarce: { bg: '#dda0dd', text: '#333333' },
-                    epic: { bg: '#ff8c00', text: '#ffffff' },
-                    legendary: { bg: '#9932cc', text: '#ffffff' },
-                    immortal: { bg: '#ff1493', text: '#ffffff' },
-                    myth: { bg: '#ff4500', text: '#ffffff' },
-                    eternal: { bg: '#ffd700', text: '#333333' }
-                }
-            };
-            
-            const elixirAbsorbData = {
-                common: { attack: 100, crit: 0.01, talisman: 0.001, hp: 10000, skill: 0.002 },
-                good: { attack: 200, crit: 0.02, talisman: 0.002, hp: 20000, skill: 0.004 },
-                sturdy: { attack: 300, crit: 0.03, talisman: 0.003, hp: 30000, skill: 0.006 },
-                rare: { attack: 400, crit: 0.04, talisman: 0.004, hp: 40000, skill: 0.008 },
-                perfect: { attack: 600, crit: 0.05, talisman: 0.005, hp: 60000, skill: 0.010 },
-                scarce: { attack: 800, crit: 0.06, talisman: 0.006, hp: 80000, skill: 0.012 },
-                epic: { attack: 1200, crit: 0.08, talisman: 0.008, hp: 120000, skill: 0.016 },
-                legendary: { attack: 1600, crit: 0.10, talisman: 0.010, hp: 160000, skill: 0.020 },
-                immortal: { attack: 2400, crit: 0.14, talisman: 0.014, hp: 240000, skill: 0.028 },
-                myth: { attack: 4000, crit: 0.20, talisman: 0.020, hp: 400000, skill: 0.040 },
-                eternal: { attack: 6000, crit: 0.28, talisman: 0.028, hp: 600000, skill: 0.056 }
-            };
-
-            const checkboxContainer = document.getElementById('elixir-checkbox-container');
-            const sectionsContainer = document.getElementById('elixir-sections-container');
-            const totalsContainer = document.getElementById('elixir-totals-container');
-            const absorbTotalsContainer = document.getElementById('elixir-absorb-totals-container');
-
-            function formatStatNumber(num) {
-                if (num >= 1000000000) return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'B';
-                if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-                if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-                return num.toLocaleString('id-ID');
-            }
-
-            function calculateElixirTotals() {
-                const pointTotals = {}, absorbTotals = {};
-                elixirData.stats.forEach(stat => {
-                    pointTotals[stat.id] = 0;
-                    absorbTotals[stat.id] = 0;
-                });
-
-                elixirData.rarities.forEach(rarity => {
-                    const checkbox = document.getElementById(`elixir-check-${rarity.id}`);
-                    if (checkbox && checkbox.checked) {
-                        elixirData.stats.forEach(stat => {
-                            const input = document.getElementById(`elixir-qty-${rarity.id}-${stat.id}`);
-                            const quantity = parseInt(input.value) || 0;
-                            pointTotals[stat.id] += quantity * rarity.value;
-                            absorbTotals[stat.id] += quantity * elixirAbsorbData[rarity.id][stat.id];
-                        });
-                    }
-                });
-
-                elixirData.stats.forEach(stat => {
-                    const totalEl = document.getElementById(`elixir-total-${stat.id}`);
-                    if (totalEl) totalEl.textContent = formatStatNumber(pointTotals[stat.id]);
-                    
-                    const absorbTotalEl = document.getElementById(`elixir-absorb-total-${stat.id}`);
-                    if (absorbTotalEl) {
-                        absorbTotalEl.textContent = stat.isPercentage 
-                            ? `${absorbTotals[stat.id].toFixed(stat.decimals)}%`
-                            : formatStatNumber(absorbTotals[stat.id]);
-                    }
-                });
-            }
-
-            function initElixirCalculator() {
-                if (!checkboxContainer) return;
-                
-                elixirData.rarities.forEach(rarity => {
-                    const div = document.createElement('div');
-                    const checkboxId = `elixir-check-${rarity.id}`;
-                    const colors = elixirData.colors[rarity.id];
-                    div.innerHTML = `
-                        <input type="checkbox" id="${checkboxId}" class="hidden elixir-checkbox" ${rarity.defaultChecked ? 'checked' : ''}>
-                        <label for="${checkboxId}" class="elixir-checkbox-label" style="background-color: ${colors.bg}; color: ${colors.text};">
-                            ${rarity.name}
-                        </label>
-                    `;
-                    checkboxContainer.appendChild(div);
-                });
-
-                elixirData.rarities.forEach(rarity => {
-                    const section = document.createElement('div');
-                    section.id = `elixir-section-${rarity.id}`;
-                    section.className = `p-6 border-2 border-indigo-500/20 rounded-xl ${!rarity.defaultChecked ? 'hidden' : ''}`;
-                    section.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.03))';
-                    
-                    let inputsHTML = '';
-                    elixirData.stats.forEach(stat => {
-                        inputsHTML += `
-                            <div class="input-group">
-                                <label for="elixir-qty-${rarity.id}-${stat.id}">${stat.name}</label>
-                                <input type="number" id="elixir-qty-${rarity.id}-${stat.id}" class="input-field" value="0" min="0">
-                            </div>
-                        `;
-                    });
-
-                    const colors = elixirData.colors[rarity.id];
-                    section.innerHTML = `
-                        <h4 class="text-lg font-bold text-white mb-4 pb-2 border-b-2" style="border-color: ${colors.bg}; color: ${colors.bg};">${rarity.name}</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                            ${inputsHTML}
-                        </div>
-                    `;
-                    sectionsContainer.appendChild(section);
-                });
-
-                elixirData.stats.forEach(stat => {
-                    const pointDiv = document.createElement('div');
-                    pointDiv.className = "text-center p-4 rounded-lg bg-gradient-to-br from-indigo-500/10 to-purple-500/5";
-                    pointDiv.innerHTML = `
-                        <div class="text-sm text-gray-400 mb-2">${stat.name}</div>
-                        <div id="elixir-total-${stat.id}" class="text-3xl font-bold text-indigo-400">0</div>
-                    `;
-                    totalsContainer.appendChild(pointDiv);
-                    
-                    const absorbDiv = document.createElement('div');
-                    absorbDiv.className = "text-center p-4 rounded-lg bg-gradient-to-br from-emerald-500/10 to-green-500/5";
-                    absorbDiv.innerHTML = `
-                        <div class="text-sm text-gray-400 mb-2">${stat.name}</div>
-                        <div id="elixir-absorb-total-${stat.id}" class="text-3xl font-bold text-emerald-400">0</div>
-                    `;
-                    absorbTotalsContainer.appendChild(absorbDiv);
-                });
-
-                elixirData.rarities.forEach(rarity => {
-                    const checkbox = document.getElementById(`elixir-check-${rarity.id}`);
-                    const section = document.getElementById(`elixir-section-${rarity.id}`);
-                    if (checkbox && section) {
-                        checkbox.addEventListener('change', () => {
-                            section.classList.toggle('hidden', !checkbox.checked);
-                            calculateElixirTotals();
-                        });
-                    }
-
-                    elixirData.stats.forEach(stat => {
-                        const input = document.getElementById(`elixir-qty-${rarity.id}-${stat.id}`);
-                        if (input) input.addEventListener('input', calculateElixirTotals);
-                    });
-                });
-
-                calculateElixirTotals();
-            }
-
-            // World Calculator
-            const worldData = {
-                Easy: Array.from({length: 20}, (_, i) => ({ id: i + 1, name: `World Easy ${i + 1}` })),
-                Normal: Array.from({length: 20}, (_, i) => ({ id: i + 21, name: `World Normal ${i + 1}` })),
-                Hard: Array.from({length: 20}, (_, i) => ({ id: i + 41, name: `World Hard ${i + 1}` })),
-                Expert: Array.from({length: 20}, (_, i) => ({ id: i + 61, name: `World Expert ${i + 1}` })),
-                Master: Array.from({length: 20}, (_, i) => ({ id: i + 81, name: `World Master ${i + 1}` }))
-            };
-            
-            const worldStats = {
-                1:{xp:500,ore:1,coins:1500},2:{xp:500,ore:1,coins:1500},3:{xp:500,ore:1,coins:1500},4:{xp:500,ore:2,coins:1500},5:{xp:500,ore:2,coins:1500},6:{xp:550,ore:2,coins:1500},7:{xp:550,ore:2,coins:2000},8:{xp:550,ore:3,coins:2600},9:{xp:600,ore:3,coins:3200},10:{xp:600,ore:3,coins:3200},11:{xp:700,ore:3,coins:3500},12:{xp:1000,ore:3,coins:3500},13:{xp:1000,ore:4,coins:3500},14:{xp:1000,ore:4,coins:3800},15:{xp:1000,ore:4,coins:4000},16:{xp:1000,ore:4,coins:4100},17:{xp:1500,ore:4,coins:4200},18:{xp:1500,ore:5,coins:4600},19:{xp:2000,ore:5,coins:5000},20:{xp:2000,ore:5,coins:7600},21:{xp:2500,ore:5,coins:8600},22:{xp:2500,ore:5,coins:9300},23:{xp:3000,ore:5,coins:10000},24:{xp:3000,ore:6,coins:10600},25:{xp:3500,ore:6,coins:11300},26:{xp:3500,ore:6,coins:12000},27:{xp:3500,ore:6,coins:13300},28:{xp:4500,ore:6,coins:14000},29:{xp:4500,ore:7,coins:14600},30:{xp:5000,ore:7,coins:16000},31:{xp:5000,ore:7,coins:16600},32:{xp:5000,ore:7,coins:17300},33:{xp:5500,ore:7,coins:18000},34:{xp:5500,ore:7,coins:18600},35:{xp:6000,ore:8,coins:19300},36:{xp:6500,ore:8,coins:20600},37:{xp:6500,ore:8,coins:20600},38:{xp:6500,ore:8,coins:22600},39:{xp:7000,ore:9,coins:22600},40:{xp:7500,ore:9,coins:26000},41:{xp:8500,ore:9,coins:50000},42:{xp:8500,ore:9,coins:52600},43:{xp:9500,ore:9,coins:56000},44:{xp:9500,ore:9,coins:57300},45:{xp:10000,ore:10,coins:59300},46:{xp:10000,ore:10,coins:61300},47:{xp:10000,ore:10,coins:63300},48:{xp:11000,ore:10,coins:64600},49:{xp:11000,ore:10,coins:66600},50:{xp:11000,ore:11,coins:67600},51:{xp:12000,ore:11,coins:70600},52:{xp:12000,ore:11,coins:72600},53:{xp:12000,ore:12,coins:74600},54:{xp:13000,ore:11,coins:76600},55:{xp:13000,ore:11,coins:78000},56:{xp:16500,ore:12,coins:79300},57:{xp:18500,ore:12,coins:81300},58:{xp:20500,ore:12,coins:82000},59:{xp:25000,ore:12,coins:84600},60:{xp:27500,ore:12,coins:86600},61:{xp:31500,ore:13,coins:100400},62:{xp:32300,ore:13,coins:101000},63:{xp:32800,ore:13,coins:101200},64:{xp:33200,ore:13,coins:101600},65:{xp:33700,ore:13,coins:103000},66:{xp:34200,ore:13,coins:104900},67:{xp:35000,ore:14,coins:106500},68:{xp:35500,ore:14,coins:108700},69:{xp:35900,ore:14,coins:110300},70:{xp:36900,ore:14,coins:112300},71:{xp:41800,ore:14,coins:125300},72:{xp:42300,ore:15,coins:127500},73:{xp:43100,ore:15,coins:129900},74:{xp:44100,ore:15,coins:132000},75:{xp:44400,ore:15,coins:134400},76:{xp:46000,ore:15,coins:137100},77:{xp:46300,ore:16,coins:139700},78:{xp:47200,ore:16,coins:143700},79:{xp:48100,ore:16,coins:145200},80:{xp:49400,ore:16,coins:148300},81:{xp:50000,ore:16,coins:152800},82:{xp:52000,ore:16,coins:154800},83:{xp:52800,ore:16,coins:157200},84:{xp:53600,ore:16,coins:160400},85:{xp:54400,ore:16,coins:163600},86:{xp:55600,ore:16,coins:167600},87:{xp:57200,ore:16,coins:171200},88:{xp:58400,ore:16,coins:174400},89:{xp:59200,ore:16,coins:180600},90:{xp:60000,ore:17,coins:181600},91:{xp:60800,ore:18,coins:183080},92:{xp:62800,ore:19,coins:187080},93:{xp:64800,ore:19,coins:191080},94:{xp:65000,ore:19,coins:195080},95:{xp:66800,ore:19,coins:201080},96:{xp:68800,ore:19,coins:203080},97:{xp:70800,ore:19,coins:205480},98:{xp:73000,ore:19,coins:211080},99:{xp:76560,ore:19,coins:215080},100:{xp:78800,ore:19,coins:219080}
-            };
-            
-            let comparisonData = [];
-            
-            function calculateWorldRates() {
-                const worldId = document.getElementById('world-select').value;
-                if (!worldId || !worldStats[worldId]) return;
-
-                const stats = worldStats[worldId];
-                const expGainRate = parseFloat(document.getElementById('exp-gain-rate').value) / 100 || 1;
-                const oreDropRate = parseFloat(document.getElementById('ore-drop-rate').value) / 100 || 1;
-                const goldDropRate = parseFloat(document.getElementById('gold-drop-rate').value) / 100 || 1;
-                const expExtraDrop = parseFloat(document.getElementById('exp-extra-drop').value) || 0;
-                const goldExtraDrop = parseFloat(document.getElementById('gold-extra-drop').value) || 0;
-                const clearTime = parseFloat(document.getElementById('clear-time').value) || 0;
-
-                const timeFactor = clearTime > 0 ? 3600 / (clearTime + 5) : 0;
-                
-                const xpHour = timeFactor * (stats.xp + 460 * expExtraDrop) * expGainRate;
-                const oreHour = timeFactor * stats.ore * oreDropRate;
-                const coinsHour = timeFactor * (stats.coins + 460 * goldExtraDrop) * goldDropRate;
-                const clearsHour = timeFactor;
-
-                document.getElementById('base-xp').textContent = stats.xp.toLocaleString('id-ID');
-                document.getElementById('base-ore').textContent = stats.ore.toLocaleString('id-ID');
-                document.getElementById('base-coins').textContent = stats.coins.toLocaleString('id-ID');
-
-                document.getElementById('result-xp').textContent = Math.round(xpHour).toLocaleString('id-ID');
-                document.getElementById('result-ore').textContent = Math.round(oreHour).toLocaleString('id-ID');
-                document.getElementById('result-coins').textContent = Math.round(coinsHour).toLocaleString('id-ID');
-                document.getElementById('result-clears').textContent = clearsHour.toFixed(1);
-            }
-
-            function populateWorlds() {
-                const difficulty = document.getElementById('difficulty-select').value;
-                const worldSelect = document.getElementById('world-select');
-                worldSelect.innerHTML = '';
-                if (worldData[difficulty]) {
-                    worldData[difficulty].forEach(world => {
-                        const option = document.createElement('option');
-                        option.value = world.id;
-                        option.textContent = `${world.name} (${world.id})`;
-                        worldSelect.appendChild(option);
-                    });
-                }
-                calculateWorldRates();
-            }
-
-            function renderCompareTable() {
-                const container = document.getElementById('compare-container');
-                if (comparisonData.length === 0) {
-                    container.innerHTML = '<p class="text-gray-500 mt-4 text-center">Add worlds to compare their rates.</p>';
-                    return;
-                }
-
-                const table = document.createElement('table');
-                table.className = 'compare-table';
-                table.innerHTML = `
-                    <thead>
-                        <tr>
-                            <th>World</th>
-                            <th>Exp/Hour</th>
-                            <th>Ore/Hour</th>
-                            <th>Gold/Hour</th>
-                            <th>Clears/Hour</th>
-                            <th>Clear Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${comparisonData.map(data => `
-                            <tr>
-                                <td class="font-semibold">${data.name}</td>
-                                <td>${data.xp.toLocaleString('id-ID')}</td>
-                                <td>${data.ore.toLocaleString('id-ID')}</td>
-                                <td>${data.coins.toLocaleString('id-ID')}</td>
-                                <td>${data.clears}</td>
-                                <td>${data.clearTime}s</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                `;
-                container.innerHTML = '';
-                container.appendChild(table);
-            }
-
-            function addToCompare() {
-                const worldSelect = document.getElementById('world-select');
-                const selectedOption = worldSelect.options[worldSelect.selectedIndex];
-                
-                const worldName = selectedOption.textContent;
-                const xpHour = parseInt(document.getElementById('result-xp').textContent.replace(/\./g, '')) || 0;
-                const oreHour = parseInt(document.getElementById('result-ore').textContent.replace(/\./g, '')) || 0;
-                const coinsHour = parseInt(document.getElementById('result-coins').textContent.replace(/\./g, '')) || 0;
-                const clearsHour = document.getElementById('result-clears').textContent;
-                const clearTime = document.getElementById('clear-time').value;
-
-                comparisonData.push({
-                    name: worldName,
-                    xp: xpHour,
-                    ore: oreHour,
-                    coins: coinsHour,
-                    clears: clearsHour,
-                    clearTime: clearTime,
-                });
-
-                renderCompareTable();
-            }
-
-            function clearCompare() {
-                comparisonData = [];
-                renderCompareTable();
-            }
-            
-            function initWorldCalculator() {
-                const difficultySelect = document.getElementById('difficulty-select');
-                if (!difficultySelect) return;
-
-                Object.keys(worldData).forEach(difficulty => {
-                    const option = document.createElement('option');
-                    option.value = difficulty;
-                    option.textContent = difficulty;
-                    difficultySelect.appendChild(option);
-                });
-                
-                difficultySelect.addEventListener('change', populateWorlds);
-                
-                const inputs = ['difficulty-select', 'world-select', 'exp-gain-rate', 'ore-drop-rate', 'gold-drop-rate', 'exp-extra-drop', 'gold-extra-drop', 'clear-time'];
-                inputs.forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) el.addEventListener('input', calculateWorldRates);
-                });
-                
-                document.getElementById('compare-btn').addEventListener('click', addToCompare);
-                document.getElementById('clear-compare-btn').addEventListener('click', clearCompare);
-
-                populateWorlds();
-                renderCompareTable();
-            }
-            
-            // Wing Calculator
-            const wingRarityData = {
-                scarce: {value: 6, name: 'Scarce'},
-                epic: {value: 7, name: 'Epic'},
-                legendary: {value: 8, name: 'Legendary'},
-                immortal: {value: 9, name: 'Immortal'},
-                myth: {value: 10, name: 'Myth'},
-                eternal: {value: 11, name: 'Eternal'},
-                celestial: {value: 12, name: 'Celestial'}
-            };
-            
-            const WING_LEVEL_MULTIPLIER = 0.0000555555555555556;
-
-            function populateWingRaritySelects() {
-                const selects = [document.getElementById('atbm-rarity'), document.getElementById('coeff-rarity')];
-                selects.forEach(select => {
-                    if (!select) return;
-                    select.innerHTML = '';
-                    for (const key in wingRarityData) {
-                        const option = document.createElement('option');
-                        option.value = key;
-                        option.textContent = wingRarityData[key].name;
-                        select.appendChild(option);
-                    }
-                    select.value = 'scarce';
-                });
-            }
-
-            function calculateWingBaseFormula(level, rarityValue) {
-                if (rarityValue <= 5) return 0;
-                const term1 = 0.05 + (level - 1) * WING_LEVEL_MULTIPLIER;
-                const term2 = 1 + (rarityValue - 5) * 0.1;
-                const term3 = 6.25;
-                const term4 = (rarityValue - 5) / 7;
-                return term1 * term2 * term3 * term4;
-            }
-
-            function calculateATBM() {
-                const wingCoeff = parseFloat(document.getElementById('atbm-wing-coeff').value) || 0;
-                const level = parseInt(document.getElementById('atbm-level').value) || 1;
-                const rarityValue = wingRarityData[document.getElementById('atbm-rarity').value].value;
-                const baseResult = calculateWingBaseFormula(level, rarityValue);
-                const finalATBM = wingCoeff * baseResult * 100;
-                document.getElementById('atbm-final-result').textContent = `${finalATBM.toFixed(3)}%`;
-            }
-
-            function calculateCoefficient() {
-                const atbmPercent = parseFloat(document.getElementById('coeff-atbm-percent').value) || 0;
-                const level = parseInt(document.getElementById('coeff-level').value) || 1;
-                const rarityValue = wingRarityData[document.getElementById('coeff-rarity').value].value;
-                const baseResult = calculateWingBaseFormula(level, rarityValue);
-                let wingCoeff = 0;
-                if (baseResult !== 0) {
-                    wingCoeff = (atbmPercent / 100) / baseResult;
-                }
-                document.getElementById('coeff-final-result').textContent = wingCoeff.toFixed(5);
-            }
-
-            ['atbm-wing-coeff', 'atbm-level', 'atbm-rarity'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.addEventListener('input', calculateATBM);
-            });
-            
-            ['coeff-atbm-percent', 'coeff-level', 'coeff-rarity'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.addEventListener('input', calculateCoefficient);
-            });
-            
-            // Initialize
-            populateWingRaritySelects();
-            calculateATBM();
-            calculateCoefficient();
-            initElixirCalculator();
-            initWorldCalculator();
-        });
-    </script>
+    <script defer src="script.js"></script>
 </body>
-
 </html>

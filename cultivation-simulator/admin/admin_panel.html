@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Hapus Komentar</title>
+    <style>
+        body { font-family: sans-serif; background: #111; color: #eee; padding: 20px; }
+        .container { max-width: 800px; margin: auto; }
+        .login { background: #333; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .login input { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        .comment { background: #222; padding: 15px; border: 1px solid #444; border-radius: 5px; margin-bottom: 10px; }
+        .comment-info { font-size: 0.8em; color: #888; margin-bottom: 5px; }
+        .delete-btn { color: #ff8080; cursor: pointer; float: right; font-weight: bold; }
+        .status { margin-top: 10px; font-weight: bold; }
+        .success { color: #75f075; }
+        .error { color: #ff8080; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Admin Panel - Hapus Komentar</h1>
+        
+        <div class="login">
+            <h2>Kredensial Admin</h2>
+            <label for="admin-user">Admin User:</label>
+            <input type="text" id="admin-user" value="admin">
+            
+            <label for="admin-pass">Admin Password:</label>
+            <input type="password" id="admin-pass" placeholder="Password admin...">
+            
+            <button id="load-comments-btn">Muat Komentar</button>
+            <div id="admin-status" class="status"></div>
+        </div>
+
+        <div id="comments-list">
+            <p>Silakan masukkan kredensial dan klik "Muat Komentar".</p>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "http://bansos.optikl.ink/cultivation-simulator/comments.php";
+        const loadBtn = document.getElementById("load-comments-btn");
+        const commentsList = document.getElementById("comments-list");
+        const adminStatus = document.getElementById("admin-status");
+
+        loadBtn.addEventListener("click", loadComments);
+
+        async function loadComments() {
+            commentsList.innerHTML = "<p>Memuat...</p>";
+            adminStatus.textContent = "";
+
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error("Gagal mengambil komentar.");
+                
+                const comments = await response.json();
+                renderComments(comments);
+            } catch (error) {
+                commentsList.innerHTML = `<p class="error">${error.message}</p>`;
+            }
+        }
+
+        function renderComments(comments) {
+            if (comments.length === 0) {
+                commentsList.innerHTML = "<p>Tidak ada komentar.</p>";
+                return;
+            }
+
+            commentsList.innerHTML = "";
+            comments.forEach(comment => {
+                const el = document.createElement("div");
+                el.className = "comment";
+                el.innerHTML = `
+                    <span class="delete-btn" data-id="${comment.id}" title="Hapus">X</span>
+                    <div class="comment-info">
+                        <strong>${escapeHTML(comment.username)}</strong>
+                        (ID: ${comment.id}) - <em>${new Date(comment.created_at).toLocaleString()}</em>
+                    </div>
+                    <p>${escapeHTML(comment.comment_text)}</p>
+                `;
+                commentsList.appendChild(el);
+            });
+
+            // Tambahkan event listener ke tombol hapus
+            document.querySelectorAll(".delete-btn").forEach(btn => {
+                btn.addEventListener("click", handleDelete);
+            });
+        }
+
+        async function handleDelete(e) {
+            const commentId = e.target.dataset.id;
+            const adminUser = document.getElementById("admin-user").value;
+            const adminPass = document.getElementById("admin-pass").value;
+
+            if (!confirm(`Anda yakin ingin menghapus komentar ID: ${commentId}?`)) {
+                return;
+            }
+
+            if (!adminUser || !adminPass) {
+                alert("Username dan Password Admin harus diisi.");
+                return;
+            }
+
+            adminStatus.textContent = "Menghapus...";
+            adminStatus.className = "status";
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        action: "delete",
+                        comment_id: parseInt(commentId),
+                        admin_user: adminUser,
+                        admin_pass: adminPass
+                    })
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || result.status !== 'success') {
+                    throw new Error(result.message || "Gagal menghapus.");
+                }
+
+                adminStatus.className = "status success";
+                adminStatus.textContent = result.message;
+                loadComments(); // Muat ulang daftar setelah menghapus
+
+            } catch (error) {
+                adminStatus.className = "status error";
+                adminStatus.textContent = `Error: ${error.message}`;
+            }
+        }
+        
+        function escapeHTML(str) {
+            return str.replace(/[&<>"']/g, m => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+            }[m]));
+        }
+
+    </script>
+</body>
+</html>
