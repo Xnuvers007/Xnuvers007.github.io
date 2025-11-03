@@ -838,7 +838,7 @@ async function handleCommentSubmit(e) {
 
     // Berhasil
     commentStatus.className = "text-center mt-4 text-green-400";
-    commentStatus.textContent = "Komentar berhasil dikirim!";
+    commentStatus.textContent = "Your comment has been successfully submitted!";
     commentForm.reset();
     loadComments(); // Muat ulang komentar
 
@@ -869,4 +869,5 @@ if (commentForm) {
   commentForm.addEventListener("submit", handleCommentSubmit);
 }
 });
+
 
