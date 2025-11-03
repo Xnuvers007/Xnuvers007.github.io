@@ -777,7 +777,7 @@ async function loadComments() {
     const comments = await response.json();
 
     if (comments.length === 0) {
-      commentsListContainer.innerHTML = '<p class="text-gray-500">Belum ada komentar.</p>';
+      commentsListContainer.innerHTML = '<p class="text-gray-500">No comments yet.</p>';
       return;
     }
 
@@ -869,3 +869,4 @@ if (commentForm) {
   commentForm.addEventListener("submit", handleCommentSubmit);
 }
 });
+
