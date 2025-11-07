@@ -777,7 +777,7 @@ async function loadComments() {
     const comments = await response.json();
 
     if (comments.length === 0) {
-      commentsListContainer.innerHTML = '<p class="text-gray-500">No comments yet.</p>';
+      commentsListContainer.innerHTML = '<p class="text-gray-500">Belum ada komentar.</p>';
       return;
     }
 
@@ -805,7 +805,6 @@ async function loadComments() {
   }
 }
 
-// Fungsi untuk menangani pengiriman form
 async function handleCommentSubmit(e) {
   e.preventDefault();
   if (!commentForm) return;
@@ -838,7 +837,7 @@ async function handleCommentSubmit(e) {
 
     // Berhasil
     commentStatus.className = "text-center mt-4 text-green-400";
-    commentStatus.textContent = "Your comment has been successfully submitted!";
+    commentStatus.textContent = "Komentar berhasil dikirim!";
     commentForm.reset();
     loadComments(); // Muat ulang komentar
 
@@ -851,7 +850,6 @@ async function handleCommentSubmit(e) {
   }
 }
 
-// Fungsi utilitas untuk mencegah XSS
 function escapeHTML(str) {
   return str.replace(/[&<>"']/g, function (m) {
     return {
@@ -864,10 +862,218 @@ function escapeHTML(str) {
   });
 }
 
-// Pasang event listener ke form
 if (commentForm) {
   commentForm.addEventListener("submit", handleCommentSubmit);
 }
+
+  const CONFIG_KEY = "cultools_config_v1";
+
+  function debounce(fn, wait = 400) {
+    let t = null;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), wait);
+    };
+  }
+
+  function buildConfigObject() {
+    const cfg = { wing: {}, world: {}, elixir: {}, compare: comparisonData || [], settings: {} };
+
+    cfg.wing.atbmWingCoeff = document.getElementById("atbm-wing-coeff")?.value || "";
+    cfg.wing.atbmLevel = document.getElementById("atbm-level")?.value || "";
+    cfg.wing.atbmRarity = document.getElementById("atbm-rarity")?.value || "";
+    cfg.wing.coeffAtbmPercent = document.getElementById("coeff-atbm-percent")?.value || "";
+    cfg.wing.coeffLevel = document.getElementById("coeff-level")?.value || "";
+    cfg.wing.coeffRarity = document.getElementById("coeff-rarity")?.value || "";
+
+    cfg.world.difficulty = document.getElementById("difficulty-select")?.value || "";
+    cfg.world.worldId = document.getElementById("world-select")?.value || "";
+    cfg.world.clearTime = document.getElementById("clear-time")?.value || "";
+    cfg.world.goldDropRate = document.getElementById("gold-drop-rate")?.value || "";
+    cfg.world.oreDropRate = document.getElementById("ore-drop-rate")?.value || "";
+    cfg.world.expGainRate = document.getElementById("exp-gain-rate")?.value || "";
+    cfg.world.goldExtraDrop = document.getElementById("gold-extra-drop")?.value || "";
+    cfg.world.expExtraDrop = document.getElementById("exp-extra-drop")?.value || "";
+
+    cfg.elixir.rarities = {};
+    elixirData.rarities.forEach((rarity) => {
+      const checkbox = document.getElementById(`elixir-check-${rarity.id}`);
+      const obj = { checked: !!(checkbox && checkbox.checked), quantities: {} };
+      elixirData.stats.forEach((stat) => {
+        const input = document.getElementById(`elixir-qty-${rarity.id}-${stat.id}`);
+        obj.quantities[stat.id] = input ? input.value : 0;
+      });
+      cfg.elixir.rarities[rarity.id] = obj;
+    });
+
+    const reminderEl = document.getElementById("reminder-enabled");
+    const reminderTimeEl = document.getElementById("reminder-time");
+    if (reminderEl) cfg.settings.reminder = reminderEl.value;
+    if (reminderTimeEl) cfg.settings.reminderTime = reminderTimeEl.value;
+
+    return cfg;
+  }
+
+  const debouncedSaveConfig = debounce(() => {
+    try {
+      const cfg = buildConfigObject();
+      localStorage.setItem(CONFIG_KEY, JSON.stringify(cfg));
+      showTemporaryToast("Config saved");
+    } catch (e) {
+      console.warn("Save config failed", e);
+    }
+  }, 600);
+
+  function saveConfigImmediate() {
+    try {
+      const cfg = buildConfigObject();
+      localStorage.setItem(CONFIG_KEY, JSON.stringify(cfg));
+    } catch (e) {
+      console.warn("Save config immediate failed", e);
+    }
+  }
+
+  function loadConfig() {
+    try {
+      const raw = localStorage.getItem(CONFIG_KEY);
+      if (!raw) return;
+      const cfg = JSON.parse(raw);
+
+      if (cfg.wing) {
+        if (cfg.wing.atbmWingCoeff !== undefined) document.getElementById("atbm-wing-coeff") && (document.getElementById("atbm-wing-coeff").value = cfg.wing.atbmWingCoeff);
+        if (cfg.wing.atbmLevel !== undefined) document.getElementById("atbm-level") && (document.getElementById("atbm-level").value = cfg.wing.atbmLevel);
+        if (cfg.wing.atbmRarity !== undefined) document.getElementById("atbm-rarity") && (document.getElementById("atbm-rarity").value = cfg.wing.atbmRarity);
+        if (cfg.wing.coeffAtbmPercent !== undefined) document.getElementById("coeff-atbm-percent") && (document.getElementById("coeff-atbm-percent").value = cfg.wing.coeffAtbmPercent);
+        if (cfg.wing.coeffLevel !== undefined) document.getElementById("coeff-level") && (document.getElementById("coeff-level").value = cfg.wing.coeffLevel);
+        if (cfg.wing.coeffRarity !== undefined) document.getElementById("coeff-rarity") && (document.getElementById("coeff-rarity").value = cfg.wing.coeffRarity);
+      }
+
+      if (cfg.world) {
+        if (cfg.world.difficulty !== undefined && document.getElementById("difficulty-select")) document.getElementById("difficulty-select").value = cfg.world.difficulty;
+        populateWorlds();
+        if (cfg.world.worldId !== undefined && document.getElementById("world-select")) document.getElementById("world-select").value = cfg.world.worldId;
+        if (cfg.world.clearTime !== undefined) document.getElementById("clear-time") && (document.getElementById("clear-time").value = cfg.world.clearTime);
+        if (cfg.world.goldDropRate !== undefined) document.getElementById("gold-drop-rate") && (document.getElementById("gold-drop-rate").value = cfg.world.goldDropRate);
+        if (cfg.world.oreDropRate !== undefined) document.getElementById("ore-drop-rate") && (document.getElementById("ore-drop-rate").value = cfg.world.oreDropRate);
+        if (cfg.world.expGainRate !== undefined) document.getElementById("exp-gain-rate") && (document.getElementById("exp-gain-rate").value = cfg.world.expGainRate);
+        if (cfg.world.goldExtraDrop !== undefined) document.getElementById("gold-extra-drop") && (document.getElementById("gold-extra-drop").value = cfg.world.goldExtraDrop);
+        if (cfg.world.expExtraDrop !== undefined) document.getElementById("exp-extra-drop") && (document.getElementById("exp-extra-drop").value = cfg.world.expExtraDrop);
+      }
+
+      if (cfg.elixir && cfg.elixir.rarities) {
+        elixirData.rarities.forEach((rarity) => {
+          const data = cfg.elixir.rarities[rarity.id];
+          const checkbox = document.getElementById(`elixir-check-${rarity.id}`);
+          const section = document.getElementById(`elixir-section-${rarity.id}`);
+          if (data) {
+            if (checkbox) checkbox.checked = !!data.checked;
+            if (section) section.classList.toggle("hidden", !data.checked);
+            elixirData.stats.forEach((stat) => {
+              const input = document.getElementById(`elixir-qty-${rarity.id}-${stat.id}`);
+              if (input && data.quantities && data.quantities[stat.id] !== undefined) input.value = data.quantities[stat.id];
+            });
+          }
+        });
+      }
+
+      if (cfg.compare && Array.isArray(cfg.compare)) {
+        comparisonData = cfg.compare;
+        renderCompareTable();
+      }
+
+      if (cfg.settings) {
+        if (document.getElementById("reminder-enabled") && cfg.settings.reminder !== undefined) document.getElementById("reminder-enabled").value = cfg.settings.reminder;
+        if (document.getElementById("reminder-time") && cfg.settings.reminderTime !== undefined) document.getElementById("reminder-time").value = cfg.settings.reminderTime;
+      }
+
+      calculateWorldRates();
+      calculateATBM();
+      calculateCoefficient();
+      calculateElixirTotals();
+    } catch (e) {
+      console.warn("Load config failed", e);
+    }
+  }
+
+  function clearConfig() {
+    try {
+      localStorage.removeItem(CONFIG_KEY);
+
+      comparisonData = [];
+      renderCompareTable();
+
+      document.getElementById("atbm-wing-coeff") && (document.getElementById("atbm-wing-coeff").value = "0");
+      document.getElementById("atbm-level") && (document.getElementById("atbm-level").value = "1");
+      document.getElementById("atbm-rarity") && (document.getElementById("atbm-rarity").value = "scarce");
+      document.getElementById("coeff-atbm-percent") && (document.getElementById("coeff-atbm-percent").value = "0");
+      document.getElementById("coeff-level") && (document.getElementById("coeff-level").value = "1");
+      document.getElementById("coeff-rarity") && (document.getElementById("coeff-rarity").value = "scarce");
+
+      document.getElementById("difficulty-select") && (document.getElementById("difficulty-select").value = Object.keys(worldData)[0]);
+      populateWorlds();
+      document.getElementById("clear-time") && (document.getElementById("clear-time").value = "0");
+      document.getElementById("gold-drop-rate") && (document.getElementById("gold-drop-rate").value = "100");
+      document.getElementById("ore-drop-rate") && (document.getElementById("ore-drop-rate").value = "100");
+      document.getElementById("exp-gain-rate") && (document.getElementById("exp-gain-rate").value = "100");
+      document.getElementById("gold-extra-drop") && (document.getElementById("gold-extra-drop").value = "0");
+      document.getElementById("exp-extra-drop") && (document.getElementById("exp-extra-drop").value = "0");
+      calculateWorldRates();
+
+      elixirData.rarities.forEach((rarity) => {
+        const checkbox = document.getElementById(`elixir-check-${rarity.id}`);
+        const section = document.getElementById(`elixir-section-${rarity.id}`);
+        if (checkbox) checkbox.checked = !!rarity.defaultChecked;
+        if (section) section.classList.toggle("hidden", !rarity.defaultChecked);
+        elixirData.stats.forEach((stat) => {
+          const input = document.getElementById(`elixir-qty-${rarity.id}-${stat.id}`);
+          if (input) input.value = 0;
+        });
+      });
+      calculateElixirTotals();
+
+      document.getElementById("reminder-enabled") && (document.getElementById("reminder-enabled").value = "off");
+      document.getElementById("reminder-time") && (document.getElementById("reminder-time").value = "12:00");
+
+      showTemporaryToast("Config cleared");
+    } catch (e) {
+      console.warn("Clear config failed", e);
+    }
+  }
+
+  function wireAutoSave() {
+    const inputs = Array.from(document.querySelectorAll("input, select, textarea"));
+    inputs.forEach((el) => {
+      if (el.type === "file") return;
+      el.addEventListener("input", debouncedSaveConfig, { passive: true });
+      el.addEventListener("change", debouncedSaveConfig, { passive: true });
+    });
+    const oldAddToCompare = addToCompare;
+    window.addToCompare = function () { oldAddToCompare(); saveConfigImmediate(); };
+    const oldClearCompare = clearCompare;
+    window.clearCompare = function () { oldClearCompare(); saveConfigImmediate(); };
+  }
+
+  const clearBtn = document.getElementById("clear-config-btn");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      if (!confirm("Are you sure you want to clear all saved configuration?")) return;
+      clearConfig();
+    });
+  }
+
+  setTimeout(() => {
+    loadConfig();
+    wireAutoSave();
+  }, 120);
+
+  const origAdd = addToCompare;
+  addToCompare = function () {
+    origAdd();
+    saveConfigImmediate();
+  };
+  const origClear = clearCompare;
+  clearCompare = function () {
+    origClear();
+    saveConfigImmediate();
+  };
 });
-
-
