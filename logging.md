@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 16 November 2025 12.28.00 UTC
-- WITA: Minggu, 16 November 2025 13.28.00 UTC
-- WIT: Minggu, 16 November 2025 14.28.00 UTC
+- WIB: Minggu, 16 November 2025 13.38.25 UTC
+- WITA: Minggu, 16 November 2025 14.38.25 UTC
+- WIT: Minggu, 16 November 2025 15.38.25 UTC
 
 Kutipan Inspiratif:
-"We have more media than ever and more technology in our lives. It's supposed to help us communicate, but it has the opposite effect of isolating us."
+"Why are we, as a nation so obsessed with foreign things? Is it a legacy of our colonial years? We want foreign television sets. We want foreign shirts. We want foreign technology. Why this obsession with everything imported?"
 
 
 Kategori: technology
