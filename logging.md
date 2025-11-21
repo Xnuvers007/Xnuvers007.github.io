@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 21 November 2025 14.28.08 UTC
-- WITA: Jumat, 21 November 2025 15.28.08 UTC
-- WIT: Jumat, 21 November 2025 16.28.08 UTC
+- WIB: Jumat, 21 November 2025 15.37.59 UTC
+- WITA: Jumat, 21 November 2025 16.37.59 UTC
+- WIT: Jumat, 21 November 2025 17.37.59 UTC
 
 Kutipan Inspiratif:
-"You're going to fail your way to success, you have nothing to be ashamed of so keep your head up. It’s much easier to come up with excuses of why you can't do it. If you do what is easy your life will be hard."
+"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
 
 
-Kategori: motivational
+Kategori: nature
 
