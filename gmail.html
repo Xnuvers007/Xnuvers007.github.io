@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Gmail Generator – Generate Multiple Gmail Aliases Instantly</title>
+<meta name="description" content="Gmail Generator is a modern tool that automatically creates multiple Gmail aliases using dot trick, plus trick, and random alias generator. Fast, safe, and free.">
+<meta name="keywords" content="gmail generator, email alias, gmail alias, multiple gmail accounts, email generator, dot trick, plus trick, multi account">
+<meta name="author" content="Xnuvers007">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+
+<link rel="canonical" href="https://xnuvers007.github.io/gmail.html">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta property="og:title" content="Gmail Generator – Create Multiple Gmail Aliases Automatically">
+<meta property="og:description" content="Generate hundreds of Gmail aliases using dot trick, plus tag, and random string generator instantly. Safe, fast, and free.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:url" content="https://xnuvers007.github.io/gmail.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gmail Generator">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gmail Generator – Multi Gmail Alias Creator">
+<meta name="twitter:description" content="Create unlimited Gmail aliases using dot trick, plus trick, and more. Global, free, and safe.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=1200&q=80">
+<meta name="twitter:site" content="@gmail_generator">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Gmail Generator",
+  "url": "https://xnuvers007.github.io/gmail.html",
+  "description": "Gmail Generator allows users worldwide to create Gmail aliases automatically using dot trick, plus trick, and random generator.",
+  "image": "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=1200&q=80",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Xnuvers007",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=600&q=70"
+    }
+  }
+}
+</script>
+<meta name="theme-color" content="#0066ff">
+
+<meta name="language" content="en">
+
+<meta name="distribution" content="global">
+<meta name="rating" content="general">
+
+<style>
+    :root {
+        --bg: #eef1f5;
+        --fg: #333;
+        --card: rgba(255, 255, 255, 0.85);
+        --primary: #0066ff;
+        --primary-hover: #004bd1;
+        --shadow: rgba(0,0,0,0.15);
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg: #111;
+            --fg: #eee;
+            --card: rgba(35,35,35,0.85);
+            --shadow: rgba(0,0,0,0.6);
+        }
+    }
+
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: var(--bg);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        color: var(--fg);
+    }
+    .container {
+        max-width: 680px;
+        width: 100%;
+        background: var(--card);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px var(--shadow);
+        backdrop-filter: blur(12px);
+        animation: fadeSlide 0.7s ease;
+    }
+
+    @keyframes fadeSlide {
+        from { opacity: 0; transform: translateY(25px) scale(0.97); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .container:hover {
+        transform: translateY(-4px);
+        transition: 0.3s;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 0;
+        font-size: 28px;
+        font-weight: 700;
+        animation: fade 1s ease;
+    }
+    @keyframes fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-top: 12px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.7);
+        outline: none;
+    }
+
+    textarea {
+        min-height: 170px;
+        resize: vertical;
+        white-space: pre-wrap;
+    }
+
+    button {
+        width: 100%;
+        padding: 13px;
+        margin-top: 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        color: white;
+        background: var(--primary);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: 0.25s;
+    }
+
+    button:hover { background: var(--primary-hover); }
+
+    button::after {
+        content: "";
+        position: absolute;
+        background: rgba(255,255,255,0.5);
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    button:active::after {
+        width: 200px;
+        height: 200px;
+        opacity: 1;
+        transform: scale(1);
+        transition: 0.4s;
+    }
+
+    .btn-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .btn-row button { flex: 1; }
+
+    .counter {
+        text-align: right;
+        opacity: 0.75;
+        margin-top: 6px;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <h2>Gmail Alias Generator (Modern + Random)</h2>
+
+    <label>Email utama:</label>
+    <input id="email" placeholder="nama@gmail.com">
+
+    <label>Jumlah alias +tag:</label>
+    <input id="jumlahPlus" type="number" placeholder="misal: 30">
+
+    <label>Random alias (huruf/angka): Panjang</label>
+    <input id="randomLength" type="number" placeholder="misal: 8">
+
+    <button onclick="generateAliases()">Generate Semua Alias</button>
+
+    <div class="btn-row">
+        <button onclick="copyOutput()">Copy</button>
+        <button onclick="downloadOutput()">Save .txt</button>
+    </div>
+
+    <label>Hasil:</label>
+    <textarea id="output" readonly></textarea>
+
+    <div class="counter" id="count">0 alias</div>
+</div>
+
+<script>
+function sanitize(str) {
+    return str.replace(/[^a-zA-Z0-9.@+]/g, "");
+}
+
+function randomAlias(len) {
+    const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+    let out = "";
+    for (let i = 0; i < len; i++) {
+        out += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return out;
+}
+
+function typeOut(element, text) {
+    element.value = "";
+    let i = 0;
+
+    function typer() {
+        if (i <= text.length) {
+            element.value = text.slice(0, i);
+            i++;
+
+            setTimeout(() => {
+                element.scrollTo({
+                    top: element.scrollHeight,
+                    behavior: "smooth"
+                });
+            }, 20);
+
+            requestAnimationFrame(typer);
+        }
+    }
+    requestAnimationFrame(typer);
+}
+
+function generateAliases() {
+    const emailInput = document.getElementById("email");
+    const plusInput = document.getElementById("jumlahPlus");
+    const randInput = document.getElementById("randomLength");
+    const output = document.getElementById("output");
+
+    let email = sanitize(emailInput.value.trim());
+    emailInput.value = email;
+
+    if (!email.endsWith("@gmail.com")) {
+        output.value = "Email harus @gmail.com";
+        return;
+    }
+
+    const username = email.split("@")[0];
+    if (!/^[a-zA-Z0-9.]+$/.test(username)) {
+        output.value = "Username hanya boleh huruf/angka/titik";
+        return;
+    }
+
+    const domain = "gmail.com";
+    let results = [];
+
+    function dotCombos(name) {
+        const arr = [];
+        const len = name.length;
+        const total = Math.pow(2, len - 1);
+
+        for (let i = 0; i < total; i++) {
+            let pattern = name[0];
+            for (let j = 0; j < len - 1; j++) {
+                pattern += (i & (1 << j)) ? "." + name[j+1] : name[j+1];
+            }
+            arr.push(pattern + "@gmail.com");
+        }
+        return arr;
+    }
+
+    results.push("=== DOT ALIAS ===");
+    results.push(...dotCombos(username));
+
+    const plusCount = parseInt(plusInput.value);
+    if (plusCount > 0) {
+        results.push("\n=== PLUS ALIAS ===");
+        for (let i = 1; i <= plusCount; i++) {
+            results.push(`${username}+${i}@${domain}`);
+        }
+    }
+
+    const len = parseInt(randInput.value);
+    if (len > 0) {
+        results.push("\n=== RANDOM ALIAS ===");
+        for (let i = 0; i < 20; i++) {
+            results.push(`${username}+${randomAlias(len)}@${domain}`);
+        }
+    }
+
+    typeOut(output, results.join("\n"));
+
+    document.getElementById("count").textContent = results.length + " alias";
+}
+
+function copyOutput() {
+    navigator.clipboard.writeText(document.getElementById("output").value)
+        .then(() => alert("Disalin!"));
+}
+
+function downloadOutput() {
+    const text = document.getElementById("output").value;
+    const blob = new Blob([text], {type:"text/plain"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "gmail_alias.txt";
+    a.click();
+}
+</script>
+
+</body>
+</html>
