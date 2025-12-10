@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 10 Desember 2025 23.39.27 UTC
-- WITA: Kamis, 11 Desember 2025 00.39.27 UTC
-- WIT: Kamis, 11 Desember 2025 01.39.27 UTC
+- WIB: Kamis, 11 Desember 2025 00.33.33 UTC
+- WITA: Kamis, 11 Desember 2025 01.33.33 UTC
+- WIT: Kamis, 11 Desember 2025 02.33.33 UTC
 
 Kutipan Inspiratif:
-"Technology gives us the facilities that lessen the barriers of time and distance - the telegraph and cable, the telephone, radio, and the rest."
+"If you don’t go after what you want, you’ll never have it. If you don’t ask, the answer is always no. If you don’t step forward, you’re always in the same place."
 
 
-Kategori: technology
+Kategori: motivational
 
