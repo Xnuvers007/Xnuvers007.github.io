@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 19 Desember 2025 03.29.37 UTC
-- WITA: Jumat, 19 Desember 2025 04.29.37 UTC
-- WIT: Jumat, 19 Desember 2025 05.29.37 UTC
+- WIB: Jumat, 19 Desember 2025 04.25.11 UTC
+- WITA: Jumat, 19 Desember 2025 05.25.11 UTC
+- WIT: Jumat, 19 Desember 2025 06.25.11 UTC
 
 Kutipan Inspiratif:
-"Success and failure are both part of life. Both are not permanent."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: success
+Kategori: inspirational
 
