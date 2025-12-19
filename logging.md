@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Jumat, 19 Desember 2025 06.28.13 UTC
-- WITA: Jumat, 19 Desember 2025 07.28.13 UTC
-- WIT: Jumat, 19 Desember 2025 08.28.13 UTC
+- WIB: Jumat, 19 Desember 2025 09.20.04 UTC
+- WITA: Jumat, 19 Desember 2025 10.20.04 UTC
+- WIT: Jumat, 19 Desember 2025 11.20.04 UTC
 
 Kutipan Inspiratif:
-"Somebody asked me to explain the relationship between you and me, they expected the answer as, just friends. But I simply smiled and said. Gods gift."
+"Someone Asked me what is UR attitude then i simply replied ? BEING SINGLE IS MY ATTITUDE"
 
 
-Kategori: friendship
+Kategori: attitude
 
