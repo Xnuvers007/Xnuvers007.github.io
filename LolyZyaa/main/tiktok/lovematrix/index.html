@@ -681,13 +681,29 @@ ctxP.strokeText(text, width / 2, height / 2);
             }
             
             // Transisi setelah countdown - partikel menyebar
-            for (var j = 0; j < particles.length; j++) {
+            /*for (var j = 0; j < particles.length; j++) {
                 var angle = Math.random() * Math.PI * 2;
                 var dist = Math.max(width, height);
                 particles[j].tx = width / 2 + Math.cos(angle) * dist;
                 particles[j].ty = height / 2 + Math.sin(angle) * dist;
             }
             await new Promise(function(r) { setTimeout(r, 1000); });
+            */
+
+            // 💖 TUNGGU BENTUK HATI TERLIHAT
+await new Promise(r => setTimeout(r, 2000));
+
+// 💥 HANCURKAN HATI
+for (var j = 0; j < particles.length; j++) {
+    var angle = Math.random() * Math.PI * 2;
+    var dist = Math.max(width, height) * 0.9;
+    particles[j].tx = width / 2 + Math.cos(angle) * dist;
+    particles[j].ty = height / 2 + Math.sin(angle) * dist;
+}
+
+// ⏳ TUNGGU LEDAKAN SELESAI
+await new Promise(r => setTimeout(r, 800));
+
             
             // ========== TEXT SEQUENCE PHASE ==========
             isCountdownPhase = false;
@@ -781,6 +797,7 @@ ctxP.strokeText(text, width / 2, height / 2);
 </body>
 
 </html>
+
 
 
 
