@@ -148,7 +148,7 @@
     <div id="overlay">
         <div class="overlay-emoji">💝</div>
         <div class="overlay-title">Ada Sesuatu Untukmu...</div>
-        <button class="btn-start" onclick="startAnim()">💌 Buka Pesan Rahasia 💌</button>
+        <button class="btn-start" onclick="goFullScreen(); startAnim();">💌 Buka Pesan Rahasia 💌</button>
     </div>
 
     <canvas id="canvasMatrix"></canvas>
@@ -156,6 +156,20 @@
     <canvas id="canvasSparkle"></canvas>
 
     <script>
+
+function goFullScreen() {
+    const el = document.documentElement;
+
+    if (el.requestFullscreen) {
+        el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) { // Safari
+        el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) { // IE lama
+        el.msRequestFullscreen();
+    }
+}
+
+        
         /** === GANTI KATA-KATA DISINI === **/
         
         // Countdown sequence - angka besar dan dramatis
@@ -410,6 +424,11 @@
             
             // Draw text at center
             ctxP.fillText(text, width / 2, height / 2);
+
+            ctxP.lineWidth = 2;
+ctxP.strokeStyle = 'white';
+ctxP.strokeText(text, width / 2, height / 2);
+
             
             // Get pixel data
             var imageData = ctxP.getImageData(0, 0, width, height);
@@ -762,6 +781,7 @@
 </body>
 
 </html>
+
 
 
 
