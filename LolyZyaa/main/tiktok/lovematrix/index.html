@@ -351,7 +351,7 @@
                 ctxP.beginPath();
                 ctxP.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctxP.fillStyle = this.color;
-                ctxP.shadowBlur = 4;
+                ctxP.shadowBlur = 2;
                 ctxP.shadowColor = this.color;
                 ctxP.fill();
                 ctxP.shadowBlur = 0;
@@ -375,7 +375,8 @@
             } else {
                 // Text biasa: Dancing Script
                 baseFontSize = isMobile ? Math.min(60, width * 0.15) : Math.min(100, width * 0.1);
-                fontFamily = '"Dancing Script", cursive';
+                // fontFamily = '"Dancing Script", cursive';
+                fontFamily = '"Quicksand", sans-serif';
             }
             
             let fontSize = baseFontSize;
@@ -760,4 +761,5 @@
 </body>
 
 </html>
+
 
