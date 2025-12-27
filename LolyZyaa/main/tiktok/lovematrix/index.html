@@ -668,7 +668,7 @@
                 particles[j].tx = width / 2 + Math.cos(angle) * dist;
                 particles[j].ty = height / 2 + Math.sin(angle) * dist;
             }
-            await new Promise(function(r) { setTimeout(r, 400); });
+            await new Promise(function(r) { setTimeout(r, 1000); });
             
             // ========== TEXT SEQUENCE PHASE ==========
             isCountdownPhase = false;
@@ -702,12 +702,12 @@
                 }
 
                 // Duration per word - lebih lama agar bisa dibaca
-                var duration = 3000 + (txt.length * 50);
+                var duration = 6000 + (txt.length * 50);
                 await new Promise(function(r) { setTimeout(r, duration); });
             }
 
             // Transition to heart phase
-            await new Promise(function(r) { setTimeout(r, 500); });
+            await new Promise(function(r) { setTimeout(r, 700); });
             
             isHeartPhase = true;
             var heartScale = width < 500 ? 10 : (width < 800 ? 14 : 18);
@@ -762,6 +762,7 @@
 </body>
 
 </html>
+
 
 
 
