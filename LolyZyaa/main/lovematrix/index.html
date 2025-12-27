@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Special For You ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { 
+            overflow: hidden; 
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a15 50%, #0a0a0a 100%);
+            touch-action: none;
+        }
+        
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #canvasMatrix { z-index: 1; opacity: 0.15; }
+        #canvasParticles { z-index: 2; }
+        #canvasSparkle { z-index: 3; pointer-events: none; }
+
+        /* Overlay Tombol Start */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, rgba(30,5,20,0.95) 0%, rgba(0,0,0,0.98) 100%);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: opacity 1.5s ease-out;
+            gap: 20px;
+        }
+
+        .overlay-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(28px, 8vw, 48px);
+            color: #ff6b9d;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+            animation: float 3s ease-in-out infinite;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .overlay-emoji {
+            font-size: clamp(40px, 12vw, 80px);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            45% { transform: scale(1); }
+            65% { transform: scale(1.15); }
+        }
+
+        .btn-start {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #ff0055, #ff6b9d, #ff0055);
+            background-size: 200% 200%;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: clamp(14px, 4vw, 18px);
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.4), inset 0 0 20px rgba(255,255,255,0.1);
+            animation: pulse 2s infinite, gradientMove 3s ease infinite;
+            max-width: 85%;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-start::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 0, 85, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 0, 85, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 0, 85, 0.4); }
+        }
+
+        .btn-start:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 60px rgba(255, 0, 85, 0.8);
+        }
+
+        .btn-start:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source class="random" src="#" type="audio/mpeg">
+        Your browser does not support the audio element.
+        <script>
+            // Pilihan lagu
+            const songs = [
+                "https://assets.mixkit.co/music/659/659.mp3",
+                "https://assets.mixkit.co/music/672/672.mp3"
+            ];
+            // Pilih lagu secara acak
+            const randomSong = songs[Math.floor(Math.random() * songs.length)];
+            document.querySelector('#bgMusic source').src = randomSong;
+            document.getElementById('bgMusic').load();
+        </script>
+    </audio>
+
+    <div id="overlay">
+        <div class="overlay-emoji">💝</div>
+        <div class="overlay-title">Ada Sesuatu Untukmu...</div>
+        <button class="btn-start" onclick="startAnim()">💌 Buka Pesan Rahasia 💌</button>
+    </div>
+
+    <canvas id="canvasMatrix"></canvas>
+    <canvas id="canvasParticles"></canvas>
+    <canvas id="canvasSparkle"></canvas>
+
+    <script>
+        /** === GANTI KATA-KATA DISINI === **/
+        
+        // Countdown sequence - angka besar dan dramatis
+        const countdownSequence = ["3", "2", "1", "💖"];
+        
+        // Pesan romantis
+        const textSequence = [
+            "Hai Sayang...",
+            "Aku mau bilang",
+            "Makasih ya",
+            "Udah sabar",
+            "Sama aku",
+            "Yang suka",
+            "Ngeselin ini",
+            "Hehe maaf ya 🙈",
+            "Tapi tau gak?",
+            "Kamu tuh...",
+            "Spesial banget!"
+        ];
+        
+        const finalMessage = "I Love You";
+        const subMessage = "Selamanya & Sepenuh Hati 💕";
+        const extraMessage = "- dari seseorang yang sayang kamu -";
+        
+        // State
+        let isCountdownPhase = false;
+        /** ============================== **/
+
+        // Setup Canvas
+        const cvsM = document.getElementById('canvasMatrix');
+        const ctxM = cvsM.getContext('2d');
+        const cvsP = document.getElementById('canvasParticles');
+        const ctxP = cvsP.getContext('2d', { willReadFrequently: true });
+        const cvsS = document.getElementById('canvasSparkle');
+        const ctxS = cvsS.getContext('2d');
+
+        let width, height;
+        let active = false;
+        let isHeartPhase = false;
+
+        // Sparkle particles
+        let sparkles = [];
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            cvsM.width = width; cvsM.height = height;
+            cvsP.width = width; cvsP.height = height;
+            cvsS.width = width; cvsS.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // --- SPARKLE SYSTEM ---
+        class Sparkle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 0.5 + 0.2;
+                this.opacity = Math.random();
+                this.fadeSpeed = Math.random() * 0.02 + 0.005;
+                this.growing = Math.random() > 0.5;
+            }
+            update() {
+                this.y += this.speedY;
+                if (this.growing) {
+                    this.opacity += this.fadeSpeed;
+                    if (this.opacity >= 1) this.growing = false;
+                } else {
+                    this.opacity -= this.fadeSpeed;
+                    if (this.opacity <= 0) this.reset();
+                }
+                if (this.y > height) this.reset();
+            }
+            draw() {
+                ctxS.save();
+                ctxS.globalAlpha = this.opacity;
+                ctxS.fillStyle = '#fff';
+                ctxS.shadowBlur = 10;
+                ctxS.shadowColor = '#ff69b4';
+                ctxS.beginPath();
+                // Draw star shape
+                for (let i = 0; i < 4; i++) {
+                    const angle = (i * Math.PI) / 2;
+                    const x1 = this.x + Math.cos(angle) * this.size;
+                    const y1 = this.y + Math.sin(angle) * this.size;
+                    if (i === 0) ctxS.moveTo(x1, y1);
+                    else ctxS.lineTo(x1, y1);
+                    const midAngle = angle + Math.PI / 4;
+                    const x2 = this.x + Math.cos(midAngle) * (this.size * 0.3);
+                    const y2 = this.y + Math.sin(midAngle) * (this.size * 0.3);
+                    ctxS.lineTo(x2, y2);
+                }
+                ctxS.closePath();
+                ctxS.fill();
+                ctxS.restore();
+            }
+        }
+
+        // Initialize sparkles
+        for (let i = 0; i < 50; i++) {
+            sparkles.push(new Sparkle());
+        }
+
+        function animateSparkles() {
+            if (!active) return;
+            ctxS.clearRect(0, 0, width, height);
+            sparkles.forEach(s => {
+                s.update();
+                s.draw();
+            });
+            requestAnimationFrame(animateSparkles);
+        }
+
+        // --- AUDIO & START ---
+        function startAnim() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.opacity = '0';
+            setTimeout(function() {
+                overlay.style.display = 'none';
+            }, 3000);
+            
+            var audio = document.getElementById("bgMusic");
+            audio.volume = 0.5;
+            audio.play().catch(function(e) { 
+                console.log("Audio membutuhkan interaksi user"); 
+            });
+            
+            active = true;
+            initMatrix();
+            animateSparkles();
+            runSequence();
+        }
+
+        // --- MATRIX RAIN (BACKGROUND) ---
+        const katakana = '♡♥❤💕💗💖💘💝✨⭐🌟';
+        const matrixFontSize = Math.max(12, Math.min(16, width / 60));
+        let columns;
+        let drops = [];
+
+        function initMatrix() {
+            columns = Math.floor(width / matrixFontSize);
+            drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * -100;
+            }
+        }
+
+        function drawMatrix() {
+            if (!active) return;
+            ctxM.fillStyle = 'rgba(0, 0, 0, 0.03)';
+            ctxM.fillRect(0, 0, width, height);
+            
+            ctxM.font = matrixFontSize + 'px sans-serif';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = katakana.charAt(Math.floor(Math.random() * katakana.length));
+                const hue = (Date.now() / 50 + i * 5) % 60 + 320;
+                ctxM.fillStyle = 'hsl(' + hue + ', 100%, 70%)';
+                ctxM.fillText(text, i * matrixFontSize, drops[i] * matrixFontSize);
+                
+                if (drops[i] * matrixFontSize > height && Math.random() > 0.98) {
+                    drops[i] = 0;
+                }
+                drops[i] += 0.5;
+            }
+            requestAnimationFrame(drawMatrix);
+        }
+
+        // --- PARTICLE SYSTEM ---
+        let particles = [];
+        
+        class Particle {
+            constructor(x, y) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.tx = x; 
+                this.ty = y; 
+                this.size = Math.random() * 2.5 + 1.5;
+                this.baseSize = this.size;
+                this.color = 'hsl(' + (Math.random() * 40 + 330) + ', 100%, 70%)';
+                this.speed = 0.08 + Math.random() * 0.04;
+            }
+            update() {
+                this.x += (this.tx - this.x) * this.speed;
+                this.y += (this.ty - this.y) * this.speed;
+            }
+            draw() {
+                ctxP.beginPath();
+                ctxP.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctxP.fillStyle = this.color;
+                ctxP.shadowBlur = 8;
+                ctxP.shadowColor = this.color;
+                ctxP.fill();
+                ctxP.shadowBlur = 0;
+            }
+        }
+
+        // --- LOGIKA UTAMA: AUTO RESIZE TEXT (FIXED) ---
+        function getPixelCoords(text, isCountdown) {
+            // Clear canvas completely
+            ctxP.clearRect(0, 0, width, height);
+            
+            // Calculate responsive font size
+            const isMobile = width < 768;
+            let baseFontSize;
+            let fontFamily;
+            
+            if (isCountdown) {
+                // Countdown: BESAR dan BOLD dengan font Arial
+                baseFontSize = isMobile ? Math.min(180, width * 0.5) : Math.min(280, width * 0.35);
+                fontFamily = 'Arial, sans-serif';
+            } else {
+                // Text biasa: Dancing Script
+                baseFontSize = isMobile ? Math.min(60, width * 0.15) : Math.min(100, width * 0.1);
+                fontFamily = '"Dancing Script", cursive';
+            }
+            
+            let fontSize = baseFontSize;
+            
+            // Set font and measure
+            ctxP.font = 'bold ' + fontSize + 'px ' + fontFamily;
+            let textMeasure = ctxP.measureText(text);
+            let textWidth = textMeasure.width;
+            
+            // Scale down if text is too wide
+            const maxWidth = width * 0.85;
+            if (textWidth > maxWidth) {
+                fontSize = fontSize * (maxWidth / textWidth);
+            }
+            
+            // Limit by height
+            const maxHeight = isCountdown ? height * 0.6 : height * 0.4;
+            if (fontSize > maxHeight) {
+                fontSize = maxHeight;
+            }
+            
+            // Minimum font size
+            fontSize = Math.max(fontSize, isCountdown ? 80 : 24);
+            
+            // Apply final font
+            ctxP.font = 'bold ' + fontSize + 'px ' + fontFamily;
+            ctxP.textAlign = 'center';
+            ctxP.textBaseline = 'middle';
+            ctxP.fillStyle = 'white';
+            
+            // Draw text at center
+            ctxP.fillText(text, width / 2, height / 2);
+            
+            // Get pixel data
+            var imageData = ctxP.getImageData(0, 0, width, height);
+            var data = imageData.data;
+            var coords = [];
+            
+            // Sampling - lebih rapat untuk countdown agar lebih padat
+            var step = isCountdown ? 4 : (isMobile ? 3 : 4);
+            var alphaThreshold = 30;
+            
+            for (var y = 0; y < height; y += step) {
+                for (var x = 0; x < width; x += step) {
+                    var index = (y * width + x) * 4;
+                    if (data[index + 3] > alphaThreshold) {
+                        coords.push({ x: x, y: y });
+                    }
+                }
+            }
+            
+            // Clear after sampling
+            ctxP.clearRect(0, 0, width, height);
+            
+            return coords;
+        }
+
+        function getHeartCoords(scale) {
+            var coords = [];
+            // Heart outline - more points for smoother shape
+            for (var t = 0; t < Math.PI * 2; t += 0.02) {
+                var x = 16 * Math.pow(Math.sin(t), 3);
+                var y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+                coords.push({
+                    x: (x * scale) + width / 2,
+                    y: (y * scale) + height / 2 - 20
+                });
+            }
+            // Fill inside heart with more particles
+            for (var i = 0; i < 400; i++) {
+                var angle = Math.random() * Math.PI * 2;
+                var radius = Math.random() * scale * 8;
+                coords.push({
+                    x: width / 2 + Math.cos(angle) * radius * 0.5,
+                    y: height / 2 - 20 + Math.sin(angle) * radius * 0.4
+                });
+            }
+            return coords;
+        }
+
+        // --- FLOATING HEARTS ---
+        var floatingHearts = [];
+        
+        class FloatingHeart {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = height + 50;
+                this.size = Math.random() * 15 + 10;
+                this.speedY = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.05;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX + Math.sin(this.y * 0.01) * 0.5;
+                this.rotation += this.rotationSpeed;
+                if (this.y < -50) this.reset();
+            }
+            draw() {
+                ctxP.save();
+                ctxP.translate(this.x, this.y);
+                ctxP.rotate(this.rotation);
+                ctxP.globalAlpha = this.opacity;
+                ctxP.font = this.size + 'px sans-serif';
+                ctxP.textAlign = 'center';
+                ctxP.textBaseline = 'middle';
+                ctxP.fillText('💕', 0, 0);
+                ctxP.restore();
+            }
+        }
+
+        // --- LOOP UTAMA ---
+        function animateParticles() {
+            if (!active) return;
+            ctxP.clearRect(0, 0, width, height);
+            
+            // Draw floating hearts
+            floatingHearts.forEach(function(h) {
+                h.update();
+                h.draw();
+            });
+            
+            // Heartbeat effect
+            var heartScale = 1;
+            if (isHeartPhase) {
+                heartScale = 1 + Math.sin(Date.now() / 250) * 0.06;
+            }
+
+            particles.forEach(function(p, i) {
+                if (isHeartPhase) {
+                    var dx = p.tx - width / 2;
+                    var dy = p.ty - (height / 2 - 20);
+                    
+                    var targetX = width / 2 + dx * heartScale;
+                    var targetY = (height / 2 - 20) + dy * heartScale;
+                    
+                    p.x += (targetX - p.x) * 0.08;
+                    p.y += (targetY - p.y) * 0.08;
+                    
+                    // Pulse size
+                    p.size = p.baseSize * (0.9 + Math.sin(Date.now() / 200 + i * 0.1) * 0.2);
+                } else if (isCountdownPhase) {
+                    // Countdown: efek lebih dramatis
+                    p.update();
+                    // Pulse yang lebih besar untuk countdown
+                    p.size = p.baseSize * (1.2 + Math.sin(Date.now() / 150 + i * 0.05) * 0.5);
+                } else {
+                    p.update();
+                }
+                p.draw();
+            });
+
+            // Draw final text
+            if (isHeartPhase) {
+                var pulse = 1 + Math.sin(Date.now() / 300) * 0.03;
+                
+                ctxP.save();
+                ctxP.shadowBlur = 25;
+                ctxP.shadowColor = '#ff69b4';
+                
+                // Main message - responsive sizing
+                var titleSize = Math.min(50, width * 0.1);
+                ctxP.font = 'bold ' + titleSize + 'px "Dancing Script", cursive';
+                if (ctxP.measureText(finalMessage).width > width * 0.85) {
+                    titleSize = titleSize * ((width * 0.85) / ctxP.measureText(finalMessage).width);
+                    ctxP.font = 'bold ' + titleSize + 'px "Dancing Script", cursive';
+                }
+                
+                ctxP.fillStyle = '#fff';
+                ctxP.textAlign = 'center';
+                ctxP.textBaseline = 'middle';
+                
+                // Draw with pulse
+                ctxP.save();
+                ctxP.translate(width / 2, height / 2);
+                ctxP.scale(pulse, pulse);
+                ctxP.fillText(finalMessage, 0, 0);
+                ctxP.restore();
+                
+                // Heart emoji
+                ctxP.font = Math.min(40, width * 0.08) + 'px sans-serif';
+                var heartPulse = 1 + Math.sin(Date.now() / 200) * 0.15;
+                ctxP.save();
+                ctxP.translate(width / 2, height / 2 - titleSize * 0.8);
+                ctxP.scale(heartPulse, heartPulse);
+                ctxP.fillText('❤️', 0, 0);
+                ctxP.restore();
+                
+                // Sub message
+                ctxP.shadowBlur = 10;
+                var subSize = Math.min(18, width * 0.04);
+                ctxP.font = '500 ' + subSize + 'px "Quicksand", sans-serif';
+                ctxP.fillStyle = '#ffb6c1';
+                ctxP.fillText(subMessage, width / 2, height / 2 + titleSize * 0.7);
+                
+                // Extra message
+                ctxP.font = '400 ' + (subSize * 0.8) + 'px "Quicksand", sans-serif';
+                ctxP.fillStyle = 'rgba(255, 182, 193, 0.7)';
+                ctxP.fillText(extraMessage, width / 2, height / 2 + titleSize * 1.2);
+                
+                ctxP.restore();
+            }
+            
+            requestAnimationFrame(animateParticles);
+        }
+
+        // --- URUTAN ANIMASI ---
+        async function runSequence() {
+            drawMatrix();
+            animateParticles();
+
+            // Initialize floating hearts
+            var heartCount = width < 600 ? 8 : 15;
+            for (var i = 0; i < heartCount; i++) {
+                var heart = new FloatingHeart();
+                heart.y = Math.random() * height;
+                floatingHearts.push(heart);
+            }
+
+            // Wait a moment before starting
+            await new Promise(function(r) { setTimeout(r, 600); });
+            
+            // ========== COUNTDOWN PHASE ==========
+            isCountdownPhase = true;
+            
+            // Warna untuk setiap countdown
+            var countdownColors = [
+                'hsl(340, 100%, 65%)', // 3 - Pink
+                'hsl(320, 100%, 65%)', // 2 - Magenta
+                'hsl(350, 100%, 70%)', // 1 - Rose
+                'hsl(330, 100%, 75%)'  // 💖 - Light pink
+            ];
+            
+            for (var c = 0; c < countdownSequence.length; c++) {
+                var countText = countdownSequence[c];
+                var coords = getPixelCoords(countText, true);
+                var currentColor = countdownColors[c];
+                
+                // Tambah partikel jika kurang
+                while (particles.length < coords.length) {
+                    particles.push(new Particle(width / 2, height / 2));
+                }
+                
+                // Gerakkan partikel ekstra keluar dengan efek ledakan
+                for (var j = coords.length; j < particles.length; j++) {
+                    var angle = Math.random() * Math.PI * 2;
+                    var dist = Math.max(width, height) * 0.8;
+                    particles[j].tx = width / 2 + Math.cos(angle) * dist;
+                    particles[j].ty = height / 2 + Math.sin(angle) * dist;
+                    particles[j].color = 'rgba(255, 100, 150, 0.2)';
+                }
+                
+                // Gerakkan partikel ke posisi angka dengan warna gradient
+                for (var j = 0; j < coords.length; j++) {
+                    if (j < particles.length) {
+                        particles[j].tx = coords[j].x;
+                        particles[j].ty = coords[j].y;
+                        // Gradient effect berdasarkan posisi
+                        var hue = 330 + (j / coords.length) * 40;
+                        particles[j].color = 'hsl(' + hue + ', 100%, 70%)';
+                    }
+                }
+                
+                // Durasi countdown - cepat dan impactful
+                await new Promise(function(r) { setTimeout(r, 2300); });
+                
+                // Efek ledakan antar angka
+                if (c < countdownSequence.length - 1) {
+                    for (var j = 0; j < Math.min(particles.length, coords.length); j++) {
+                        var angle = Math.random() * Math.PI * 2;
+                        var dist = 80 + Math.random() * 120;
+                        particles[j].tx = width / 2 + Math.cos(angle) * dist;
+                        particles[j].ty = height / 2 + Math.sin(angle) * dist;
+                    }
+                    await new Promise(function(r) { setTimeout(r, 1500); });
+                }
+            }
+            
+            // Transisi setelah countdown - partikel menyebar
+            for (var j = 0; j < particles.length; j++) {
+                var angle = Math.random() * Math.PI * 2;
+                var dist = Math.max(width, height);
+                particles[j].tx = width / 2 + Math.cos(angle) * dist;
+                particles[j].ty = height / 2 + Math.sin(angle) * dist;
+            }
+            await new Promise(function(r) { setTimeout(r, 400); });
+            
+            // ========== TEXT SEQUENCE PHASE ==========
+            isCountdownPhase = false;
+
+            // Loop through each word
+            for (var i = 0; i < textSequence.length; i++) {
+                var txt = textSequence[i];
+                var coords = getPixelCoords(txt, false);
+                
+                // Add/remove particles as needed
+                while (particles.length < coords.length) {
+                    particles.push(new Particle(width / 2, height / 2));
+                }
+                
+                // Move extra particles away smoothly
+                for (var j = coords.length; j < particles.length; j++) {
+                    var angle = Math.random() * Math.PI * 2;
+                    var dist = Math.max(width, height);
+                    particles[j].tx = width / 2 + Math.cos(angle) * dist;
+                    particles[j].ty = height / 2 + Math.sin(angle) * dist;
+                    particles[j].color = 'rgba(255, 150, 200, 0.3)';
+                }
+                
+                // Move particles to letter positions
+                for (var j = 0; j < coords.length; j++) {
+                    if (j < particles.length) {
+                        particles[j].tx = coords[j].x;
+                        particles[j].ty = coords[j].y;
+                        particles[j].color = '#fff';
+                    }
+                }
+
+                // Duration per word - lebih lama agar bisa dibaca
+                var duration = 3000 + (txt.length * 50);
+                await new Promise(function(r) { setTimeout(r, duration); });
+            }
+
+            // Transition to heart phase
+            await new Promise(function(r) { setTimeout(r, 500); });
+            
+            isHeartPhase = true;
+            var heartScale = width < 500 ? 10 : (width < 800 ? 14 : 18);
+            var heartCoords = getHeartCoords(heartScale);
+            
+            // Add more particles for heart
+            while (particles.length < heartCoords.length + 200) {
+                particles.push(new Particle(width / 2, height / 2));
+            }
+
+            // Assign particles to heart positions
+            for (var i = 0; i < particles.length; i++) {
+                if (i < heartCoords.length) {
+                    particles[i].tx = heartCoords[i].x;
+                    particles[i].ty = heartCoords[i].y;
+                    particles[i].color = 'hsl(' + (Math.random() * 30 + 340) + ', 100%, 65%)';
+                } else {
+                    // Aura particles
+                    var angle = Math.random() * Math.PI * 2;
+                    var dist = 100 + Math.random() * 150;
+                    particles[i].tx = width / 2 + Math.cos(angle) * dist;
+                    particles[i].ty = height / 2 - 20 + Math.sin(angle) * dist;
+                    particles[i].color = 'rgba(255, 100, 150, 0.4)';
+                }
+            }
+            
+            // Add more floating hearts in final phase
+            for (var i = 0; i < 10; i++) {
+                floatingHearts.push(new FloatingHeart());
+            }
+        }
+    </script>
+    <noscript>
+        <style>
+            #overlay {
+                display: flex !important;
+                background: #000 !important;
+            }
+            .overlay-title {
+                font-size: 20px !important;
+                color: #fff !important;
+                text-shadow: none !important;
+            }
+            .btn-start {
+                display: none !important;
+            }
+        </style>
+        <div id="overlay">
+            <div class="overlay-title">Mohon Aktifkan JavaScript untuk Melihat Pesan Spesial Ini.</div>
+        </div>
+    </noscript>
+</body>
+</html>
