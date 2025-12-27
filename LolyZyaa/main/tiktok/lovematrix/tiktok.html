@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: black;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        /* Layer untuk Matrix Background */
+        #canvasMatrix {
+            z-index: 0;
+            opacity: 0.3; /* Supaya tidak terlalu terang menutupi teks */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvasMatrix"></canvas>
+    <canvas id="canvasParticles"></canvas>
+
+    <script>
+        /** KONFIGURASI **/
+        const textSequence = ["3", "2", "1", "You", "Are", "My", "Love"];
+        const finalMessage = "I Love You Sayang";
+        const heartColor = "#ff3366"; // Warna Pink Hati
+        
+        /** SETUP CANVAS **/
+        const canvasM = document.getElementById('canvasMatrix');
+        const ctxM = canvasM.getContext('2d');
+        const canvasP = document.getElementById('canvasParticles');
+        const ctxP = canvasP.getContext('2d');
+
+        let width, height;
+        
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvasM.width = width;
+            canvasM.height = height;
+            canvasP.width = width;
+            canvasP.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        /** BAGIAN 1: MATRIX RAIN EFFECT (BACKGROUND) **/
+        const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*";
+        const fontSize = 14;
+        let columns = 0;
+        let drops = [];
+
+        function initMatrix() {
+            columns = Math.floor(width / fontSize);
+            drops = [];
+            for(let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+        }
+        initMatrix();
+
+        function drawMatrix() {
+            ctxM.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctxM.fillRect(0, 0, width, height);
+            
+            ctxM.fillStyle = "#ff0055"; // Warna Pink Matrix
+            ctxM.font = fontSize + "px monospace";
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+                ctxM.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > height && Math.random() > 0.975)
+                    drops[i] = 0;
+                drops[i]++;
+            }
+            requestAnimationFrame(drawMatrix);
+        }
+
+        /** BAGIAN 2: PARTICLE SYSTEM (TEXT & HEART) **/
+        let particles = [];
+        const particleSize = 3;
+        const particleColor = 'white';
+
+        class Particle {
+            constructor(x, y) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.targetX = x;
+                this.targetY = y;
+                this.size = particleSize;
+                this.color = particleColor;
+                this.vx = 0;
+                this.vy = 0;
+                this.friction = 0.9; // Kecepatan meredam
+                this.ease = 0.1; // Kecepatan gerak ke target
+            }
+
+            update() {
+                // Gerak menuju target
+                const dx = this.targetX - this.x;
+                const dy = this.targetY - this.y;
+                
+                this.x += dx * this.ease;
+                this.y += dy * this.ease;
+            }
+
+            draw() {
+                ctxP.fillStyle = this.color;
+                ctxP.fillRect(this.x, this.y, this.size, this.size);
+            }
+        }
+
+        // Fungsi mengambil koordinat titik dari teks
+        function getTextCoordinates(text, scale = 1) {
+            // Gambar teks di canvas sementara
+            ctxP.clearRect(0,0, width, height);
+            ctxP.font = `bold ${150 * scale}px Arial`;
+            ctxP.fillStyle = 'white';
+            ctxP.textAlign = 'center';
+            ctxP.textBaseline = 'middle';
+            ctxP.fillText(text, width/2, height/2);
+
+            // Scan pixel
+            const imageData = ctxP.getImageData(0, 0, width, height);
+            const buffer32 = new Uint32Array(imageData.data.buffer);
+            let coords = [];
+            
+            // Ambil sampel pixel (step 4 untuk performa)
+            for (let y = 0; y < height; y += 5) {
+                for (let x = 0; x < width; x += 5) {
+                    if (buffer32[y * width + x] & 0xff000000) { // Cek alpha channel
+                        coords.push({x, y});
+                    }
+                }
+            }
+            return coords;
+        }
+
+        // Fungsi koordinat bentuk Hati
+        function getHeartCoordinates(scale) {
+            let coords = [];
+            // Rumus parametrik hati
+            for (let t = 0; t < Math.PI * 2; t += 0.05) {
+                // Heart shape formula
+                let x = 16 * Math.pow(Math.sin(t), 3);
+                let y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+                
+                // Scale dan posisikan di tengah
+                x = x * scale + width/2;
+                y = y * scale + height/2 - 20; // -20 biar agak naik
+                coords.push({x, y});
+            }
+            
+            // Isi bagian dalam hati dengan titik random (opsional biar lebih padat)
+            for(let i=0; i<300; i++) {
+                 let t = Math.random() * Math.PI * 2;
+                 let r = Math.random(); // faktor pengisi
+                 let x = 16 * Math.pow(Math.sin(t), 3);
+                 let y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+                 
+                 x = (x * (scale * Math.sqrt(r))) + width/2;
+                 y = (y * (scale * Math.sqrt(r))) + height/2 - 20;
+                 coords.push({x, y});
+            }
+            
+            return coords;
+        }
+
+        // Update target partikel
+        function updateParticles(newCoords, color = 'white') {
+            // Jika partikel kurang, tambah
+            if (particles.length < newCoords.length) {
+                const diff = newCoords.length - particles.length;
+                for (let i = 0; i < diff; i++) {
+                    particles.push(new Particle(width/2, height/2));
+                }
+            }
+            
+            // Set target baru
+            for (let i = 0; i < particles.length; i++) {
+                if (i < newCoords.length) {
+                    particles[i].targetX = newCoords[i].x;
+                    particles[i].targetY = newCoords[i].y;
+                    particles[i].color = color;
+                    particles[i].size = 3; // Reset size
+                } else {
+                    // Partikel sisa disembunyikan/disebar
+                    particles[i].targetX = Math.random() * width;
+                    particles[i].targetY = Math.random() * height;
+                    particles[i].size = 0; // Sembunyikan
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctxP.clearRect(0, 0, width, height);
+            
+            for (let p of particles) {
+                p.update();
+                if(p.size > 0) p.draw();
+            }
+            
+            // Gambar teks statis di dalam hati (hanya jika fase hati aktif)
+            if (isHeartPhase) {
+                ctxP.font = "bold 24px Arial";
+                ctxP.fillStyle = "white";
+                ctxP.textAlign = "center";
+                ctxP.fillText(finalMessage, width/2, height/2);
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        /** TIMELINE SEQUENCER **/
+        let isHeartPhase = false;
+
+        async function startSequence() {
+            // Mulai Matrix Rain
+            drawMatrix();
+            animateParticles();
+
+            // Loop Teks Countdown & Kata-kata
+            for (let i = 0; i < textSequence.length; i++) {
+                const coords = getTextCoordinates(textSequence[i]);
+                updateParticles(coords);
+                // Tunggu 1 detik (kecuali kata terakhir agak lamaan dikit)
+                await new Promise(r => setTimeout(r, 1200)); 
+            }
+
+            // Masuk fase Hati
+            isHeartPhase = true;
+            const heartCoords = getHeartCoordinates(15); // Scale 15
+            updateParticles(heartCoords, heartColor);
+        }
+
+        // Mulai animasi
+        startSequence();
+
+    </script>
+</body>
+</html>
