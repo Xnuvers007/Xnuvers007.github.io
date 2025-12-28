@@ -1,0 +1,38 @@
+# Robots.txt for CharCode Converter
+# https://xnuvers007.github.io/charcode/
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://xnuvers007.github.io/charcode/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Allow main files
+Allow: /index.html
+Allow: /charcode_converter.html
+Allow: /sitemap.xml
+Allow: /robots.txt
