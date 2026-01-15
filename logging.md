@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 15 Januari 2026 16.37.28 UTC
-- WITA: Kamis, 15 Januari 2026 17.37.28 UTC
-- WIT: Kamis, 15 Januari 2026 18.37.28 UTC
+- WIB: Kamis, 15 Januari 2026 17.37.12 UTC
+- WITA: Kamis, 15 Januari 2026 18.37.12 UTC
+- WIT: Kamis, 15 Januari 2026 19.37.12 UTC
 
 Kutipan Inspiratif:
-"Successful people are not gifted; they just work hard, then succeed on purpose."
+"Before you diagnose yourself with depression or low self-esteem, first make sure that you are not, in fact, just surrounded by assholes."
 
 
-Kategori: success
+Kategori: inspirational
 
