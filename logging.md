@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Rabu, 18 Maret 2026 05.23.38 UTC
-- WITA: Rabu, 18 Maret 2026 06.23.38 UTC
-- WIT: Rabu, 18 Maret 2026 07.23.38 UTC
+- WIB: Rabu, 18 Maret 2026 05.33.06 UTC
+- WITA: Rabu, 18 Maret 2026 06.33.06 UTC
+- WIT: Rabu, 18 Maret 2026 07.33.06 UTC
 
 Kutipan Inspiratif:
-"The moral virtues, then, are produced in us neither by nature nor against nature. Nature, indeed, prepares in us the ground for their reception, but their complete formation is the product of habit."
+"There are three principal means of acquiring knowledge... observation of nature, reflection, and experimentation. Observation collects facts; reflection combines them; experimentation verifies the result of that combination."
 
 
 Kategori: nature
