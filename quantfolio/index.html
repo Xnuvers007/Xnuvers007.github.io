@@ -16,23 +16,31 @@
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5">
 <meta charset=utf-8>
 <meta name=theme-color content=#05070d>
+
 <link rel=canonical href=https://xnuvers007.github.io/quantfolio/index.html>
 <link rel=alternate hreflang=id href=https://xnuvers007.github.io/quantfolio/index.html>
 <link rel=alternate hreflang=en href=https://xnuvers007.github.io/quantfolio/index.html>
 <link rel=alternate hreflang=x-default href=https://xnuvers007.github.io/quantfolio/index.html>
+
 <link rel=preconnect href=https://fonts.googleapis.com>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link rel=preconnect href=https://pyscript.net>
 <link rel=preconnect href=https://cdnjs.cloudflare.com>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <link rel=icon type=image/svg+xml href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
 <link rel=apple-touch-icon href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+
 <meta name=apple-mobile-web-app-capable content=yes>
 <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
 <meta name=apple-mobile-web-app-title content=QuantFolio>
 <meta name=mobile-web-app-capable content=yes>
+
 <meta itemprop=name content="QuantFolio Pro - Monte Carlo Portfolio Simulator">
 <meta itemprop=description content="Kalkulator dan simulator portofolio investasi menggunakan metode Monte Carlo. Analisis risiko, return, CVaR, dan Sharpe Ratio untuk saham dan crypto.">
 <meta itemprop=image content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop">
+
 <meta property=og:url content=https://xnuvers007.github.io/quantfolio/index.html>
 <meta property=og:type content=website>
 <meta property=og:locale content=id_ID>
@@ -43,6 +51,7 @@
 <meta property=og:image:height content=630>
 <meta property=og:image:alt content="Tampilan Dashboard QuantFolio Pro">
 <meta property=og:site_name content="QuantFolio Pro">
+
 <meta name=twitter:card content=summary_large_image>
 <meta name=twitter:site content=@Xnuvers007>
 <meta name=twitter:creator content=@Xnuvers007>
@@ -50,6 +59,7 @@
 <meta name=twitter:description content="Kalkulator portofolio investasi canggih berbasis PyScript. Hitung proyeksi profit dan risiko asetmu sekarang.">
 <meta name=twitter:image content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop">
 <meta name=twitter:image:alt content="Tampilan Dashboard QuantFolio Pro">
+
 <script type=application/ld+json>
 {
   "@context": "https://schema.org",
@@ -103,6 +113,7 @@
   ]
 }
 </script>
+
 <link rel=stylesheet href=https://pyscript.net/releases/2024.1.1/core.css>
 <script type=module src=https://pyscript.net/releases/2024.1.1/core.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js></script>
@@ -128,7 +139,7 @@
 <div id=sideOverlay onclick=toggleSidebar(!0)></div>
 <header class=header>
 <a class=logo href=#>
-<div class=logo-icon>📈</div>
+<div class=logo-icon><i class="fa-solid fa-chart-line"></i></div>
 <span class=logo-text><span>Quant</span><span>Folio</span> <span style=color:var(--b0);font-size:.72em;font-weight:600>Pro</span></span>
 </a>
 <div class=hdr-mid>
@@ -158,7 +169,7 @@
 <aside class=sidebar id=sidebar>
 <div class=card>
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>⚙</span>Konfigurasi Portfolio</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-sliders"></i></span>Konfigurasi Portfolio</span>
 </div>
 <div class=card-bd>
 <div class=fg>
@@ -183,20 +194,20 @@
 </div>
 <div class=card>
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>📋</span>Template Preset</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-layer-group"></i></span>Template Preset</span>
 </div>
 <div class=card-bd>
 <div class=preset-row>
-<button class="btn btn-preset c" onclick='loadPreset("conservative")'>🟢<br>Konservatif</button>
-<button class="btn btn-preset b" onclick='loadPreset("balanced")'>🔵<br>Balanced</button>
-<button class="btn btn-preset a" onclick='loadPreset("aggressive")'>🟠<br>Agresif</button>
-<button class="btn btn-preset k" onclick='loadPreset("crypto")'>🟣<br>Crypto Mix</button>
+<button class="btn btn-preset c" onclick='loadPreset("conservative")'><i class="fa-solid fa-shield-halved"></i><br>Konservatif</button>
+<button class="btn btn-preset b" onclick='loadPreset("balanced")'><i class="fa-solid fa-scale-balanced"></i><br>Balanced</button>
+<button class="btn btn-preset a" onclick='loadPreset("aggressive")'><i class="fa-solid fa-fire"></i><br>Agresif</button>
+<button class="btn btn-preset k" onclick='loadPreset("crypto")'><i class="fa-brands fa-bitcoin"></i><br>Crypto Mix</button>
 </div>
 </div>
 </div>
 <div class=card>
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>＋</span>Tambah Aset</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-square-plus"></i></span>Tambah Aset</span>
 </div>
 <div class=card-bd>
 <div class=fg>
@@ -217,24 +228,24 @@
 <label class=fl>Volatilitas % /thn</label>
 <input type=number class=fi id=assetVol placeholder=20.0 step=0.1>
 </div>
-<button class="btn btn-add" onclick=addAsset()>+ Tambah ke Portfolio</button>
+<button class="btn btn-add" onclick=addAsset()><i class="fa-solid fa-plus"></i> Tambah ke Portfolio</button>
 </div>
 </div>
 <div class=card>
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>📂</span>Aset Portofolio</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-folder-open"></i></span>Aset Portofolio</span>
 <button class=norm-btn onclick=normalizeAlloc() title="Normalisasi total ke 100%">⊡ Normalize</button>
 </div>
 <div class=card-bd id=assetBody>
 <div class=empty>
-<div class=empty-i>🎯</div>
+<div class=empty-i><i class="fa-solid fa-folder-plus"></i></div>
 <div class=empty-t>Belum ada aset.<br>Gunakan preset atau tambah manual.</div>
 </div>
 </div>
 </div>
 <div class=card>
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>⚡</span>Risk Profil Portfolio</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-bolt"></i></span>Risk Profil Portfolio</span>
 </div>
 <div class=card-bd>
 <div class=risk-gauge-wrap>
@@ -267,7 +278,7 @@
 </div>
 </div>
 <button class="btn btn-run" id=runBtn onclick=runSimulation() disabled>
-▶ &nbsp;Jalankan Simulasi Monte Carlo
+<i class="fa-solid fa-play"></i> &nbsp;Jalankan Simulasi Monte Carlo
 </button>
 </aside>
 <main class=content>
@@ -305,7 +316,7 @@
 </div>
 <div class="card fade-in">
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>📊</span>Monte Carlo Simulation Paths</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-chart-line"></i></span>Monte Carlo Simulation Paths</span>
 <div class=legend-row>
 <div class=leg><span class=leg-ln style=background:var(--g1)></span>P95</div>
 <div class=leg><span class=leg-ln style=background:rgba(0,232,135,.4)></span>P75</div>
@@ -323,8 +334,8 @@
 <div class=grid-2>
 <div class="card fade-in">
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>📉</span>Distribusi Nilai Akhir</span>
-<span style=font-size:9px;color:var(--t3)>🔴 Rugi &nbsp;·&nbsp; 🟢 Untung</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-chart-area"></i></span>Distribusi Nilai Akhir</span>
+<span style=font-size:9px;color:var(--t3)><i class="fa-solid fa-circle" style="color:var(--r0)"></i> Rugi &nbsp;·&nbsp; <i class="fa-solid fa-circle" style="color:var(--g1)"></i> Untung</span>
 </div>
 <div class=card-bd>
 <div class=chart-wrap style=height:190px>
@@ -334,7 +345,7 @@
 </div>
 <div class="card fade-in">
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>🥧</span>Alokasi Portofolio</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-chart-pie"></i></span>Alokasi Portofolio</span>
 </div>
 <div class=card-bd>
 <div class=chart-wrap style=height:190px>
@@ -345,7 +356,7 @@
 </div>
 <div class="card fade-in" id=efCard style=display:none>
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>🎯</span>Efficient Frontier (Perkiraan)</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-bullseye"></i></span>Efficient Frontier (Perkiraan)</span>
 <span style=font-size:9px;color:var(--t3)>Posisi portfolio Anda vs kombinasi random</span>
 </div>
 <div class=card-bd>
@@ -356,11 +367,11 @@
 </div>
 <div class="card fade-in" id=statsCard style=display:none>
 <div class=card-hd>
-<span class=card-ttl><span class=card-ttl-icon>📋</span>Statistik Lengkap</span>
+<span class=card-ttl><span class=card-ttl-icon><i class="fa-solid fa-list-check"></i></span>Statistik Lengkap</span>
 <div class=export-btns>
-<button class="btn btn-sm" onclick=exportJSON() title="Export ke JSON">💾 JSON</button>
-<button class="btn btn-sm" onclick=exportCSV() title="Export ke CSV">📄 CSV</button>
-<button class="btn btn-sm" onclick=window.print() title="Print / Save PDF">🖨 PDF</button>
+<button class="btn btn-sm" onclick=exportJSON() title="Export ke JSON"><i class="fa-solid fa-file-code"></i> JSON</button>
+<button class="btn btn-sm" onclick=exportCSV() title="Export ke CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+<button class="btn btn-sm" onclick=window.print() title="Print / Save PDF"><i class="fa-solid fa-print"></i> PDF</button>
 </div>
 </div>
 <table class=stats-tbl id=statsTbl></table>
@@ -383,7 +394,7 @@
 <div class=footer-author>
 Dibuat oleh&nbsp;
 <strong>@Xnuvers007</strong>
-<div class=footer-tag>👨‍💻 Developer</div>
+<div class=footer-tag><i class="fa-solid fa-laptop-code"></i> Developer</div>
 </div>
 </footer>
 <script type=py>
@@ -405,17 +416,14 @@ def run_monte_carlo_py():
             window.onSimError()
             return
 
-        
         mu    = sum((a['allocation']/total_w) * (a['annual_return']/100.0) for a in portfolio)
         var_p = sum(((a['allocation']/total_w)**2) * ((a['volatility']/100.0)**2) for a in portfolio)
         sigma = math.sqrt(var_p)
 
-        
         dt        = 1.0 / 252.0
         drift     = (mu - 0.5 * sigma**2) * dt
         diffusion = sigma * math.sqrt(dt)
 
-        
         all_paths    = []
         final_values = []
         for _ in range(n_sims):
@@ -430,7 +438,6 @@ def run_monte_carlo_py():
         fv_sorted = sorted(final_values)
         n = len(fv_sorted)
 
-       
         def pct_interp(p):
             pos = p * (n - 1)
             lo  = int(pos); hi = min(lo + 1, n - 1)
@@ -446,17 +453,14 @@ def run_monte_carlo_py():
 
         prob_win = sum(1 for v in final_values if v > initial) / n * 100.0
 
-        
         period_ret = mean_v / initial - 1.0
         period_rf  = rf * (n_days / 252.0)
         returns    = [v / initial - 1.0 for v in final_values]
         mean_r     = period_ret
         std_r      = math.sqrt(sum((r - mean_r)**2 for r in returns) / n)
 
-        
         sharpe = (period_ret - period_rf) / std_r if std_r > 0 else 0.0
 
-        
         neg_returns = [r for r in returns if r < period_rf]
         if neg_returns:
             down_std = math.sqrt(sum((r - period_rf)**2 for r in neg_returns) / len(neg_returns))
@@ -464,11 +468,9 @@ def run_monte_carlo_py():
         else:
             sortino = 9.99  # No negative excess returns
 
-       
         var_idx  = max(1, int(0.05 * n))
         cvar_5   = sum(fv_sorted[:var_idx]) / var_idx
 
-        
         total_mdd = 0.0
         for path in all_paths:
             peak = path[0]; mdd = 0.0
@@ -479,19 +481,16 @@ def run_monte_carlo_py():
             total_mdd += mdd
         avg_mdd = total_mdd / n_sims * 100.0
 
-        
         ann_factor = 252.0 / n_days
         ann_ret    = (mean_v / initial) ** ann_factor - 1.0
         calmar     = ann_ret / (avg_mdd / 100.0) if avg_mdd > 0 else 0.0
 
-        
         if std_r > 0:
             skewness = sum((r - mean_r)**3 for r in returns) / (n * std_r**3)
             kurtosis = sum((r - mean_r)**4 for r in returns) / (n * std_r**4) - 3.0
         else:
             skewness = 0.0; kurtosis = 0.0
 
-        
         step_d = max(1, n_days // 80)
         s_days = list(range(0, n_days + 1, step_d))
         if s_days[-1] != n_days: s_days.append(n_days)
@@ -507,11 +506,9 @@ def run_monte_carlo_py():
         p05b=band(0.05); p25b=band(0.25); p50b=band(0.50)
         p75b=band(0.75); p95b=band(0.95)
 
-        
         samp_idx   = random.sample(range(n_sims), min(50, n_sims))
         samp_paths = [[round(all_paths[i][d],1) for d in s_days] for i in samp_idx]
 
-        
         hmin = fv_sorted[0]; hmax = fv_sorted[-1]
         nbins = 50
         bw    = (hmax - hmin) / nbins if hmax > hmin else 1.0
@@ -521,7 +518,6 @@ def run_monte_carlo_py():
             bi = min(int((v - hmin) / bw), nbins - 1)
             bins[bi] += 1
 
-        
         ef_pts = []
         assets_list = portfolio
         for _ in range(400):
@@ -567,7 +563,7 @@ window.runMonteCarloPy = run_monte_carlo_py
 window.pyReady = True
 window.onPyReady()
 </script>
-<script>const state={assets:[],result:null},charts={},PALETTE=["#00e887","#3d91ff","#c084ff","#ffb830","#ff4d6a","#22e5ff","#fb923c","#a3e635","#f472b6","#34d399"],PRESETS={conservative:[{name:"SBN ORI",allocation:35,annual_return:6.8,volatility:3.8},{name:"Deposito",allocation:25,annual_return:5.2,volatility:.5},{name:"RDPT",allocation:20,annual_return:8.1,volatility:7.2},{name:"BBCA",allocation:12,annual_return:12,volatility:17},{name:"Emas",allocation:8,annual_return:9.5,volatility:12.5}],balanced:[{name:"BBCA",allocation:20,annual_return:14.2,volatility:18.5},{name:"BBRI",allocation:15,annual_return:16,volatility:24.3},{name:"TLKM",allocation:10,annual_return:8.4,volatility:22.1},{name:"Emas",allocation:20,annual_return:9.5,volatility:13},{name:"SBN",allocation:20,annual_return:6.8,volatility:4.2},{name:"RDPU",allocation:15,annual_return:7.5,volatility:5}],aggressive:[{name:"BBCA",allocation:20,annual_return:14.2,volatility:18.5},{name:"BBRI",allocation:15,annual_return:16,volatility:24.3},{name:"GOTO",allocation:10,annual_return:25,volatility:65},{name:"ANTM",allocation:15,annual_return:22,volatility:40},{name:"BREN",allocation:15,annual_return:30,volatility:55},{name:"BTC",allocation:10,annual_return:42,volatility:78},{name:"Emas",allocation:15,annual_return:9.5,volatility:13}],crypto:[{name:"BTC",allocation:35,annual_return:42,volatility:78},{name:"ETH",allocation:25,annual_return:52,volatility:95},{name:"BNB",allocation:15,annual_return:38,volatility:88},{name:"SOL",allocation:15,annual_return:60,volatility:120},{name:"Stablecoin",allocation:10,annual_return:6,volatility:.5}]},TICKER=[{n:"BBCA",p:9250,ch:1.37},{n:"TLKM",p:3190,ch:-.62},{n:"BBRI",p:5175,ch:2.08},{n:"GOTO",p:81,ch:-1.23},{n:"ASII",p:4960,ch:.81},{n:"BMRI",p:6325,ch:1.14},{n:"ANTM",p:1505,ch:3.43},{n:"BREN",p:8750,ch:5.1},{n:"BTC",p:67840,ch:2.51},{n:"ETH",p:3920,ch:1.88},{n:"SOL",p:158,ch:4.22},{n:"GOLD",p:2340,ch:.44},{n:"IDX",p:7412,ch:.23},{n:"LQ45",p:983,ch:-.15}];let liveTickerData=TICKER.map((t=>({...t})));function buildTicker(){const t=[...liveTickerData,...liveTickerData].map((t=>`\n    <span class="tick">\n      <span class="tick-sym">${t.n}</span>\n      <span>${t.p.toLocaleString("id-ID")}</span>\n      <span class="${t.ch>=0?"tick-up":"tick-dn"}">${t.ch>=0?"▲":"▼"} ${Math.abs(t.ch).toFixed(2)}%</span>\n    </span>`)).join("");document.getElementById("ticker").innerHTML=t}function updateClock(){const t=new Date;document.getElementById("hdr-clock").textContent=t.toLocaleTimeString("id-ID"),document.getElementById("hdrDate").textContent=t.toLocaleDateString("id-ID",{weekday:"short",day:"numeric",month:"short",year:"numeric"});const e=t.getHours(),a=t.getMinutes(),n=e>=9&&(e<16||16===e&&0===a),o=document.querySelector(".market-dot");document.getElementById("mktStatus").textContent="IDX · "+(n?"Buka":"Tutup"),o.style.background=n?"var(--g1)":"var(--r0)",o.style.boxShadow=n?"0 0 8px var(--g1)":"0 0 8px var(--r0)"}function toggleSidebar(t){const e=document.getElementById("sidebar"),a=document.getElementById("sideOverlay"),n=e.classList.contains("open");t||n?(e.classList.remove("open"),a.classList.remove("on"),document.body.style.overflow=""):(e.classList.add("open"),a.classList.add("on"),window.innerWidth<=860&&(document.body.style.overflow="hidden"))}!function(){const t=document.getElementById("bgCanvas"),e=t.getContext("2d");let a=[];function n(){t.width=window.innerWidth,t.height=window.innerHeight}n(),window.addEventListener("resize",n);for(let e=0;e<70;e++)a.push({x:Math.random()*t.width,y:Math.random()*t.height,vx:.25*(Math.random()-.5),vy:.25*(Math.random()-.5),r:1.5*Math.random()+.5});!function n(){e.clearRect(0,0,t.width,t.height);for(let t=0;t<a.length;t++)for(let n=t+1;n<a.length;n++){const o=a[t].x-a[n].x,s=a[t].y-a[n].y,i=Math.sqrt(o*o+s*s);i<130&&(e.beginPath(),e.strokeStyle=`rgba(0,232,135,${.12*(1-i/130)})`,e.lineWidth=.6,e.moveTo(a[t].x,a[t].y),e.lineTo(a[n].x,a[n].y),e.stroke())}a.forEach((a=>{e.beginPath(),e.arc(a.x,a.y,a.r,0,2*Math.PI),e.fillStyle="rgba(61,145,255,0.35)",e.fill(),a.x+=a.vx,a.y+=a.vy,(a.x<0||a.x>t.width)&&(a.vx*=-1),(a.y<0||a.y>t.height)&&(a.vy*=-1)})),requestAnimationFrame(n)}()}(),buildTicker(),setInterval((()=>{liveTickerData.forEach((t=>{const e=.15*(Math.random()-.48);t.ch=Math.round(100*(t.ch+e))/100,t.p=Math.max(1,Math.round(t.p*(1+.002*(Math.random()-.5))))})),buildTicker()}),3500),setInterval(updateClock,1e3),updateClock();const ldr=document.getElementById("loader");ldr.classList.add("on");let ldStep=0;const ldSteps=[0,1,2,3];function advanceStep(){if(ldStep>0){const t=document.getElementById("ls"+(ldStep-1));t.classList.remove("active"),t.classList.add("done")}if(ldStep<4){const t=document.getElementById(`ls${ldStep}`);t&&t.classList.add("active"),ldStep++,ldStep<4&&setTimeout(advanceStep,900)}}advanceStep(),window.pyReady=!1,window.onPyReady=function(){for(let t=0;t<4;t++){const e=document.getElementById(`ls${t}`);e&&(e.classList.remove("active"),e.classList.add("done"))}setTimeout((()=>ldr.classList.remove("on")),600),document.getElementById("pyTxt").textContent="Python Ready ✓";document.getElementById("pyBadge").classList.add("ok"),refreshRunBtn(),toast("Python engine siap! 🐍","s")};const pyCheckId=setInterval((()=>{window.pyReady&&clearInterval(pyCheckId)}),500);function toast(t,e=""){const a=document.getElementById("toast");a.textContent=t,a.className=`toast show ${e}`,clearTimeout(a._t),a._t=setTimeout((()=>a.classList.remove("show")),3500)}function fmtIDR(t){return(t=Math.round(t))>=1e12?`Rp ${(t/1e12).toFixed(2)}T`:t>=1e9?`Rp ${(t/1e9).toFixed(2)}M`:t>=1e6?`Rp ${(t/1e6).toFixed(1)}Jt`:`Rp ${t.toLocaleString("id-ID")}`}function fmtPct(t,e=1){return`${t>=0?"+":""}${t.toFixed(e)}%`}function countUp(t,e,a,n,o=800){const s=performance.now();requestAnimationFrame((function i(l){const r=Math.min((l-s)/o,1),d=1-Math.pow(1-r,3),c=e+(a-e)*d;t.textContent=n(c),r<1&&requestAnimationFrame(i)}))}function loadPreset(t){state.assets.length=0,PRESETS[t].forEach((t=>state.assets.push({...t}))),renderList(),refreshRunBtn(),renderAllocChart();toast(`Preset ${{conservative:"🟢 Konservatif",balanced:"🔵 Balanced",aggressive:"🟠 Agresif",crypto:"🟣 Crypto Mix"}[t]} dimuat ✓`,"s")}function addAsset(){const t=document.getElementById("assetName").value.trim(),e=parseFloat(document.getElementById("assetAlloc").value),a=parseFloat(document.getElementById("assetRet").value),n=parseFloat(document.getElementById("assetVol").value),o=[];if(t||o.push("assetName"),(isNaN(e)||e<=0)&&o.push("assetAlloc"),isNaN(a)&&o.push("assetRet"),(isNaN(n)||n<=0)&&o.push("assetVol"),o.forEach((t=>{const e=document.getElementById(t);e.classList.add("invalid"),setTimeout((()=>e.classList.remove("invalid")),1500)})),o.length)return toast("Input tidak valid — periksa field merah","e");state.assets.push({name:t,allocation:e,annual_return:a,volatility:n}),["assetName","assetAlloc","assetRet","assetVol"].forEach((t=>document.getElementById(t).value="")),renderList(),refreshRunBtn(),renderAllocChart(),toast(`${t} ditambahkan ✓`,"s")}function removeAsset(t){const e=state.assets[t].name;state.assets.splice(t,1),renderList(),refreshRunBtn(),renderAllocChart(),toast(`${e} dihapus`)}function normalizeAlloc(){if(!state.assets.length)return toast("Belum ada aset","e");const t=state.assets.reduce(((t,e)=>t+e.allocation),0);if(!t)return toast("Total 0","e");state.assets.forEach((e=>e.allocation=Math.round(e.allocation/t*1e3)/10)),renderList(),renderAllocChart(),toast("Alokasi dinormalisasi ke 100% ✓","s")}function renderList(){const t=document.getElementById("assetBody"),e=state.assets.reduce(((t,e)=>t+e.allocation),0),a=Math.abs(e-100)<.1,n=a?"tok":e>100?"tover":"tund";state.assets.length?t.innerHTML=state.assets.map(((t,e)=>`\n    <div class="asset-li">\n      <div class="ali-l">\n        <div class="ali-name" style="color:${PALETTE[e%PALETTE.length]}">${escapeHTML(t.name)}</div>\n        <div class="ali-stats">Ret: ${t.annual_return}% &nbsp;·&nbsp; Vol: ${t.volatility}%</div>\n      </div>\n      <div class="ali-r">\n        <span class="ali-alloc">${t.allocation}%</span>\n        <button class="btn-del" onclick="removeAsset(${e})">✕</button>\n      </div>\n    </div>`)).join("")+`\n    <div class="alloc-strip">\n      <div class="alloc-bar">\n        <div class="alloc-fill" style="width:${Math.min(e,100)}%"></div>\n      </div>\n      <div class="alloc-info">\n        <span>Total Alokasi</span>\n        <span class="${n}">${e.toFixed(1)}% ${a?"✓":e>100?"(lewat!)":"(kurang)"}</span>\n      </div>\n    </div>`:t.innerHTML='<div class="empty"><div class="empty-i">🎯</div><div class="empty-t">Belum ada aset.<br>Tambahkan atau gunakan preset.</div></div>'}function refreshRunBtn(){const t=document.getElementById("runBtn"),e=window.pyReady&&state.assets.length>0;if(t.disabled=!e,window.pyReady)if(state.assets.length){const e=state.assets.reduce(((t,e)=>t+e.allocation),0);t.textContent=`▶  Run Monte Carlo  ·  ${state.assets.length} aset  ·  ${e.toFixed(1)}%`}else t.textContent="▶ Tambah Aset Terlebih Dahulu";else t.textContent="⏳ Menunggu Python engine…"}function updateRiskGauge(t){const e=Math.min(t,80)/80,a=220*(1-e);document.getElementById("gaugeArc").style.strokeDashoffset=a,document.getElementById("gaugeVal").textContent=t.toFixed(1)+"%";const n=180*e-90;let o,s,i;document.getElementById("gaugeNeedle").setAttribute("transform",`rotate(${n}, 90, 90)`),t<12?(o="Konservatif",s="var(--g1)",i="Risiko rendah, cocok jangka panjang"):t<25?(o="Moderat",s="var(--b0)",i="Risiko menengah, diversifikasi baik"):t<45?(o="Agresif",s="var(--a0)",i="Risiko tinggi, potensi gain besar"):(o="Spekulatif",s="var(--r0)",i="Risiko sangat tinggi, hati-hati!");const l=document.getElementById("riskBadge");l.textContent=o,l.style.borderColor=s,l.style.color=s,l.style.background="--r0"===s.replace("var(","").replace(")","")?"var(--rd)":"var(--a0)"===s?"rgba(255,184,48,.08)":"var(--gd)",document.getElementById("riskSub").textContent=i}function runSimulation(){if(!window.pyReady)return toast("Python engine belum siap","e");if(!state.assets.length)return toast("Tambah minimal 1 aset","e");const t={portfolio:state.assets,initial_investment:parseFloat(document.getElementById("initialInv").value)||1e8,num_simulations:Math.min(parseInt(document.getElementById("numSims").value)||1500,5e3),num_days:Math.min(parseInt(document.getElementById("numDays").value)||252,1260),risk_free_rate:parseFloat(document.getElementById("rfRate").value)||6};window.portfolioConfig=JSON.stringify(t),window.simResults="",window.simError="",ldr.classList.add("on"),document.getElementById("loadingText")&&(document.getElementById("loadingText").textContent=""),document.getElementById("ldNote").textContent=`Menjalankan ${t.num_simulations.toLocaleString()} simulasi × ${t.num_days} hari…`,setTimeout((()=>{try{window.runMonteCarloPy()}catch(t){ldr.classList.remove("on"),toast("Error: "+t.message,"e")}}),80)}function updateKPIs(t){const e=t.initial,a=document.getElementById("kExpected");countUp(a,0,t.mean_value,(t=>fmtIDR(t))),setTimeout((()=>a.classList.add("live")),10),document.getElementById("kExpSub").textContent=`${fmtPct(100*(t.mean_value/e-1))} dari modal`,document.getElementById("kExpSub").classList.add("live");const n=document.getElementById("kCvar");countUp(n,0,t.cvar_5,(t=>fmtIDR(t))),setTimeout((()=>n.classList.add("live")),10),document.getElementById("kCvarSub").textContent=`${fmtPct(100*(t.cvar_5/e-1))} avg worst 5%`,document.getElementById("kCvarSub").classList.add("live");const o=document.getElementById("kSharpe");countUp(o,0,t.sharpe,(t=>t.toFixed(2))),setTimeout((()=>o.classList.add("live")),10),document.getElementById("kSharpeSub").textContent=t.sharpe>=2?"🟢 Sangat Baik":t.sharpe>=1?"🟢 Baik":t.sharpe>=.5?"🟡 Cukup":"🔴 Buruk",document.getElementById("kSharpeSub").classList.add("live");const s=document.getElementById("kSortino"),i=Math.min(t.sortino,9.99);countUp(s,0,i,(t=>t>=9.99?"> 9.99":t.toFixed(2))),setTimeout((()=>s.classList.add("live")),10),document.getElementById("kSortinoSub").textContent=i>=3?"🟢 Excellent":i>=1.5?"🟢 Baik":i>=.8?"🟡 Cukup":"🔴 Buruk",document.getElementById("kSortinoSub").classList.add("live");const l=document.getElementById("kWin");countUp(l,0,t.prob_win,(t=>`${t.toFixed(1)}%`)),setTimeout((()=>l.classList.add("live")),10),document.getElementById("kWinSub").textContent=`${(100-t.prob_win).toFixed(1)}% kemungkinan rugi`,document.getElementById("kWinSub").classList.add("live");const r=document.getElementById("kCalmar");countUp(r,0,t.calmar,(t=>t.toFixed(2))),setTimeout((()=>r.classList.add("live")),10),document.getElementById("kCalmarSub").textContent=`Ret/MDD: ${t.ann_ret.toFixed(1)}%/${t.avg_mdd.toFixed(1)}%`,document.getElementById("kCalmarSub").classList.add("live")}setTimeout((()=>{clearInterval(pyCheckId),ldr.classList.remove("on"),document.getElementById("pyTxt").textContent="Python Timeout",document.getElementById("pyBadge").classList.add("err")}),5e4),window.onSimDone=function(){ldr.classList.remove("on");try{const t=JSON.parse(window.simResults);state.result=t,updateKPIs(t),renderMCChart(t),renderDistChart(t),renderAllocChart(),renderEFChart(t),renderStatsTable(t),updateRiskGauge(t.sigma_pct),document.getElementById("statsCard").style.display="",document.getElementById("efCard").style.display="",toast("Simulasi selesai! Semua metrik diperbarui 🎉","s")}catch(t){toast("Error render: "+t.message,"e")}},window.onSimError=function(){ldr.classList.remove("on"),toast("Error simulasi: "+(window.simError||"Unknown"),"e")},Chart.defaults.font={family:"'JetBrains Mono', monospace",size:10},Chart.defaults.color="#5a6e90";const ttp={backgroundColor:"#0d1120",borderColor:"#2e3d65",borderWidth:1,titleColor:"#5a6e90",bodyColor:"#f0f4ff",padding:10};function renderMCChart(t){const e=document.getElementById("mcChart").getContext("2d");charts.mc&&charts.mc.destroy();const a=t.s_days.map((t=>0===t?"Awal":`H${t}`)),n=[];t.samp_paths.forEach((t=>{n.push({data:t,borderColor:"rgba(61,145,255,0.06)",backgroundColor:"transparent",borderWidth:1,pointRadius:0,tension:.3,label:""})})),n.push({label:"Band P25-P75",data:t.p75b,borderColor:"rgba(0,232,135,.15)",backgroundColor:"rgba(0,232,135,.05)",borderWidth:0,pointRadius:0,fill:"+1",tension:.3}),n.push({label:"",data:t.p25b,borderColor:"transparent",backgroundColor:"transparent",borderWidth:0,pointRadius:0,fill:!1,tension:.3});const o=(t,e,a,o=2)=>n.push({label:a,data:t,borderColor:e,backgroundColor:"transparent",borderWidth:o,pointRadius:0,tension:.3});o(t.p95b,"#00e887","P95 (Best)",2.5),o(t.p75b,"rgba(0,232,135,.45)","P75",1.5),o(t.p50b,"#3d91ff","Median",2.5),o(t.p25b,"rgba(255,77,106,.4)","P25",1.5),o(t.p05b,"#ff4d6a","P5 (Worst)",2.5),n.push({label:"Modal Awal",data:t.s_days.map((()=>t.initial)),borderColor:"rgba(90,110,144,.3)",borderDash:[6,4],backgroundColor:"transparent",borderWidth:1.5,pointRadius:0}),charts.mc=new Chart(e,{type:"line",data:{labels:a,datasets:n},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:800},interaction:{mode:"index",intersect:!1},plugins:{legend:{display:!1},tooltip:{...ttp,filter:t=>!!t.dataset.label,callbacks:{label:t=>t.dataset.label?`${t.dataset.label}: ${fmtIDR(t.raw)}`:null}}},scales:{x:{grid:{color:"rgba(26,34,56,.5)"},ticks:{maxTicksLimit:10}},y:{grid:{color:"rgba(26,34,56,.5)"},ticks:{callback:t=>fmtIDR(t),maxTicksLimit:6}}}}})}function renderDistChart(t){const e=document.getElementById("distChart").getContext("2d");charts.dist&&charts.dist.destroy();const a=t.edges.slice(0,-1).map((e=>e<t.initial?"rgba(255,77,106,.7)":"rgba(0,232,135,.7)"));charts.dist=new Chart(e,{type:"bar",data:{labels:t.edges.slice(0,-1).map((t=>fmtIDR(t))),datasets:[{data:t.bins,backgroundColor:a,borderColor:"transparent",borderRadius:2}]},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:500},plugins:{legend:{display:!1},tooltip:{...ttp,callbacks:{title:t=>`≈ ${t[0].label}`,label:t=>`${t.raw} simulasi`}}},scales:{x:{grid:{display:!1},ticks:{maxTicksLimit:5,maxRotation:0}},y:{grid:{color:"rgba(26,34,56,.5)"},ticks:{maxTicksLimit:4}}}}})}function renderAllocChart(){const t=document.getElementById("allocChart").getContext("2d");charts.alloc&&charts.alloc.destroy(),state.assets.length&&(charts.alloc=new Chart(t,{type:"doughnut",data:{labels:state.assets.map((t=>t.name)),datasets:[{data:state.assets.map((t=>t.allocation)),backgroundColor:PALETTE.slice(0,state.assets.length),borderColor:"#0d1120",borderWidth:2,hoverOffset:12}]},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:400},cutout:"62%",plugins:{legend:{position:"right",labels:{boxWidth:9,padding:8,font:{size:10}}},tooltip:{...ttp,callbacks:{label:t=>`${t.label}: ${t.raw}%`}}}}}))}function renderEFChart(t){const e=document.getElementById("efChart").getContext("2d");charts.ef&&charts.ef.destroy(),charts.ef=new Chart(e,{type:"scatter",data:{datasets:[{label:"Portfolio Random",data:t.ef_pts.map((t=>({x:t.vol,y:t.ret}))),backgroundColor:"rgba(61,145,255,.2)",borderColor:"rgba(61,145,255,.0)",pointRadius:3,pointHoverRadius:5},{label:"Portfolio Anda",data:[{x:t.sigma_pct,y:t.mu_pct}],backgroundColor:"#00e887",borderColor:"#00ff9d",pointRadius:9,pointHoverRadius:12,borderWidth:2}]},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:600},plugins:{legend:{position:"bottom",labels:{boxWidth:9,padding:10,font:{size:10}}},tooltip:{...ttp,callbacks:{label:t=>`${t.dataset.label}: Ret=${t.raw.y.toFixed(1)}%  Vol=${t.raw.x.toFixed(1)}%`}}},scales:{x:{title:{display:!0,text:"Volatilitas (%)",font:{size:9}},grid:{color:"rgba(26,34,56,.5)"}},y:{title:{display:!0,text:"Expected Return (%)",font:{size:9}},grid:{color:"rgba(26,34,56,.5)"}}}}})}function renderStatsTable(t){const e=t.initial,a=[["—","Modal Awal",fmtIDR(e),""],["—","Expected Value (Mean)",fmtIDR(t.mean_value),fmtPct(100*(t.mean_value/e-1))],["—","Median (P50)",fmtIDR(t.p50),fmtPct(100*(t.p50/e-1))],["—","P01 (Ekstrem Buruk)",fmtIDR(t.p01),fmtPct(100*(t.p01/e-1))],["—","P05 (VaR 95%)",fmtIDR(t.p05),fmtPct(100*(t.p05/e-1))],["—","CVaR 95% (ES)",fmtIDR(t.cvar_5),fmtPct(100*(t.cvar_5/e-1))],["—","P25",fmtIDR(t.p25),fmtPct(100*(t.p25/e-1))],["—","P75",fmtIDR(t.p75),fmtPct(100*(t.p75/e-1))],["—","P95 (Best)",fmtIDR(t.p95),fmtPct(100*(t.p95/e-1))],["—","P99 (Ekstrem Baik)",fmtIDR(t.p99),fmtPct(100*(t.p99/e-1))],["—","Prob. Profit",`${t.prob_win.toFixed(2)}%`,""],["—","Sharpe Ratio",t.sharpe.toFixed(4),t.sharpe>=1?"✓ Baik":"✗ Buruk"],["—","Sortino Ratio",t.sortino>=9.99?"> 9.99":t.sortino.toFixed(4),t.sortino>=1.5?"✓ Baik":"~"],["—","Calmar Ratio",t.calmar.toFixed(4),t.calmar>=.5?"✓ Baik":"~"],["—","Avg Max Drawdown",`${t.avg_mdd.toFixed(2)}%`,""],["—","Ret. Tahunan (Ann.)",fmtPct(t.ann_ret),""],["—","Port. Return µ /thn",fmtPct(t.mu_pct),""],["—","Port. Volatilitas σ",fmtPct(t.sigma_pct),""],["—","Skewness",t.skewness.toFixed(4),t.skewness>0?"Ekor kanan":"Ekor kiri"],["—","Excess Kurtosis",t.kurtosis.toFixed(4),t.kurtosis>0?"Ekor tebal":"Ekor tipis"],["—","Jumlah Simulasi",t.n_sims.toLocaleString(),""],["—","Horizon Waktu",`${t.n_days} hari (${(t.n_days/252).toFixed(2)} thn)`,""]].map(((t,e)=>`\n    <tr>\n      <td class="td-lbl">${t[1]}</td>\n      <td class="td-val">${t[2]}</td>\n      <td class="td-chg ${t[3].startsWith("+")?"up-color":t[3].startsWith("-")?"dn-color":""}">${t[3]}</td>\n    </tr>`)).join("");document.getElementById("statsTbl").innerHTML=`\n    <thead><tr>\n      <th>Metrik</th><th>Nilai</th><th>Keterangan</th>\n    </tr></thead><tbody>${a}</tbody>`}function exportJSON(){if(!state.result)return toast("Jalankan simulasi dulu","e");const t=new Blob([JSON.stringify({meta:{author:"Xnuvers007",tool:"QuantFolio Pro",date:(new Date).toISOString()},portfolio:state.assets,result:state.result},null,2)],{type:"application/json"}),e=document.createElement("a");e.href=URL.createObjectURL(t),e.download=`quantfolio_${Date.now()}.json`,e.click(),URL.revokeObjectURL(e.href),toast("Hasil diekspor ke JSON ✓","s")}function exportCSV(){if(!state.result)return toast("Jalankan simulasi dulu","e");const t=state.result,e=[["Metrik","Nilai"],["Modal Awal",t.initial],["Expected Value",t.mean_value],["Median (P50)",t.p50],["VaR 95% (P05)",t.p05],["CVaR 95%",t.cvar_5],["Prob Profit %",t.prob_win],["Sharpe Ratio",t.sharpe],["Sortino Ratio",t.sortino],["Calmar Ratio",t.calmar],["Avg Max Drawdown %",t.avg_mdd],["Annualized Return %",t.ann_ret],["Volatilitas %",t.sigma_pct],["Skewness",t.skewness],["Excess Kurtosis",t.kurtosis]].map((t=>t.join(","))).join("\n"),a=new Blob([e],{type:"text/csv"}),n=document.createElement("a");n.href=URL.createObjectURL(a),n.download=`quantfolio_${Date.now()}.csv`,n.click(),URL.revokeObjectURL(n.href),toast("Hasil diekspor ke CSV ✓","s")}document.getElementById("assetVol").addEventListener("keydown",(t=>{"Enter"===t.key&&addAsset()})),document.getElementById("assetRet").addEventListener("keydown",(t=>{"Enter"===t.key&&document.getElementById("assetVol").focus()})),document.addEventListener("keydown",(t=>{t.ctrlKey&&"Enter"===t.key&&runSimulation(),"Escape"===t.key&&toggleSidebar(!0)})),window.addEventListener("resize",(()=>{window.innerWidth>860&&toggleSidebar(!0)}))
+<script>const state={assets:[],result:null},charts={},PALETTE=["#00e887","#3d91ff","#c084ff","#ffb830","#ff4d6a","#22e5ff","#fb923c","#a3e635","#f472b6","#34d399"],PRESETS={conservative:[{name:"SBN ORI",allocation:35,annual_return:6.8,volatility:3.8},{name:"Deposito",allocation:25,annual_return:5.2,volatility:.5},{name:"RDPT",allocation:20,annual_return:8.1,volatility:7.2},{name:"BBCA",allocation:12,annual_return:12,volatility:17},{name:"Emas",allocation:8,annual_return:9.5,volatility:12.5}],balanced:[{name:"BBCA",allocation:20,annual_return:14.2,volatility:18.5},{name:"BBRI",allocation:15,annual_return:16,volatility:24.3},{name:"TLKM",allocation:10,annual_return:8.4,volatility:22.1},{name:"Emas",allocation:20,annual_return:9.5,volatility:13},{name:"SBN",allocation:20,annual_return:6.8,volatility:4.2},{name:"RDPU",allocation:15,annual_return:7.5,volatility:5}],aggressive:[{name:"BBCA",allocation:20,annual_return:14.2,volatility:18.5},{name:"BBRI",allocation:15,annual_return:16,volatility:24.3},{name:"GOTO",allocation:10,annual_return:25,volatility:65},{name:"ANTM",allocation:15,annual_return:22,volatility:40},{name:"BREN",allocation:15,annual_return:30,volatility:55},{name:"BTC",allocation:10,annual_return:42,volatility:78},{name:"Emas",allocation:15,annual_return:9.5,volatility:13}],crypto:[{name:"BTC",allocation:35,annual_return:42,volatility:78},{name:"ETH",allocation:25,annual_return:52,volatility:95},{name:"BNB",allocation:15,annual_return:38,volatility:88},{name:"SOL",allocation:15,annual_return:60,volatility:120},{name:"Stablecoin",allocation:10,annual_return:6,volatility:.5}]},TICKER=[{n:"BBCA",p:9250,ch:1.37},{n:"TLKM",p:3190,ch:-.62},{n:"BBRI",p:5175,ch:2.08},{n:"GOTO",p:81,ch:-1.23},{n:"ASII",p:4960,ch:.81},{n:"BMRI",p:6325,ch:1.14},{n:"ANTM",p:1505,ch:3.43},{n:"BREN",p:8750,ch:5.1},{n:"BTC",p:67840,ch:2.51},{n:"ETH",p:3920,ch:1.88},{n:"SOL",p:158,ch:4.22},{n:"GOLD",p:2340,ch:.44},{n:"IDX",p:7412,ch:.23},{n:"LQ45",p:983,ch:-.15}];let liveTickerData=TICKER.map((t=>({...t})));function buildTicker(){const t=[...liveTickerData,...liveTickerData].map((t=>`\n    <span class="tick">\n      <span class="tick-sym">${t.n}</span>\n      <span>${t.p.toLocaleString("id-ID")}</span>\n      <span class="${t.ch>=0?"tick-up":"tick-dn"}">${t.ch>=0?"<i class='fa-solid fa-caret-up'></i>":"<i class='fa-solid fa-caret-down'></i>"} ${Math.abs(t.ch).toFixed(2)}%</span>\n    </span>`)).join("");document.getElementById("ticker").innerHTML=t}function updateClock(){const t=new Date;document.getElementById("hdr-clock").textContent=t.toLocaleTimeString("id-ID"),document.getElementById("hdrDate").textContent=t.toLocaleDateString("id-ID",{weekday:"short",day:"numeric",month:"short",year:"numeric"});const e=t.getHours(),a=t.getMinutes(),n=e>=9&&(e<16||16===e&&0===a),o=document.querySelector(".market-dot");document.getElementById("mktStatus").textContent="IDX · "+(n?"Buka":"Tutup"),o.style.background=n?"var(--g1)":"var(--r0)",o.style.boxShadow=n?"0 0 8px var(--g1)":"0 0 8px var(--r0)"}function toggleSidebar(t){const e=document.getElementById("sidebar"),a=document.getElementById("sideOverlay"),n=e.classList.contains("open");t||n?(e.classList.remove("open"),a.classList.remove("on"),document.body.style.overflow=""):(e.classList.add("open"),a.classList.add("on"),window.innerWidth<=860&&(document.body.style.overflow="hidden"))}!function(){const t=document.getElementById("bgCanvas"),e=t.getContext("2d");let a=[];function n(){t.width=window.innerWidth,t.height=window.innerHeight}n(),window.addEventListener("resize",n);for(let e=0;e<70;e++)a.push({x:Math.random()*t.width,y:Math.random()*t.height,vx:.25*(Math.random()-.5),vy:.25*(Math.random()-.5),r:1.5*Math.random()+.5});!function n(){e.clearRect(0,0,t.width,t.height);for(let t=0;t<a.length;t++)for(let n=t+1;n<a.length;n++){const o=a[t].x-a[n].x,s=a[t].y-a[n].y,i=Math.sqrt(o*o+s*s);i<130&&(e.beginPath(),e.strokeStyle=`rgba(0,232,135,${.12*(1-i/130)})`,e.lineWidth=.6,e.moveTo(a[t].x,a[t].y),e.lineTo(a[n].x,a[n].y),e.stroke())}a.forEach((a=>{e.beginPath(),e.arc(a.x,a.y,a.r,0,2*Math.PI),e.fillStyle="rgba(61,145,255,0.35)",e.fill(),a.x+=a.vx,a.y+=a.vy,(a.x<0||a.x>t.width)&&(a.vx*=-1),(a.y<0||a.y>t.height)&&(a.vy*=-1)})),requestAnimationFrame(n)}()}(),buildTicker(),setInterval((()=>{liveTickerData.forEach((t=>{const e=.15*(Math.random()-.48);t.ch=Math.round(100*(t.ch+e))/100,t.p=Math.max(1,Math.round(t.p*(1+.002*(Math.random()-.5))))})),buildTicker()}),3500),setInterval(updateClock,1e3),updateClock();const ldr=document.getElementById("loader");ldr.classList.add("on");let ldStep=0;const ldSteps=[0,1,2,3];function advanceStep(){if(ldStep>0){const t=document.getElementById("ls"+(ldStep-1));t.classList.remove("active"),t.classList.add("done")}if(ldStep<4){const t=document.getElementById(`ls${ldStep}`);t&&t.classList.add("active"),ldStep++,ldStep<4&&setTimeout(advanceStep,900)}}advanceStep(),window.pyReady=!1,window.onPyReady=function(){for(let t=0;t<4;t++){const e=document.getElementById(`ls${t}`);e&&(e.classList.remove("active"),e.classList.add("done"))}setTimeout((()=>ldr.classList.remove("on")),600),document.getElementById("pyTxt").innerHTML="Python Ready <i class='fa-solid fa-check'></i>";document.getElementById("pyBadge").classList.add("ok"),refreshRunBtn(),toast("Python engine siap! <i class='fa-brands fa-python'></i>","s")};const pyCheckId=setInterval((()=>{window.pyReady&&clearInterval(pyCheckId)}),500);function toast(t,e=""){const a=document.getElementById("toast");a.innerHTML=t,a.className=`toast show ${e}`,clearTimeout(a._t),a._t=setTimeout((()=>a.classList.remove("show")),3500)}function fmtIDR(t){return(t=Math.round(t))>=1e12?`Rp ${(t/1e12).toFixed(2)}T`:t>=1e9?`Rp ${(t/1e9).toFixed(2)}M`:t>=1e6?`Rp ${(t/1e6).toFixed(1)}Jt`:`Rp ${t.toLocaleString("id-ID")}`}function fmtPct(t,e=1){return`${t>=0?"+":""}${t.toFixed(e)}%`}function countUp(t,e,a,n,o=800){const s=performance.now();requestAnimationFrame((function i(l){const r=Math.min((l-s)/o,1),d=1-Math.pow(1-r,3),c=e+(a-e)*d;t.innerHTML=n(c),r<1&&requestAnimationFrame(i)}))}function loadPreset(t){state.assets.length=0,PRESETS[t].forEach((t=>state.assets.push({...t}))),renderList(),refreshRunBtn(),renderAllocChart();toast(`Preset ${{conservative:"<i class='fa-solid fa-shield-halved'></i> Konservatif",balanced:"<i class='fa-solid fa-scale-balanced'></i> Balanced",aggressive:"<i class='fa-solid fa-fire'></i> Agresif",crypto:"<i class='fa-brands fa-bitcoin'></i> Crypto Mix"}[t]} dimuat <i class='fa-solid fa-check'></i>`,"s")}function addAsset(){const t=document.getElementById("assetName").value.trim(),e=parseFloat(document.getElementById("assetAlloc").value),a=parseFloat(document.getElementById("assetRet").value),n=parseFloat(document.getElementById("assetVol").value),o=[];if(t||o.push("assetName"),(isNaN(e)||e<=0)&&o.push("assetAlloc"),isNaN(a)&&o.push("assetRet"),(isNaN(n)||n<=0)&&o.push("assetVol"),o.forEach((t=>{const e=document.getElementById(t);e.classList.add("invalid"),setTimeout((()=>e.classList.remove("invalid")),1500)})),o.length)return toast("Input tidak valid — periksa field merah","e");state.assets.push({name:t,allocation:e,annual_return:a,volatility:n}),["assetName","assetAlloc","assetRet","assetVol"].forEach((t=>document.getElementById(t).value="")),renderList(),refreshRunBtn(),renderAllocChart(),toast(`${t} ditambahkan <i class='fa-solid fa-check'></i>`,"s")}function removeAsset(t){const e=state.assets[t].name;state.assets.splice(t,1),renderList(),refreshRunBtn(),renderAllocChart(),toast(`${e} dihapus`)}function normalizeAlloc(){if(!state.assets.length)return toast("Belum ada aset","e");const t=state.assets.reduce(((t,e)=>t+e.allocation),0);if(!t)return toast("Total 0","e");state.assets.forEach((e=>e.allocation=Math.round(e.allocation/t*1e3)/10)),renderList(),renderAllocChart(),toast("Alokasi dinormalisasi ke 100% <i class='fa-solid fa-check'></i>","s")}function renderList(){const t=document.getElementById("assetBody"),e=state.assets.reduce(((t,e)=>t+e.allocation),0),a=Math.abs(e-100)<.1,n=a?"tok":e>100?"tover":"tund";state.assets.length?t.innerHTML=state.assets.map(((t,e)=>`\n    <div class="asset-li">\n      <div class="ali-l">\n        <div class="ali-name" style="color:${PALETTE[e%PALETTE.length]}">${escapeHTML(t.name)}</div>\n        <div class="ali-stats">Ret: ${t.annual_return}% &nbsp;·&nbsp; Vol: ${t.volatility}%</div>\n      </div>\n      <div class="ali-r">\n        <span class="ali-alloc">${t.allocation}%</span>\n        <button class="btn-del" onclick="removeAsset(${e})">✕</button>\n      </div>\n    </div>`)).join("")+`\n    <div class="alloc-strip">\n      <div class="alloc-bar">\n        <div class="alloc-fill" style="width:${Math.min(e,100)}%"></div>\n      </div>\n      <div class="alloc-info">\n        <span>Total Alokasi</span>\n        <span class="${n}">${e.toFixed(1)}% ${a?"<i class='fa-solid fa-check'></i>":e>100?"(lewat!)":"(kurang)"}</span>\n      </div>\n    </div>`:t.innerHTML='<div class="empty"><div class="empty-i"><i class="fa-solid fa-folder-plus"></i></div><div class="empty-t">Belum ada aset.<br>Tambahkan atau gunakan preset.</div></div>'}function refreshRunBtn(){const t=document.getElementById("runBtn"),e=window.pyReady&&state.assets.length>0;if(t.disabled=!e,window.pyReady)if(state.assets.length){const e=state.assets.reduce(((t,e)=>t+e.allocation),0);t.innerHTML=`<i class="fa-solid fa-play"></i>  Run Monte Carlo  ·  ${state.assets.length} aset  ·  ${e.toFixed(1)}%`}else t.innerHTML="<i class='fa-solid fa-play'></i> Tambah Aset Terlebih Dahulu";else t.innerHTML="<i class='fa-solid fa-hourglass-half'></i> Menunggu Python engine…"}function updateRiskGauge(t){const e=Math.min(t,80)/80,a=220*(1-e);document.getElementById("gaugeArc").style.strokeDashoffset=a,document.getElementById("gaugeVal").textContent=t.toFixed(1)+"%";const n=180*e-90;let o,s,i;document.getElementById("gaugeNeedle").setAttribute("transform",`rotate(${n}, 90, 90)`),t<12?(o="Konservatif",s="var(--g1)",i="Risiko rendah, cocok jangka panjang"):t<25?(o="Moderat",s="var(--b0)",i="Risiko menengah, diversifikasi baik"):t<45?(o="Agresif",s="var(--a0)",i="Risiko tinggi, potensi gain besar"):(o="Spekulatif",s="var(--r0)",i="Risiko sangat tinggi, hati-hati!");const l=document.getElementById("riskBadge");l.textContent=o,l.style.borderColor=s,l.style.color=s,l.style.background="--r0"===s.replace("var(","").replace(")","")?"var(--rd)":"var(--a0)"===s?"rgba(255,184,48,.08)":"var(--gd)",document.getElementById("riskSub").textContent=i}function runSimulation(){if(!window.pyReady)return toast("Python engine belum siap","e");if(!state.assets.length)return toast("Tambah minimal 1 aset","e");const t={portfolio:state.assets,initial_investment:parseFloat(document.getElementById("initialInv").value)||1e8,num_simulations:Math.min(parseInt(document.getElementById("numSims").value)||1500,5e3),num_days:Math.min(parseInt(document.getElementById("numDays").value)||252,1260),risk_free_rate:parseFloat(document.getElementById("rfRate").value)||6};window.portfolioConfig=JSON.stringify(t),window.simResults="",window.simError="",ldr.classList.add("on"),document.getElementById("loadingText")&&(document.getElementById("loadingText").textContent=""),document.getElementById("ldNote").textContent=`Menjalankan ${t.num_simulations.toLocaleString()} simulasi × ${t.num_days} hari…`,setTimeout((()=>{try{window.runMonteCarloPy()}catch(t){ldr.classList.remove("on"),toast("Error: "+t.message,"e")}}),80)}function updateKPIs(t){const e=t.initial,a=document.getElementById("kExpected");countUp(a,0,t.mean_value,(t=>fmtIDR(t))),setTimeout((()=>a.classList.add("live")),10),document.getElementById("kExpSub").textContent=`${fmtPct(100*(t.mean_value/e-1))} dari modal`,document.getElementById("kExpSub").classList.add("live");const n=document.getElementById("kCvar");countUp(n,0,t.cvar_5,(t=>fmtIDR(t))),setTimeout((()=>n.classList.add("live")),10),document.getElementById("kCvarSub").textContent=`${fmtPct(100*(t.cvar_5/e-1))} avg worst 5%`,document.getElementById("kCvarSub").classList.add("live");const o=document.getElementById("kSharpe");countUp(o,0,t.sharpe,(t=>t.toFixed(2))),setTimeout((()=>o.classList.add("live")),10),document.getElementById("kSharpeSub").innerHTML=t.sharpe>=2?"<i class='fa-solid fa-check-double'></i> Sangat Baik":t.sharpe>=1?"<i class='fa-solid fa-check'></i> Baik":t.sharpe>=.5?"<i class='fa-solid fa-minus'></i> Cukup":"<i class='fa-solid fa-xmark'></i> Buruk",document.getElementById("kSharpeSub").classList.add("live");const s=document.getElementById("kSortino"),i=Math.min(t.sortino,9.99);countUp(s,0,i,(t=>t>=9.99?"> 9.99":t.toFixed(2))),setTimeout((()=>s.classList.add("live")),10),document.getElementById("kSortinoSub").innerHTML=i>=3?"<i class='fa-solid fa-check-double'></i> Excellent":i>=1.5?"<i class='fa-solid fa-check'></i> Baik":i>=.8?"<i class='fa-solid fa-minus'></i> Cukup":"<i class='fa-solid fa-xmark'></i> Buruk",document.getElementById("kSortinoSub").classList.add("live");const l=document.getElementById("kWin");countUp(l,0,t.prob_win,(t=>`${t.toFixed(1)}%`)),setTimeout((()=>l.classList.add("live")),10),document.getElementById("kWinSub").textContent=`${(100-t.prob_win).toFixed(1)}% kemungkinan rugi`,document.getElementById("kWinSub").classList.add("live");const r=document.getElementById("kCalmar");countUp(r,0,t.calmar,(t=>t.toFixed(2))),setTimeout((()=>r.classList.add("live")),10),document.getElementById("kCalmarSub").textContent=`Ret/MDD: ${t.ann_ret.toFixed(1)}%/${t.avg_mdd.toFixed(1)}%`,document.getElementById("kCalmarSub").classList.add("live")}setTimeout((()=>{clearInterval(pyCheckId),ldr.classList.remove("on"),document.getElementById("pyTxt").textContent="Python Timeout",document.getElementById("pyBadge").classList.add("err")}),5e4),window.onSimDone=function(){ldr.classList.remove("on");try{const t=JSON.parse(window.simResults);state.result=t,updateKPIs(t),renderMCChart(t),renderDistChart(t),renderAllocChart(),renderEFChart(t),renderStatsTable(t),updateRiskGauge(t.sigma_pct),document.getElementById("statsCard").style.display="",document.getElementById("efCard").style.display="",toast("Simulasi selesai! Semua metrik diperbarui <i class='fa-solid fa-champagne-glasses'></i>","s")}catch(t){toast("Error render: "+t.message,"e")}},window.onSimError=function(){ldr.classList.remove("on"),toast("Error simulasi: "+(window.simError||"Unknown"),"e")},Chart.defaults.font={family:"'JetBrains Mono', monospace",size:10},Chart.defaults.color="#5a6e90";const ttp={backgroundColor:"#0d1120",borderColor:"#2e3d65",borderWidth:1,titleColor:"#5a6e90",bodyColor:"#f0f4ff",padding:10};function renderMCChart(t){const e=document.getElementById("mcChart").getContext("2d");charts.mc&&charts.mc.destroy();const a=t.s_days.map((t=>0===t?"Awal":`H${t}`)),n=[];t.samp_paths.forEach((t=>{n.push({data:t,borderColor:"rgba(61,145,255,0.06)",backgroundColor:"transparent",borderWidth:1,pointRadius:0,tension:.3,label:""})})),n.push({label:"Band P25-P75",data:t.p75b,borderColor:"rgba(0,232,135,.15)",backgroundColor:"rgba(0,232,135,.05)",borderWidth:0,pointRadius:0,fill:"+1",tension:.3}),n.push({label:"",data:t.p25b,borderColor:"transparent",backgroundColor:"transparent",borderWidth:0,pointRadius:0,fill:!1,tension:.3});const o=(t,e,a,o=2)=>n.push({label:a,data:t,borderColor:e,backgroundColor:"transparent",borderWidth:o,pointRadius:0,tension:.3});o(t.p95b,"#00e887","P95 (Best)",2.5),o(t.p75b,"rgba(0,232,135,.45)","P75",1.5),o(t.p50b,"#3d91ff","Median",2.5),o(t.p25b,"rgba(255,77,106,.4)","P25",1.5),o(t.p05b,"#ff4d6a","P5 (Worst)",2.5),n.push({label:"Modal Awal",data:t.s_days.map((()=>t.initial)),borderColor:"rgba(90,110,144,.3)",borderDash:[6,4],backgroundColor:"transparent",borderWidth:1.5,pointRadius:0}),charts.mc=new Chart(e,{type:"line",data:{labels:a,datasets:n},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:800},interaction:{mode:"index",intersect:!1},plugins:{legend:{display:!1},tooltip:{...ttp,filter:t=>!!t.dataset.label,callbacks:{label:t=>t.dataset.label?`${t.dataset.label}: ${fmtIDR(t.raw)}`:null}}},scales:{x:{grid:{color:"rgba(26,34,56,.5)"},ticks:{maxTicksLimit:10}},y:{grid:{color:"rgba(26,34,56,.5)"},ticks:{callback:t=>fmtIDR(t),maxTicksLimit:6}}}}})}function renderDistChart(t){const e=document.getElementById("distChart").getContext("2d");charts.dist&&charts.dist.destroy();const a=t.edges.slice(0,-1).map((e=>e<t.initial?"rgba(255,77,106,.7)":"rgba(0,232,135,.7)"));charts.dist=new Chart(e,{type:"bar",data:{labels:t.edges.slice(0,-1).map((t=>fmtIDR(t))),datasets:[{data:t.bins,backgroundColor:a,borderColor:"transparent",borderRadius:2}]},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:500},plugins:{legend:{display:!1},tooltip:{...ttp,callbacks:{title:t=>`≈ ${t[0].label}`,label:t=>`${t.raw} simulasi`}}},scales:{x:{grid:{display:!1},ticks:{maxTicksLimit:5,maxRotation:0}},y:{grid:{color:"rgba(26,34,56,.5)"},ticks:{maxTicksLimit:4}}}}})}function renderAllocChart(){const t=document.getElementById("allocChart").getContext("2d");charts.alloc&&charts.alloc.destroy(),state.assets.length&&(charts.alloc=new Chart(t,{type:"doughnut",data:{labels:state.assets.map((t=>t.name)),datasets:[{data:state.assets.map((t=>t.allocation)),backgroundColor:PALETTE.slice(0,state.assets.length),borderColor:"#0d1120",borderWidth:2,hoverOffset:12}]},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:400},cutout:"62%",plugins:{legend:{position:"right",labels:{boxWidth:9,padding:8,font:{size:10}}},tooltip:{...ttp,callbacks:{label:t=>`${t.label}: ${t.raw}%`}}}}}))}function renderEFChart(t){const e=document.getElementById("efChart").getContext("2d");charts.ef&&charts.ef.destroy(),charts.ef=new Chart(e,{type:"scatter",data:{datasets:[{label:"Portfolio Random",data:t.ef_pts.map((t=>({x:t.vol,y:t.ret}))),backgroundColor:"rgba(61,145,255,.2)",borderColor:"rgba(61,145,255,.0)",pointRadius:3,pointHoverRadius:5},{label:"Portfolio Anda",data:[{x:t.sigma_pct,y:t.mu_pct}],backgroundColor:"#00e887",borderColor:"#00ff9d",pointRadius:9,pointHoverRadius:12,borderWidth:2}]},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:600},plugins:{legend:{position:"bottom",labels:{boxWidth:9,padding:10,font:{size:10}}},tooltip:{...ttp,callbacks:{label:t=>`${t.dataset.label}: Ret=${t.raw.y.toFixed(1)}%  Vol=${t.raw.x.toFixed(1)}%`}}},scales:{x:{title:{display:!0,text:"Volatilitas (%)",font:{size:9}},grid:{color:"rgba(26,34,56,.5)"}},y:{title:{display:!0,text:"Expected Return (%)",font:{size:9}},grid:{color:"rgba(26,34,56,.5)"}}}}})}function renderStatsTable(t){const e=t.initial,a=[["—","Modal Awal",fmtIDR(e),""],["—","Expected Value (Mean)",fmtIDR(t.mean_value),fmtPct(100*(t.mean_value/e-1))],["—","Median (P50)",fmtIDR(t.p50),fmtPct(100*(t.p50/e-1))],["—","P01 (Ekstrem Buruk)",fmtIDR(t.p01),fmtPct(100*(t.p01/e-1))],["—","P05 (VaR 95%)",fmtIDR(t.p05),fmtPct(100*(t.p05/e-1))],["—","CVaR 95% (ES)",fmtIDR(t.cvar_5),fmtPct(100*(t.cvar_5/e-1))],["—","P25",fmtIDR(t.p25),fmtPct(100*(t.p25/e-1))],["—","P75",fmtIDR(t.p75),fmtPct(100*(t.p75/e-1))],["—","P95 (Best)",fmtIDR(t.p95),fmtPct(100*(t.p95/e-1))],["—","P99 (Ekstrem Baik)",fmtIDR(t.p99),fmtPct(100*(t.p99/e-1))],["—","Prob. Profit",`${t.prob_win.toFixed(2)}%`,""],["—","Sharpe Ratio",t.sharpe.toFixed(4),t.sharpe>=1?"<i class='fa-solid fa-check'></i> Baik":"<i class='fa-solid fa-xmark'></i> Buruk"],["—","Sortino Ratio",t.sortino>=9.99?"> 9.99":t.sortino.toFixed(4),t.sortino>=1.5?"<i class='fa-solid fa-check'></i> Baik":"~"],["—","Calmar Ratio",t.calmar.toFixed(4),t.calmar>=.5?"<i class='fa-solid fa-check'></i> Baik":"~"],["—","Avg Max Drawdown",`${t.avg_mdd.toFixed(2)}%`,""],["—","Ret. Tahunan (Ann.)",fmtPct(t.ann_ret),""],["—","Port. Return µ /thn",fmtPct(t.mu_pct),""],["—","Port. Volatilitas σ",fmtPct(t.sigma_pct),""],["—","Skewness",t.skewness.toFixed(4),t.skewness>0?"Ekor kanan":"Ekor kiri"],["—","Excess Kurtosis",t.kurtosis.toFixed(4),t.kurtosis>0?"Ekor tebal":"Ekor tipis"],["—","Jumlah Simulasi",t.n_sims.toLocaleString(),""],["—","Horizon Waktu",`${t.n_days} hari (${(t.n_days/252).toFixed(2)} thn)`,""]].map(((t,e)=>`\n    <tr>\n      <td class="td-lbl">${t[1]}</td>\n      <td class="td-val">${t[2]}</td>\n      <td class="td-chg ${t[3].indexOf("+")!==-1?"up-color":t[3].indexOf("-")!==-1?"dn-color":""}">${t[3]}</td>\n    </tr>`)).join("");document.getElementById("statsTbl").innerHTML=`\n    <thead><tr>\n      <th>Metrik</th><th>Nilai</th><th>Keterangan</th>\n    </tr></thead><tbody>${a}</tbody>`}function exportJSON(){if(!state.result)return toast("Jalankan simulasi dulu","e");const t=new Blob([JSON.stringify({meta:{author:"Xnuvers007",tool:"QuantFolio Pro",date:(new Date).toISOString()},portfolio:state.assets,result:state.result},null,2)],{type:"application/json"}),e=document.createElement("a");e.href=URL.createObjectURL(t),e.download=`quantfolio_${Date.now()}.json`,e.click(),URL.revokeObjectURL(e.href),toast("Hasil diekspor ke JSON <i class='fa-solid fa-check'></i>","s")}function exportCSV(){if(!state.result)return toast("Jalankan simulasi dulu","e");const t=state.result,e=[["Metrik","Nilai"],["Modal Awal",t.initial],["Expected Value",t.mean_value],["Median (P50)",t.p50],["VaR 95% (P05)",t.p05],["CVaR 95%",t.cvar_5],["Prob Profit %",t.prob_win],["Sharpe Ratio",t.sharpe],["Sortino Ratio",t.sortino],["Calmar Ratio",t.calmar],["Avg Max Drawdown %",t.avg_mdd],["Annualized Return %",t.ann_ret],["Volatilitas %",t.sigma_pct],["Skewness",t.skewness],["Excess Kurtosis",t.kurtosis]].map((t=>t.join(","))).join("\n"),a=new Blob([e],{type:"text/csv"}),n=document.createElement("a");n.href=URL.createObjectURL(a),n.download=`quantfolio_${Date.now()}.csv`,n.click(),URL.revokeObjectURL(n.href),toast("Hasil diekspor ke CSV <i class='fa-solid fa-check'></i>","s")}document.getElementById("assetVol").addEventListener("keydown",(t=>{"Enter"===t.key&&addAsset()})),document.getElementById("assetRet").addEventListener("keydown",(t=>{"Enter"===t.key&&document.getElementById("assetVol").focus()})),document.addEventListener("keydown",(t=>{t.ctrlKey&&"Enter"===t.key&&runSimulation(),"Escape"===t.key&&toggleSidebar(!0)})),window.addEventListener("resize",(()=>{window.innerWidth>860&&toggleSidebar(!0)}))
 function escapeHTML(t){return t?t.replace(/[&<>'"]/g,function(t){return({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"})[t]||t}):""}</script>
 </body>
 </html>
