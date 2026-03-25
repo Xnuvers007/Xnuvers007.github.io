@@ -1,46 +1,247 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vers Suite documentation: Burp Suite alternative, HTTP/HTTPS intercepting proxy, Repeater, Intruder, and certificate setup guide." />
-  <meta name="keywords" content="vers suite, burp suite alternative, intercepting proxy, web security testing, pentest" />
-  <title>Vers Suite Documentation</title>
-  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+  <meta name="title" content="Vers Suite - Intercepting Proxy & Burp Suite Alternative">
+  <meta name="description" content="Vers Suite adalah toolkit web security testing modern untuk intercept HTTP/HTTPS, Repeater, Intruder, metadata analysis, dan setup SSL certificate.">
+  <meta name="language" content="id">
+  <meta name="author" content="Xnuvers007 (Indra Dwi Aryadi)">
+  <meta name="keywords" content="vers suite, burp suite alternative, intercepting proxy, web security testing, penetration testing, http proxy, https proxy, mitmproxy, repeater, intruder, python pyqt5, Xnuvers007, Indra Dwi Aryadi">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="revisit-after" content="7 days">
+  <meta name="rating" content="General">
+  <meta name="distribution" content="Global">
+  <meta name="coverage" content="Worldwide">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#05070d">
+
+  <title>Vers Suite - Professional Web Security Testing Toolkit</title>
+
+  <link rel="canonical" href="https://xnuvers007.github.io/verssuite/index.html">
+  <link rel="alternate" hreflang="id" href="https://xnuvers007.github.io/verssuite/index.html">
+  <link rel="alternate" hreflang="en" href="https://xnuvers007.github.io/verssuite/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://xnuvers007.github.io/verssuite/index.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="VersSuite">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <meta itemprop="name" content="Vers Suite - Intercepting Proxy & Burp Suite Alternative">
+  <meta itemprop="description" content="Toolkit web security testing modern untuk analisis traffic, replay request, fuzzing payload, dan deteksi metadata keamanan.">
+  <meta itemprop="image" content="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop">
+
+  <meta property="og:url" content="https://xnuvers007.github.io/verssuite/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="Vers Suite - Professional Web Security Testing Toolkit">
+  <meta property="og:description" content="Alternatif Burp Suite modern dengan Intercept Proxy, Repeater, Intruder, HTTPS cert setup, dan analisis metadata keamanan.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tampilan dashboard Vers Suite">
+  <meta property="og:site_name" content="Vers Suite">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Xnuvers007">
+  <meta name="twitter:creator" content="@Xnuvers007">
+  <meta name="twitter:title" content="Vers Suite - Professional Web Security Testing Toolkit">
+  <meta name="twitter:description" content="Toolkit modern untuk authorized web security testing: intercept, repeater, intruder, dan HTTPS inspection.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop">
+  <meta name="twitter:image:alt" content="Tampilan dashboard Vers Suite">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://xnuvers007.github.io/verssuite/index.html#webapp",
+        "name": "Vers Suite",
+        "url": "https://xnuvers007.github.io/verssuite/index.html",
+        "description": "Vers Suite adalah toolkit web security testing untuk intercept HTTP/HTTPS, request replay, payload fuzzing, dan metadata analysis.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, Linux, macOS",
+        "browserRequirements": "Requires modern browser with JavaScript enabled",
+        "softwareVersion": "1.0",
+        "featureList": [
+          "Intercept Proxy",
+          "HTTP History",
+          "Repeater",
+          "Intruder",
+          "SSL Certificate Setup",
+          "Security Header & Metadata Analysis"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Indra Dwi Aryadi",
+          "url": "https://github.com/Xnuvers007",
+          "jobTitle": "Freelancer & Web Developer"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://xnuvers007.github.io/verssuite/index.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home Xnuvers007",
+            "item": "https://xnuvers007.github.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Vers Suite",
+            "item": "https://xnuvers007.github.io/verssuite/index.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <div class="brand">
-        <span class="badge" data-i18n="badge">Security Proxy</span>
-        <h1 data-i18n="hero_title">Vers Suite Documentation</h1>
-        <p data-i18n="hero_subtitle">Modern web security testing toolkit (Burp Suite alternative) built with Python, PyQt5, and mitmproxy.</p>
-      </div>
-      <div class="lang-switch" role="group" aria-label="Language Switcher">
-        <button type="button" class="lang-btn active" data-lang="id">ID</button>
-        <button type="button" class="lang-btn" data-lang="en">EN</button>
-      </div>
-      <nav class="top-nav" id="top-nav">
-        <a href="#overview" data-i18n="nav_overview">Overview</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip_to_content">Lewati ke konten utama</a>
+
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Vers Suite home">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>VERS SUITE</span>
+      </a>
+
+      <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
         <a href="#features" data-i18n="nav_features">Features</a>
-        <a href="#install" data-i18n="nav_install">Install</a>
-        <a href="#usage" data-i18n="nav_usage">Usage</a>
-        <a href="#screenshots" data-i18n="nav_screenshots">Screenshots</a>
+        <a href="#core-stack" data-i18n="nav_stack">Core Stack</a>
+        <a href="#install" data-i18n="nav_install">Instalasi</a>
+        <a href="#quickstart" data-i18n="nav_quickstart">Quick Start</a>
+        <a href="#cert-guide" data-i18n="nav_ssl">SSL Guide</a>
+        <a href="#modules" data-i18n="nav_modules">Modules</a>
+        <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="#accessibility" data-i18n="nav_accessibility">Accessibility</a>
         <a href="#faq">FAQ</a>
       </nav>
+
+      <div class="access-tools" role="group" aria-label="Accessibility tools">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button id="langId" class="tool-btn" type="button" aria-pressed="true">ID</button>
+          <button id="langEn" class="tool-btn" type="button" aria-pressed="false">EN</button>
+        </div>
+        <button id="motionToggle" class="tool-btn" type="button" aria-pressed="false" data-i18n="reduce_motion">Reduce Motion</button>
+        <button id="fontToggle" class="tool-btn" type="button" aria-pressed="false" data-i18n="large_text">Large Text</button>
+      </div>
+    </div>
+    <div class="container translate-wrap">
+      <p class="translate-note" data-i18n="translate_note">Terjemahan otomatis tambahan (opsional):</p>
+      <div id="google_translate_element" aria-label="Google Translate Widget"></div>
     </div>
   </header>
 
-  <main>
-    <section id="overview" class="section">
-      <div class="container">
-        <h2 data-i18n="overview_title">Overview</h2>
-        <p data-i18n="overview_desc">
-          Vers Suite adalah aplikasi proxy intersepsi untuk analisis HTTP/HTTPS, request replay, dan payload fuzzing.
-          Cocok untuk pembelajaran keamanan aplikasi web dan penetration testing berizin.
+  <main id="main-content">
+    <section class="hero container reveal">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero_eyebrow">Professional Security Toolkit</p>
+        <h1 data-i18n="hero_title">Vers Suite: Burp Suite Alternative yang Modern, Cepat, dan Kuat</h1>
+        <p data-i18n="hero_desc">
+          Platform desktop untuk authorized web security testing dengan Intercept Proxy, HTTP History, Repeater, Intruder,
+          SSL cert setup, serta analisis metadata keamanan dalam satu antarmuka profesional.
         </p>
-        <div class="quick-grid">
-          <article class="card">
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#features"><i class="fa-solid fa-bolt"></i> <span data-i18n="cta_features">Jelajahi Fitur</span></a>
+          <a class="btn btn-outline" href="#gallery"><i class="fa-regular fa-images"></i> <span data-i18n="cta_screenshots">Lihat Screenshot</span></a>
+          <a class="btn btn-outline" href="https://github.com/Xnuvers007/verssuite" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> <span data-i18n="cta_repo">Repo GitHub</span></a>
+        </div>
+        <p class="hero-note" data-i18n="hero_note">
+          <i class="fa-solid fa-circle-check"></i>
+          Ramah aksesibilitas: keyboard friendly, kontras tinggi, dukungan reduce motion, dan struktur konten yang jelas.
+        </p>
+      </div>
+
+      <aside class="hero-panel" aria-label="Vers Suite key stats">
+        <article class="stat-card">
+          <p>HTTP Requests</p>
+          <h3><span class="counter" data-count="150">0</span>+</h3>
+        </article>
+        <article class="stat-card">
+          <p data-i18n="stat_modules">Main Modules</p>
+          <h3><span class="counter" data-count="6">0</span></h3>
+        </article>
+        <article class="stat-card">
+          <p data-i18n="stat_ssl_browsers">Browsers for SSL Guide</p>
+          <h3><span class="counter" data-count="6">0</span></h3>
+        </article>
+      </aside>
+    </section>
+
+    <section id="features" class="section reveal">
+      <div class="container">
+        <h2 data-i18n="features_title">Core Features</h2>
+        <p class="section-lead" data-i18n="features_lead">Fitur utama Vers Suite untuk workflow pengujian keamanan web yang cepat dan terstruktur.</p>
+
+        <div class="feature-grid">
+          <article class="feature-card tilt">
+            <i class="fa-solid fa-filter-circle-dollar"></i>
+            <h3 data-i18n="feature_intercept_title">Intercept Proxy</h3>
+            <p data-i18n="feature_intercept_desc">Tahan, edit, forward, drop, forward all, dan drop all request HTTP/HTTPS secara realtime.</p>
+          </article>
+          <article class="feature-card tilt">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <h3 data-i18n="feature_history_title">HTTP History</h3>
+            <p data-i18n="feature_history_desc">List traffic lengkap dengan filter cepat, context menu, dan integrasi kirim ke Repeater/Intruder.</p>
+          </article>
+          <article class="feature-card tilt">
+            <i class="fa-solid fa-repeat"></i>
+            <h3 data-i18n="feature_repeater_title">Repeater</h3>
+            <p data-i18n="feature_repeater_desc">Replay request manual dengan grouping/ungrouping dan manajemen sesi yang efisien.</p>
+          </article>
+          <article class="feature-card tilt">
+            <i class="fa-solid fa-bug"></i>
+            <h3 data-i18n="feature_intruder_title">Intruder</h3>
+            <p data-i18n="feature_intruder_desc">Payload fuzzing multithread untuk pengujian endpoint, parameter, dan response behavior.</p>
+          </article>
+          <article class="feature-card tilt">
+            <i class="fa-solid fa-shield-virus"></i>
+            <h3 data-i18n="feature_meta_title">Metadata Insight</h3>
+            <p data-i18n="feature_meta_desc">Deteksi WAF, indikasi Cloudflare, server headers, IP target, dan security headers.</p>
+          </article>
+          <article class="feature-card tilt">
+            <i class="fa-solid fa-lock"></i>
+            <h3 data-i18n="feature_ssl_title">SSL Certificate Setup</h3>
+            <p data-i18n="feature_ssl_desc">Panduan instalasi sertifikat untuk Chrome, Edge, Brave, Opera, Firefox, dan Safari.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="core-stack" class="section alt reveal">
+      <div class="container">
+        <h2 data-i18n="stack_title">Core Stack & Use Case</h2>
+        <p class="section-lead" data-i18n="stack_lead">Sesuai arsitektur proyek Vers Suite saat ini.</p>
+
+        <div class="info-grid">
+          <article class="info-card">
             <h3>Core Stack</h3>
             <ul>
               <li>Python 3.10+</li>
@@ -48,17 +249,8 @@
               <li>mitmproxy engine</li>
             </ul>
           </article>
-          <article class="card">
-            <h3 data-i18n="overview_modules">Main Modules</h3>
-            <ul>
-              <li>Intercept + HTTP History</li>
-              <li>Repeater</li>
-              <li>Intruder</li>
-              <li>Decoder</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3 data-i18n="overview_usecase">Use Case</h3>
+          <article class="info-card">
+            <h3 data-i18n="usecase_title">Use Case</h3>
             <ul>
               <li>Inspect requests/responses</li>
               <li>Header & WAF detection</li>
@@ -69,161 +261,313 @@
       </div>
     </section>
 
-    <section id="features" class="section alt">
+    <section id="install" class="section reveal">
       <div class="container">
-        <h2 data-i18n="features_title">Features</h2>
-        <div class="feature-list">
-          <article class="card">
-            <h3 data-i18n="feature_intercept_title">Intercept Proxy</h3>
-            <p data-i18n="feature_intercept_desc">Forward, drop, forward all, drop all, dan editing request secara realtime.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="feature_history_title">HTTP History</h3>
-            <p data-i18n="feature_history_desc">Pencatatan traffic lengkap dengan context menu dan kirim cepat ke Repeater/Intruder.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="feature_metadata_title">Advanced Metadata</h3>
-            <p data-i18n="feature_metadata_desc">Deteksi IP target, indikasi WAF, Cloudflare, server signature, dan security headers.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="feature_repeater_title">Repeater</h3>
-            <p data-i18n="feature_repeater_desc">Replay request manual, grouping/ungrouping session, serta search/filter host-path-group.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="feature_intruder_title">Intruder</h3>
-            <p data-i18n="feature_intruder_desc">Pengujian payload multithread untuk fuzzing endpoint.</p>
-          </article>
-          <article class="card">
-            <h3 data-i18n="feature_https_title">HTTPS Support</h3>
-            <p data-i18n="feature_https_desc">Panduan sertifikat CA untuk Chrome, Edge, Brave, Opera, Firefox, dan Safari (macOS).</p>
-          </article>
-        </div>
-      </div>
-    </section>
+        <h2 data-i18n="install_title">Instalasi</h2>
+        <div class="steps-card">
+          <ol data-i18n-html="install_steps">
+            <li>Clone repository Vers Suite.</li>
+            <li>Buat virtual environment.</li>
+            <li>Install dependency dari <code>requirements.txt</code>.</li>
+            <li>Jalankan aplikasi dengan <code>python main.py</code>.</li>
+          </ol>
 
-    <section id="install" class="section">
-      <div class="container">
-        <h2 data-i18n="install_title">Installation</h2>
-        <ol>
-          <li data-i18n="install_step_1">Clone repository Vers Suite.</li>
-          <li data-i18n="install_step_2">Buat virtual environment.</li>
-          <li data-i18n="install_step_3">Install dependency dari <code>requirements.txt</code>.</li>
-          <li data-i18n="install_step_4">Jalankan aplikasi dengan <code>python main.py</code>.</li>
-        </ol>
-<pre><code>git clone https://github.com/Xnuvers007/verssuite.git
+          <p class="install-note" data-i18n="install_note">Pilih script sesuai terminal Anda, lalu klik tombol <strong>Copy Script</strong>.</p>
+
+          <div class="install-shell-grid">
+            <article class="shell-card">
+              <div class="shell-head">
+                <h3>PowerShell (Windows)</h3>
+                <button class="copy-btn" type="button" data-copy-target="install-ps" data-i18n="copy_script">Copy Script</button>
+              </div>
+<pre class="code-block"><code id="install-ps">git clone https://github.com/Xnuvers007/verssuite.git
 cd verssuite
 python -m venv venv
-# Windows
-venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python main.py</code></pre>
+python main.py
+deactivate</code></pre>
+            </article>
+
+            <article class="shell-card">
+              <div class="shell-head">
+                <h3>CMD (Windows)</h3>
+                <button class="copy-btn" type="button" data-copy-target="install-cmd" data-i18n="copy_script">Copy Script</button>
+              </div>
+<pre class="code-block"><code id="install-cmd">git clone https://github.com/Xnuvers007/verssuite.git
+cd verssuite
+python -m venv venv
+venv\Scripts\activate.bat
+pip install -r requirements.txt
+python main.py
+deactivate
+:: alternatif:
+venv\Scripts\deactivate.bat</code></pre>
+            </article>
+
+            <article class="shell-card">
+              <div class="shell-head">
+                <h3>Bash (Linux/macOS / Git Bash)</h3>
+                <button class="copy-btn" type="button" data-copy-target="install-bash" data-i18n="copy_script">Copy Script</button>
+              </div>
+<pre class="code-block"><code id="install-bash">git clone https://github.com/Xnuvers007/verssuite.git
+cd verssuite
+python3 -m venv venv
+source venv/bin/activate
+# Git Bash di Windows bisa juga:
+# source venv/Scripts/activate
+pip install -r requirements.txt
+python main.py
+deactivate</code></pre>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="usage" class="section alt">
+    <section id="quickstart" class="section alt reveal">
       <div class="container">
-        <h2 data-i18n="usage_title">Quick Usage</h2>
-        <ol>
-          <li data-i18n="usage_step_1">Set browser proxy ke <strong>127.0.0.1:PORT</strong> (PORT harus sama dengan yang Anda pilih di Vers Suite).</li>
-          <li data-i18n="usage_step_2">Start proxy dari header bar.</li>
-          <li data-i18n="usage_step_3">Aktifkan Intercept jika ingin hold request.</li>
-          <li data-i18n="usage_step_4">Kirim request dari History ke Repeater/Intruder sesuai kebutuhan testing.</li>
-          <li data-i18n="usage_step_5">Buka tombol SSL Cert untuk setup sertifikat HTTPS.</li>
-        </ol>
+        <h2 data-i18n="quickstart_title">Panduan Cepat</h2>
+        <div class="steps-card">
+          <ol data-i18n-html="quickstart_steps">
+            <li>Set browser proxy ke <strong>127.0.0.1:PORT</strong> (PORT harus sama dengan yang Anda pilih di Vers Suite).</li>
+            <li>Start proxy dari header bar.</li>
+            <li>Aktifkan Intercept jika ingin hold request.</li>
+            <li>Kirim request dari History ke Repeater/Intruder sesuai kebutuhan testing.</li>
+            <li>Buka tombol <strong>SSL Cert</strong> untuk setup sertifikat HTTPS.</li>
+          </ol>
+        </div>
       </div>
     </section>
 
-    <section id="screenshots" class="section">
+    <section id="cert-guide" class="section reveal">
       <div class="container">
-        <h2 data-i18n="shots_title">Screenshot Guide (Wajib Isi)</h2>
-        <p data-i18n="shots_intro">
-          Letakkan semua gambar di folder <code>docs/assets/images/</code> dengan nama file sesuai daftar berikut.
-          Jika nama file berbeda, ubah juga atribut <code>src</code> pada HTML ini.
-        </p>
+        <h2 data-i18n="cert_title">Panduan Sertifikat (Step by Step)</h2>
+        <p class="section-lead" data-i18n-html="cert_lead">Pertama, di aplikasi Vers Suite tekan tombol <strong>SSL Cert</strong> untuk membuka tutorial detail yang selalu sesuai host/port aktif Anda.</p>
 
-        <div class="shot-grid">
-          <figure class="shot-card">
-            <img src="./assets/images/01-dashboard-main-window.png" alt="Vers Suite main window" loading="lazy" />
-            <figcaption>
-              <strong>01-dashboard-main-window.png</strong><br />
-              <span data-i18n="shot_1_desc">Screenshot layar utama Vers Suite (header, status proxy, dan tab utama terlihat).</span>
-            </figcaption>
+        <div class="cert-grid">
+          <article class="cert-card">
+            <h3 data-i18n="cert_chrome_title">Google Chrome (Windows/macOS)</h3>
+            <ol data-i18n-html="cert_chrome_steps">
+              <li>Tekan <strong>SSL Cert</strong> di Vers Suite.</li>
+              <li>Ikuti instruksi import sertifikat CA mitmproxy.</li>
+              <li>Buka Chrome Settings → cari <em>proxy</em>.</li>
+              <li>Pilih <em>Open your computer's proxy settings</em>.</li>
+              <li>Set Address: <code>127.0.0.1</code>, Port: sesuai konfigurasi Vers Suite.</li>
+            </ol>
+          </article>
+
+          <article class="cert-card">
+            <h3 data-i18n="cert_edge_title">Microsoft Edge</h3>
+            <ol data-i18n-html="cert_edge_steps">
+              <li>Tekan <strong>SSL Cert</strong> di aplikasi.</li>
+              <li>Pastikan CA cert sudah trusted di sistem.</li>
+              <li>Edge Settings → cari <em>proxy</em>.</li>
+              <li>Buka proxy settings sistem.</li>
+              <li>Gunakan proxy <code>127.0.0.1:PORT</code> (PORT dari Vers Suite).</li>
+            </ol>
+          </article>
+
+          <article class="cert-card">
+            <h3 data-i18n="cert_opera_title">Opera</h3>
+            <ol data-i18n-html="cert_opera_steps">
+              <li>Klik <strong>SSL Cert</strong> pada Vers Suite.</li>
+              <li>Import sertifikat CA ke trusted store OS.</li>
+              <li>Opera Settings → cari <em>proxy</em>.</li>
+              <li>Masuk ke proxy settings sistem.</li>
+              <li>Set ke <code>127.0.0.1:PORT</code> sesuai aplikasi.</li>
+            </ol>
+          </article>
+
+          <article class="cert-card">
+            <h3 data-i18n="cert_firefox_title">Firefox</h3>
+            <ol data-i18n-html="cert_firefox_steps">
+              <li>Tekan <strong>SSL Cert</strong> di Vers Suite untuk lihat path sertifikat.</li>
+              <li>Firefox → Settings → Privacy & Security → Certificates.</li>
+              <li>View Certificates → Authorities → Import file sertifikat.</li>
+              <li>General → Network Settings → Manual proxy configuration.</li>
+              <li>Set HTTP Proxy <code>127.0.0.1</code> dan Port sesuai Vers Suite.</li>
+            </ol>
+          </article>
+
+          <article class="cert-card">
+            <h3 data-i18n="cert_safari_title">Safari (macOS)</h3>
+            <ol data-i18n-html="cert_safari_steps">
+              <li>Tekan <strong>SSL Cert</strong> di aplikasi untuk path cert.</li>
+              <li>Import CA cert ke Keychain dan set menjadi trusted.</li>
+              <li>Safari menggunakan system proxy macOS.</li>
+              <li>System Settings → Network → Proxies.</li>
+              <li>Set Web Proxy/HTTPS Proxy ke <code>127.0.0.1:PORT</code>.</li>
+            </ol>
+          </article>
+
+          <article class="cert-card">
+            <h3 data-i18n="cert_trouble_title">Checklist Troubleshooting</h3>
+            <ol data-i18n-html="cert_trouble_steps">
+              <li>Pastikan status proxy di Vers Suite adalah running.</li>
+              <li>Port browser harus sama persis dengan port aplikasi.</li>
+              <li>Restart browser setelah import sertifikat.</li>
+              <li>Cek firewall/antivirus bila request tidak lewat proxy.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="modules" class="section alt reveal">
+      <div class="container">
+        <div class="row-between">
+          <h2 data-i18n="modules_title">Interactive Modules (Expand / Collapse)</h2>
+          <div class="module-controls" role="group" aria-label="Module expand collapse controls">
+            <button class="btn-mini" id="expandAll" type="button" data-i18n="expand_all">Expand All</button>
+            <button class="btn-mini" id="collapseAll" type="button" data-i18n="collapse_all">Collapse All</button>
+          </div>
+        </div>
+
+        <div class="accordion-list" id="moduleAccordion">
+          <article class="accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="true">
+              <span><i class="fa-solid fa-network-wired"></i> Proxy + Intercept</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-panel open">
+              <p>Monitor dan kontrol request dengan mode intercept ON/OFF, queue management, metadata panel, dan aksi massal.</p>
+            </div>
+          </article>
+
+          <article class="accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span><i class="fa-solid fa-wave-square"></i> Repeater Workflow</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-panel">
+              <p>Kirim request dari history ke repeater, ubah payload secara manual, lalu analisis response dengan cepat.</p>
+            </div>
+          </article>
+
+          <article class="accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span><i class="fa-solid fa-bolt"></i> Intruder Automation</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="accordion-panel">
+              <p>Jalankan payload injection terstruktur berbasis kategori untuk fuzzing endpoint dan analisis pola status code.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section reveal">
+      <div class="container">
+        <h2 data-i18n="gallery_title">Visual Documentation Gallery</h2>
+        <p class="section-lead" data-i18n="gallery_lead">Klik screenshot untuk tampilan full screen. Gunakan panah kiri/kanan atau keyboard.</p>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <figure class="gallery-item">
+            <img src="./assets/images/01-dashboard-main-window.png" alt="Dashboard utama Vers Suite" loading="lazy" decoding="async" fetchpriority="low">
+            <figcaption>Dashboard Main Window</figcaption>
           </figure>
-
-          <figure class="shot-card">
-            <img src="./assets/images/02-intercept-tab.png" alt="Intercept tab" loading="lazy" />
-            <figcaption>
-              <strong>02-intercept-tab.png</strong><br />
-              <span data-i18n="shot_2_desc">Tab Intercept saat ada request tertahan; tampilkan tombol Forward/Drop/Forward All/Drop All.</span>
-            </figcaption>
+          <figure class="gallery-item">
+            <img src="./assets/images/02-intercept-tab.png" alt="Tab intercept dengan request queue" loading="lazy" decoding="async" fetchpriority="low">
+            <figcaption>Intercept Tab</figcaption>
           </figure>
-
-          <figure class="shot-card">
-            <img src="./assets/images/03-http-history-tab.png" alt="HTTP history tab" loading="lazy" />
-            <figcaption>
-              <strong>03-http-history-tab.png</strong><br />
-              <span data-i18n="shot_3_desc">Tab HTTP History berisi beberapa traffic dan context menu klik kanan.</span>
-            </figcaption>
+          <figure class="gallery-item">
+            <img src="./assets/images/03-http-history-tab.png" alt="Tab HTTP history dan detail request response" loading="lazy" decoding="async" fetchpriority="low">
+            <figcaption>HTTP History</figcaption>
           </figure>
-
-          <figure class="shot-card">
-            <img src="./assets/images/04-repeater-tab.png" alt="Repeater tab" loading="lazy" />
-            <figcaption>
-              <strong>04-repeater-tab.png</strong><br />
-              <span data-i18n="shot_4_desc">Tampilan Repeater dengan request editor, response panel, dan filter/group session.</span>
-            </figcaption>
+          <figure class="gallery-item">
+            <img src="./assets/images/04-repeater-tab.png" alt="Tab repeater untuk replay request" loading="lazy" decoding="async" fetchpriority="low">
+            <figcaption>Repeater</figcaption>
           </figure>
-
-          <figure class="shot-card">
-            <img src="./assets/images/05-intruder-tab.png" alt="Intruder tab" loading="lazy" />
-            <figcaption>
-              <strong>05-intruder-tab.png</strong><br />
-              <span data-i18n="shot_5_desc">Tampilan Intruder saat payload attack berjalan dan hasil response terlihat.</span>
-            </figcaption>
+          <figure class="gallery-item">
+            <img src="./assets/images/05-intruder-tab.png" alt="Tab intruder untuk payload testing" loading="lazy" decoding="async" fetchpriority="low">
+            <figcaption>Intruder</figcaption>
           </figure>
-
-          <figure class="shot-card">
-            <img src="./assets/images/06-certificate-dialog.png" alt="Certificate setup dialog" loading="lazy" />
-            <figcaption>
-              <strong>06-certificate-dialog.png</strong><br />
-              <span data-i18n="shot_6_desc">Dialog SSL Certificate Setup yang menampilkan panduan browser dan proxy.</span>
-            </figcaption>
+          <figure class="gallery-item">
+            <img src="./assets/images/06-certificate-dialog.png" alt="Dialog setup sertifikat browser" loading="lazy" decoding="async" fetchpriority="low">
+            <figcaption>SSL Certificate Setup</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section alt">
+    <section id="accessibility" class="section alt reveal">
+      <div class="container">
+        <h2 data-i18n="a11y_title">Accessibility & Inclusive Design</h2>
+        <div class="a11y-grid">
+          <article>
+            <h3><i class="fa-solid fa-ear-listen"></i> <span data-i18n="a11y_deaf_title">Ramah untuk pengguna tuli</span></h3>
+            <p data-i18n="a11y_deaf_desc">Informasi penting tidak bergantung pada audio. Semua interaksi utama berbasis teks, ikon, dan struktur visual jelas.</p>
+          </article>
+          <article>
+            <h3><i class="fa-solid fa-comments"></i> <span data-i18n="a11y_mute_title">Ramah untuk pengguna bisu</span></h3>
+            <p data-i18n="a11y_mute_desc">Tidak ada fitur yang mewajibkan input suara. Navigasi dan aksi lengkap bisa dilakukan lewat mouse, keyboard, atau touch.</p>
+          </article>
+          <article>
+            <h3><i class="fa-solid fa-universal-access"></i> <span data-i18n="a11y_universal_title">Universal usability</span></h3>
+            <p data-i18n="a11y_universal_desc">Support keyboard navigation, focus state jelas, tombol aksesibilitas, serta mode reduce motion untuk kenyamanan visual.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section reveal">
       <div class="container">
         <h2>FAQ</h2>
+        <div class="faq-actions" role="group" aria-label="FAQ controls">
+          <button id="expandFaq" class="btn-mini" type="button" data-i18n="expand_faq">Expand FAQ</button>
+          <button id="collapseFaq" class="btn-mini" type="button" data-i18n="collapse_faq">Collapse FAQ</button>
+        </div>
+
         <details>
-          <summary data-i18n="faq_1_q">PORT harus selalu 8080?</summary>
-          <p data-i18n="faq_1_a">Tidak. Anda bebas memilih port di Vers Suite. Browser/proxy client cukup mengikuti port yang sama.</p>
+          <summary>Apakah port proxy harus 8080?</summary>
+          <p>Tidak. Port bebas sesuai kebutuhan user. Pastikan browser/proxy client menggunakan host dan port yang sama dengan konfigurasi Vers Suite.</p>
         </details>
         <details>
-          <summary data-i18n="faq_2_q">Kenapa HTTPS belum terbaca?</summary>
-          <p data-i18n="faq_2_a">Pastikan CA certificate sudah terpasang & trusted, lalu restart browser dan pastikan proxy aktif.</p>
+          <summary>Kenapa HTTPS belum berhasil diintercept?</summary>
+          <p>Periksa sertifikat CA sudah trusted, browser sudah restart, dan proxy sedang aktif pada host/port yang benar.</p>
         </details>
         <details>
-          <summary data-i18n="faq_3_q">Apakah tool ini untuk aktivitas ilegal?</summary>
-          <p data-i18n="faq_3_a">Tidak. Gunakan hanya untuk edukasi dan pengujian keamanan pada sistem yang memiliki izin resmi.</p>
+          <summary>Apakah Vers Suite aman untuk produksi?</summary>
+          <p>Tool ini ditujukan untuk environment testing berizin, audit internal, dan pembelajaran keamanan aplikasi web.</p>
         </details>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p data-i18n="footer_text">© 2026 Vers Suite. Built for authorized security testing and learning.</p>
-      <button id="backToTop" type="button" data-i18n="back_to_top">Back to top</button>
+    <div class="container footer-wrap">
+      <p>
+        © <span data-current-year>2026</span>
+        <span data-i18n="footer_text">Vers Suite — Built by Xnuvers007 (Indra Dwi Aryadi) and Built for authorized security testing and learning</span>
+      </p>
+      <a id="backToTopBtn" href="#top" class="btn btn-outline"><i class="fa-solid fa-arrow-up"></i> <span data-i18n="back_to_top">Kembali ke atas</span></a>
     </div>
   </footer>
 
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview dialog">
     <button id="lightboxClose" class="lightbox-close" type="button" aria-label="Close preview">×</button>
-    <img id="lightboxImage" class="lightbox-image" src="" alt="Screenshot preview" />
+    <button id="lightboxPrev" class="lightbox-nav prev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+    <img id="lightboxImage" class="lightbox-image" src="" alt="Preview gambar screenshot">
+    <button id="lightboxNext" class="lightbox-nav next" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+    <p id="lightboxCaption" class="lightbox-caption"></p>
   </div>
 
   <script src="./assets/js/main.js"></script>
+  <script>
+    function googleTranslateElementInit() {
+      if (!window.google || !window.google.translate) return;
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'id',
+          autoDisplay: false,
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
