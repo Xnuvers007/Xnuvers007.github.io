@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Kamis, 26 Maret 2026 12.45.24 UTC
-- WITA: Kamis, 26 Maret 2026 13.45.24 UTC
-- WIT: Kamis, 26 Maret 2026 14.45.24 UTC
+- WIB: Kamis, 26 Maret 2026 14.23.01 UTC
+- WITA: Kamis, 26 Maret 2026 15.23.01 UTC
+- WIT: Kamis, 26 Maret 2026 16.23.01 UTC
 
 Kutipan Inspiratif:
-"Take up one idea. Make that one idea your life - think of it, dream of it, live on that idea. Let the brain, muscles, nerves, every part of your body, be full of that idea, and just leave every other idea alone. This is the way to success."
+"i am what i am.. i will never try to be some one else."
 
 
-Kategori: success
+Kategori: attitude
 
