@@ -1,11 +1,11 @@
 ⏰ Diperbarui pada:
-- WIB: Minggu, 5 April 2026 12.49.40 UTC
-- WITA: Minggu, 5 April 2026 13.49.40 UTC
-- WIT: Minggu, 5 April 2026 14.49.40 UTC
+- WIB: Minggu, 5 April 2026 14.19.51 UTC
+- WITA: Minggu, 5 April 2026 15.19.51 UTC
+- WIT: Minggu, 5 April 2026 16.19.51 UTC
 
 Kutipan Inspiratif:
-"Somebody asked me to explain the relationship between you and me, they expected the answer as, just friends. But I simply smiled and said. Gods gift."
+"Worry about your character, not your reputation. Your character is who you are, your reputation is who people think you are."
 
 
-Kategori: friendship
+Kategori: inspirational
 
