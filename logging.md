@@ -1,10 +1,10 @@
 ⏰ Diperbarui pada:
-- WIB: Sabtu, 6 Juni 2026 07.16.08 UTC
-- WITA: Sabtu, 6 Juni 2026 08.16.08 UTC
-- WIT: Sabtu, 6 Juni 2026 09.16.08 UTC
+- WIB: Sabtu, 6 Juni 2026 12.01.36 UTC
+- WITA: Sabtu, 6 Juni 2026 13.01.36 UTC
+- WIT: Sabtu, 6 Juni 2026 14.01.36 UTC
 
 Kutipan Inspiratif:
-"When i was born..Devil said..?Oh Shit..!! Competition?"
+"i am what i am.. i will never try to be some one else."
 
 
 Kategori: attitude
