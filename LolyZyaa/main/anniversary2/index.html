@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Anniversary, My Love 💕</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/icon/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <canvas id="canvas-bg"></canvas>
+    <div id="petals-container"></div>
+    <button id="music-btn" title="Toggle ambience">
+      <i class="fa-solid fa-music"></i>
+    </button>
+    <div class="main-wrapper">
+      <section id="hero">
+        <span class="hero-badge">
+          <i class="fa-solid fa-star"></i>
+          Special Day &nbsp;•&nbsp; Hari Istimewa
+          <i class="fa-solid fa-star"></i>
+        </span>
+        <div class="heart-pulse">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h1 class="hero-main-title">Happy Anniversary</h1>
+        <p class="hero-sub">
+          udah 5 tahun kita LDR — dan rasanya masih mau terus bareng kamu
+        </p>
+        <div class="counter-strip">
+          <div class="counter-card">
+            <div class="counter-number" id="cnt-years">0</div>
+            <div class="counter-label">Tahun</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-number" id="cnt-months">0</div>
+            <div class="counter-label">Bulan</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-number" id="cnt-days">0</div>
+            <div class="counter-label">Hari</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-number" id="cnt-hours">0</div>
+            <div class="counter-label">Jam</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-number" id="cnt-mins">0</div>
+            <div class="counter-label">Menit</div>
+          </div>
+          <div class="counter-card">
+            <div class="counter-number" id="cnt-secs">0</div>
+            <div class="counter-label">Detik</div>
+          </div>
+        </div>
+        <div class="scroll-cta">
+          <span>scroll ke bawah buat kejutan</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </section>
+      <section id="ldr-map">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-plane"></i> Jarak Kita
+            </div>
+            <h2 class="section-title">Tangerang - Bone</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="map-container reveal">
+            <div class="city">
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: var(--rose-light); font-size: 2.5rem"
+              ></i>
+              <span>Tangerang<br /><small>(Ciledug)</small></span>
+            </div>
+            <div class="flight-path">
+              <div class="plane-icon"><i class="fa-solid fa-plane"></i></div>
+            </div>
+            <div class="city">
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: var(--gold); font-size: 2.5rem"
+              ></i>
+              <span>Bone<br /><small>(Desa Lempong)</small></span>
+            </div>
+          </div>
+          <p class="map-text reveal">
+            "Sejauh apapun jaraknya, kamu tetep yang paling deket di hati."
+          </p>
+        </div>
+      </section>
+      <section id="letter">
+        <div class="container">
+          <div class="reveal">
+            <div class="section-tag">
+              <i class="fa-solid fa-envelope-open-text"></i> Surat buat Kamu
+            </div>
+            <h2 class="section-title">Dari Aku, Buat Kamu</h2>
+            <div class="divider"></div>
+          </div>
+          <div class="letter-card reveal">
+            <div class="letter-greeting">
+              Hai sayang,
+              <i
+                class="fa-regular fa-face-smile-beam"
+                style="color: var(--rose-light)"
+              ></i>
+            </div>
+            <div class="letter-body">
+              <p>
+                Masih inget nggak sih waktu pertama kali kita jadian tanggal 21
+                Juni 2021? Aku nggak nyangka dari sekadar ngobrol, ternyata kamu
+                jadi orang yang paling penting di hidupku sampai sekarang — udah
+                5 tahun loh.
+              </p>
+              <p>
+                Yang aku suka dari kita tuh, meskipun jarak misahin kita,
+                cintanya nggak pernah kerasa jauh. Tiap kali<br />
+                <strong>kita saling senyum di layar videocall</strong>, pas
+                ketawa bareng hal-hal receh waktu teleponan malem-malem, sampai
+                ketiduran bareng walau beda kota — momen-momen itu yang bikin
+                aku makin yakin sama kamu.
+              </p>
+              <p>
+                Tiap hari bareng kamu, biarpun cuma lewat chat atau VC, tetep
+                kerasa spesial. Aku masih mau terus nulis banyak cerita bareng
+                kamu, sampai nanti jaraknya nggak ada lagi di antara kita.
+              </p>
+              <p>
+                Makasih udah mau bertahan, udah sabar banget sama jarak, dan mau
+                nerima aku apa adanya.
+                <strong
+                  >Kamu beneran bukti kalau cinta yang kuat bisa ngalahin jarak
+                  sejauh apapun.</strong
+                >
+              </p>
+              <p>
+                Selamat anniversary yang ke-5 ya, sayang.
+                <i
+                  class="fa-solid fa-heart"
+                  style="color: var(--rose-light)"
+                ></i>
+                Semoga kita terus kuat, saling jaga, dan cepet-cepet bisa ketemu
+                terus ya.
+              </p>
+            </div>
+            <div class="letter-sign">
+              Dengan seluruh cintaku, <br />
+              <i
+                class="fa-solid fa-infinity"
+                style="font-size: 1.2rem; color: var(--rose-light)"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="gallery">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-camera-retro"></i> Memori Indah
+            </div>
+            <h2 class="section-title">Momen yang Tak Ternilai</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="gallery-grid reveal">
+            <div class="gallery-item large">
+              <img src="./assets/suntikan.png" alt="Disuntik Pake Suntikan Coklat :3" />
+              <div class="overlay">
+                <span class="gallery-caption"><i class="fa-solid fa-video"></i> Disuntik Pake Suntikan Coklat :3</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="./assets/boneka.webp" alt="Surprise Jarak Jauh" />
+              <div class="overlay">
+                <span class="gallery-caption"><i class="fa-solid fa-box-open"></i> Surprise Jarak Jauh</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="./assets/sleepcall.png" alt="Muka bantal pas VC" />
+              <div class="overlay">
+                <span class="gallery-caption"><i class="fa-solid fa-phone"></i> Muka bantal pas VC</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="./assets/obatkangen.png" alt="Obat kangenku" />
+              <div class="overlay">
+                <span class="gallery-caption"><i class="fa-regular fa-heart"></i> Obat kangenku</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="./assets/cafe.png" alt="Ditemenin sampai pagi" />
+              <div class="overlay">
+                <span class="gallery-caption"><i class="fa-solid fa-bed"></i> Ditemenin Di Cafe :'3</span>
+              </div>
+            </div>
+            <div class="gallery-item large">
+              <img src="./assets/gaming.png" alt="Mabar Bareng" />
+              <div class="overlay">
+                <span class="gallery-caption"><i class="fa-solid fa-crown"></i> Kapan pun, asal bareng kamu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="reasons">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-list-heart"></i> Kenapa Aku Suka Kamu
+            </div>
+            <h2 class="section-title">Ini Alasannya, Beneran</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="reasons-grid">
+            <div class="reason-card reveal">
+              <div class="reason-icon">
+                <i class="fa-solid fa-smile-beam"></i>
+              </div>
+              <div class="reason-num">01</div>
+              <div class="reason-title">Senyum Kamu</div>
+              <p class="reason-text">
+                Senyum kamu itu unfair banget. Sekali senyum, langsung lupa mau
+                marah.
+              </p>
+            </div>
+            <div class="reason-card reveal">
+              <div class="reason-icon"><i class="fa-solid fa-brain"></i></div>
+              <div class="reason-num">02</div>
+              <div class="reason-title">Cara Pikir Kamu</div>
+              <p class="reason-text">
+                Kamu pinter, dan aku suka banget ngobrolin apapun sama kamu —
+                bahkan hal-hal receh pun jadi seru.
+              </p>
+            </div>
+            <div class="reason-card reveal">
+              <div class="reason-icon">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+              </div>
+              <div class="reason-num">03</div>
+              <div class="reason-title">Hati Kamu</div>
+              <p class="reason-text">
+                Kamu baik — tipe yang diem-diem perhatian. Dan itu yang bikin
+                aku makin sayang.
+              </p>
+            </div>
+            <div class="reason-card reveal">
+              <div class="reason-icon">
+                <i class="fa-solid fa-shield-heart"></i>
+              </div>
+              <div class="reason-num">04</div>
+              <div class="reason-title">Kamu yang Kuat</div>
+              <p class="reason-text">
+                Kamu nggak nyerah gampang. Itu keren banget — meski kamu sendiri
+                mungkin nggak nyadar.
+              </p>
+            </div>
+            <div class="reason-card reveal">
+              <div class="reason-icon"><i class="fa-solid fa-music"></i></div>
+              <div class="reason-num">05</div>
+              <div class="reason-title">Tawa Kamu</div>
+              <p class="reason-text">
+                Tawa kamu itu menular parah. Nggak perlu musik kalau udah ada
+                suara tawa kamu.
+              </p>
+            </div>
+            <div class="reason-card reveal">
+              <div class="reason-icon">
+                <i class="fa-solid fa-infinity"></i>
+              </div>
+              <div class="reason-num">06</div>
+              <div class="reason-title">Semua tentang Kamu</div>
+              <p class="reason-text">
+                Kelebihan kamu. Kekurangan kamu. Semua versi kamu. Semuanya aku
+                suka, titik.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="poem">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-feather-pointed"></i> Puisi buat Kamu
+            </div>
+            <h2 class="section-title">
+              Kata-kata yang Susah Aku Ucapin Langsung
+            </h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="poem-card reveal">
+            <p class="poem-stanza">
+              Jujur, aku bukan orang yang jago ngerangkai kata romantis.<br />
+              Tapi kalau disuruh cerita soal kamu, rasanya nggak pernah ada habisnya.<br />
+              Kamu itu kayak pelengkap hari-hariku yang paling pas,<br />
+              yang bikin hal sekecil apa pun jadi kerasa lebih berarti.
+            </p>
+            <div class="poem-sep">
+              <i class="fa-solid fa-leaf"></i> &nbsp;
+              <i class="fa-solid fa-leaf"></i> &nbsp;
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <p class="poem-stanza">
+              Maaf ya, kalau aku kadang masih banyak kurangnya,<br />
+              masih sering keras kepala atau tanpa sadar bikin kamu jengkel.<br />
+              Tapi aku beneran bersyukur kamu masih mau sabar,<br />
+              masih mau ngertiin, dan masih mau nemenin aku sampai sekarang.
+            </p>
+            <div class="poem-sep">
+              <i class="fa-solid fa-heart"></i> &nbsp;
+              <i class="fa-solid fa-heart"></i> &nbsp;
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <p class="poem-stanza">
+              Lewatin banyak hal bareng kamu bikin aku sadar satu hal:<br />
+              Hubungan kita nggak melulu soal yang manis-manis aja,<br />
+              tapi soal gimana kita bisa tetep milih satu sama lain,<br />
+              walaupun lagi capek atau lagi banyak masalah.
+            </p>
+            <div class="poem-sep">
+              <i class="fa-solid fa-star"></i> &nbsp;
+              <i class="fa-solid fa-star"></i> &nbsp;
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="poem-stanza">
+              Makasih udah selalu jadi orang yang paling bisa diandelin.<br />
+              Makasih udah mau nerima aku apa adanya,<br />
+              dan makasih udah ngasih aku alasan buat terus berusaha<br />
+              jadi pasangan yang lebih baik setiap harinya.
+            </p>
+            <div class="poem-sep">
+              <i class="fa-solid fa-moon"></i> &nbsp;
+              <i class="fa-solid fa-moon"></i> &nbsp;
+              <i class="fa-solid fa-moon"></i>
+            </div>
+            <p class="poem-stanza">
+              Aku nggak muluk-muluk mikirin masa depan yang gimana-gimana.<br />
+              Aku cuma pengen kita tetep bareng-bareng kayak gini.<br />
+              Saling ngingetin, saling nguatin, dan saling jaga.<br />
+              Semoga kita bisa lewatin tahun-tahun berikutnya sama-sama.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="timeline">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-timeline"></i> Perjalanan Kita
+            </div>
+            <h2 class="section-title">Dari Awal Sampe Sekarang</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="timeline">
+            <div class="tl-item reveal">
+              <div class="tl-content">
+                <div class="tl-date">
+                  <i class="fa-regular fa-calendar"></i> &nbsp; Awal Mula
+                </div>
+                <div class="tl-title">Pertama Kali Kenal</div>
+                <p class="tl-desc">
+                  21 Juni 2021 (18:34), kamu menyapaku untuk pertama kalinya. Siapa sangka orang itu — yang waktu itu cuma sekadar kenalan —
+                  bakal jadi orang yang paling aku tunggu tiap harinya.
+                </p>
+              </div>
+              <div class="tl-dot"><i class="fa-solid fa-comments"></i></div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-content">
+                <div class="tl-date">
+                  <i class="fa-regular fa-calendar"></i> &nbsp; Awal Hubungan
+                </div>
+                <div class="tl-title">Resmi Jadian!</div>
+                <p class="tl-desc">
+                  Aku nekat nembak, kamu bilang iya. Hari itu jantungku mau
+                  copot rasanya — tapi seneng banget.
+                </p>
+              </div>
+              <div class="tl-dot"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-content">
+                <div class="tl-date">
+                  <i class="fa-solid fa-star" style="color: var(--gold);"></i> &nbsp; Momen yang Tak Ternilai
+                </div>
+                <div class="tl-title">Video Call Pertama</div>
+                <p class="tl-desc">
+                  Canggung? Iya. Diem-dieman mandangin layar? Sering. Tapi itu
+                  momen paling manis yang aku ingat sampe sekarang.
+                </p>
+              </div>
+              <div class="tl-dot"><i class="fa-solid fa-video"></i></div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-content">
+                <div class="tl-date">
+                  <i class="fa-solid fa-gamepad"></i> &nbsp; Main Bareng
+                </div>
+                <div class="tl-title">Mabar Seru-seruan</div>
+                <!-- <img src="./assets/gaming.png" alt="Gaming Bareng" style="width: 100%; border-radius: 12px; margin: 15px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.3);"> -->
+                <p class="tl-desc">
+                  Main game bareng, saling nge-carry, kadang ngambek kalau kalah, tapi tetep aja selalu asik dan jadi salah satu momen paling ngangenin.
+                </p>
+              </div>
+              <div class="tl-dot"><i class="fa-solid fa-headset"></i></div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-content">
+                <div class="tl-date">
+                  <i class="fa-regular fa-calendar"></i> &nbsp; Nemenin Tidur
+                </div>
+                <div class="tl-title">Sleep Call Bareng</div>
+                <p class="tl-desc">
+                  Ngobrol ngalor ngidul sampai ketiduran. Denger suara napas
+                  kamu aja udah cukup bikin tenang.
+                </p>
+              </div>
+              <div class="tl-dot"><i class="fa-solid fa-moon"></i></div>
+            </div>
+            <div class="tl-item reveal">
+              <div class="tl-content">
+                <div class="tl-date">
+                  <i class="fa-regular fa-calendar"></i> &nbsp; Sekarang
+                </div>
+                <div class="tl-title">
+                  Anniversary Kita
+                  <i
+                    class="fa-solid fa-heart"
+                    style="color: var(--rose-light); font-size: 0.9rem"
+                  ></i>
+                </div>
+                <p class="tl-desc">
+                  Dan ini dia — 5 tahun kemudian. Kita masih di sini, masih
+                  sama-sama. Ini baru awal, masih banyak cerita yang mau kita
+                  bikin sampai nanti ketemu beneran.
+                </p>
+              </div>
+              <div
+                class="tl-dot"
+                style="
+                  background: linear-gradient(135deg, var(--gold), var(--rose));
+                "
+              >
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="promise">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-ring"></i> Janjiku
+            </div>
+            <h2 class="section-title">Yang Aku Janji ke Kamu</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <ul class="promise-list">
+            <li class="promise-item reveal">
+              <div class="promise-icon">
+                <i class="fa-solid fa-shield-heart"></i>
+              </div>
+              <p class="promise-text">
+                Aku bakal selalu ada — pas kamu lagi seneng, apalagi pas kamu
+                lagi nggak baik-baik aja.
+              </p>
+            </li>
+            <li class="promise-item reveal">
+              <div class="promise-icon">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+              </div>
+              <p class="promise-text">
+                Aku bakal dukung impian kamu — sekecil apapun itu, aku serius.
+              </p>
+            </li>
+            <li class="promise-item reveal">
+              <div class="promise-icon">
+                <i class="fa-solid fa-comments"></i>
+              </div>
+              <p class="promise-text">
+                Aku bakal dengerin kamu — bahkan pas kamu cerita hal yang sama
+                untuk kesekian kalinya.
+              </p>
+            </li>
+            <li class="promise-item reveal">
+              <div class="promise-icon">
+                <i class="fa-solid fa-face-laugh-beam"></i>
+              </div>
+              <p class="promise-text">
+                Aku bakal jaga senyum kamu — karena liat kamu senyum beneran tuh
+                bikin hari aku langsung lebih baik.
+              </p>
+            </li>
+            <li class="promise-item reveal">
+              <div class="promise-icon">
+                <i class="fa-solid fa-infinity"></i>
+              </div>
+              <p class="promise-text">
+                Dan aku bakal terus sayang kamu — hari ini, besok, dan tiap hari
+                selanjutnya. Nggak akan bosen.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="funny">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-face-grin-tears"></i> Yang Konyol dari Kamu
+            </div>
+            <h2 class="section-title">Hal-hal Receh yang Aku Suka</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="funny-grid">
+            <div class="funny-card reveal">
+              <span class="funny-emoji"
+                ><i class="fa-solid fa-face-tired" style="color: #f78ca0"></i
+              ></span>
+              <div class="funny-title">Muka Ngantuk</div>
+              <p class="funny-text">
+                Kamu minta "bentar lagi" tapi udah kesiangan. Dan muka setengah
+                sadar kamu itu... lucu banget, jujur. Nggak ada yang bisa
+                ngalahin.
+              </p>
+            </div>
+            <div class="funny-card reveal">
+              <span class="funny-emoji"
+                ><i class="fa-solid fa-utensils" style="color: #d4a853"></i
+              ></span>
+              <div class="funny-title">"Terserah" = Jebakan</div>
+              <p class="funny-text">
+                Bilang terserah, tapi pas aku udah milih, eh ada revisi. Aku
+                udah hapal banget polanya — dan nggak apa-apa, karena itu kamu.
+                😂
+              </p>
+            </div>
+            <div class="funny-card reveal">
+              <span class="funny-emoji"
+                ><i
+                  class="fa-solid fa-mobile-screen-button"
+                  style="color: #9b59b6"
+                ></i
+              ></span>
+              <div class="funny-title">Scrolling Tapi Bete</div>
+              <p class="funny-text">
+                Kamu asik main HP, aku diem. Tapi begitu aku yang main HP,
+                tiba-tiba "ih kamu nggak dengerin aku ya?" — klasik banget.
+              </p>
+            </div>
+            <div class="funny-card reveal">
+              <span class="funny-emoji"
+                ><i
+                  class="fa-solid fa-temperature-arrow-up"
+                  style="color: #e8476a"
+                ></i
+              ></span>
+              <div class="funny-title">AC-nya Salah Mulu</div>
+              <p class="funny-text">
+                16° kedinginan, 25° kepanasan. Tapi aku tetep selimutan kamu
+                tiap malam — walaupun ujungnya aku yang kegerahan sendiri.
+              </p>
+            </div>
+            <div class="funny-card reveal">
+              <span class="funny-emoji"
+                ><i
+                  class="fa-solid fa-face-laugh-squint"
+                  style="color: #f0d08a"
+                ></i
+              ></span>
+              <div class="funny-title">Tawa yang Kebablasan</div>
+              <p class="funny-text">
+                Kalau kamu udah ketawa beneran, susah berhentinya. Sampe keluar
+                suara aneh. Dan itu justru yang paling bikin aku ikut ngakak.
+              </p>
+            </div>
+            <div class="funny-card reveal">
+              <span class="funny-emoji"
+                ><i class="fa-solid fa-heart-crack" style="color: #f78ca0"></i
+              ></span>
+              <div class="funny-title">Ngambek tapi Lapar</div>
+              <p class="funny-text">
+                Lagi ngambek, tapi kalau aku tanya "mau makan nggak?" — langsung
+                nanya mau makan apa. Aku tau cara ngatasin ngambek kamu. 😏
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="lovemeter">
+        <div class="container">
+          <div class="reveal">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-gauge-high"></i> Love Meter
+            </div>
+            <h2 class="section-title">Seberapa Cocok Kita?</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="meter-wrap reveal">
+            <div class="meter-names">
+              <span class="meter-name">Kamu</span>
+              <span class="meter-plus"><i class="fa-solid fa-heart"></i></span>
+              <span class="meter-name">Aku</span>
+            </div>
+            <div class="meter-bar-wrap">
+              <div class="meter-bar-fill" id="meter-fill"></div>
+            </div>
+            <div class="meter-pct" id="meter-pct">0%</div>
+            <div class="meter-label">
+              Tingkat Kecocokan Kita — udah jelas hasilnya
+              <i
+                class="fa-solid fa-wand-magic-sparkles"
+                style="font-size: 1rem; color: var(--gold-light)"
+              ></i>
+            </div>
+            <div class="meter-hearts">
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="gacha">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-gift"></i> Hadiah Virtual
+            </div>
+            <h2 class="section-title">Kado Buat Kamu</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="gacha-card reveal" id="gacha-box" onclick="openGacha()">
+            <div class="gacha-icon" id="gacha-icon">
+              <i class="fa-solid fa-box"></i>
+            </div>
+            <div
+              style="
+                font-family: &quot;Dancing Script&quot;, cursive;
+                font-size: 2rem;
+                color: var(--rose-light);
+              "
+            >
+              Klik untuk buka!
+            </div>
+            <div class="gacha-result" id="gacha-result"></div>
+            <div class="gacha-inst">
+              Kupon ini cuma berlaku seumur hidup loh.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="randmsg">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-shuffle"></i> Surprise Kecil
+            </div>
+            <h2 class="section-title">Klik, Siapa Tau Bikin Baper</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="randmsg-box reveal">
+            <div id="randmsg-text">
+              "Pencet tombolnya dulu, ada yang mau aku bilang ke kamu..."
+              <i
+                class="fa-regular fa-face-smile-wink"
+                style="color: var(--rose-light)"
+              ></i>
+            </div>
+            <button id="shuffle-btn">
+              <i class="fa-solid fa-rotate"></i>
+              Dapatkan Pesan Cinta!
+            </button>
+          </div>
+        </div>
+      </section>
+      <section id="proposal">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-ring"></i> Satu Pertanyaan Terakhir
+            </div>
+            <h2 class="section-title">Cuma Boleh Jawab Iya</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="proposal-card reveal">
+            <div class="proposal-text">
+              "Apakah kamu mau bersedia hidup denganku?"
+            </div>
+            <div class="proposal-buttons">
+              <button class="btn-yes" id="btn-yes" onclick="proposalAccepted()">
+                Iya, Aku Mau! 💍
+              </button>
+              <button class="btn-no" id="btn-no">Tidak</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <button id="emergency-love">🚨 Jangan Dipencet</button>
+      <div id="achieve-toast" class="achieve-toast">
+        <div class="achieve-toast-icon">🏆</div>
+        <div class="achieve-toast-text" id="achieve-toast-text">
+          Achievement Unlocked!
+        </div>
+      </div>
+      <section id="quiz-love">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-clipboard-question"></i> Ujian Cinta
+            </div>
+            <h2 class="section-title">Seberapa Paham Aku Sama Kamu? (Coba Cek Bener Gak Tebakanku)</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="quiz-container reveal">
+            <div class="quiz-card" id="quiz-card">
+              <div class="quiz-progress">
+                Pertanyaan <span id="q-curr">1</span> dari
+                <span id="q-tot">8</span>
+              </div>
+              <h3 id="quiz-question" class="quiz-question">
+                Apa warna favoritmu?
+              </h3>
+              <div class="quiz-options" id="quiz-options"></div>
+              <div class="quiz-result-msg" id="quiz-result-msg"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="achievement">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-trophy"></i> Hall of Fame
+            </div>
+            <h2 class="section-title">Achievement Unlocked</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="achieve-grid">
+            <div class="achieve-item reveal">
+              <div class="achieve-icon">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <div class="achieve-info">
+                <h4>Bertahan LDR 5 Tahun</h4>
+                <p>Sabar banget parah 🏆</p>
+              </div>
+              <div class="achieve-check">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+            </div>
+            <div class="achieve-item reveal">
+              <div class="achieve-icon"><i class="fa-solid fa-video"></i></div>
+              <div class="achieve-info">
+                <h4>Juara VC Ketiduran</h4>
+                <p>Tiba-tiba ngorok 😴</p>
+              </div>
+              <div class="achieve-check">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+            </div>
+            <div class="achieve-item reveal">
+              <div class="achieve-icon"><i class="fa-solid fa-camera"></i></div>
+              <div class="achieve-info">
+                <h4>Spam Foto Master</h4>
+                <p>Galeri penuh mukamu 📸</p>
+              </div>
+              <div class="achieve-check">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+            </div>
+            <div class="achieve-item reveal">
+              <div class="achieve-icon">
+                <i class="fa-solid fa-face-angry"></i>
+              </div>
+              <div class="achieve-info">
+                <h4>Ahli Ngambek Nasional</h4>
+                <p>Tapi gampang disogok 😅</p>
+              </div>
+              <div class="achieve-check">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+            </div>
+            <div class="achieve-item reveal">
+              <div class="achieve-icon">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <div class="achieve-info">
+                <h4>Penyuka Tempe Goreng</h4>
+                <p>Makanan wajib 😋</p>
+              </div>
+              <div class="achieve-check">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+            </div>
+            <div class="achieve-item reveal">
+              <div class="achieve-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="achieve-info">
+                <h4>Future Husband & Wife</h4>
+                <p>Coming Soon 💍</p>
+              </div>
+              <div class="achieve-check">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="storybook">
+        <div class="container">
+          <div class="reveal" style="text-align: center">
+            <div class="section-tag" style="justify-content: center">
+              <i class="fa-solid fa-book-open-reader"></i> Buku Cerita Kita
+            </div>
+            <h2 class="section-title">Chapter per Chapter</h2>
+            <div class="divider" style="margin: 0 auto 40px"></div>
+          </div>
+          <div class="book-container reveal">
+            <div class="book" id="book">
+              <div class="page active" id="page-1">
+                <div class="page-content">
+                  <h3>21 Juni 2021</h3>
+                  <p>
+                    Hari dimana semuanya dimulai.<br />Aku nggak tahu kalau
+                    orang ini<br />bakal jadi rumah yang paling nyaman.
+                  </p>
+                </div>
+              </div>
+              <div class="page" id="page-2">
+                <div class="page-content">
+                  <h3>VC Pertama</h3>
+                  <p>
+                    Masih malu-malu.<br />Masih jaim.<br />Masih sok cool.<br />Padahal
+                    udah salting setengah mati.  :'
+                  </p>
+                </div>
+              </div>
+              <div class="page" id="page-3">
+                <div class="page-content">
+                  <h3 style="font-size: 1.5rem; margin-bottom: 12px;">30 April 2022</h3>
+                  <p style="font-size: 0.85rem; line-height: 1.6;">
+                    Momen absurd tapi ngangenin banget! Kamu ngirim foto jajanan suntikan mainan coklat. Terus kita ngobrol dari ngebahas "orange itu jingga bukan buah", main ngubah-ngubah suara lucu, sampai bicarain masa depan pengen nikah dan punya rumah dicat serba ungu dan biru. Seru banget! :3
+                  </p>
+                </div>
+              </div>
+              <div class="page" id="page-4">
+                <div class="page-content">
+                  <h3>Impian Ketemu</h3>
+                  <p>
+                    Sekarang masih lewat layar.<br />Tapi suatu hari nanti,<br />layar
+                    itu bakal berubah jadi kenyataan.
+                  </p>
+                </div>
+              </div>
+              <div class="page" id="page-5">
+                <div class="page-content">
+                  <h3>Masa LDR</h3>
+                  <p>
+                    Tangerang ❤️ Bone<br /><br />Jaraknya jauh.<br />Tapi rasa
+                    sayangnya nggak pernah ikut jauh.
+                  </p>
+                </div>
+              </div>
+              <div class="page" id="page-6">
+                <div class="page-content">
+                  <h3>Tentang Ayang</h3>
+                  <ul class="book-list">
+                    <li><i class="fa-solid fa-check"></i> Suka aku</li>
+                    <li><i class="fa-solid fa-check"></i> Suka tempe goreng</li>
+                    <li><i class="fa-solid fa-check"></i> Suka warna ungu</li>
+                    <li><i class="fa-solid fa-check"></i> Suka gado-gado</li>
+                    <li>
+                      <i class="fa-solid fa-check"></i> Suka dikirimin foto
+                    </li>
+                    <li>
+                      <i class="fa-solid fa-check"></i> Suka boneka Keroppi
+                    </li>
+                    <li><i class="fa-solid fa-check"></i> Suka begadang</li>
+                    <li>
+                      <i class="fa-solid fa-check"></i> Suka pastel & dodol
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="page" id="page-7">
+                <div class="page-content" style="text-align: center">
+                  <h3>Loading next chapter...</h3>
+                  <p
+                    style="
+                      letter-spacing: 2px;
+                      font-size: 1.2rem;
+                      color: var(--gold-light);
+                      margin: 20px 0;
+                    "
+                  >
+                    ██████████░░░░░░░
+                  </p>
+                  <h2
+                    style="
+                      font-family: &quot;Dancing Script&quot;, cursive;
+                      font-size: 2.5rem;
+                      color: var(--rose-light);
+                    "
+                  >
+                    Aku dan Kamu<br />Untuk Selamanya ❤️
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="book-controls">
+              <button class="book-btn" onclick="prevPage()">
+                <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+              </button>
+              <span class="page-indicator" id="page-indicator">1 / 6</span>
+              <button class="book-btn" onclick="nextPage()">
+                Selanjutnya <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="footer">
+        <div class="footer-heart"><i class="fa-solid fa-heart"></i></div>
+        <h2 class="footer-title">Buat Kamu, Selamanya</h2>
+        <p class="footer-sub">
+          Bareng kamu tuh beda — dan aku nggak mau nukar sama apapun.
+        </p>
+        <div class="sparkle-row">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-heart"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <button id="confetti-btn" onclick="launchConfetti()">
+          <i class="fa-solid fa-party-horn"></i>
+          Rayakan Bersama! 🎉
+        </button>
+      </section>
+      <a
+        href="https://wa.me/?text=Hai%20sayang%2C%20aku%20udah%20baca%20semuanya.%20Makasih%20ya%2C%20love%20you!%20%E2%9D%A4%EF%B8%8F"
+        target="_blank"
+        id="wa-btn"
+        title="Kirim Pesan WA"
+      >
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+    <script src="js/script.js"></script>
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@14.1.0/dist/twemoji.min.js"></script>
+    <script src="js/script2.js"></script>
+  </body>
+</html>
