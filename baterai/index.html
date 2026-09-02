@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b14">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>PowerCalc — Kalkulator Baterai & Powerbank</title>
+
+<style>
+:root{
+    --bg:#070b14;
+    --bg2:#0d1321;
+    --card:rgba(17,24,39,.82);
+    --border:rgba(255,255,255,.09);
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --primary:#6366f1;
+    --primary2:#8b5cf6;
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+    --input:#0b1220;
+    --shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 10% 10%,rgba(99,102,241,.16),transparent 30%),
+        radial-gradient(circle at 90% 90%,rgba(139,92,246,.12),transparent 30%),
+        linear-gradient(135deg,var(--bg),var(--bg2));
+    padding:30px 16px;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+.container{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+}
+
+.hero{
+    text-align:center;
+    margin:25px auto 35px;
+}
+
+.logo{
+    width:62px;
+    height:62px;
+    margin:0 auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:18px;
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    box-shadow:0 15px 40px rgba(99,102,241,.3);
+    font-size:29px;
+    user-select:none;
+}
+
+.hero h1{
+    font-size:clamp(28px,5vw,42px);
+    font-weight:800;
+    letter-spacing:-1.5px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#818cf8,#c084fc);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+    margin:12px auto 0;
+    color:var(--muted);
+    line-height:1.7;
+    font-size:14px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:26px;
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+.card.full{
+    grid-column:1/-1;
+}
+
+.card-header{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:24px;
+}
+
+.card-icon{
+    width:45px;
+    height:45px;
+    flex-shrink:0;
+    border-radius:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(99,102,241,.13);
+    color:#a5b4fc;
+    font-size:21px;
+    user-select:none;
+}
+
+.card h2{
+    font-size:18px;
+}
+
+.card-header p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:4px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    color:#cbd5e1;
+    font-size:13px;
+    font-weight:600;
+}
+
+.input-wrap{
+    position:relative;
+}
+
+input{
+    width:100%;
+    height:48px;
+    border:1px solid var(--border);
+    outline:none;
+    border-radius:12px;
+    background:var(--input);
+    color:var(--text);
+    padding:0 45px 0 14px;
+    font-size:14px;
+    transition:.2s;
+}
+
+input::placeholder{
+    color:#475569;
+}
+
+input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(99,102,241,.12);
+}
+
+input:invalid:not(:placeholder-shown){
+    border-color:rgba(239,68,68,.65);
+}
+
+.unit{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#64748b;
+    font-size:12px;
+    pointer-events:none;
+}
+
+.help{
+    margin-top:6px;
+    color:#64748b;
+    font-size:11px;
+    line-height:1.5;
+}
+
+button{
+    width:100%;
+    min-height:50px;
+    border:0;
+    border-radius:13px;
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(99,102,241,.2);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(99,102,241,.3);
+    filter:brightness(1.06);
+}
+
+button:active{
+    transform:translateY(0);
+}
+
+button:focus-visible{
+    outline:3px solid rgba(129,140,248,.45);
+    outline-offset:3px;
+}
+
+.result{
+    display:none;
+    margin-top:18px;
+    border-radius:17px;
+    padding:19px;
+    background:linear-gradient(
+        135deg,
+        rgba(99,102,241,.12),
+        rgba(139,92,246,.07)
+    );
+    border:1px solid rgba(129,140,248,.2);
+}
+
+.result.show{
+    display:block;
+    animation:appear .35s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.result-main{
+    font-size:27px;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.result-main.success{
+    color:#86efac;
+}
+
+.result-main.warning{
+    color:#fcd34d;
+}
+
+.result-main.info{
+    color:#a5b4fc;
+}
+
+.result-detail{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.stat{
+    padding:13px;
+    border-radius:12px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+}
+
+.stat small{
+    display:block;
+    color:#64748b;
+    font-size:10px;
+    margin-bottom:5px;
+}
+
+.stat strong{
+    font-size:14px;
+}
+
+.note{
+    padding:16px;
+    border-radius:15px;
+    background:rgba(245,158,11,.07);
+    border:1px solid rgba(245,158,11,.16);
+    color:#cbd5e1;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.note b{
+    color:#fbbf24;
+}
+
+.footer{
+    text-align:center;
+    margin:30px 0 10px;
+    color:#475569;
+    font-size:12px;
+}
+
+.footer span{
+    color:#818cf8;
+}
+
+.toast-container{
+    position:fixed;
+    right:20px;
+    top:20px;
+    z-index:9999;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    width:min(360px,calc(100vw - 32px));
+    pointer-events:none;
+}
+
+.toast{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:15px 16px;
+    border-radius:15px;
+    background:#111827;
+    border:1px solid var(--border);
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+    animation:toastIn .3s ease;
+    pointer-events:auto;
+}
+
+.toast-icon{
+    width:28px;
+    height:28px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:rgba(239,68,68,.13);
+    color:#f87171;
+    font-weight:800;
+}
+
+.toast-title{
+    font-weight:700;
+    font-size:13px;
+}
+
+.toast-message{
+    color:#94a3b8;
+    font-size:11px;
+    margin-top:3px;
+    line-height:1.5;
+}
+
+@keyframes toastIn{
+    from{
+        opacity:0;
+        transform:translateX(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@media(max-width:760px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .card.full{
+        grid-column:auto;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    body{
+        padding:18px 12px;
+    }
+
+    .card{
+        padding:20px;
+        border-radius:20px;
+    }
+}
+
+@media(max-width:420px){
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+
+    .toast-container{
+        left:12px;
+        right:12px;
+        top:12px;
+        width:auto;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto!important;
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+<div class="container">
+
+<header class="hero">
+    <div class="logo" aria-hidden="true">⚡</div>
+
+    <h1>Power<span>Calc</span></h1>
+
+    <p>
+        Kalkulator baterai dan powerbank berbasis energi
+        dengan perhitungan Wh, tegangan, efisiensi, dan konsumsi daya.
+    </p>
+</header>
+
+<main class="grid">
+
+<section class="card">
+    <div class="card-header">
+        <div class="card-icon" aria-hidden="true">🔋</div>
+
+        <div>
+            <h2>Estimasi Waktu Pakai</h2>
+            <p>Perkirakan durasi perangkat dapat digunakan.</p>
+        </div>
+    </div>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="batteryCapacity">Kapasitas Baterai</label>
+
+            <div class="input-wrap">
+                <input
+                    id="batteryCapacity"
+                    type="number"
+                    min="0.01"
+                    max="1000000"
+                    step="0.01"
+                    placeholder="5000"
+                    inputmode="decimal"
+                >
+                <span class="unit">mAh</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="batteryVoltage">Tegangan Baterai</label>
+
+            <div class="input-wrap">
+                <input
+                    id="batteryVoltage"
+                    type="number"
+                    min="0.01"
+                    max="100"
+                    step="0.01"
+                    value="3.85"
+                    inputmode="decimal"
+                >
+                <span class="unit">V</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="powerConsumption">Konsumsi Daya</label>
+
+            <div class="input-wrap">
+                <input
+                    id="powerConsumption"
+                    type="number"
+                    min="0.01"
+                    max="100000"
+                    step="0.01"
+                    placeholder="5"
+                    inputmode="decimal"
+                >
+                <span class="unit">W</span>
+            </div>
+
+            <div class="help">
+                Masukkan rata-rata konsumsi daya perangkat.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="systemEfficiency">Efisiensi Sistem</label>
+
+            <div class="input-wrap">
+                <input
+                    id="systemEfficiency"
+                    type="number"
+                    min="1"
+                    max="100"
+                    step="0.1"
+                    value="90"
+                    inputmode="decimal"
+                >
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="form-group full">
+            <button type="button" id="btnRuntime">
+                Hitung Waktu Pakai
+            </button>
+        </div>
+
+    </div>
+
+    <div
+        id="runtimeResult"
+        class="result"
+        aria-live="polite"
+    ></div>
+</section>
+
+
+<section class="card">
+    <div class="card-header">
+        <div class="card-icon" aria-hidden="true">⚡</div>
+
+        <div>
+            <h2>Estimasi Powerbank</h2>
+            <p>Hitung energi yang benar-benar tersedia.</p>
+        </div>
+    </div>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="pbCapacity">Kapasitas Powerbank</label>
+
+            <div class="input-wrap">
+                <input
+                    id="pbCapacity"
+                    type="number"
+                    min="0.01"
+                    max="1000000"
+                    step="0.01"
+                    placeholder="20000"
+                    inputmode="decimal"
+                >
+                <span class="unit">mAh</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pbVoltage">Tegangan Internal</label>
+
+            <div class="input-wrap">
+                <input
+                    id="pbVoltage"
+                    type="number"
+                    min="0.01"
+                    max="100"
+                    step="0.01"
+                    value="3.7"
+                    inputmode="decimal"
+                >
+                <span class="unit">V</span>
+            </div>
+
+            <div class="help">
+                Umumnya sel powerbank berada di sekitar 3,7 V.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneCapacity">Kapasitas Baterai HP</label>
+
+            <div class="input-wrap">
+                <input
+                    id="phoneCapacity"
+                    type="number"
+                    min="0.01"
+                    max="1000000"
+                    step="0.01"
+                    placeholder="5000"
+                    inputmode="decimal"
+                >
+                <span class="unit">mAh</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneVoltage">Tegangan Baterai HP</label>
+
+            <div class="input-wrap">
+                <input
+                    id="phoneVoltage"
+                    type="number"
+                    min="0.01"
+                    max="100"
+                    step="0.01"
+                    value="3.85"
+                    inputmode="decimal"
+                >
+                <span class="unit">V</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pbEfficiency">Efisiensi Powerbank</label>
+
+            <div class="input-wrap">
+                <input
+                    id="pbEfficiency"
+                    type="number"
+                    min="1"
+                    max="100"
+                    step="0.1"
+                    value="85"
+                    inputmode="decimal"
+                >
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="chargingEfficiency">Efisiensi Pengisian</label>
+
+            <div class="input-wrap">
+                <input
+                    id="chargingEfficiency"
+                    type="number"
+                    min="1"
+                    max="100"
+                    step="0.1"
+                    value="90"
+                    inputmode="decimal"
+                >
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="form-group full">
+            <button type="button" id="btnPowerbank">
+                Hitung Daya & Pengisian
+            </button>
+        </div>
+
+    </div>
+
+    <div
+        id="powerbankResult"
+        class="result"
+        aria-live="polite"
+    ></div>
+</section>
+
+
+<section class="card full">
+    <div class="card-header">
+        <div class="card-icon" aria-hidden="true">🔌</div>
+
+        <div>
+            <h2>Estimasi Lama Pengisian</h2>
+            <p>Perkirakan waktu charging berdasarkan arus charger.</p>
+        </div>
+    </div>
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="chargeCapacity">Kapasitas Baterai</label>
+
+            <div class="input-wrap">
+                <input
+                    id="chargeCapacity"
+                    type="number"
+                    min="0.01"
+                    max="1000000"
+                    step="0.01"
+                    placeholder="5000"
+                    inputmode="decimal"
+                >
+                <span class="unit">mAh</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="chargeStart">Persentase Awal</label>
+
+            <div class="input-wrap">
+                <input
+                    id="chargeStart"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    value="20"
+                    inputmode="decimal"
+                >
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="chargeTarget">Persentase Target</label>
+
+            <div class="input-wrap">
+                <input
+                    id="chargeTarget"
+                    type="number"
+                    min="0.1"
+                    max="100"
+                    step="0.1"
+                    value="100"
+                    inputmode="decimal"
+                >
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="chargeCurrent">Arus Charger</label>
+
+            <div class="input-wrap">
+                <input
+                    id="chargeCurrent"
+                    type="number"
+                    min="0.01"
+                    max="100000"
+                    step="0.01"
+                    placeholder="2000"
+                    inputmode="decimal"
+                >
+                <span class="unit">mA</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="chargeEfficiency">Efisiensi Pengisian</label>
+
+            <div class="input-wrap">
+                <input
+                    id="chargeEfficiency"
+                    type="number"
+                    min="1"
+                    max="100"
+                    step="0.1"
+                    value="90"
+                    inputmode="decimal"
+                >
+                <span class="unit">%</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="chargeTaper">Faktor Perlambatan</label>
+
+            <div class="input-wrap">
+                <input
+                    id="chargeTaper"
+                    type="number"
+                    min="0"
+                    max="300"
+                    step="1"
+                    value="15"
+                    inputmode="decimal"
+                >
+                <span class="unit">%</span>
+            </div>
+
+            <div class="help">
+                Estimasi tambahan waktu saat charging mendekati penuh.
+            </div>
+        </div>
+
+        <div class="form-group full">
+            <button type="button" id="btnCharging">
+                Hitung Lama Pengisian
+            </button>
+        </div>
+
+    </div>
+
+    <div
+        id="chargingResult"
+        class="result"
+        aria-live="polite"
+    ></div>
+</section>
+
+
+<section class="card full">
+    <div class="note">
+        <b>Catatan akurasi:</b>
+        mAh tidak dapat dibandingkan secara langsung apabila tegangan berbeda.
+        Kalkulator mengonversi kapasitas menjadi energi Wh terlebih dahulu.
+        Efisiensi converter, kabel, suhu, kondisi baterai, charging protocol,
+        dan pola konsumsi perangkat dapat membuat hasil nyata berbeda dari estimasi.
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    PowerCalc • Battery & Powerbank Calculator •
+    <span>Xnuvers007</span>
+</footer>
+
+</div>
+
+<script>
+'use strict';
+
+const $ = (id) => document.getElementById(id);
+
+const number = (id) => Number.parseFloat($(id).value);
+
+const finite = (value) =>
+    Number.isFinite(value);
+
+const positive = (value) =>
+    finite(value) && value > 0;
+
+const percentage = (value) =>
+    finite(value) && value >= 0 && value <= 100;
+
+function formatNumber(value, digits = 2){
+    return new Intl.NumberFormat('id-ID', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: digits
+    }).format(value);
+}
+
+function formatTime(hours){
+    if(!positive(hours)){
+        return '0 menit';
+    }
+
+    const totalMinutes = Math.max(
+        1,
+        Math.round(hours * 60)
+    );
+
+    const h = Math.floor(totalMinutes / 60);
+    const m = totalMinutes % 60;
+
+    if(h === 0){
+        return `${m} menit`;
+    }
+
+    if(m === 0){
+        return `${h} jam`;
+    }
+
+    return `${h} jam ${m} menit`;
+}
+
+function createElement(tag, className, text){
+    const element = document.createElement(tag);
+
+    if(className){
+        element.className = className;
+    }
+
+    if(text !== undefined){
+        element.textContent = text;
+    }
+
+    return element;
+}
+
+function clearElement(element){
+    while(element.firstChild){
+        element.removeChild(element.firstChild);
+    }
+}
+
+function createStat(label, value){
+    const wrapper = createElement('div', 'stat');
+
+    const small = createElement('small', '', label);
+    const strong = createElement('strong', '', value);
+
+    wrapper.append(small, strong);
+
+    return wrapper;
+}
+
+function showToast(title, message){
+    const container = $('toastContainer');
+
+    const toast = createElement('div', 'toast');
+    const icon = createElement('div', 'toast-icon', '!');
+    const content = createElement('div');
+
+    const titleElement =
+        createElement('div', 'toast-title', title);
+
+    const messageElement =
+        createElement('div', 'toast-message', message);
+
+    content.append(titleElement, messageElement);
+    toast.append(icon, content);
+    container.appendChild(toast);
+
+    window.setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(20px)';
+        toast.style.transition = 'opacity .3s, transform .3s';
+
+        window.setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3500);
+}
+
+function validateRequired(fields){
+    for(const field of fields){
+        if(!positive(field.value)){
+            showToast(
+                'Input belum valid',
+                `Silakan isi ${field.name} dengan angka yang valid.`
+            );
+
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function validateEfficiency(value, name){
+    if(!finite(value) || value <= 0 || value > 100){
+        showToast(
+            'Efisiensi tidak valid',
+            `${name} harus berada antara 1% dan 100%.`
+        );
+
+        return false;
+    }
+
+    return true;
+}
+
+function displayResult(
+    result,
+    mainText,
+    mainClass,
+    detailText,
+    stats
+){
+    clearElement(result);
+
+    const main =
+        createElement('div', `result-main ${mainClass}`, mainText);
+
+    const detail =
+        createElement('div', 'result-detail', detailText);
+
+    const grid =
+        createElement('div', 'result-grid');
+
+    for(const stat of stats){
+        grid.appendChild(
+            createStat(stat.label, stat.value)
+        );
+    }
+
+    result.append(main, detail, grid);
+    result.classList.add('show');
+}
+
+function calculateRuntime(){
+
+    const capacity = number('batteryCapacity');
+    const voltage = number('batteryVoltage');
+    const power = number('powerConsumption');
+    const efficiency = number('systemEfficiency');
+
+    if(!validateRequired([
+        {value:capacity, name:'kapasitas baterai'},
+        {value:voltage, name:'tegangan baterai'},
+        {value:power, name:'konsumsi daya'}
+    ])){
+        return;
+    }
+
+    if(!validateEfficiency(efficiency, 'Efisiensi sistem')){
+        return;
+    }
+
+    const energyWh =
+        (capacity / 1000) * voltage;
+
+    const usableEnergyWh =
+        energyWh * (efficiency / 100);
+
+    const runtime =
+        usableEnergyWh / power;
+
+    displayResult(
+        $('runtimeResult'),
+        formatTime(runtime),
+        'success',
+        `Estimasi berdasarkan konsumsi rata-rata ${formatNumber(power)} W.`,
+        [
+            {
+                label:'Energi baterai',
+                value:`${formatNumber(energyWh)} Wh`
+            },
+            {
+                label:'Energi efektif',
+                value:`${formatNumber(usableEnergyWh)} Wh`
+            },
+            {
+                label:'Runtime',
+                value:`${formatNumber(runtime)} jam`
+            }
+        ]
+    );
+}
+
+function calculatePowerbank(){
+
+    const pbCapacity = number('pbCapacity');
+    const pbVoltage = number('pbVoltage');
+
+    const phoneCapacity = number('phoneCapacity');
+    const phoneVoltage = number('phoneVoltage');
+
+    const pbEfficiency = number('pbEfficiency');
+    const chargingEfficiency = number('chargingEfficiency');
+
+    if(!validateRequired([
+        {value:pbCapacity, name:'kapasitas powerbank'},
+        {value:pbVoltage, name:'tegangan powerbank'},
+        {value:phoneCapacity, name:'kapasitas HP'},
+        {value:phoneVoltage, name:'tegangan HP'}
+    ])){
+        return;
+    }
+
+    if(!validateEfficiency(pbEfficiency, 'Efisiensi powerbank')){
+        return;
+    }
+
+    if(!validateEfficiency(
+        chargingEfficiency,
+        'Efisiensi pengisian'
+    )){
+        return;
+    }
+
+    const pbEnergyWh =
+        (pbCapacity / 1000) * pbVoltage;
+
+    const converterOutputWh =
+        pbEnergyWh * (pbEfficiency / 100);
+
+    const usableEnergyWh =
+        converterOutputWh *
+        (chargingEfficiency / 100);
+
+    const phoneEnergyWh =
+        (phoneCapacity / 1000) * phoneVoltage;
+
+    const chargingPercentage =
+        (usableEnergyWh / phoneEnergyWh) * 100;
+
+    const fullCharges =
+        usableEnergyWh / phoneEnergyWh;
+
+    const equivalentMah =
+        (usableEnergyWh / phoneVoltage) * 1000;
+
+    let mainClass = 'info';
+
+    if(chargingPercentage >= 100){
+        mainClass = 'success';
+    }else if(chargingPercentage < 30){
+        mainClass = 'warning';
+    }
+
+    displayResult(
+        $('powerbankResult'),
+        `${formatNumber(chargingPercentage, 1)}% kapasitas HP`,
+        mainClass,
+        `Energi efektif yang diperkirakan sampai ke baterai HP: ${formatNumber(usableEnergyWh)} Wh.`,
+        [
+            {
+                label:'Energi powerbank',
+                value:`${formatNumber(pbEnergyWh)} Wh`
+            },
+            {
+                label:'Setelah converter',
+                value:`${formatNumber(converterOutputWh)} Wh`
+            },
+            {
+                label:'Energi efektif',
+                value:`${formatNumber(usableEnergyWh)} Wh`
+            },
+            {
+                label:'Energi baterai HP',
+                value:`${formatNumber(phoneEnergyWh)} Wh`
+            },
+            {
+                label:'Full charge teoritis',
+                value:`${formatNumber(fullCharges, 2)}×`
+            },
+            {
+                label:'Setara kapasitas',
+                value:`${formatNumber(equivalentMah)} mAh`
+            }
+        ]
+    );
+}
+
+function calculateCharging(){
+
+    const capacity = number('chargeCapacity');
+    const start = number('chargeStart');
+    const target = number('chargeTarget');
+    const current = number('chargeCurrent');
+    const efficiency = number('chargeEfficiency');
+    const taper = number('chargeTaper');
+
+    if(!validateRequired([
+        {value:capacity, name:'kapasitas baterai'},
+        {value:current, name:'arus charger'}
+    ])){
+        return;
+    }
+
+    if(!percentage(start)){
+        showToast(
+            'Persentase awal tidak valid',
+            'Persentase awal harus berada antara 0% dan 100%.'
+        );
+
+        return;
+    }
+
+    if(!percentage(target) || target <= 0){
+        showToast(
+            'Persentase target tidak valid',
+            'Persentase target harus berada antara 1% dan 100%.'
+        );
+
+        return;
+    }
+
+    if(target <= start){
+        showToast(
+            'Rentang charging tidak valid',
+            'Persentase target harus lebih besar dari persentase awal.'
+        );
+
+        return;
+    }
+
+    if(!validateEfficiency(
+        efficiency,
+        'Efisiensi pengisian'
+    )){
+        return;
+    }
+
+    if(!finite(taper) || taper < 0 || taper > 300){
+        showToast(
+            'Faktor perlambatan tidak valid',
+            'Nilai harus berada antara 0% dan 300%.'
+        );
+
+        return;
+    }
+
+    const requiredCapacity =
+        capacity * ((target - start) / 100);
+
+    const idealHours =
+        requiredCapacity / current;
+
+    const efficiencyAdjusted =
+        idealHours / (efficiency / 100);
+
+    const finalHours =
+        efficiencyAdjusted *
+        (1 + taper / 100);
+
+    displayResult(
+        $('chargingResult'),
+        formatTime(finalHours),
+        'info',
+        `Perkiraan pengisian dari ${formatNumber(start,1)}% menuju ${formatNumber(target,1)}%.`,
+        [
+            {
+                label:'Kapasitas diisi',
+                value:`${formatNumber(requiredCapacity)} mAh`
+            },
+            {
+                label:'Waktu ideal',
+                value:formatTime(idealHours)
+            },
+            {
+                label:'Setelah efisiensi',
+                value:formatTime(efficiencyAdjusted)
+            }
+        ]
+    );
+}
+
+$('btnRuntime').addEventListener(
+    'click',
+    calculateRuntime
+);
+
+$('btnPowerbank').addEventListener(
+    'click',
+    calculatePowerbank
+);
+
+$('btnCharging').addEventListener(
+    'click',
+    calculateCharging
+);
+
+document.addEventListener('keydown', (event) => {
+
+    if(event.key !== 'Enter'){
+        return;
+    }
+
+    const active = document.activeElement;
+
+    if(!active || active.tagName !== 'INPUT'){
+        return;
+    }
+
+    const card = active.closest('.card');
+
+    if(!card){
+        return;
+    }
+
+    const button = card.querySelector('button');
+
+    if(button){
+        button.click();
+    }
+});
+</script>
+
+</body>
+</html>
