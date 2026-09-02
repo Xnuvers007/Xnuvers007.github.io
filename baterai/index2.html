@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Baterai & Powerbank</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --bg-color: #F3F4F6;
+            --card-bg: #FFFFFF;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --result-bg: #EEF2FF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-main);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--result-bg);
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.2s;
+            outline: none;
+            background: #F9FAFB;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+            background: #FFFFFF;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 16px;
+            background: var(--result-bg);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-hover);
+            display: none;
+            border: 1px dashed var(--primary);
+        }
+
+        .result-detail {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header-title">Kalkulator Daya Perangkat</h1>
+        
+        <div class="grid-layout">
+            <div class="card">
+                <h2>Estimasi Waktu Pakai HP</h2>
+                <div class="form-group">
+                    <label for="kapasitasHp">Kapasitas Baterai HP (mAh)</label>
+                    <input type="number" id="kapasitasHp" placeholder="Contoh: 5000" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="konsumsiHp">Konsumsi Arus per Jam (mA)</label>
+                    <input type="number" id="konsumsiHp" placeholder="Contoh: 500" min="1">
+                </div>
+                <button id="btnHitungWaktu">Hitung Waktu Pakai</button>
+                <div id="hasilWaktu" class="result"></div>
+            </div>
+
+            <div class="card">
+                <h2>Estimasi Isi Powerbank</h2>
+                <div class="form-group">
+                    <label for="kapasitasPb">Kapasitas Powerbank (mAh)</label>
+                    <input type="number" id="kapasitasPb" placeholder="Contoh: 2000" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="kapasitasHpPb">Kapasitas Baterai HP (mAh)</label>
+                    <input type="number" id="kapasitasHpPb" placeholder="Contoh: 5000" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="efisiensi">Efisiensi Powerbank (%)</label>
+                    <input type="number" id="efisiensi" value="65" placeholder="Normalnya 60-70%" min="1" max="100">
+                </div>
+                <button id="btnHitungPb">Hitung Persentase</button>
+                <div id="hasilPb" class="result"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Credit: <a href="https://github.com/Xnuvers007/" target="_blank" rel="noopener noreferrer">Xnuvers</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btnHitungWaktu').addEventListener('click', function() {
+            const kapasitas = parseFloat(document.getElementById('kapasitasHp').value);
+            const konsumsi = parseFloat(document.getElementById('konsumsiHp').value);
+            const hasilDiv = document.getElementById('hasilWaktu');
+
+            if (!kapasitas || !konsumsi || konsumsi <= 0 || kapasitas <= 0) {
+                alert("Masukkan angka yang valid!");
+                return;
+            }
+
+            const totalJam = kapasitas / konsumsi;
+            const jam = Math.floor(totalJam);
+            const menit = Math.round((totalJam - jam) * 60);
+
+            hasilDiv.textContent = ''; 
+            
+            const teksUtama = document.createTextNode(`${jam} Jam ${menit} Menit`);
+            const divDetail = document.createElement('div');
+            divDetail.className = 'result-detail';
+            divDetail.textContent = 'Baterai akan habis dalam waktu tersebut secara teoritis.';
+            
+            hasilDiv.appendChild(teksUtama);
+            hasilDiv.appendChild(divDetail);
+            hasilDiv.style.display = 'block';
+        });
+
+        document.getElementById('btnHitungPb').addEventListener('click', function() {
+            const pb = parseFloat(document.getElementById('kapasitasPb').value);
+            const hp = parseFloat(document.getElementById('kapasitasHpPb').value);
+            const efisiensi = parseFloat(document.getElementById('efisiensi').value);
+            const hasilDiv = document.getElementById('hasilPb');
+
+            if (!pb || !hp || !efisiensi || pb <= 0 || hp <= 0 || efisiensi <= 0) {
+                alert("Masukkan angka yang valid!");
+                return;
+            }
+
+            const kapasitasReal = pb * (efisiensi / 100);
+            const persentase = (kapasitasReal / hp) * 100;
+
+            hasilDiv.textContent = ''; 
+            
+            const teksUtama = document.createTextNode(`+ ${persentase.toFixed(1)}% Terisi`);
+            const divDetail = document.createElement('div');
+            divDetail.className = 'result-detail';
+            divDetail.textContent = `Daya nyata yang masuk sekitar ${kapasitasReal.toFixed(0)} mAh.`;
+            
+            hasilDiv.appendChild(teksUtama);
+            hasilDiv.appendChild(divDetail);
+            hasilDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
