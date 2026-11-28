@@ -241,6 +241,35 @@
   .src-meta b{color:var(--text); font-size:12px}
   .src-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:0 0 auto; box-shadow:0 0 8px rgba(52,211,153,.7)}
   .src-dot.sync{background:var(--amber); box-shadow:0 0 8px rgba(251,191,36,.7)}
+  .src-dot.off{background:var(--muted2); box-shadow:none}
+  .src-dot.fail{background:var(--red); box-shadow:0 0 8px rgba(248,113,113,.7)}
+
+  /* Real threat-intel (fetched live from public feeds) */
+  .real-tools{
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    padding:11px 16px; border-bottom:1px solid var(--line2); background:rgba(255,255,255,.015);
+    font-size:12.5px; color:var(--muted);
+  }
+  .real-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:14px 16px 16px}
+  @media (max-width: 900px){ .real-grid{grid-template-columns:1fr} }
+  .real-card{border:1px solid var(--line2); border-radius:14px; background:rgba(255,255,255,.015); overflow:hidden; display:flex; flex-direction:column}
+  .real-card-head{padding:12px 14px 9px}
+  .real-card-head h3{margin:0; font-size:13.5px}
+  .real-card-head p{margin:3px 0 0; font-size:11.5px; color:var(--muted); line-height:1.45}
+  .real-status{margin:0 14px 10px; font-size:11.5px; font-weight:700; padding:7px 10px; border-radius:9px; line-height:1.45}
+  .real-status.ok{color:#6ee7b7; background:rgba(52,211,153,.10); border:1px solid rgba(52,211,153,.28)}
+  .real-status.sim{color:#fde68a; background:rgba(251,191,36,.09); border:1px solid rgba(251,191,36,.28)}
+  .real-status.load{color:#7dd3fc; background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.25)}
+  .real-list{display:grid; gap:0; padding:0 6px 8px}
+  .real-item{display:flex; gap:10px; align-items:flex-start; padding:9px 8px; border-bottom:1px solid var(--line2)}
+  .real-item:last-child{border-bottom:none}
+  .real-item h4{margin:0; font-size:12.5px; line-height:1.4}
+  .real-item p{margin:2px 0 0; font-size:11.5px; color:var(--muted); line-height:1.45; word-break:break-word}
+  .real-item .mono{word-break:break-all}
+  .real-meta{margin-left:auto; text-align:right; flex:0 0 auto; font-size:11px; color:var(--muted2); line-height:1.5}
+  .real-meta b{color:var(--text); font-size:12px; display:block}
+  .real-counts{display:flex; gap:7px; flex-wrap:wrap; padding:2px 14px 12px}
+  .real-counts .chip{font-size:11px}
 
   /* CVE */
   .cve-list{padding:8px 16px 16px; display:grid; gap:10px}
@@ -411,13 +440,66 @@
     </article>
   </section>
 
+  <!-- REAL THREAT INTEL (fetched live from public feeds) -->
+  <section class="panel" style="margin-bottom:14px" aria-label="Data threat intelligence asli">
+    <div class="panel-head">
+      <div>
+        <h2>📡 Data Threat Intel Asli — Langsung dari Web</h2>
+        <p>Panel ini <b>bukan simulasi</b>: browser kamu mengambil data beneran dari feed publik gratis — <b>tanpa API key, tanpa daftar</b> — yaitu CISA KEV, NVD (NIST), Feodo Tracker (abuse.ch), Spamhaus DROP, Tor Project, Blocklist.de, OpenPhish, dan PhishTank, memakai CORS proxy gratis bila situs sumbernya tidak mengizinkan akses langsung. Tiap kartu mencantumkan <b>sumber &amp; waktu fetch</b>-nya. Feed yang gagal diambil (offline / diblokir) otomatis jatuh ke contoh simulasi dan diberi label <b>SIMULASI</b> dengan jelas. Panel lain di dashboard ini (globe, live feed, peringkat, tabel pelaku) tetap visualisasi simulasi realtime.</p>
+      </div>
+      <span class="badge green" id="realBadge">⏳ MEMUAT DATA ASLI…</span>
+    </div>
+    <div class="real-tools">
+      <span id="realUpdated">Menghubungi 8 feed publik…</span>
+      <button class="btn" id="realRefreshBtn" type="button">↻ Muat Ulang Data Asli</button>
+    </div>
+    <div class="real-grid">
+      <div class="real-card">
+        <div class="real-card-head">
+          <h3>🏛️ CISA KEV — CVE yang Terbukti Dieksploitasi</h3>
+          <p>Katalog resmi pemerintah AS: kerentanan yang benar-benar sedang dieksploitasi di alam liar, urut dari yang terbaru ditambahkan.</p>
+        </div>
+        <div class="real-status load" id="stKev">⏳ Mengambil data dari cisa.gov…</div>
+        <div class="real-list" id="realKevList"></div>
+      </div>
+
+      <div class="real-card">
+        <div class="real-card-head">
+          <h3>🐛 CVE Terbaru — NVD (NIST)</h3>
+          <p>Kerentanan terbaru yang diterbitkan 30 hari terakhir di National Vulnerability Database, lengkap dengan skor CVSS-nya.</p>
+        </div>
+        <div class="real-status load" id="stNvd">⏳ Mengambil data dari nvd.nist.gov…</div>
+        <div class="real-list" id="realNvdList"></div>
+      </div>
+
+      <div class="real-card">
+        <div class="real-card-head">
+          <h3>🚫 IP Berbahaya — C2, Spam &amp; Tor</h3>
+          <p>Server command-and-control botnet (Feodo Tracker dari abuse.ch), IP penyerang aktif (Blocklist.de), netblock spam terburuk (Spamhaus DROP), dan node keluar Tor — semuanya daftar asli yang dipakai firewall sungguhan.</p>
+        </div>
+        <div class="real-status load" id="stIp">⏳ Mengambil data dari abuse.ch, Blocklist.de, Spamhaus &amp; Tor Project…</div>
+        <div class="real-counts" id="realIpCounts"></div>
+        <div class="real-list" id="realIpList"></div>
+      </div>
+
+      <div class="real-card">
+        <div class="real-card-head">
+          <h3>🎣 URL Phishing Aktif — OpenPhish &amp; PhishTank</h3>
+          <p>URL phishing yang sedang aktif beredar, dari feed komunitas OpenPhish dan PhishTank. Ditampilkan sebagai teks saja — <b>jangan dibuka</b>.</p>
+        </div>
+        <div class="real-status load" id="stPhish">⏳ Mengambil data dari OpenPhish &amp; PhishTank…</div>
+        <div class="real-list" id="realPhishList"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- GLOBE + FEED -->
   <section class="grid">
     <article class="panel">
       <div class="panel-head">
         <div>
           <h2>🌍 Peta Serangan Global — 3D Live</h2>
-          <p>Serangan siber itu <b>global dan antar-negara</b>: Rusia menyerang Amerika Serikat, China menyerang Jerman, Korea Utara menyerang Korea Selatan, dan seterusnya. Di peta ini, label biru adalah negara sumber serangan, label <b style="color:var(--green)">hijau</b> adalah 12 negara target yang dipantau — proyektil meluncur dari negara penyerang ke negara targetnya, meninggalkan jejak cahaya, lalu meledak saat menghantam. Seret globe untuk memutar manual.</p>
+          <p>Visualisasi <b>simulasi</b>: serangan siber itu <b>global dan antar-negara</b>: Rusia menyerang Amerika Serikat, China menyerang Jerman, Korea Utara menyerang Korea Selatan, dan seterusnya. Di peta ini, label biru adalah negara sumber serangan, label <b style="color:var(--green)">hijau</b> adalah 12 negara target yang dipantau — proyektil meluncur dari negara penyerang ke negara targetnya, meninggalkan jejak cahaya, lalu meledak saat menghantam. Seret globe untuk memutar manual.</p>
         </div>
         <span class="badge cyan">THREE.JS • WEBGL</span>
       </div>
@@ -446,7 +528,7 @@
       <div class="panel-head">
         <div>
           <h2>⚡ Live Threat Feed</h2>
-          <p>Stream simulasi realtime — tiap event lengkap: IP, negara, ASN, website &amp; path yang ditarget.</p>
+          <p><b>Simulasi</b> realtime — data aslinya ada di panel Data Threat Intel Asli di atas. Tiap event simulasi lengkap: IP, negara, ASN, website &amp; path yang ditarget.</p>
         </div>
         <span class="badge red" id="feedBadge">● STREAMING</span>
       </div>
@@ -534,9 +616,9 @@
     <div class="panel-head">
       <div>
         <h2>📡 Sumber Threat Intelligence</h2>
-        <p>Feed open-source &amp; komunitas yang dipantau SOC — indikator (IOC) bertambah saat sinkronisasi berjalan.</p>
+        <p>Feed open-source &amp; komunitas yang dipantau SOC. Yang berlabel <b>✅ ASLI</b> benar-benar di-fetch browser kamu dari web — jumlah IOC &amp; waktu fetch-nya nyata; sumber lain yang tidak bisa di-fetch langsung dari browser ditandai apa adanya.</p>
       </div>
-      <span class="badge green" id="srcBadge">20 SUMBER AKTIF</span>
+      <span class="badge green" id="srcBadge">15 SUMBER</span>
     </div>
     <div class="src-grid" id="srcGrid"></div>
   </section>
@@ -682,7 +764,7 @@
   </section>
 
   <div class="footer-note">
-    <span><b>Sentinel SOC</b> — Dashboard monitoring open-source (single-file HTML + Three.js). Data ditampilkan sebagai <b>simulasi realtime</b> untuk demo &amp; pengembangan; nama aset, IP, dan pelaku adalah data contoh.</span>
+    <span><b>Sentinel SOC</b> — Dashboard monitoring open-source (single-file HTML + Three.js). Panel <b>Data Threat Intel Asli</b> mengambil data beneran dari feed publik gratis (CISA KEV, NVD, Feodo Tracker, Spamhaus, Tor Project, Blocklist.de, OpenPhish, PhishTank) dengan label sumber &amp; waktu fetch di tiap kartu; feed yang gagal di-fetch jatuh ke contoh berlabel SIMULASI. Globe, live feed, peringkat, dan tabel pelaku adalah <b>visualisasi simulasi realtime</b> — nama aset, IP, dan pelaku di panel-panel simulasi itu data contoh.</span>
     <span class="mono" id="uptimeText">Uptime sesi: 00:00:00</span>
   </div>
 </main>
@@ -1026,7 +1108,7 @@
     {icon:"🕵️", name:"IDS / IPS", desc:"Suricata • signature update 12 menit lalu", status:"ONLINE", cls:"ok"},
     {icon:"🦠", name:"Endpoint Protection", desc:"1.942 / 1.958 endpoint terlindungi", status:"16 OFFLINE", cls:"warn"},
     {icon:"🔐", name:"SIEM & Log Collector", desc:"Wazuh • 48.200 event / menit masuk", status:"ONLINE", cls:"ok"},
-    {icon:"🛡️", name:"Threat Intelligence", desc:"20 feed open-source tersinkron", status:"ONLINE", cls:"ok"},
+    {icon:"🛡️", name:"Threat Intelligence", desc:"Feed publik — status fetch asli ada di panel Data Threat Intel", status:"ONLINE", cls:"ok"},
     {icon:"🍯", name:"Honeypot Network", desc:"26 sensor aktif di 9 negara", status:"ONLINE", cls:"ok"},
     {icon:"🧱", name:"DNS Firewall", desc:"RPZ • 312 ribu domain jahat diblokir", status:"ONLINE", cls:"ok"},
     {icon:"📧", name:"Email Security Gateway", desc:"Anti-phishing • 4.812 email ditahan hari ini", status:"ONLINE", cls:"ok"},
@@ -1042,20 +1124,15 @@
 
   /* ============ THREAT INTEL SOURCES ============ */
   var sources = [
-    {icon:"🚨", name:"AbuseIPDB", desc:"Laporan IP abusive dari komunitas global", ioc:128430, unit:"IP terlarang", sync:"2 mnt lalu"},
-    {icon:"👽", name:"AlienVault OTX", desc:"Open Threat Exchange — pulses & IOC komunitas", ioc:98412, unit:"indikator", sync:"5 mnt lalu"},
-    {icon:"🧬", name:"VirusTotal Intelligence", desc:"Reputasi file, URL, domain & IP multi-engine", ioc:241870, unit:"sampel", sync:"1 mnt lalu"},
     {icon:"🌐", name:"URLhaus (abuse.ch)", desc:"URL distribusi malware yang aktif", ioc:41208, unit:"URL malware", sync:"7 mnt lalu"},
     {icon:"🎣", name:"PhishTank", desc:"Database URL phishing terverifikasi komunitas", ioc:58934, unit:"URL phishing", sync:"4 mnt lalu"},
     {icon:"📮", name:"Spamhaus DROP/EDROP", desc:"Blok netblock hijacked & spam terburuk", ioc:1893, unit:"netblock", sync:"12 mnt lalu"},
     {icon:"🤖", name:"Feodo Tracker", desc:"Server C2 botnet Emotet, QakBot, IcedID", ioc:764, unit:"server C2", sync:"9 mnt lalu"},
-    {icon:"🔓", name:"SSLBL (abuse.ch)", desc:"Sertifikat SSL yang dipakai malware & botnet", ioc:3211, unit:"sertifikat", sync:"15 mnt lalu"},
-    {icon:"🛰️", name:"GreyNoise Intelligence", desc:"Noise internet: scanner & worm massal", ioc:87230, unit:"IP scanner", sync:"3 mnt lalu"},
-    {icon:"🔎", name:"Shodan / Censys Feeds", desc:"Host terekspos & layanan rentan di internet", ioc:66418, unit:"host terpantau", sync:"8 mnt lalu"},
     {icon:"🧅", name:"Tor Exit Node List", desc:"Daftar node keluar jaringan Tor", ioc:1247, unit:"exit node", sync:"6 mnt lalu"},
     {icon:"📜", name:"Emerging Threats (Proofpoint ET Open)", desc:"Ruleset Suricata/Snort open-source", ioc:31240, unit:"signature", sync:"11 mnt lalu"},
     {icon:"🦠", name:"MalwareBazaar", desc:"Sampel malware terbaru dari abuse.ch", ioc:19544, unit:"sampel", sync:"10 mnt lalu"},
     {icon:"🏛️", name:"CISA Known Exploited Vulnerabilities", desc:"Katalog CVE yang terbukti dieksploitasi (KEV)", ioc:1210, unit:"CVE aktif", sync:"sinkron…", syncing:true},
+    {icon:"🐛", name:"NVD — National Vulnerability Database", desc:"Database CVE resmi NIST (AS) — CVE terbaru 30 hari terakhir", ioc:0, unit:"CVE baru / 30 hari", sync:"—"},
     {icon:"🦊", name:"ThreatFox (abuse.ch)", desc:"IOC malware & C2 yang baru dibagikan komunitas", ioc:9847, unit:"indikator", sync:"13 mnt lalu"},
     {icon:"📋", name:"Blocklist.de", desc:"IP yang menyerang server relawan (SSH/FTP/mail)", ioc:27412, unit:"IP penyerang", sync:"16 mnt lalu"},
     {icon:"📡", name:"Dataplane.org", desc:"IP yang memindai layanan rentan (SIP/DNS/VNC)", ioc:15308, unit:"IP scanner", sync:"18 mnt lalu"},
@@ -1065,20 +1142,22 @@
   ];
   function renderSources(){
     $("srcGrid").innerHTML = sources.map(function(s){
-      return '<div class="src-card"><h3><span class="src-dot'+(s.syncing?" sync":"")+'"></span>'+s.icon+" "+s.name+"</h3>"+
+      var dotCls = s.live==="ok" ? "" : (s.live==="fail" ? " fail" : (s.syncing ? " sync" : " off"));
+      var stat = s.live==="ok" ? "✅ ASLI • "+s.sync : (s.live==="fail" ? "⚠️ Fetch gagal — angka contoh" : "Tidak di-fetch langsung");
+      return '<div class="src-card"><h3><span class="src-dot'+dotCls+'"></span>'+s.icon+" "+s.name+"</h3>"+
         "<p>"+s.desc+"</p>"+
-        '<div class="src-meta"><span>IOC: <b class="mono">'+fmt(s.ioc)+"</b> "+s.unit+'</span><span>'+s.sync+"</span></div></div>";
+        '<div class="src-meta"><span>IOC: <b class="mono">'+fmt(s.ioc)+"</b> "+s.unit+'</span><span>'+stat+"</span></div></div>";
     }).join("");
   }
   renderSources();
   function tickSources(){
+    /* Real feeds are refreshed by the live loader (loadRealData) — never fake their numbers.
+       Other sources are display-only, so nothing is incremented here anymore. */
+    var changed = false;
     sources.forEach(function(s){
-      if(Math.random()<0.55) s.ioc += ri(1, 46);
-      if(s.syncing && Math.random()<0.5){ s.syncing = false; s.sync = "baru saja"; }
+      if(!s.live && s.syncing){ s.syncing = false; s.sync = "—"; changed = true; }
     });
-    var pickS = pick(sources);
-    pickS.sync = "baru saja";
-    renderSources();
+    if(changed) renderSources();
   }
 
   /* ============ CVE WATCH (well-known real CVEs) ============ */
@@ -1099,9 +1178,12 @@
   ];
   function renderCves(){
     $("cveList").innerHTML = cves.map(function(c){
+      var triesCell = c.kev
+        ? '<div class="tries"><b class="mono">KEV</b><span>ditambahkan '+c.dateAdded+'</span></div>'
+        : '<div class="tries"><b class="mono">'+fmt(c.tries)+'</b><span>percobaan hari ini</span></div>';
       return '<div class="cve-row"><div class="cvss '+c.cls+'">'+c.cvss+'</div>'+
-        '<div><h3 class="mono">'+c.id+'</h3><p>'+c.name+'</p></div>'+
-        '<div class="tries"><b class="mono">'+fmt(c.tries)+'</b><span>percobaan hari ini</span></div></div>';
+        '<div><h3 class="mono">'+c.id+(c.kev ? ' <span class="sev-tag critical">ASLI • CISA KEV</span>' : "")+'</h3><p>'+c.name+'</p></div>'+
+        triesCell+"</div>";
     }).join("");
   }
   renderCves();
@@ -1485,7 +1567,7 @@
     renderRanks();
     trackIp(e); bumpPort(e); feedTicker(e);
     if(Math.random()<0.35) bumpApt();
-    if(Math.random()<0.4){ var cv = pick(cves); cv.tries += ri(1,9); renderCves(); }
+    if(Math.random()<0.4){ var cv = pick(cves); if(typeof cv.tries==="number"){ cv.tries += ri(1,9); renderCves(); } }
     if(e.sev.key==="critical" && Math.random()<0.55) showToast(e);
     if((e.sev.key==="critical" || e.sev.key==="high") && Math.random()<0.5){
       incidents.unshift({id:"INC-"+ri(90413,98999), threat:e.attack.type+" ("+e.attack.cwe+")", src:e.ip+" ("+e.country.code+")", tgt:e.asset.domain+" ("+e.target.code+")", sev:e.sev.key, status: e.sev.key==="critical"?"open":"investigating", time:pad(e.time.getHours())+":"+pad(e.time.getMinutes())});
@@ -1971,6 +2053,288 @@
 
   if(typeof THREE !== "undefined"){ try{ initGlobe(); }catch(e){ initFallbackGlobe(); } }
   else { initFallbackGlobe(); }
+
+  /* ============ REAL THREAT INTEL — live fetch from free public feeds (no API key, no signup) ============ */
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(ch){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]; }); }
+  function trunc(s, n){ s = String(s||""); return s.length > n ? s.slice(0, n-1) + "…" : s; }
+  function fetchWithTimeout(u, ms){
+    if(window.AbortController){
+      var ctl = new AbortController();
+      var to = setTimeout(function(){ ctl.abort(); }, ms);
+      return fetch(u, {signal:ctl.signal, credentials:"omit"}).then(function(r){ clearTimeout(to); return r; }, function(e){ clearTimeout(to); throw e; });
+    }
+    return fetch(u);
+  }
+  /* Try the source directly first, then free public CORS proxies. A response only
+     counts when the optional validator accepts its content (e.g. a Cloudflare
+     challenge page from PhishTank must NOT count as a successful fetch). */
+  function fetchText(url, timeoutMs, validate){
+    var attempts = [
+      url,
+      "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
+      "https://corsproxy.io/?url=" + encodeURIComponent(url),
+      "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(url)
+    ];
+    var i = 0;
+    function tryNext(){
+      if(i >= attempts.length) return Promise.reject(new Error("semua jalur fetch gagal"));
+      var u = attempts[i++];
+      return fetchWithTimeout(u, timeoutMs || 15000).then(function(r){
+        if(!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      }).then(function(t){
+        if(!t || t.length < 10) throw new Error("respons kosong");
+        if(validate && !validate(t)) throw new Error("konten tidak valid");
+        return t;
+      }).catch(tryNext);
+    }
+    return tryNext();
+  }
+  var realState = {}, realCounts = {};
+  function setStatus(id, mode, html){
+    var el = $(id); if(!el) return;
+    el.className = "real-status " + mode; el.innerHTML = html;
+  }
+  function markSource(name, ok, ioc){
+    for(var i=0;i<sources.length;i++){
+      if(sources[i].name === name){
+        sources[i].live = ok ? "ok" : "fail";
+        if(ok && typeof ioc === "number") sources[i].ioc = ioc;
+        if(ok) sources[i].sync = "di-fetch " + nowTime();
+        break;
+      }
+    }
+  }
+
+  /* --- CISA KEV --- */
+  function loadKev(){
+    return fetchText("https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", 20000,
+      function(t){ return t.indexOf('"vulnerabilities"') >= 0; })
+    .then(function(t){
+      var j = JSON.parse(t);
+      var vulns = (j.vulnerabilities || []).slice();
+      if(!vulns.length) throw new Error("KEV kosong");
+      vulns.sort(function(a,b){ return (a.dateAdded||"") < (b.dateAdded||"") ? 1 : -1; });
+      var total = j.count || vulns.length;
+      var items = vulns.slice(0, 6);
+      $("realKevList").innerHTML = items.map(function(v){
+        var id = String(v.cveID || "");
+        var idHtml = /^CVE-\d{4}-\d{4,}$/.test(id)
+          ? '<a href="https://nvd.nist.gov/vuln/detail/' + id + '" target="_blank" rel="noopener">' + esc(id) + "</a>"
+          : esc(id);
+        return '<div class="real-item"><div><h4 class="mono">' + idHtml + '</h4><p><b style="color:var(--text)">' +
+          esc(v.vendorProject || "") + " " + esc(v.product || "") + "</b> — " + esc(trunc(v.vulnerabilityName || v.shortDescription || "", 110)) + "</p></div>" +
+          '<div class="real-meta"><b>' + esc(v.dateAdded || "—") + "</b>ditambahkan" +
+          (v.knownRansomwareCampaignUse === "Known" ? '<br><span style="color:#fca5a5">dipakai ransomware</span>' : "") + "</div></div>";
+      }).join("");
+      setStatus("stKev", "ok", "✅ DATA ASLI • Sumber: CISA KEV — cisa.gov • Di-fetch: " + nowTime() + " WIB • Total " + fmt(total) + " CVE di katalog");
+      realState.kev = true; realCounts.kev = total;
+      /* Also surface the newest real KEV entries at the top of the CVE watch panel */
+      cves = cves.filter(function(c){ return !c.kev; });
+      items.slice(0, 5).reverse().forEach(function(v){
+        cves.unshift({ id: esc(v.cveID || ""), kev: true, dateAdded: esc(v.dateAdded || ""),
+          name: esc(trunc((v.vendorProject || "") + " " + (v.product || "") + " — " + (v.vulnerabilityName || ""), 90)),
+          cvss: "KEV", cls: "crit", tries: null });
+      });
+      renderCves();
+    }).catch(function(){
+      realState.kev = false;
+      setStatus("stKev", "sim", "⚠️ SIMULASI • Fetch ke cisa.gov gagal (offline / diblokir) — contoh di bawah ini data simulasi, bukan data asli.");
+      $("realKevList").innerHTML = cves.filter(function(c){ return !c.kev; }).slice(0, 5).map(function(c){
+        return '<div class="real-item"><div><h4 class="mono">' + esc(c.id) + '</h4><p>' + esc(c.name) + '</p></div><div class="real-meta"><b>SIMULASI</b>contoh</div></div>';
+      }).join("");
+    });
+  }
+
+  /* --- NVD: newest CVEs published in the last 30 days --- */
+  function loadNvd(){
+    function isoNvd(d){ return d.toISOString().slice(0, -1); }
+    var q = "pubStartDate=" + encodeURIComponent(isoNvd(new Date(Date.now() - 30*864e5))) +
+            "&pubEndDate=" + encodeURIComponent(isoNvd(new Date()));
+    var base = "https://services.nvd.nist.gov/rest/json/cves/2.0";
+    var valid = function(t){ return t.indexOf('"vulnerabilities"') >= 0; };
+    return fetchText(base + "?resultsPerPage=1&" + q, 20000, valid).then(function(t1){
+      var total = JSON.parse(t1).totalResults || 0;
+      if(!total) throw new Error("NVD kosong");
+      realCounts.nvd = total;
+      var startIndex = Math.max(0, total - 80);
+      return fetchText(base + "?resultsPerPage=80&startIndex=" + startIndex + "&" + q, 25000, valid);
+    }).then(function(t2){
+      var list = (JSON.parse(t2).vulnerabilities || []).map(function(v){
+        var c = v.cve || {}, score = null, sev = "";
+        var m = c.metrics || {};
+        var arr = m.cvssMetricV40 || m.cvssMetricV31 || m.cvssMetricV30 || m.cvssMetricV2;
+        if(arr && arr[0] && arr[0].cvssData){ score = arr[0].cvssData.baseScore; sev = arr[0].cvssData.baseSeverity || ""; }
+        var desc = "";
+        (c.descriptions || []).forEach(function(d){ if(d.lang === "en" && !desc) desc = d.value; });
+        return { id: c.id || "", published: (c.published || "").slice(0, 10), score: score, sev: sev, desc: desc };
+      }).filter(function(x){ return /^CVE-\d{4}-\d{4,}$/.test(x.id); });
+      if(!list.length) throw new Error("NVD kosong");
+      list.sort(function(a,b){ return a.published < b.published ? 1 : -1; });
+      $("realNvdList").innerHTML = list.slice(0, 7).map(function(x){
+        return '<div class="real-item"><div><h4 class="mono"><a href="https://nvd.nist.gov/vuln/detail/' + x.id + '" target="_blank" rel="noopener">' + esc(x.id) + '</a></h4><p>' + esc(trunc(x.desc, 135)) + "</p></div>" +
+          '<div class="real-meta"><b>' + (x.score != null ? "CVSS " + x.score : "CVSS —") + "</b>" + esc(x.sev || "") + "<br>" + esc(x.published) + "</div></div>";
+      }).join("");
+      setStatus("stNvd", "ok", "✅ DATA ASLI • Sumber: NVD — nvd.nist.gov (NIST) • Di-fetch: " + nowTime() + " WIB • " + fmt(realCounts.nvd || list.length) + " CVE diterbitkan 30 hari terakhir");
+      realState.nvd = true;
+    }).catch(function(){
+      realState.nvd = false;
+      setStatus("stNvd", "sim", "⚠️ SIMULASI • Fetch ke nvd.nist.gov gagal (offline / diblokir) — contoh di bawah ini data simulasi, bukan data asli.");
+      $("realNvdList").innerHTML = cves.filter(function(c){ return !c.kev; }).slice(5, 10).map(function(c){
+        return '<div class="real-item"><div><h4 class="mono">' + esc(c.id) + '</h4><p>' + esc(c.name) + '</p></div><div class="real-meta"><b>SIMULASI</b>CVSS ' + esc(c.cvss) + "</div></div>";
+      }).join("");
+    });
+  }
+
+  /* --- Malicious IPs: Feodo Tracker + Blocklist.de + Spamhaus DROP + Tor exit nodes --- */
+  function loadIp(){
+    function settle(p){ return p.then(function(v){ return v; }, function(){ return null; }); }
+    var pFeodo = settle(fetchText("https://feodotracker.abuse.ch/downloads/ipblocklist.json", 15000,
+      function(t){ return t.replace(/^\s+/, "").charAt(0) === "["; }).then(function(t){ return JSON.parse(t); }));
+    var pBlock = settle(fetchText("https://lists.blocklist.de/lists/all.txt", 15000,
+      function(t){ return /\d+\.\d+\.\d+\.\d+/.test(t); }));
+    var pSpam = settle(fetchText("https://www.spamhaus.org/drop/drop.txt", 15000,
+      function(t){ return t.indexOf("Spamhaus") >= 0; }));
+    var pTor = settle(fetchText("https://check.torproject.org/torbulkexitlist", 15000,
+      function(t){ return /\d+\.\d+\.\d+\.\d+/.test(t); }));
+    return Promise.all([pFeodo, pBlock, pSpam, pTor]).then(function(res){
+      var feodo = res[0], blockTxt = res[1], spamTxt = res[2], torTxt = res[3];
+      var chips = [], items = [], okNames = [], failNames = [];
+      if(Array.isArray(feodo)){
+        realState.feodo = true; realCounts.feodo = feodo.length; okNames.push("Feodo");
+        chips.push('<span class="chip"><i style="background:var(--red2)"></i>Feodo C2: ' + fmt(feodo.length) + " server</span>");
+        var fs = feodo.slice().sort(function(a,b){
+          if((a.status === "online") !== (b.status === "online")) return a.status === "online" ? -1 : 1;
+          return (a.last_online || "") < (b.last_online || "") ? 1 : -1;
+        }).slice(0, 5);
+        fs.forEach(function(f){
+          items.push('<div class="real-item"><div><h4 class="mono">' + esc(f.ip_address || "") + ":" + esc(f.port || "") + '</h4><p>C2 botnet <b style="color:var(--text)">' + esc(f.malware || "?") + "</b> • " + esc(f.country || "") + " • " + esc(f.as_name || "") + ' • <span style="color:var(--muted2)">Feodo Tracker</span></p></div>' +
+            '<div class="real-meta"><b>' + (f.status === "online" ? "ONLINE" : "offline") + "</b>terakhir " + esc(f.last_online || "—") + "</div></div>");
+        });
+      } else { realState.feodo = false; failNames.push("Feodo"); chips.push('<span class="chip"><i style="background:var(--muted2)"></i>Feodo: fetch gagal</span>'); }
+      if(blockTxt){
+        var bIps = blockTxt.split("\n").filter(function(l){ return /^\d+\.\d+\.\d+\.\d+\s*$/.test(l); })
+          .map(function(l){ return l.replace(/\s+$/, ""); });
+        realState.blocklist = true; realCounts.blocklist = bIps.length; okNames.push("Blocklist.de");
+        chips.push('<span class="chip"><i style="background:var(--orange)"></i>Blocklist.de: ' + fmt(bIps.length) + " IP penyerang</span>");
+        bIps.slice(0, 3).forEach(function(ip){
+          items.push('<div class="real-item"><div><h4 class="mono">' + esc(ip) + '</h4><p>IP yang tertangkap menyerang server relawan (SSH/FTP/mail/web) • <span style="color:var(--muted2)">Blocklist.de</span></p></div><div class="real-meta"><b>BLACKLIST</b>aktif</div></div>');
+        });
+      } else { realState.blocklist = false; failNames.push("Blocklist.de"); chips.push('<span class="chip"><i style="background:var(--muted2)"></i>Blocklist.de: fetch gagal</span>'); }
+      if(spamTxt){
+        var nets = spamTxt.split("\n").filter(function(l){ return /^\d+\.\d+\.\d+\.\d+\/\d+/.test(l); });
+        realState.spamhaus = true; realCounts.spamhaus = nets.length; okNames.push("Spamhaus");
+        chips.push('<span class="chip"><i style="background:var(--amber)"></i>Spamhaus DROP: ' + fmt(nets.length) + " netblock</span>");
+      } else { realState.spamhaus = false; failNames.push("Spamhaus"); chips.push('<span class="chip"><i style="background:var(--muted2)"></i>Spamhaus: fetch gagal</span>'); }
+      if(torTxt){
+        var tors = torTxt.split("\n").filter(function(l){ return /^\d+\.\d+\.\d+\.\d+\s*$/.test(l); });
+        realState.tor = true; realCounts.tor = tors.length; okNames.push("Tor");
+        chips.push('<span class="chip"><i style="background:var(--violet)"></i>Tor Exit Node: ' + fmt(tors.length) + " node</span>");
+      } else { realState.tor = false; failNames.push("Tor"); chips.push('<span class="chip"><i style="background:var(--muted2)"></i>Tor: fetch gagal</span>'); }
+      $("realIpCounts").innerHTML = chips.join("");
+      if(realState.feodo || realState.blocklist){
+        setStatus("stIp", "ok", "✅ DATA ASLI • Berhasil: " + okNames.join(", ") + " • Di-fetch: " + nowTime() + " WIB" + (failNames.length ? " • Gagal: " + failNames.join(", ") : ""));
+        $("realIpList").innerHTML = items.join("");
+      } else {
+        setStatus("stIp", "sim", "⚠️ SIMULASI • Semua feed IP gagal di-fetch (offline / diblokir) — contoh di bawah ini data simulasi, bukan data asli.");
+        $("realIpList").innerHTML = BAD_IPS.slice(0, 6).map(function(b){
+          return '<div class="real-item"><div><h4 class="mono">' + esc(b.ip) + '</h4><p>' + esc(b.country.name) + " • " + esc(b.asn) + '</p></div><div class="real-meta"><b>SIMULASI</b>contoh</div></div>';
+        }).join("");
+      }
+    });
+  }
+
+  /* --- Phishing URLs: OpenPhish + PhishTank (rendered as text only — never clickable) --- */
+  function loadPhish(){
+    function settle(p){ return p.then(function(v){ return v; }, function(){ return null; }); }
+    var pOpen = settle(fetchText("https://openphish.com/feed.txt", 15000,
+      function(t){ return t.indexOf("http") >= 0; }));
+    var pTank = settle(fetchText("https://data.phishtank.com/data/online-valid.csv", 25000,
+      function(t){ return t.indexOf("phish_id") >= 0; }));
+    return Promise.all([pOpen, pTank]).then(function(res){
+      var items = [], parts = [];
+      if(res[0]){
+        var urls = res[0].split("\n").map(function(l){ return l.replace(/\s+$/, ""); }).filter(function(l){ return /^https?:\/\//.test(l); });
+        realState.openphish = true; realCounts.openphish = urls.length; parts.push("OpenPhish: " + fmt(urls.length) + " URL");
+        urls.slice(0, 4).forEach(function(u){
+          items.push('<div class="real-item"><div><h4 class="mono" style="font-weight:600">' + esc(trunc(u, 95)) + '</h4><p>URL phishing aktif • <span style="color:var(--muted2)">OpenPhish</span></p></div><div class="real-meta"><b>PHISHING</b>jangan dibuka</div></div>');
+        });
+      } else { realState.openphish = false; parts.push("OpenPhish: gagal"); }
+      if(res[1]){
+        var lines = res[1].split("\n").filter(function(l){ return l.length > 5; });
+        realState.phishtank = true; realCounts.phishtank = Math.max(0, lines.length - 1); parts.push("PhishTank: " + fmt(realCounts.phishtank) + " URL");
+        var shown = 0;
+        for(var li = 1; li < lines.length && shown < 4; li++){
+          var f = lines[li].split(",");
+          if(f[1] && /^https?:\/\//.test(f[1])){
+            var target = f.length > 7 ? f.slice(7).join(",").replace(/^"|"$/g, "") : "";
+            items.push('<div class="real-item"><div><h4 class="mono" style="font-weight:600">' + esc(trunc(f[1], 95)) + '</h4><p>Target: ' + esc(trunc(target || "—", 40)) + ' • <span style="color:var(--muted2)">PhishTank</span></p></div><div class="real-meta"><b>PHISHING</b>jangan dibuka</div></div>');
+            shown++;
+          }
+        }
+      } else { realState.phishtank = false; parts.push("PhishTank: gagal"); }
+      if(realState.openphish || realState.phishtank){
+        setStatus("stPhish", "ok", "✅ DATA ASLI • " + parts.join(" • ") + " • Di-fetch: " + nowTime() + " WIB");
+        $("realPhishList").innerHTML = items.join("");
+      } else {
+        setStatus("stPhish", "sim", "⚠️ SIMULASI • OpenPhish & PhishTank gagal di-fetch (offline / diblokir) — contoh di bawah ini data simulasi (.example), bukan situs asli.");
+        $("realPhishList").innerHTML = [
+          "http://login-bank-aman-verify.example/secure/update",
+          "https://hadiah-undian-menang.example/claim?id=88213",
+          "http://akun-sosmed-verify.example/login/confirm",
+          "https://paket-anda-tertahan.example/lacak/resi",
+          "http://e-wallet-bonus-cashback.example/masuk"
+        ].map(function(u){
+          return '<div class="real-item"><div><h4 class="mono" style="font-weight:600">' + esc(u) + '</h4><p>Contoh pola URL phishing • <span style="color:var(--muted2)">Simulasi</span></p></div><div class="real-meta"><b>SIMULASI</b>contoh</div></div>';
+        }).join("");
+      }
+    });
+  }
+
+  /* --- Orchestration: global badge, sources grid, refresh --- */
+  var FEED_LABELS = { kev:"CISA KEV", nvd:"NVD", feodo:"Feodo Tracker", blocklist:"Blocklist.de", spamhaus:"Spamhaus DROP", tor:"Tor Exit List", openphish:"OpenPhish", phishtank:"PhishTank" };
+  function finishReal(){
+    var keys = Object.keys(FEED_LABELS);
+    var ok = keys.filter(function(k){ return realState[k]; });
+    var failed = keys.filter(function(k){ return !realState[k]; });
+    var badge = $("realBadge");
+    if(badge){
+      if(ok.length === 0){ badge.className = "badge red"; badge.textContent = "⚠️ MODE SIMULASI — SEMUA FETCH GAGAL"; }
+      else if(ok.length >= 5){ badge.className = "badge green"; badge.textContent = "✅ DATA ASLI • " + ok.length + "/8 FEED BERHASIL"; }
+      else { badge.className = "badge cyan"; badge.textContent = "⚠️ SEBAGIAN ASLI • " + ok.length + "/8 FEED BERHASIL"; }
+    }
+    $("realUpdated").textContent = "Terakhir diperbarui: " + nowTime() + " WIB • " + ok.length + " dari 8 feed berhasil di-fetch langsung dari web" +
+      (failed.length ? " • Gagal: " + failed.map(function(k){ return FEED_LABELS[k]; }).join(", ") + " (kartunya memakai contoh berlabel SIMULASI)" : " • Semua feed berhasil");
+    markSource("CISA Known Exploited Vulnerabilities", !!realState.kev, realCounts.kev);
+    markSource("NVD — National Vulnerability Database", !!realState.nvd, realCounts.nvd);
+    markSource("Feodo Tracker", !!realState.feodo, realCounts.feodo);
+    markSource("Blocklist.de", !!realState.blocklist, realCounts.blocklist);
+    markSource("Spamhaus DROP/EDROP", !!realState.spamhaus, realCounts.spamhaus);
+    markSource("Tor Exit Node List", !!realState.tor, realCounts.tor);
+    markSource("OpenPhish", !!realState.openphish, realCounts.openphish);
+    markSource("PhishTank", !!realState.phishtank, realCounts.phishtank);
+    renderSources();
+    var sb = $("srcBadge");
+    if(sb) sb.textContent = sources.length + " SUMBER • " + ok.length + " DI-FETCH ASLI";
+    var hRows = document.querySelectorAll("#healthList .health-row");
+    if(hRows[4]){ var hp = hRows[4].querySelector("p"); if(hp) hp.textContent = ok.length + " dari 8 feed publik berhasil di-fetch asli • sisanya tidak di-fetch langsung"; }
+  }
+  var realLoading = false;
+  function loadRealData(){
+    if(realLoading) return;
+    realLoading = true;
+    realState = {}; realCounts = {};
+    var btn = $("realRefreshBtn");
+    if(btn){ btn.disabled = true; btn.textContent = "⏳ Mengambil data…"; }
+    Promise.all([loadKev(), loadNvd(), loadIp(), loadPhish()]).then(function(){
+      realLoading = false;
+      if(btn){ btn.disabled = false; btn.textContent = "↻ Muat Ulang Data Asli"; }
+      finishReal();
+    });
+  }
+  $("realRefreshBtn").addEventListener("click", loadRealData);
+  loadRealData();
+  setInterval(loadRealData, 15*60*1000);
 
   /* ============ MAIN LOOPS ============ */
   setInterval(function(){ if(running){ pushEvent(); } }, 2600);
