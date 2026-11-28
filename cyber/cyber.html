@@ -1,0 +1,1983 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>Cybersecurity Dashboard — Sentinel SOC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  :root{
+    --bg:#04070d;
+    --bg2:#070d18;
+    --panel:#0a1220;
+    --panel2:#0d1728;
+    --line:rgba(148,197,255,.12);
+    --line2:rgba(148,197,255,.08);
+    --text:#e8f1ff;
+    --muted:#8ea3bf;
+    --muted2:#5f748f;
+    --cyan:#22d3ee;
+    --cyan2:#0ea5e9;
+    --teal:#2dd4bf;
+    --green:#34d399;
+    --amber:#fbbf24;
+    --orange:#fb923c;
+    --red:#f87171;
+    --red2:#ef4444;
+    --violet:#a78bfa;
+    --pink:#f472b6;
+    --radius:18px;
+    --radius-sm:12px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:
+      radial-gradient(900px 500px at 15% -10%, rgba(14,165,233,.14), transparent 60%),
+      radial-gradient(800px 500px at 95% 0%, rgba(45,212,191,.08), transparent 55%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    color:var(--text);
+    font-family:"Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  .mono{font-family:"JetBrains Mono", ui-monospace, monospace}
+  button{font-family:inherit; cursor:pointer; min-height:40px}
+  a{color:var(--cyan)}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter: blur(14px);
+    background:rgba(4,7,13,.82);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1440px; margin:0 auto; padding:12px 20px;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .brand{display:flex; align-items:center; gap:12px; min-width:0}
+  .brand-mark{
+    width:42px; height:42px; border-radius:12px; flex:0 0 auto;
+    display:grid; place-items:center;
+    background:linear-gradient(145deg,#0e2a3f,#071525);
+    border:1px solid rgba(34,211,238,.35);
+    box-shadow:0 0 0 1px rgba(34,211,238,.08), 0 10px 30px rgba(14,165,233,.18) inset;
+    font-size:20px;
+  }
+  .brand h1{font-size:15px; line-height:1.1; margin:0; letter-spacing:.02em; font-weight:800}
+  .brand p{margin:2px 0 0; font-size:11px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase; font-weight:600}
+  .live-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 12px; border-radius:999px;
+    border:1px solid rgba(52,211,153,.35);
+    background:rgba(52,211,153,.08);
+    font-size:12px; font-weight:700; letter-spacing:.08em;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--green); box-shadow:0 0 0 0 rgba(52,211,153,.6); animation:pulse 1.8s infinite}
+  .dot.paused{background:var(--amber); animation:none; box-shadow:none}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  .top-actions{margin-left:auto; display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .clock{
+    text-align:right; line-height:1.1;
+    padding:6px 10px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.02);
+  }
+  .clock b{font-size:14px; letter-spacing:.04em}
+  .clock span{display:block; font-size:11px; color:var(--muted); margin-top:2px}
+  .btn{
+    border:1px solid var(--line); background:#0b1626; color:var(--text);
+    padding:0 16px; border-radius:12px; font-weight:700; font-size:13px;
+    display:inline-flex; align-items:center; gap:8px; min-height:42px;
+  }
+  .btn-primary{background:linear-gradient(135deg,#0891b2,#0ea5e9); border-color:rgba(34,211,238,.5); color:white; box-shadow:0 8px 24px rgba(14,165,233,.25)}
+  .btn:active{transform:translateY(1px)}
+
+  .wrap{max-width:1440px; margin:0 auto; padding:18px 20px 28px}
+
+  /* ---------- KPI ---------- */
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:14px}
+  .kpi{
+    background:linear-gradient(180deg, var(--panel2), var(--panel));
+    border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 16px 14px; position:relative; overflow:hidden;
+  }
+  .kpi::before{content:""; position:absolute; inset:0 0 auto 0; height:1px; background:linear-gradient(90deg, transparent, rgba(34,211,238,.5), transparent)}
+  .kpi-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px}
+  .kpi-label{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:700}
+  .kpi-icon{width:36px;height:36px;border-radius:10px; display:grid; place-items:center; background:rgba(34,211,238,.10); border:1px solid rgba(34,211,238,.18); font-size:17px}
+  .kpi-value{font-size:30px; font-weight:800; letter-spacing:-.02em; margin:8px 0 2px; line-height:1}
+  .kpi-sub{font-size:12px; color:var(--muted); display:flex; gap:6px; align-items:center; flex-wrap:wrap}
+  .trend{font-weight:700; padding:2px 7px; border-radius:999px; font-size:11px}
+  .trend.up{color:#fca5a5; background:rgba(239,68,68,.12)}
+  .trend.down{color:#6ee7b7; background:rgba(52,211,153,.12)}
+  .trend.flat{color:#a5b4fc; background:rgba(167,139,250,.12)}
+  .spark{width:100%; height:36px; display:block; margin-top:10px}
+
+  /* ---------- GRID ---------- */
+  .grid{display:grid; grid-template-columns:1.65fr .95fr; gap:14px; align-items:stretch}
+  .grid2{display:grid; grid-template-columns:1.25fr .85fr .9fr; gap:14px; margin-top:14px}
+  .grid3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:14px}
+  .panel{
+    background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0) 40%), var(--panel);
+    border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; display:flex; flex-direction:column; min-width:0;
+  }
+  .panel-head{
+    padding:14px 16px 12px; display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    border-bottom:1px solid var(--line2);
+  }
+  .panel-head h2{margin:0; font-size:14px; font-weight:800; letter-spacing:.02em}
+  .panel-head p{margin:3px 0 0; font-size:12px; color:var(--muted); line-height:1.4}
+  .badge{font-size:11px; font-weight:800; letter-spacing:.08em; padding:6px 9px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.03); white-space:nowrap}
+  .badge.cyan{color:#7dd3fc; border-color:rgba(34,211,238,.3); background:rgba(34,211,238,.08)}
+  .badge.red{color:#fca5a5; border-color:rgba(248,113,113,.3); background:rgba(248,113,113,.08)}
+  .badge.green{color:#6ee7b7; border-color:rgba(52,211,153,.3); background:rgba(52,211,153,.08)}
+  .badge.violet{color:#c4b5fd; border-color:rgba(167,139,250,.3); background:rgba(167,139,250,.08)}
+
+  /* Globe */
+  .globe-wrap{position:relative; background:radial-gradient(600px 340px at 50% 42%, rgba(14,165,233,.14), transparent 65%)}
+  #globe{width:100%; height:430px; display:block; cursor:grab}
+  #globe:active{cursor:grabbing}
+  .globe-legend{
+    display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+    padding:10px 14px 12px; border-top:1px solid var(--line2);
+    background:rgba(255,255,255,.015);
+  }
+  .chip{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:11px; font-weight:700; padding:6px 10px; border-radius:999px;
+    background:rgba(4,10,20,.78); border:1px solid var(--line);
+  }
+  .chip i{width:7px;height:7px;border-radius:50%; display:inline-block}
+  .globe-stats{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line2); border-top:1px solid var(--line2);
+  }
+  .gstat{background:var(--panel); padding:12px 14px}
+  .gstat b{font-size:16px; display:block}
+  .gstat span{font-size:11px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; font-weight:700}
+
+  /* Feed */
+  .feed-tools{padding:10px 12px; display:flex; gap:8px; flex-wrap:wrap; border-bottom:1px solid var(--line2)}
+  .filter-btn{
+    min-height:36px; padding:0 12px; border-radius:999px; border:1px solid var(--line);
+    background:transparent; color:var(--muted); font-weight:700; font-size:12px;
+  }
+  .filter-btn.active{background:#e0f2fe; color:#082f49; border-color:#e0f2fe}
+  .feed{overflow-y:auto; max-height:520px; scrollbar-width:thin}
+  .feed-item{
+    padding:12px 14px; border-bottom:1px solid var(--line2);
+    display:grid; grid-template-columns:10px 1fr auto; gap:10px; align-items:start;
+    animation:slideIn .35s ease both;
+  }
+  @keyframes slideIn{from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:none}}
+  .sev-dot{width:9px;height:9px;border-radius:50%; margin-top:5px}
+  .sev-critical{background:var(--red2); box-shadow:0 0 12px rgba(239,68,68,.8)}
+  .sev-high{background:var(--orange)}
+  .sev-medium{background:var(--amber)}
+  .sev-low{background:var(--cyan)}
+  .feed-item h3{margin:0; font-size:13px; font-weight:700; line-height:1.35}
+  .feed-item p{margin:3px 0 0; font-size:12px; color:var(--muted); line-height:1.5; word-break:break-word}
+  .feed-meta{font-size:11px; color:var(--muted2); text-align:right; line-height:1.5; white-space:nowrap}
+  .sev-tag{font-size:10px; font-weight:800; letter-spacing:.07em; padding:3px 7px; border-radius:999px; text-transform:uppercase; white-space:nowrap}
+  .sev-tag.critical{color:#fecaca;background:rgba(239,68,68,.16)}
+  .sev-tag.high{color:#fed7aa;background:rgba(251,146,60,.14)}
+  .sev-tag.medium{color:#fde68a;background:rgba(251,191,36,.12)}
+  .sev-tag.low{color:#a5f3fc;background:rgba(34,211,238,.12)}
+
+  /* Charts */
+  .tabs{display:flex; gap:6px}
+  .tab{min-height:36px; padding:0 12px; border-radius:10px; border:1px solid var(--line); background:transparent; color:var(--muted); font-weight:700; font-size:12px}
+  .tab.active{background:rgba(34,211,238,.14); color:#bae6fd; border-color:rgba(34,211,238,.35)}
+  #trafficChart{width:100%; height:210px; display:block}
+  .legend{display:flex; gap:14px; flex-wrap:wrap; padding:10px 16px 14px; font-size:12px; color:var(--muted)}
+  .legend i{width:9px;height:9px;border-radius:3px;display:inline-block;margin-right:6px}
+
+  .vector-list{padding:6px 16px 16px; display:grid; gap:13px}
+  .vector-row{display:grid; gap:6px}
+  .vector-top{display:flex; justify-content:space-between; gap:10px; font-size:12.5px}
+  .vector-top b{font-weight:700}
+  .vector-top span{color:var(--muted)}
+  .bar{height:8px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden}
+  .bar > div{height:100%; border-radius:999px; transition:width .8s ease}
+
+  .health-list{padding:8px 16px 16px; display:grid; gap:10px}
+  .health-row{display:flex; align-items:center; gap:11px; padding:11px 12px; border:1px solid var(--line2); border-radius:12px; background:rgba(255,255,255,.015)}
+  .health-ic{width:38px;height:38px;border-radius:10px; display:grid; place-items:center; background:rgba(255,255,255,.04); border:1px solid var(--line2); font-size:17px; flex:0 0 auto}
+  .health-row h3{margin:0; font-size:13px}
+  .health-row p{margin:2px 0 0; font-size:11.5px; color:var(--muted)}
+  .health-status{margin-left:auto; text-align:right; flex:0 0 auto}
+  .health-status b{font-size:12px}
+  .ok{color:var(--green)} .warn{color:var(--amber)} .bad{color:var(--red)}
+
+  /* Rankings */
+  .rank-list{padding:10px 16px 16px; display:grid; gap:11px}
+  .rank-row{display:grid; gap:5px}
+  .rank-top{display:flex; justify-content:space-between; gap:10px; font-size:12.5px; align-items:baseline}
+  .rank-top b{font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .rank-top .mono{color:var(--muted); font-size:11.5px; white-space:nowrap}
+  .rank-num{display:inline-grid; place-items:center; width:20px; height:20px; border-radius:6px; background:rgba(34,211,238,.12); color:#7dd3fc; font-size:11px; font-weight:800; margin-right:7px; flex:0 0 auto}
+  .rank-name{display:flex; align-items:center; min-width:0}
+
+  /* Donut */
+  .donut-wrap{display:flex; align-items:center; gap:16px; padding:14px 16px 16px; flex-wrap:wrap}
+  #protoDonut{width:150px; height:150px; flex:0 0 auto}
+  .donut-legend{display:grid; gap:8px; font-size:12.5px; flex:1; min-width:150px}
+  .donut-legend div{display:flex; align-items:center; gap:8px}
+  .donut-legend i{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
+  .donut-legend span{margin-left:auto; color:var(--muted)}
+
+  /* Sources */
+  .src-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:14px 16px 16px}
+  .src-card{border:1px solid var(--line2); border-radius:14px; padding:13px 14px; background:rgba(255,255,255,.015); display:grid; gap:5px}
+  .src-card h3{margin:0; font-size:13px; display:flex; align-items:center; gap:8px}
+  .src-card p{margin:0; font-size:11.5px; color:var(--muted); line-height:1.45}
+  .src-meta{display:flex; justify-content:space-between; gap:8px; font-size:11px; color:var(--muted2); margin-top:4px; flex-wrap:wrap}
+  .src-meta b{color:var(--text); font-size:12px}
+  .src-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:0 0 auto; box-shadow:0 0 8px rgba(52,211,153,.7)}
+  .src-dot.sync{background:var(--amber); box-shadow:0 0 8px rgba(251,191,36,.7)}
+
+  /* CVE */
+  .cve-list{padding:8px 16px 16px; display:grid; gap:10px}
+  .cve-row{display:flex; gap:11px; align-items:flex-start; padding:11px 12px; border:1px solid var(--line2); border-radius:12px; background:rgba(255,255,255,.015)}
+  .cvss{font-weight:800; font-size:13px; padding:6px 8px; border-radius:9px; text-align:center; min-width:46px; flex:0 0 auto}
+  .cvss.crit{color:#fecaca; background:rgba(239,68,68,.18)}
+  .cvss.high{color:#fed7aa; background:rgba(251,146,60,.15)}
+  .cve-row h3{margin:0; font-size:12.5px}
+  .cve-row p{margin:2px 0 0; font-size:11.5px; color:var(--muted); line-height:1.45}
+  .cve-row .tries{margin-left:auto; text-align:right; flex:0 0 auto}
+  .cve-row .tries b{font-size:13px; display:block}
+  .cve-row .tries span{font-size:10.5px; color:var(--muted2)}
+
+  /* Tables */
+  .table-panel{margin-top:14px}
+  .table-scroll{overflow-x:auto}
+  table{width:100%; border-collapse:collapse; min-width:860px}
+  table.wide{min-width:1180px}
+  th{ text-align:left; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); padding:12px 16px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.015)}
+  td{padding:13px 16px; border-bottom:1px solid var(--line2); font-size:13px; vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tbody tr.new-row{animation:slideIn .35s ease both}
+  .status-pill{font-size:11px; font-weight:800; padding:5px 9px; border-radius:999px; white-space:nowrap}
+  .status-pill.investigating{color:#fde68a;background:rgba(251,191,36,.12)}
+  .status-pill.contained{color:#a5f3fc;background:rgba(34,211,238,.12)}
+  .status-pill.resolved{color:#6ee7b7;background:rgba(52,211,153,.12)}
+  .status-pill.open{color:#fca5a5;background:rgba(239,68,68,.12)}
+  .status-pill.blocked{color:#6ee7b7;background:rgba(52,211,153,.12)}
+  .status-pill.monitored{color:#fde68a;background:rgba(251,191,36,.12)}
+  .path-cell{font-size:11.5px; color:var(--muted); word-break:break-all}
+  .path-cell b{color:#7dd3fc; font-weight:600}
+
+  .footer-note{margin-top:14px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--muted2); font-size:12px; padding:2px 2px 0}
+  .footer-note b{color:var(--muted)}
+
+  .toast{
+    position:fixed; right:16px; bottom:16px; z-index:80; max-width:min(360px, calc(100vw - 32px));
+    background:#0b1a2e; border:1px solid rgba(248,113,113,.4); color:var(--text);
+    border-radius:14px; padding:13px 14px; box-shadow:0 20px 50px rgba(0,0,0,.45);
+    display:none;
+  }
+  .toast.show{display:block; animation:slideIn .3s ease both}
+  .toast b{font-size:13px}
+  .toast p{margin:4px 0 0; font-size:12px; color:var(--muted); line-height:1.45}
+
+  /* Ticker */
+  .ticker{border-bottom:1px solid var(--line); background:rgba(239,68,68,.05)}
+  .ticker-inner{max-width:1440px; margin:0 auto; padding:8px 20px; display:flex; gap:12px; align-items:center; font-size:12.5px}
+  .ticker-tag{flex:0 0 auto; font-size:10px; font-weight:800; letter-spacing:.12em; color:#fca5a5; background:rgba(239,68,68,.14); border:1px solid rgba(248,113,113,.3); padding:4px 8px; border-radius:6px}
+  #tickerText{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--muted); transition:opacity .3s ease}
+  #tickerText b{color:var(--text)}
+
+  /* Counters & timeline */
+  .grid2col{display:grid; grid-template-columns:1.05fr .95fr; gap:14px; margin-top:14px}
+  @media (max-width: 900px){ .grid2col{grid-template-columns:1fr} }
+  .counter-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:14px 16px 16px}
+  @media (max-width: 420px){ .counter-grid{grid-template-columns:1fr} }
+  .counter{border:1px solid var(--line2); border-radius:12px; padding:12px 13px; background:rgba(255,255,255,.015)}
+  .counter b{font-size:19px; display:block; letter-spacing:-.01em}
+  .counter span{font-size:11.5px; color:var(--muted); display:flex; gap:6px; align-items:center; margin-top:3px; line-height:1.4}
+  .timeline{padding:6px 16px 12px; display:grid}
+  .tl-row{display:grid; grid-template-columns:54px 1fr; gap:12px; padding:9px 0; border-bottom:1px solid var(--line2)}
+  .tl-row:last-child{border-bottom:none}
+  .tl-year{font-weight:800; color:#7dd3fc; font-size:13px; padding-top:1px}
+  .tl-row h3{margin:0; font-size:12.5px}
+  .tl-row p{margin:2px 0 0; font-size:11.5px; color:var(--muted); line-height:1.45}
+  .apt-sub{font-size:11px; color:var(--muted2); margin-top:1px}
+
+  @media (max-width: 1180px){
+    .src-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width: 1080px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .grid{grid-template-columns:1fr}
+    .grid2{grid-template-columns:1fr 1fr}
+    .grid3{grid-template-columns:1fr 1fr}
+    .feed{max-height:440px}
+    #globe{height:380px}
+  }
+  @media (max-width: 680px){
+    .wrap{padding:14px 12px 22px}
+    .topbar-inner{padding:10px 12px}
+    .brand p{display:none}
+    .clock{display:none}
+    .kpis{grid-template-columns:1fr 1fr; gap:10px}
+    .kpi-value{font-size:24px}
+    .grid2{grid-template-columns:1fr}
+    .grid3{grid-template-columns:1fr}
+    .src-grid{grid-template-columns:1fr 1fr; padding:12px}
+    #globe{height:320px}
+    .globe-stats{grid-template-columns:repeat(2,1fr)}
+    .gstat{padding:10px}
+    .gstat b{font-size:14px}
+    table, table.wide{min-width:0}
+    thead{display:none}
+    tbody, tr, td{display:block; width:100%}
+    tr{padding:10px 6px; border-bottom:1px solid var(--line)}
+    td{border:none; padding:5px 12px}
+    td::before{content:attr(data-label); display:block; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted2); font-weight:700; margin-bottom:2px}
+  }
+  @media (max-width: 420px){
+    .src-grid{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">🛡️</div>
+      <div>
+        <h1>Sentinel SOC</h1>
+        <p>Security Operations Center</p>
+      </div>
+    </div>
+
+    <div class="live-pill" id="livePill"><span class="dot" id="liveDot"></span><span id="liveText">LIVE MONITORING</span></div>
+
+    <div class="top-actions">
+      <div class="clock mono">
+        <b id="clockTime">--:--:--</b>
+        <span id="clockDate">Memuat waktu…</span>
+      </div>
+      <button class="btn" id="rotateBtn" type="button">🌐 Rotasi: ON</button>
+      <button class="btn btn-primary" id="pauseBtn" type="button">⏸ Pause Live</button>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-label="Aktivitas ancaman terkini">
+  <div class="ticker-inner">
+    <span class="ticker-tag">TERKINI</span>
+    <span id="tickerText">Memuat aktivitas ancaman terbaru…</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- KPI -->
+  <section class="kpis" aria-label="Ringkasan keamanan">
+    <article class="kpi">
+      <div class="kpi-top"><span class="kpi-label">Ancaman Diblokir</span><span class="kpi-icon">🚫</span></div>
+      <div class="kpi-value mono" id="kpiBlocked">12,847</div>
+      <div class="kpi-sub"><span class="trend up">▲ 8,4%</span> vs 24 jam lalu</div>
+      <canvas class="spark" id="spark1" width="300" height="36" aria-hidden="true"></canvas>
+    </article>
+    <article class="kpi">
+      <div class="kpi-top"><span class="kpi-label">Insiden Aktif</span><span class="kpi-icon">🚨</span></div>
+      <div class="kpi-value mono" id="kpiIncidents">23</div>
+      <div class="kpi-sub"><span class="trend down">▼ 12,1%</span> 4 kritis perlu tindakan</div>
+      <canvas class="spark" id="spark2" width="300" height="36" aria-hidden="true"></canvas>
+    </article>
+    <article class="kpi">
+      <div class="kpi-top"><span class="kpi-label">Traffic Jaringan</span><span class="kpi-icon">📡</span></div>
+      <div class="kpi-value mono"><span id="kpiTraffic">8.42</span> <small style="font-size:15px;color:var(--muted)">Gbps</small></div>
+      <div class="kpi-sub"><span class="trend flat">● Normal</span> kapasitas 62% terpakai</div>
+      <canvas class="spark" id="spark3" width="300" height="36" aria-hidden="true"></canvas>
+    </article>
+    <article class="kpi">
+      <div class="kpi-top"><span class="kpi-label">Skor Keamanan</span><span class="kpi-icon">💚</span></div>
+      <div class="kpi-value mono"><span id="kpiScore">94</span><small style="font-size:15px;color:var(--muted)">/100</small></div>
+      <div class="kpi-sub"><span class="trend down">▲ +2 poin</span> posture: <b style="color:var(--green)">Sangat Baik</b></div>
+      <canvas class="spark" id="spark4" width="300" height="36" aria-hidden="true"></canvas>
+    </article>
+  </section>
+
+  <!-- GLOBE + FEED -->
+  <section class="grid">
+    <article class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>🌍 Peta Serangan Global — 3D Live</h2>
+          <p>Serangan siber itu <b>global dan antar-negara</b>: Rusia menyerang Amerika Serikat, China menyerang Jerman, Korea Utara menyerang Korea Selatan, dan seterusnya. Di peta ini, label biru adalah negara sumber serangan, label <b style="color:var(--green)">hijau</b> adalah 12 negara target yang dipantau — proyektil meluncur dari negara penyerang ke negara targetnya, meninggalkan jejak cahaya, lalu meledak saat menghantam. Seret globe untuk memutar manual.</p>
+        </div>
+        <span class="badge cyan">THREE.JS • WEBGL</span>
+      </div>
+      <div class="globe-wrap">
+        <canvas id="globe" aria-label="Globe 3D serangan siber global"></canvas>
+      </div>
+      <div class="globe-legend" aria-label="Legenda peta serangan">
+        <span class="chip"><i style="background:var(--red2)"></i> Critical attack</span>
+        <span class="chip"><i style="background:var(--amber)"></i> Scanning / probe</span>
+        <span class="chip"><i style="background:var(--cyan)"></i> Blocked traffic</span>
+        <span class="chip"><i style="background:#ffffff"></i> Proyektil &amp; ledakan dampak</span>
+        <span class="chip mono" id="attackCounter">0 serangan divisualkan</span>
+        <span class="chip"><i style="background:var(--green)"></i> Target: 12 negara dipantau</span>
+        <span class="chip mono" id="lastAttack">Menunggu serangan masuk…</span>
+      </div>
+      <div class="globe-stats">
+        <div class="gstat"><b class="mono" id="statCountries">46</b><span>Negara sumber</span></div>
+        <div class="gstat"><b class="mono" id="statPerMin">312<span style="font-size:12px;color:var(--muted)">/mnt</span></b><span>Serangan / menit</span></div>
+        <div class="gstat"><b class="mono" id="statTopOrigin">—</b><span>Sumber terbanyak</span></div>
+        <div class="gstat"><b class="mono" id="statTopTarget">—</b><span>Target terbanyak</span></div>
+        <div class="gstat"><b class="mono" id="statUniqueIp">18.442</b><span>IP penyerang unik</span></div>
+      </div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>⚡ Live Threat Feed</h2>
+          <p>Stream simulasi realtime — tiap event lengkap: IP, negara, ASN, website &amp; path yang ditarget.</p>
+        </div>
+        <span class="badge red" id="feedBadge">● STREAMING</span>
+      </div>
+      <div class="feed-tools" role="group" aria-label="Filter severity">
+        <button class="filter-btn active" data-filter="all" type="button">Semua</button>
+        <button class="filter-btn" data-filter="critical" type="button">Critical</button>
+        <button class="filter-btn" data-filter="high" type="button">High</button>
+        <button class="filter-btn" data-filter="medium" type="button">Medium</button>
+        <button class="filter-btn" data-filter="low" type="button">Low</button>
+      </div>
+      <div class="feed" id="feed" aria-live="polite"></div>
+    </article>
+  </section>
+
+  <!-- RANKINGS ROW -->
+  <section class="grid3">
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🏴 Negara Penyerang Teratas</h2><p>Peringkat live — berubah tiap ada serangan baru.</p></div>
+        <span class="badge red">LIVE</span>
+      </div>
+      <div class="rank-list" id="countryRank"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🎯 Website Paling Ditarget</h2><p>Aset &amp; domain yang paling sering diserang hari ini — tersebar di 12 negara target.</p></div>
+        <span class="badge cyan">26 ASET</span>
+      </div>
+      <div class="rank-list" id="targetRank"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🔌 Protokol &amp; Port Diserang</h2><p>Distribusi traffic berbahaya per protokol.</p></div>
+        <span class="badge">24 JAM</span>
+      </div>
+      <div class="donut-wrap">
+        <canvas id="protoDonut" width="300" height="300" aria-label="Diagram distribusi protokol serangan"></canvas>
+        <div class="donut-legend" id="protoLegend"></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- TARGET COUNTRIES + ATTACK ROUTES -->
+  <section class="grid2col">
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🎯 Negara Target Teratas</h2><p>Negara yang paling sering diserang — targetnya tersebar di seluruh dunia, bukan satu negara saja.</p></div>
+        <span class="badge green">12 NEGARA</span>
+      </div>
+      <div class="rank-list" id="targetCountryRank"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🔥 Rute Serangan Terpanas</h2><p>Pasangan antar-negara tersibuk: siapa menyerang siapa, ter-update tiap serangan masuk.</p></div>
+        <span class="badge red">LIVE</span>
+      </div>
+      <div class="rank-list" id="routeRank"></div>
+    </article>
+  </section>
+
+  <!-- ATTACKER TABLE -->
+  <section class="panel table-panel">
+    <div class="panel-head">
+      <div>
+        <h2>🥷 Pelaku Serangan — Realtime</h2>
+        <p>Siapa menyerang apa: IP, lokasi, ISP/ASN, jenis serangan, website + path target, dan metode HTTP-nya.</p>
+      </div>
+      <span class="badge red" id="attackerBadge">● LIVE</span>
+    </div>
+    <div class="table-scroll">
+      <table class="wide">
+        <thead>
+          <tr><th>Waktu</th><th>IP Penyerang</th><th>Asal (Negara / Kota)</th><th>ASN / ISP</th><th>Jenis Serangan</th><th>Target: Website + Path</th><th>Metode</th><th>Status</th></tr>
+        </thead>
+        <tbody id="attackerBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- THREAT INTEL SOURCES -->
+  <section class="panel table-panel">
+    <div class="panel-head">
+      <div>
+        <h2>📡 Sumber Threat Intelligence</h2>
+        <p>Feed open-source &amp; komunitas yang dipantau SOC — indikator (IOC) bertambah saat sinkronisasi berjalan.</p>
+      </div>
+      <span class="badge green" id="srcBadge">20 SUMBER AKTIF</span>
+    </div>
+    <div class="src-grid" id="srcGrid"></div>
+  </section>
+
+  <!-- CVE + MITRE + HONEYPOT -->
+  <section class="grid3">
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🐛 Pantauan CVE Kritis</h2><p>CVE terkenal yang aktif dicoba dieksploitasi ke aset di 12 negara target.</p></div>
+        <span class="badge red">CVSS</span>
+      </div>
+      <div class="cve-list" id="cveList"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🧭 MITRE ATT&amp;CK</h2><p>Taktik yang terdeteksi pada serangan hari ini.</p></div>
+        <span class="badge violet">TACTICS</span>
+      </div>
+      <div class="vector-list" id="mitreList" style="padding-top:12px"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🍯 Honeypot &amp; Malware</h2><p>Jebakan aktif &amp; keluarga malware yang tertangkap.</p></div>
+        <span class="badge cyan">DECEPTION</span>
+      </div>
+      <div class="health-list" id="honeyList"></div>
+      <div class="vector-list" id="malwareList" style="padding-top:2px"></div>
+    </article>
+  </section>
+
+  <!-- APT + TOP IP + PORTS -->
+  <section class="grid3">
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🕶️ Grup Aktor Ancaman (APT)</h2><p>Kelompok penyerang terorganisir yang aktivitasnya terpantau hari ini.</p></div>
+        <span class="badge violet">AKTOR</span>
+      </div>
+      <div class="vector-list" id="aptList" style="padding-top:12px"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🎯 IP Penyerang Paling Aktif</h2><p>Alamat IP dengan jumlah serangan terbanyak — naik secara realtime.</p></div>
+        <span class="badge red">LIVE</span>
+      </div>
+      <div class="rank-list" id="topIpList"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🚪 Port Paling Diserang</h2><p>Layanan yang paling sering dipindai &amp; diserang penyerang.</p></div>
+        <span class="badge cyan">LIVE</span>
+      </div>
+      <div class="vector-list" id="portList" style="padding-top:12px"></div>
+    </article>
+  </section>
+
+  <!-- DAILY COUNTERS + BREACH TIMELINE -->
+  <section class="grid2col">
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>📊 Aktivitas Keamanan Hari Ini</h2><p>Penghitung pertahanan yang berjalan terus selama pemantauan aktif.</p></div>
+        <span class="badge green">● BERJALAN</span>
+      </div>
+      <div class="counter-grid" id="counterGrid"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🗓️ Linimasa Insiden Siber Besar Dunia</h2><p>Referensi kejadian nyata — konteks kenapa pemantauan ini penting.</p></div>
+        <span class="badge">REFERENSI</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-row"><div class="tl-year mono">2024</div><div><h3>Change Healthcare — Ransomware ALPHV/BlackCat</h3><p>Serangan ke raksasa layanan kesehatan AS; sekitar 100 juta orang terdampak, sistem klaim nasional lumpuh berminggu-minggu.</p></div></div>
+        <div class="tl-row"><div class="tl-year mono">2023</div><div><h3>MOVEit Transfer — Eksploitasi Massal CL0P</h3><p>Celah SQL injection dipakai geng ransomware CL0P; 2.600+ organisasi dan ±90 juta korban terdampak.</p></div></div>
+        <div class="tl-row"><div class="tl-year mono">2021</div><div><h3>Log4Shell — CVE-2021-44228 (CVSS 10.0)</h3><p>Kerentanan di library Log4j memicu gelombang eksploitasi global ke jutaan server dalam hitungan hari.</p></div></div>
+        <div class="tl-row"><div class="tl-year mono">2021</div><div><h3>Colonial Pipeline — Ransomware DarkSide</h3><p>Jaringan pipa BBM terbesar di AS berhenti beroperasi 6 hari; tebusan 75 BTC dibayarkan.</p></div></div>
+        <div class="tl-row"><div class="tl-year mono">2020</div><div><h3>SolarWinds — Serangan Supply-Chain</h3><p>Pembaruan perangkat lunak Orion disusupi; ±18.000 organisasi mengunduh versi berbahaya.</p></div></div>
+        <div class="tl-row"><div class="tl-year mono">2017</div><div><h3>WannaCry &amp; Equifax</h3><p>Ransomware WannaCry menginfeksi 200 ribu+ komputer di 150 negara; Equifax membocorkan data 147 juta orang.</p></div></div>
+        <div class="tl-row"><div class="tl-year mono">2013</div><div><h3>Yahoo — Kebocoran Terbesar Sepanjang Sejarah</h3><p>Seluruh 3 miliar akun Yahoo bocor; baru diakui penuh pada 2017.</p></div></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- CHARTS ROW -->
+  <section class="grid2">
+    <article class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>📈 Traffic &amp; Serangan</h2>
+          <p>Request per detik vs serangan yang terdeteksi.</p>
+        </div>
+        <div class="tabs" role="group" aria-label="Rentang waktu">
+          <button class="tab active" data-range="1H" type="button">1J</button>
+          <button class="tab" data-range="6H" type="button">6J</button>
+          <button class="tab" data-range="24H" type="button">24J</button>
+        </div>
+      </div>
+      <div style="padding:12px 8px 0"><canvas id="trafficChart" width="640" height="210"></canvas></div>
+      <div class="legend">
+        <span><i style="background:#22d3ee"></i>Traffic normal</span>
+        <span><i style="background:#f87171"></i>Serangan terdeteksi</span>
+        <span class="mono" id="chartPeak">Peak: —</span>
+      </div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🎯 Vektor Serangan</h2><p>Distribusi 24 jam terakhir.</p></div>
+        <span class="badge">OWASP TOP 10</span>
+      </div>
+      <div class="vector-list" id="vectorList"></div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-head">
+        <div><h2>🖥️ Kesehatan Sistem</h2><p>Komponen pertahanan utama.</p></div>
+        <span class="badge cyan" id="healthBadge">11/12 ONLINE</span>
+      </div>
+      <div class="health-list" id="healthList"></div>
+    </article>
+  </section>
+
+  <!-- INCIDENTS TABLE -->
+  <section class="panel table-panel">
+    <div class="panel-head">
+      <div>
+        <h2>📋 Insiden Terbaru</h2>
+        <p>Kasus yang sedang ditangani tim SOC — diperbarui otomatis saat feed berjalan.</p>
+      </div>
+      <span class="badge red" id="incidentBadge">4 KRITIS</span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>ID Insiden</th><th>Ancaman</th><th>Sumber</th><th>Target</th><th>Severity</th><th>Status</th><th>Waktu</th></tr>
+        </thead>
+        <tbody id="incidentBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    <span><b>Sentinel SOC</b> — Dashboard monitoring open-source (single-file HTML + Three.js). Data ditampilkan sebagai <b>simulasi realtime</b> untuk demo &amp; pengembangan; nama aset, IP, dan pelaku adalah data contoh.</span>
+    <span class="mono" id="uptimeText">Uptime sesi: 00:00:00</span>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="alert">
+  <b id="toastTitle">🚨 Ancaman Kritis Terdeteksi</b>
+  <p id="toastBody">—</p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var running = true;
+  var startTime = Date.now();
+  var sessionAttacks = 0;
+  var uniqueIps = 18442;
+  // Globe bridge — declared FIRST so the feed can safely fire arcs before Three.js init.
+  var globeBridge = { addArc: null, queue: [] };
+  function spawnArc(country, sevKey, target){
+    target = target || pickTarget(country.code);
+    try{
+      if(globeBridge.addArc){ globeBridge.addArc(country, sevKey, target); }
+      else { globeBridge.queue.push({country:country, sev:sevKey, target:target}); if(globeBridge.queue.length>30) globeBridge.queue.shift(); }
+    }catch(e){ /* globe not ready yet — arc is skipped, never fatal */ }
+    var laEl = document.getElementById("lastAttack");
+    if(laEl) laEl.textContent = "\u{1F6A8} " + country.name + " \u2192 " + target.name + " (" + target.city + ")";
+    /* Critical attacks arrive as a barrage: two follow-up projectiles on the same route */
+    if(sevKey==="critical" && globeBridge.addArc){
+      setTimeout(function(){ try{ globeBridge.addArc(country, "high", target); }catch(e){} }, 200);
+      setTimeout(function(){ try{ globeBridge.addArc(country, "critical", target); }catch(e){} }, 480);
+    }
+  }
+
+  /* ============ CLOCK & UPTIME ============ */
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function tickClock(){
+    var d = new Date();
+    $("clockTime").textContent = pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds())+" WIB";
+    try{
+      $("clockDate").textContent = d.toLocaleDateString("id-ID",{weekday:"long", day:"numeric", month:"long", year:"numeric"});
+    }catch(e){ $("clockDate").textContent = d.toDateString(); }
+    var s = Math.floor((Date.now()-startTime)/1000);
+    $("uptimeText").textContent = "Uptime sesi: "+pad(Math.floor(s/3600))+":"+pad(Math.floor(s%3600/60))+":"+pad(s%60);
+  }
+  tickClock(); setInterval(tickClock, 1000);
+
+  /* ============ HELPERS ============ */
+  function rnd(min,max){ return Math.random()*(max-min)+min; }
+  function ri(min,max){ return Math.floor(rnd(min,max+1)); }
+  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  function fmt(n){ return Math.round(n).toLocaleString("id-ID"); }
+  function fakeIP(){ return ri(11,223)+"."+ri(0,255)+"."+ri(0,255)+"."+ri(1,254); }
+  function fakeCVE(){ return "CVE-202"+ri(3,6)+"-"+ri(1000,29999); }
+  function nowTime(d){ d = d || new Date(); return pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds()); }
+
+  /* ============ DATA POOLS ============ */
+  var COUNTRIES = [
+    {name:"Russia", code:"RU", city:"Moskow", lat:55.7, lon:37.6, weight:18},
+    {name:"China", code:"CN", city:"Beijing", lat:39.9, lon:116.4, weight:16},
+    {name:"Amerika Serikat", code:"US", city:"Ashburn", lat:38.9, lon:-77.0, weight:13},
+    {name:"Korea Utara", code:"KP", city:"Pyongyang", lat:39.0, lon:125.7, weight:9},
+    {name:"Iran", code:"IR", city:"Teheran", lat:35.7, lon:51.4, weight:8},
+    {name:"Brasil", code:"BR", city:"São Paulo", lat:-15.8, lon:-47.9, weight:7},
+    {name:"India", code:"IN", city:"Mumbai", lat:28.6, lon:77.2, weight:7},
+    {name:"Vietnam", code:"VN", city:"Hanoi", lat:21.0, lon:105.8, weight:6},
+    {name:"Belanda", code:"NL", city:"Amsterdam", lat:52.4, lon:4.9, weight:6},
+    {name:"Nigeria", code:"NG", city:"Lagos", lat:9.1, lon:7.5, weight:5},
+    {name:"Turki", code:"TR", city:"Istanbul", lat:39.9, lon:32.9, weight:5},
+    {name:"Rumania", code:"RO", city:"Bukares", lat:44.4, lon:26.1, weight:5},
+    {name:"Ukraina", code:"UA", city:"Kyiv", lat:50.4, lon:30.5, weight:4},
+    {name:"Jerman", code:"DE", city:"Frankfurt", lat:50.1, lon:8.7, weight:4},
+    {name:"Prancis", code:"FR", city:"Paris", lat:48.9, lon:2.3, weight:4},
+    {name:"Inggris", code:"GB", city:"London", lat:51.5, lon:-0.1, weight:4},
+    {name:"Korea Selatan", code:"KR", city:"Seoul", lat:37.6, lon:127.0, weight:4},
+    {name:"Jepang", code:"JP", city:"Tokyo", lat:35.7, lon:139.7, weight:3},
+    {name:"Pakistan", code:"PK", city:"Karachi", lat:33.7, lon:73.1, weight:3},
+    {name:"Mesir", code:"EG", city:"Kairo", lat:30.0, lon:31.2, weight:3},
+    {name:"Polandia", code:"PL", city:"Warsawa", lat:52.2, lon:21.0, weight:3},
+    {name:"Spanyol", code:"ES", city:"Madrid", lat:40.4, lon:-3.7, weight:3},
+    {name:"Kanada", code:"CA", city:"Toronto", lat:43.7, lon:-79.4, weight:3},
+    {name:"Australia", code:"AU", city:"Sydney", lat:-33.9, lon:151.2, weight:2},
+    {name:"Thailand", code:"TH", city:"Bangkok", lat:13.8, lon:100.5, weight:3},
+    {name:"Malaysia", code:"MY", city:"Kuala Lumpur", lat:3.1, lon:101.7, weight:2},
+    {name:"Singapura", code:"SG", city:"Singapura", lat:1.35, lon:103.8, weight:2},
+    {name:"Filipina", code:"PH", city:"Manila", lat:14.6, lon:121.0, weight:2},
+    {name:"Meksiko", code:"MX", city:"Mexico City", lat:19.4, lon:-99.1, weight:2},
+    {name:"Bangladesh", code:"BD", city:"Dhaka", lat:23.8, lon:90.4, weight:2},
+    {name:"Argentina", code:"AR", city:"Buenos Aires", lat:-34.6, lon:-58.4, weight:2},
+    {name:"Chili", code:"CL", city:"Santiago", lat:-33.4, lon:-70.7, weight:1},
+    {name:"Afrika Selatan", code:"ZA", city:"Johannesburg", lat:-26.2, lon:28.0, weight:2},
+    {name:"Arab Saudi", code:"SA", city:"Riyadh", lat:24.7, lon:46.7, weight:2},
+    {name:"Uni Emirat Arab", code:"AE", city:"Dubai", lat:25.2, lon:55.3, weight:2},
+    {name:"Kazakhstan", code:"KZ", city:"Almaty", lat:43.2, lon:76.9, weight:2},
+    {name:"Belarus", code:"BY", city:"Minsk", lat:53.9, lon:27.6, weight:2},
+    {name:"Serbia", code:"RS", city:"Beograd", lat:44.8, lon:20.5, weight:1},
+    {name:"Bulgaria", code:"BG", city:"Sofia", lat:42.7, lon:23.3, weight:1},
+    {name:"Lithuania", code:"LT", city:"Vilnius", lat:54.7, lon:25.3, weight:1},
+    {name:"Maroko", code:"MA", city:"Casablanca", lat:33.6, lon:-7.6, weight:1},
+    {name:"Irak", code:"IQ", city:"Baghdad", lat:33.3, lon:44.4, weight:2},
+    {name:"Myanmar", code:"MM", city:"Yangon", lat:16.8, lon:96.2, weight:1},
+    {name:"Kamboja", code:"KH", city:"Phnom Penh", lat:11.5, lon:104.9, weight:1},
+    {name:"Uzbekistan", code:"UZ", city:"Tashkent", lat:41.3, lon:69.2, weight:1},
+    {name:"Azerbaijan", code:"AZ", city:"Baku", lat:40.4, lon:49.9, weight:1}
+  ];
+  /* Target countries: attacks are global and cross-border — any source country can
+     strike any target country (a source never targets itself). Each target country
+     carries its own monitored websites, defined in its "assets" list. */
+  var TARGETS = [
+    {name:"Amerika Serikat", code:"US", city:"Washington, D.C.", lat:38.9, lon:-77.0, w:16, assets:[
+      {name:"Portal Perbankan AS", domain:"portal.libertybank.com"},
+      {name:"Layanan Cloud Federal", domain:"cloud.fedservices.us"},
+      {name:"E-Commerce AS", domain:"shop.amerimart.com"}]},
+    {name:"Jerman", code:"DE", city:"Berlin", lat:52.5, lon:13.4, w:13, assets:[
+      {name:"Portal Perbankan Jerman", domain:"portal.rheinbank.de"},
+      {name:"Portal Layanan Publik", domain:"service.bund-portal.de"}]},
+    {name:"Indonesia", code:"ID", city:"Jakarta", lat:-6.2, lon:106.8, w:12, assets:[
+      {name:"Portal Internet Banking", domain:"portal.bank-artha.id"},
+      {name:"Website Utama Perusahaan", domain:"www.sentra.id"},
+      {name:"API Gateway Publik", domain:"api.sentra.id"}]},
+    {name:"Inggris", code:"GB", city:"London", lat:51.5, lon:-0.1, w:11, assets:[
+      {name:"Internet Banking Inggris", domain:"online.thamesbank.co.uk"},
+      {name:"Portal Layanan Pemerintah", domain:"www.gov-services.uk"}]},
+    {name:"Jepang", code:"JP", city:"Tokyo", lat:35.7, lon:139.7, w:11, assets:[
+      {name:"Portal Perbankan Jepang", domain:"portal.sakura-bank.co.jp"},
+      {name:"API E-Commerce Jepang", domain:"api.tokyo-mart.jp"}]},
+    {name:"India", code:"IN", city:"New Delhi", lat:28.6, lon:77.2, w:10, assets:[
+      {name:"Portal Perbankan India", domain:"portal.gangabank.in"},
+      {name:"Portal Layanan Digital", domain:"seva.digital-india.in"}]},
+    {name:"Korea Selatan", code:"KR", city:"Seoul", lat:37.6, lon:127.0, w:9, assets:[
+      {name:"Portal Perbankan Korea", domain:"portal.hanbank.co.kr"},
+      {name:"E-Commerce Korea", domain:"shop.seoulmart.kr"}]},
+    {name:"Prancis", code:"FR", city:"Paris", lat:48.9, lon:2.3, w:9, assets:[
+      {name:"Portal Perbankan Prancis", domain:"portal.banque-seine.fr"},
+      {name:"Portal Layanan Prancis", domain:"services.etat-portail.fr"}]},
+    {name:"Brasil", code:"BR", city:"Brasília", lat:-15.8, lon:-47.9, w:8, assets:[
+      {name:"Portal Perbankan Brasil", domain:"portal.bancoverde.com.br"},
+      {name:"Layanan Digital Brasil", domain:"app.servicos.gov.br"}]},
+    {name:"Kanada", code:"CA", city:"Ottawa", lat:45.4, lon:-75.7, w:7, assets:[
+      {name:"Portal Perbankan Kanada", domain:"portal.northbank.ca"},
+      {name:"Layanan Publik Kanada", domain:"services.canada-portal.ca"}]},
+    {name:"Australia", code:"AU", city:"Canberra", lat:-35.3, lon:149.1, w:7, assets:[
+      {name:"Portal Perbankan Australia", domain:"portal.southernbank.com.au"},
+      {name:"Layanan Publik Australia", domain:"my.aus-services.au"}]},
+    {name:"Uni Emirat Arab", code:"AE", city:"Dubai", lat:25.2, lon:55.3, w:6, assets:[
+      {name:"Portal Perbankan UEA", domain:"portal.emiratesbank.ae"},
+      {name:"Smart Services Dubai", domain:"smart.dubai-services.ae"}]}
+  ];
+  var TARGET = TARGETS[2]; /* Indonesia — reference entry, kept for label helpers */
+  function targetByCode(code){
+    for(var i=0;i<TARGETS.length;i++){ if(TARGETS[i].code===code) return TARGETS[i]; }
+    return TARGETS[0];
+  }
+  function pickTarget(excludeCode){
+    var pool = TARGETS.filter(function(t){ return t.code !== excludeCode; });
+    var total = pool.reduce(function(a,t){ return a + t.w; }, 0), r = Math.random()*total;
+    for(var i=0;i<pool.length;i++){ r -= pool[i].w; if(r<=0) return pool[i]; }
+    return pool[0];
+  }
+  var ATTACKS = [
+    {type:"SQL Injection", cwe:"CWE-89", owasp:"A03 Injection"},
+    {type:"Cross-Site Scripting (XSS)", cwe:"CWE-79", owasp:"A03 Injection"},
+    {type:"Brute Force Login", cwe:"CWE-307", owasp:"A07 Auth Failures"},
+    {type:"DDoS / Flood", cwe:"CWE-400", owasp:"A04 Insecure Design"},
+    {type:"Port Scanning", cwe:"CWE-200", owasp:"Reconnaissance"},
+    {type:"Remote Code Execution Attempt", cwe:"CWE-94", owasp:"A03 Injection"},
+    {type:"Path Traversal / LFI", cwe:"CWE-22", owasp:"A01 Broken Access Control"},
+    {type:"Malware C2 Callback", cwe:"CWE-829", owasp:"A08 Integrity Failures"},
+    {type:"Phishing Kit Detected", cwe:"CWE-1021", owasp:"Social Engineering"},
+    {type:"IDOR Probe", cwe:"CWE-639", owasp:"A01 Broken Access Control"},
+    {type:"XXE Attempt", cwe:"CWE-611", owasp:"A05 Misconfiguration"},
+    {type:"Credential Stuffing", cwe:"CWE-307", owasp:"A07 Auth Failures"},
+    {type:"SSRF Attempt", cwe:"CWE-918", owasp:"A10 SSRF"},
+    {type:"Server-Side Template Injection", cwe:"CWE-1336", owasp:"A03 Injection"},
+    {type:"Command Injection", cwe:"CWE-78", owasp:"A03 Injection"},
+    {type:"NoSQL Injection", cwe:"CWE-943", owasp:"A03 Injection"},
+    {type:"JWT Forgery Attempt", cwe:"CWE-347", owasp:"A07 Auth Failures"},
+    {type:"GraphQL Introspection Abuse", cwe:"CWE-200", owasp:"A01 Broken Access Control"},
+    {type:"Web Shell Upload", cwe:"CWE-434", owasp:"A08 Integrity Failures"},
+    {type:"Log4Shell Probe (CVE-2021-44228)", cwe:"CWE-502", owasp:"A06 Vulnerable Components"},
+    {type:"WordPress Plugin Exploit", cwe:"CWE-862", owasp:"A06 Vulnerable Components"},
+    {type:"DNS Tunneling", cwe:"CWE-406", owasp:"Exfiltration"},
+    {type:"Cryptomining Hijack", cwe:"CWE-829", owasp:"Resource Abuse"},
+    {type:"API Rate Abuse / Scraping", cwe:"CWE-770", owasp:"A04 Insecure Design"},
+    {type:"Session Hijacking Attempt", cwe:"CWE-384", owasp:"A07 Auth Failures"},
+    {type:"Subdomain Takeover Probe", cwe:"CWE-611", owasp:"A05 Misconfiguration"},
+    {type:"Deserialization Attack", cwe:"CWE-502", owasp:"A08 Integrity Failures"},
+    {type:"SMTP Open Relay Probe", cwe:"CWE-693", owasp:"A05 Misconfiguration"},
+    {type:"VPN Exploit Attempt", cwe:"CWE-287", owasp:"A07 Auth Failures"},
+    {type:"Ransomware C2 Beacon", cwe:"CWE-829", owasp:"Command & Control"},
+    {type:"Zero-Day Exploit Attempt", cwe:"CWE-1035", owasp:"A06 Vulnerable Components"},
+    {type:"HTTP/2 Rapid Reset (CVE-2023-44487)", cwe:"CWE-400", owasp:"A04 Insecure Design"},
+    {type:"Kerberoasting Attempt", cwe:"CWE-522", owasp:"A07 Auth Failures"},
+    {type:"Pass-the-Hash Attempt", cwe:"CWE-522", owasp:"A07 Auth Failures"},
+    {type:"LDAP Injection", cwe:"CWE-90", owasp:"A03 Injection"},
+    {type:"HTTP Request Smuggling", cwe:"CWE-444", owasp:"A03 Injection"},
+    {type:"Cache Poisoning Attempt", cwe:"CWE-349", owasp:"A05 Misconfiguration"},
+    {type:"OAuth Token Theft Attempt", cwe:"CWE-352", owasp:"A07 Auth Failures"},
+    {type:"Supply Chain Poisoning Probe", cwe:"CWE-1104", owasp:"A08 Integrity Failures"},
+    {type:"API Key Leakage Scan", cwe:"CWE-798", owasp:"A05 Misconfiguration"},
+    {type:"Typosquatting Domain Detected", cwe:"CWE-1021", owasp:"Social Engineering"},
+    {type:"Firmware Exploit Probe", cwe:"CWE-1218", owasp:"A06 Vulnerable Components"},
+    {type:"WebSocket Hijack Attempt", cwe:"CWE-1385", owasp:"A01 Broken Access Control"},
+    {type:"BGP Hijack Probe", cwe:"CWE-350", owasp:"Network Layer"}
+  ];
+  var SEVS = [
+    {key:"critical", label:"Critical", w:12},
+    {key:"high", label:"High", w:26},
+    {key:"medium", label:"Medium", w:34},
+    {key:"low", label:"Low", w:28}
+  ];
+  /* Monitored assets: flattened from every target country's own website list.
+     Each asset knows its target country via .tgt, so feed/table/rankings can
+     always show "source country -> target country (website)". */
+  var ASSETS = [];
+  TARGETS.forEach(function(t){
+    t.assets.forEach(function(a){ a.tgt = t; ASSETS.push(a); });
+  });
+  var PATHS = [
+    "/wp-login.php", "/.env", "/admin", "/login", "/xmlrpc.php", "/phpmyadmin/",
+    "/actuator/env", "/graphql", "/.git/config", "/api/v1/users/1042", "/api/v1/orders/88123",
+    "/search?q=1%27%20OR%20%271%27=%271", "/upload/avatar", "/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+    "/boaform/admin/formLogin", "/HNAP1", "/cgi-bin/luci", "/solr/admin/cores", "/console",
+    "/wp-admin/admin-ajax.php", "/rest/V1/search", "/owa/auth/logon.aspx", "/remote/login",
+    "/sdk/webLanguage", "/.aws/credentials", "/config.php.bak", "/server-status", "/manager/html",
+    "/api/auth/token", "/oauth/authorize", "/reset-password", "/file/download?file=../../etc/passwd",
+    "/.env.production", "/.env.bak", "/wp-json/wp/v2/users", "/api/v2/admin/users", "/actuator/health",
+    "/actuator/metrics", "/.git/HEAD", "/backup.sql", "/db_backup.zip", "/old/index.php", "/test.php",
+    "/info.php", "/phpinfo.php", "/.DS_Store", "/web.config", "/crossdomain.xml", "/robots.txt",
+    "/api/swagger.json", "/swagger-ui.html", "/v2/api-docs", "/.well-known/openid-configuration",
+    "/id_rsa", "/.ssh/authorized_keys", "/server-info", "/trace", "/debug/vars", "/metrics",
+    "/api/internal/export", "/graphql?query={__schema{types{name}}}", "/socket.io/", "/ws",
+    "/rdp", "/citrix/", "/dana-na/auth/url_default/welcome.cgi", "/evox/about"
+  ];
+  var METHODS = ["GET","GET","GET","POST","POST","PUT","DELETE","HEAD"];
+  var ASNS = [
+    "AS9009 M247 Europe SRL", "AS14061 DigitalOcean LLC", "AS24940 Hetzner Online GmbH",
+    "AS16276 OVH SAS", "AS16509 Amazon.com Inc. (AWS)", "AS20473 Choopa / Vultr",
+    "AS9009 DataCamp Limited", "AS36352 Host-Universal", "AS63949 Linode LLC",
+    "AS51167 Contabo GmbH", "AS37963 Alibaba Cloud", "AS45090 Tencent Cloud",
+    "AS200350 Yandex.Cloud LLC", "AS12389 Rostelecom", "AS49505 Selectel Ltd",
+    "AS40676 Psychz Networks", "AS53667 FranTech Solutions", "AS22612 Namecheap Hosting",
+    "AS9009 Cogent / GTT", "AS47583 Hostinger International", "AS136907 HUAWEI Cloud",
+    "AS210644 Aeza International", "AS202425 IP Volume inc", "AS206898 Shinjiru Technology",
+    "AS12876 Scaleway SAS", "AS9009 G-Core Labs S.A.", "AS4809 China Telecom", "AS4837 China Unicom",
+    "AS9318 SK Broadband", "AS7552 Viettel Group", "AS4766 Korea Telecom", "AS24560 Bharti Airtel",
+    "AS3215 Orange S.A.", "AS3320 Deutsche Telekom", "AS6830 Liberty Global", "AS9002 RETN Limited",
+    "AS131293 Star Joint Venture (KP)", "AS6939 Hurricane Electric", "AS174 Cogent Communications"
+  ];
+  var USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/126.0",
+    "python-requests/2.32.3", "sqlmap/1.8.6#stable", "Nmap Scripting Engine",
+    "Go-http-client/2.0", "curl/8.7.1", "masscan/1.3.2", "zgrab/0.x",
+    "Mozilla/5.0 (X11; Linux x86_64) Firefox/127.0", "Nikto/2.5.0",
+    "Mozilla/5.0 (compatible; CensysInspect/1.1)", "Wget/1.24.5",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15",
+    "Nuclei - Open-source project (github.com/projectdiscovery/nuclei)",
+    "Mozilla/5.0 zgrab/0.x", "libwww-perl/6.68", "aiohttp/3.9.5",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) Mobile/15E148",
+    "Hydra/9.5", "WhatWeb/0.5.5", "Mozilla/5.0 (compatible; Shodan.io)"
+  ];
+  function pickCountry(){
+    var total = COUNTRIES.reduce(function(a,c){return a+c.weight;},0), r = Math.random()*total;
+    for(var i=0;i<COUNTRIES.length;i++){ r -= COUNTRIES[i].weight; if(r<=0) return COUNTRIES[i]; }
+    return COUNTRIES[0];
+  }
+  function pickSev(){
+    var total = SEVS.reduce(function(a,c){return a+c.w;},0), r = Math.random()*total;
+    for(var i=0;i<SEVS.length;i++){ r -= SEVS[i].w; if(r<=0) return SEVS[i]; }
+    return SEVS[3];
+  }
+
+  /* ============ KPI + SPARKLINES ============ */
+  var kpi = { blocked:12847, incidents:23, traffic:8.42, score:94 };
+  var sparkData = {
+    spark1:[22,28,25,34,31,40,38,46,42,52,48,57],
+    spark2:[40,36,38,33,35,30,32,28,30,26,27,24],
+    spark3:[30,34,32,38,36,42,40,44,41,46,43,45],
+    spark4:[62,65,64,70,72,71,76,78,77,82,84,86]
+  };
+  function drawSpark(id, data, color){
+    var c = $(id); if(!c) return;
+    var ctx = c.getContext("2d"), W=c.width, H=c.height;
+    ctx.clearRect(0,0,W,H);
+    var max = Math.max.apply(null,data)*1.15, min = Math.min.apply(null,data)*0.8;
+    ctx.beginPath();
+    data.forEach(function(v,i){
+      var x = i/(data.length-1)*W, y = H - ((v-min)/(max-min))*(H-6) - 3;
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    });
+    ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke();
+    ctx.lineTo(W,H); ctx.lineTo(0,H); ctx.closePath();
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, color+"55"); g.addColorStop(1, color+"00");
+    ctx.fillStyle = g; ctx.fill();
+  }
+  function drawAllSparks(){
+    drawSpark("spark1", sparkData.spark1, "#22d3ee");
+    drawSpark("spark2", sparkData.spark2, "#f87171");
+    drawSpark("spark3", sparkData.spark3, "#2dd4bf");
+    drawSpark("spark4", sparkData.spark4, "#34d399");
+  }
+  function updateKpis(){
+    kpi.blocked += ri(2,14);
+    if(Math.random()<0.35) kpi.incidents = Math.max(14, Math.min(34, kpi.incidents + (Math.random()<0.5?-1:1)));
+    kpi.traffic = Math.max(5.8, Math.min(11.6, kpi.traffic + rnd(-0.35,0.35)));
+    if(Math.random()<0.2) kpi.score = Math.max(89, Math.min(97, kpi.score + (Math.random()<0.6?1:-1)));
+    $("kpiBlocked").textContent = fmt(kpi.blocked);
+    $("kpiIncidents").textContent = kpi.incidents;
+    $("kpiTraffic").textContent = kpi.traffic.toFixed(2);
+    $("kpiScore").textContent = kpi.score;
+    Object.keys(sparkData).forEach(function(k){
+      sparkData[k].push(sparkData[k][sparkData[k].length-1] + rnd(-5,6));
+      sparkData[k].shift();
+    });
+    drawAllSparks();
+  }
+  drawAllSparks();
+
+  /* ============ VECTORS & HEALTH ============ */
+  var vectors = [
+    {name:"Brute Force & Credential Stuffing", pct:86, val:"3.214", color:"#f87171"},
+    {name:"SQL Injection (CWE-89)", pct:64, val:"2.391", color:"#fb923c"},
+    {name:"XSS (CWE-79)", pct:52, val:"1.944", color:"#fbbf24"},
+    {name:"DDoS / Volumetric Flood", pct:44, val:"1.645", color:"#22d3ee"},
+    {name:"Scanning & Recon", pct:37, val:"1.383", color:"#2dd4bf"},
+    {name:"Broken Access Control / IDOR", pct:24, val:"897", color:"#a78bfa"},
+    {name:"Eksploitasi CVE Dikenal", pct:19, val:"712", color:"#f472b6"},
+    {name:"SSRF & Request Forgery", pct:12, val:"438", color:"#34d399"},
+    {name:"Malware & C2 Beaconing", pct:16, val:"598", color:"#f87171"},
+    {name:"Phishing & Social Engineering", pct:21, val:"785", color:"#2dd4bf"},
+    {name:"Kesalahan Konfigurasi (A05)", pct:9, val:"336", color:"#fbbf24"}
+  ];
+  $("vectorList").innerHTML = vectors.map(function(v){
+    return '<div class="vector-row"><div class="vector-top"><b>'+v.name+'</b><span class="mono">'+v.val+' • '+v.pct+'%</span></div>'+
+      '<div class="bar"><div style="width:'+v.pct+'%;background:'+v.color+'"></div></div></div>';
+  }).join("");
+
+  var health = [
+    {icon:"🔥", name:"Firewall / WAF", desc:"ModSecurity CRS • 1.284 rules aktif", status:"ONLINE", cls:"ok"},
+    {icon:"🕵️", name:"IDS / IPS", desc:"Suricata • signature update 12 menit lalu", status:"ONLINE", cls:"ok"},
+    {icon:"🦠", name:"Endpoint Protection", desc:"1.942 / 1.958 endpoint terlindungi", status:"16 OFFLINE", cls:"warn"},
+    {icon:"🔐", name:"SIEM & Log Collector", desc:"Wazuh • 48.200 event / menit masuk", status:"ONLINE", cls:"ok"},
+    {icon:"🛡️", name:"Threat Intelligence", desc:"20 feed open-source tersinkron", status:"ONLINE", cls:"ok"},
+    {icon:"🍯", name:"Honeypot Network", desc:"26 sensor aktif di 9 negara", status:"ONLINE", cls:"ok"},
+    {icon:"🧱", name:"DNS Firewall", desc:"RPZ • 312 ribu domain jahat diblokir", status:"ONLINE", cls:"ok"},
+    {icon:"📧", name:"Email Security Gateway", desc:"Anti-phishing • 4.812 email ditahan hari ini", status:"ONLINE", cls:"ok"},
+    {icon:"💾", name:"Backup & Recovery", desc:"Snapshot terakhir 03:00 • terverifikasi", status:"SEHAT", cls:"ok"},
+    {icon:"🪪", name:"Identity & MFA Monitor", desc:"Okta / Entra ID • 312 tantangan MFA hari ini", status:"ONLINE", cls:"ok"},
+    {icon:"🔍", name:"Vulnerability Scanner", desc:"Nessus/OpenVAS • scan mingguan 0 critical terbuka", status:"ONLINE", cls:"ok"},
+    {icon:"🧊", name:"Dark Web Monitor", desc:"Kredensial bocor dipantau di 40+ forum & pasar gelap", status:"ONLINE", cls:"ok"}
+  ];
+  $("healthList").innerHTML = health.map(function(h){
+    return '<div class="health-row"><div class="health-ic">'+h.icon+'</div><div><h3>'+h.name+'</h3><p>'+h.desc+'</p></div>'+
+      '<div class="health-status"><b class="'+h.cls+'">● '+h.status+'</b></div></div>';
+  }).join("");
+
+  /* ============ THREAT INTEL SOURCES ============ */
+  var sources = [
+    {icon:"🚨", name:"AbuseIPDB", desc:"Laporan IP abusive dari komunitas global", ioc:128430, unit:"IP terlarang", sync:"2 mnt lalu"},
+    {icon:"👽", name:"AlienVault OTX", desc:"Open Threat Exchange — pulses & IOC komunitas", ioc:98412, unit:"indikator", sync:"5 mnt lalu"},
+    {icon:"🧬", name:"VirusTotal Intelligence", desc:"Reputasi file, URL, domain & IP multi-engine", ioc:241870, unit:"sampel", sync:"1 mnt lalu"},
+    {icon:"🌐", name:"URLhaus (abuse.ch)", desc:"URL distribusi malware yang aktif", ioc:41208, unit:"URL malware", sync:"7 mnt lalu"},
+    {icon:"🎣", name:"PhishTank", desc:"Database URL phishing terverifikasi komunitas", ioc:58934, unit:"URL phishing", sync:"4 mnt lalu"},
+    {icon:"📮", name:"Spamhaus DROP/EDROP", desc:"Blok netblock hijacked & spam terburuk", ioc:1893, unit:"netblock", sync:"12 mnt lalu"},
+    {icon:"🤖", name:"Feodo Tracker", desc:"Server C2 botnet Emotet, QakBot, IcedID", ioc:764, unit:"server C2", sync:"9 mnt lalu"},
+    {icon:"🔓", name:"SSLBL (abuse.ch)", desc:"Sertifikat SSL yang dipakai malware & botnet", ioc:3211, unit:"sertifikat", sync:"15 mnt lalu"},
+    {icon:"🛰️", name:"GreyNoise Intelligence", desc:"Noise internet: scanner & worm massal", ioc:87230, unit:"IP scanner", sync:"3 mnt lalu"},
+    {icon:"🔎", name:"Shodan / Censys Feeds", desc:"Host terekspos & layanan rentan di internet", ioc:66418, unit:"host terpantau", sync:"8 mnt lalu"},
+    {icon:"🧅", name:"Tor Exit Node List", desc:"Daftar node keluar jaringan Tor", ioc:1247, unit:"exit node", sync:"6 mnt lalu"},
+    {icon:"📜", name:"Emerging Threats (Proofpoint ET Open)", desc:"Ruleset Suricata/Snort open-source", ioc:31240, unit:"signature", sync:"11 mnt lalu"},
+    {icon:"🦠", name:"MalwareBazaar", desc:"Sampel malware terbaru dari abuse.ch", ioc:19544, unit:"sampel", sync:"10 mnt lalu"},
+    {icon:"🏛️", name:"CISA Known Exploited Vulnerabilities", desc:"Katalog CVE yang terbukti dieksploitasi (KEV)", ioc:1210, unit:"CVE aktif", sync:"sinkron…", syncing:true},
+    {icon:"🦊", name:"ThreatFox (abuse.ch)", desc:"IOC malware & C2 yang baru dibagikan komunitas", ioc:9847, unit:"indikator", sync:"13 mnt lalu"},
+    {icon:"📋", name:"Blocklist.de", desc:"IP yang menyerang server relawan (SSH/FTP/mail)", ioc:27412, unit:"IP penyerang", sync:"16 mnt lalu"},
+    {icon:"📡", name:"Dataplane.org", desc:"IP yang memindai layanan rentan (SIP/DNS/VNC)", ioc:15308, unit:"IP scanner", sync:"18 mnt lalu"},
+    {icon:"🛡️", name:"Binary Defense Banlist", desc:"Daftar IP berbahaya hasil riset Artillery honeypot", ioc:6890, unit:"IP terlarang", sync:"20 mnt lalu"},
+    {icon:"🎣", name:"OpenPhish", desc:"Feed URL phishing aktif dari riset otomatis", ioc:11264, unit:"URL phishing", sync:"14 mnt lalu"},
+    {icon:"🧮", name:"CINS Score (CI Army)", desc:"Skor reputasi IP dari jaringan sensor global", ioc:44821, unit:"IP dinilai", sync:"17 mnt lalu"}
+  ];
+  function renderSources(){
+    $("srcGrid").innerHTML = sources.map(function(s){
+      return '<div class="src-card"><h3><span class="src-dot'+(s.syncing?" sync":"")+'"></span>'+s.icon+" "+s.name+"</h3>"+
+        "<p>"+s.desc+"</p>"+
+        '<div class="src-meta"><span>IOC: <b class="mono">'+fmt(s.ioc)+"</b> "+s.unit+'</span><span>'+s.sync+"</span></div></div>";
+    }).join("");
+  }
+  renderSources();
+  function tickSources(){
+    sources.forEach(function(s){
+      if(Math.random()<0.55) s.ioc += ri(1, 46);
+      if(s.syncing && Math.random()<0.5){ s.syncing = false; s.sync = "baru saja"; }
+    });
+    var pickS = pick(sources);
+    pickS.sync = "baru saja";
+    renderSources();
+  }
+
+  /* ============ CVE WATCH (well-known real CVEs) ============ */
+  var cves = [
+    {id:"CVE-2021-44228", name:"Log4Shell — Apache Log4j2 RCE", cvss:"10.0", cls:"crit", tries:1842},
+    {id:"CVE-2024-3400", name:"PAN-OS GlobalProtect Command Injection", cvss:"10.0", cls:"crit", tries:964},
+    {id:"CVE-2021-26855", name:"ProxyLogon — Microsoft Exchange SSRF", cvss:"9.8", cls:"crit", tries:1207},
+    {id:"CVE-2023-34362", name:"MOVEit Transfer SQL Injection", cvss:"9.8", cls:"crit", tries:655},
+    {id:"CVE-2022-26134", name:"Confluence Server OGNL RCE", cvss:"9.8", cls:"crit", tries:438},
+    {id:"CVE-2023-4966", name:"Citrix Bleed — NetScaler Session Leak", cvss:"7.5", cls:"high", tries:389},
+    {id:"CVE-2020-1472", name:"Zerologon — Netlogon Privilege Escalation", cvss:"10.0", cls:"crit", tries:512},
+    {id:"CVE-2019-0708", name:"BlueKeep — Windows RDP RCE", cvss:"9.8", cls:"crit", tries:733},
+    {id:"CVE-2022-22965", name:"Spring4Shell — Spring Framework RCE", cvss:"9.8", cls:"crit", tries:296},
+    {id:"CVE-2017-0144", name:"EternalBlue — SMBv1 RCE (WannaCry)", cvss:"8.1", cls:"high", tries:1108},
+    {id:"CVE-2021-34527", name:"PrintNightmare — Windows Print Spooler RCE", cvss:"8.8", cls:"high", tries:264},
+    {id:"CVE-2023-44487", name:"HTTP/2 Rapid Reset — DDoS Record", cvss:"7.5", cls:"high", tries:587},
+    {id:"CVE-2024-21893", name:"Ivanti Connect Secure SSRF Chain", cvss:"8.2", cls:"high", tries:341}
+  ];
+  function renderCves(){
+    $("cveList").innerHTML = cves.map(function(c){
+      return '<div class="cve-row"><div class="cvss '+c.cls+'">'+c.cvss+'</div>'+
+        '<div><h3 class="mono">'+c.id+'</h3><p>'+c.name+'</p></div>'+
+        '<div class="tries"><b class="mono">'+fmt(c.tries)+'</b><span>percobaan hari ini</span></div></div>';
+    }).join("");
+  }
+  renderCves();
+
+  /* ============ MITRE ATT&CK ============ */
+  var mitre = [
+    {name:"Reconnaissance (TA0043) — T1595 Active Scanning", pct:78, val:"2.908", color:"#22d3ee"},
+    {name:"Initial Access (TA0001) — T1190 Exploit Public App", pct:66, val:"2.461", color:"#f87171"},
+    {name:"Execution (TA0002) — T1059 Command Interpreter", pct:41, val:"1.529", color:"#fb923c"},
+    {name:"Persistence (TA0003) — T1505 Web Shell", pct:33, val:"1.230", color:"#fbbf24"},
+    {name:"Privilege Escalation (TA0004) — T1068 Exploit PrivEsc", pct:26, val:"970", color:"#2dd4bf"},
+    {name:"Defense Evasion (TA0005) — T1027 Obfuscated Files", pct:28, val:"1.044", color:"#a78bfa"},
+    {name:"Credential Access (TA0006) — T1110 Brute Force", pct:48, val:"1.790", color:"#fb923c"},
+    {name:"Command & Control (TA0011) — T1071 Web Protocols", pct:22, val:"820", color:"#f472b6"},
+    {name:"Exfiltration (TA0010) — T1048 Alt. Protocol", pct:9, val:"336", color:"#34d399"},
+    {name:"Impact (TA0040) — T1499 Endpoint DoS", pct:14, val:"522", color:"#f87171"}
+  ];
+  $("mitreList").innerHTML = mitre.map(function(v){
+    return '<div class="vector-row"><div class="vector-top"><b>'+v.name+'</b><span class="mono">'+v.val+' • '+v.pct+'%</span></div>'+
+      '<div class="bar"><div style="width:'+v.pct+'%;background:'+v.color+'"></div></div></div>';
+  }).join("");
+
+  /* ============ HONEYPOT & MALWARE ============ */
+  var honey = [
+    {icon:"🍯", name:"Cowrie SSH/Telnet Honeypot", desc:"12.483 percobaan login tertangkap", status:"AKTIF", cls:"ok"},
+    {icon:"🕸️", name:"Dionaea Malware Trap", desc:"214 sampel malware terkumpul", status:"AKTIF", cls:"ok"},
+    {icon:"📡", name:"T-Pot Multi Sensor", desc:"26 sensor • 9 negara • 41 rb hit/hari", status:"AKTIF", cls:"ok"}
+  ];
+  $("honeyList").innerHTML = honey.map(function(h){
+    return '<div class="health-row"><div class="health-ic">'+h.icon+'</div><div><h3>'+h.name+'</h3><p>'+h.desc+'</p></div>'+
+      '<div class="health-status"><b class="'+h.cls+'">● '+h.status+'</b></div></div>';
+  }).join("");
+  var malware = [
+    {name:"Mirai Botnet (IoT)", pct:58, val:"1.204", color:"#f87171"},
+    {name:"Emotet / QakBot Loader", pct:34, val:"706", color:"#fb923c"},
+    {name:"Cobalt Strike Beacon", pct:21, val:"437", color:"#a78bfa"},
+    {name:"XMRig Cryptominer", pct:17, val:"352", color:"#fbbf24"},
+    {name:"LockBit Ransomware C2", pct:8, val:"166", color:"#f472b6"},
+    {name:"AsyncRAT / Remcos RAT", pct:13, val:"270", color:"#2dd4bf"},
+    {name:"RedLine Stealer", pct:11, val:"229", color:"#fb923c"},
+    {name:"Mozi Botnet (P2P IoT)", pct:7, val:"145", color:"#34d399"}
+  ];
+  $("malwareList").innerHTML = '<p style="margin:6px 0 2px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700">Keluarga malware terdeteksi</p>' + malware.map(function(v){
+    return '<div class="vector-row"><div class="vector-top"><b>'+v.name+'</b><span class="mono">'+v.val+' • '+v.pct+'%</span></div>'+
+      '<div class="bar"><div style="width:'+v.pct+'%;background:'+v.color+'"></div></div></div>';
+  }).join("");
+
+  /* ============ RANKINGS (live) ============ */
+  var countryCounts = {}, targetCounts = {}, targetCountryCounts = {}, routeCounts = {};
+  COUNTRIES.forEach(function(c){ countryCounts[c.code] = Math.round(c.weight * ri(38, 62)); });
+  ASSETS.forEach(function(a, i){ targetCounts[a.domain] = ri(300, 1500) - i*ri(40, 90); });
+  TARGETS.forEach(function(t){ targetCountryCounts[t.code] = Math.round(t.w * ri(95, 130)); });
+  /* Busiest cross-border attack routes, seeded so the panel starts meaningful */
+  [["RU","US"],["CN","DE"],["CN","US"],["KP","KR"],["RU","GB"],["CN","JP"],["IR","AE"],["RU","ID"],["CN","ID"],["KP","US"],["IR","ID"],["CN","AU"]]
+    .forEach(function(r, i){ routeCounts[r[0]+">"+r[1]] = ri(900, 2100) - i*ri(60, 110); });
+  function countryNameByCode(code){
+    for(var i=0;i<COUNTRIES.length;i++){ if(COUNTRIES[i].code===code) return COUNTRIES[i].name; }
+    return targetByCode(code).name;
+  }
+  var rankColors = ["#f87171","#fb923c","#fbbf24","#22d3ee","#2dd4bf","#a78bfa","#f472b6","#34d399"];
+  function renderRanks(){
+    var sorted = COUNTRIES.map(function(c){ return {c:c, n:countryCounts[c.code]}; })
+      .sort(function(a,b){ return b.n-a.n; }).slice(0,8);
+    var max = sorted[0].n || 1;
+    $("countryRank").innerHTML = sorted.map(function(x, i){
+      return '<div class="rank-row"><div class="rank-top"><span class="rank-name"><span class="rank-num">'+(i+1)+'</span><b>'+x.c.name+' ('+x.c.code+')</b></span><span class="mono">'+fmt(x.n)+' serangan</span></div>'+
+        '<div class="bar"><div style="width:'+Math.round(x.n/max*100)+'%;background:'+rankColors[i]+'"></div></div></div>';
+    }).join("");
+    var ts = ASSETS.map(function(a){ return {a:a, n:targetCounts[a.domain]}; })
+      .sort(function(a,b){ return b.n-a.n; }).slice(0,6);
+    var tmax = ts[0].n || 1;
+    $("targetRank").innerHTML = ts.map(function(x, i){
+      return '<div class="rank-row"><div class="rank-top"><span class="rank-name"><span class="rank-num">'+(i+1)+'</span><b>'+x.a.domain+'</b></span><span class="mono">'+fmt(x.n)+'</span></div>'+
+        '<div class="bar"><div style="width:'+Math.round(x.n/tmax*100)+'%;background:'+rankColors[i]+'"></div></div>'+
+        '<div style="font-size:11px;color:var(--muted2)">'+x.a.name+" — "+x.a.tgt.name+" ("+x.a.tgt.city+")"+'</div></div>';
+    }).join("");
+    /* Most-attacked target countries */
+    var tcEl = $("targetCountryRank");
+    if(tcEl){
+      var tcs = TARGETS.map(function(t){ return {t:t, n:targetCountryCounts[t.code]||0}; })
+        .sort(function(a,b){ return b.n-a.n; }).slice(0,8);
+      var tcmax = tcs[0].n || 1;
+      tcEl.innerHTML = tcs.map(function(x, i){
+        return '<div class="rank-row"><div class="rank-top"><span class="rank-name"><span class="rank-num">'+(i+1)+'</span><b>'+x.t.name+' ('+x.t.code+") — "+x.t.city+'</b></span><span class="mono">'+fmt(x.n)+' serangan</span></div>'+
+          '<div class="bar"><div style="width:'+Math.round(x.n/tcmax*100)+'%;background:'+rankColors[i]+'"></div></div></div>';
+      }).join("");
+    }
+    /* Hottest cross-border routes: source country -> target country */
+    var rtEl = $("routeRank");
+    if(rtEl){
+      var rts = Object.keys(routeCounts).map(function(k){
+        var p = k.split(">");
+        return {from:countryNameByCode(p[0]), to:targetByCode(p[1]).name, n:routeCounts[k]};
+      }).sort(function(a,b){ return b.n-a.n; }).slice(0,8);
+      var rmax = rts[0] ? rts[0].n : 1;
+      rtEl.innerHTML = rts.map(function(x, i){
+        return '<div class="rank-row"><div class="rank-top"><span class="rank-name"><span class="rank-num">'+(i+1)+'</span><b>'+x.from+" \u2192 "+x.to+'</b></span><span class="mono">'+fmt(x.n)+'</span></div>'+
+          '<div class="bar"><div style="width:'+Math.round(x.n/rmax*100)+'%;background:'+rankColors[i]+'"></div></div></div>';
+      }).join("");
+    }
+  }
+  renderRanks();
+
+  /* ============ TOP ATTACKER IPs (persistent offenders) ============ */
+  function countryByCode(code){
+    for(var i=0;i<COUNTRIES.length;i++){ if(COUNTRIES[i].code===code) return COUNTRIES[i]; }
+    return COUNTRIES[0];
+  }
+  $("statCountries").textContent = COUNTRIES.length;
+  var BAD_IPS = [
+    {ip:"185.220.101.47", code:"DE", asn:"AS9009 M247 Europe SRL"},
+    {ip:"45.155.204.117", code:"RU", asn:"AS210644 Aeza International"},
+    {ip:"193.32.162.89", code:"RO", asn:"AS9009 DataCamp Limited"},
+    {ip:"91.108.4.203", code:"NL", asn:"AS16276 OVH SAS"},
+    {ip:"103.75.201.19", code:"CN", asn:"AS37963 Alibaba Cloud"},
+    {ip:"45.148.10.62", code:"NL", asn:"AS202425 IP Volume inc"},
+    {ip:"194.165.16.141", code:"RU", asn:"AS49505 Selectel Ltd"},
+    {ip:"89.208.34.77", code:"RU", asn:"AS12389 Rostelecom"},
+    {ip:"175.45.177.93", code:"KP", asn:"AS131293 Star Joint Venture"},
+    {ip:"185.100.87.204", code:"NL", asn:"AS9009 M247 Europe SRL"},
+    {ip:"212.47.229.61", code:"FR", asn:"AS12876 Scaleway SAS"},
+    {ip:"5.181.156.99", code:"UA", asn:"AS206898 Shinjiru Technology"},
+    {ip:"156.96.46.12", code:"US", asn:"AS40676 Psychz Networks"},
+    {ip:"23.94.71.188", code:"US", asn:"AS36352 Host-Universal"}
+  ].map(function(x){ return {ip:x.ip, asn:x.asn, country:countryByCode(x.code)}; });
+  var ipHits = {}, ipMeta = {};
+  BAD_IPS.forEach(function(b){ ipHits[b.ip] = ri(40, 180); ipMeta[b.ip] = {country:b.country, asn:b.asn}; });
+  function renderTopIps(){
+    var arr = Object.keys(ipHits).map(function(ip){ return {ip:ip, n:ipHits[ip], meta:ipMeta[ip]}; })
+      .sort(function(a,b){ return b.n-a.n; }).slice(0,6);
+    var max = arr[0] ? arr[0].n : 1;
+    $("topIpList").innerHTML = arr.map(function(x, i){
+      return '<div class="rank-row"><div class="rank-top"><span class="rank-name"><span class="rank-num">'+(i+1)+'</span><b class="mono" style="font-size:12.5px">'+x.ip+'</b></span><span class="mono">'+fmt(x.n)+' hit</span></div>'+
+        '<div class="bar"><div style="width:'+Math.round(x.n/max*100)+'%;background:'+rankColors[i]+'"></div></div>'+
+        '<div style="font-size:11px;color:var(--muted2)">'+x.meta.country.name+", "+x.meta.country.city+" • "+x.meta.asn+'</div></div>';
+    }).join("");
+  }
+  function trackIp(e){
+    ipHits[e.ip] = (ipHits[e.ip]||0) + 1;
+    ipMeta[e.ip] = {country:e.country, asn:e.asn};
+    renderTopIps();
+  }
+  renderTopIps();
+
+  /* ============ PORTS UNDER ATTACK (live) ============ */
+  var PORTS = [
+    {port:443, label:"HTTPS", hits:4210}, {port:80, label:"HTTP", hits:2874},
+    {port:22, label:"SSH", hits:1988}, {port:3389, label:"RDP", hits:1204},
+    {port:8080, label:"HTTP-Alt", hits:986}, {port:23, label:"Telnet", hits:874},
+    {port:445, label:"SMB", hits:763}, {port:53, label:"DNS", hits:655},
+    {port:3306, label:"MySQL", hits:402}, {port:25, label:"SMTP", hits:318}
+  ];
+  function renderPorts(){
+    var arr = PORTS.slice().sort(function(a,b){ return b.hits-a.hits; }).slice(0,8);
+    var max = arr[0].hits || 1;
+    $("portList").innerHTML = arr.map(function(p, i){
+      return '<div class="vector-row"><div class="vector-top"><b>Port '+p.port+' — '+p.label+'</b><span class="mono">'+fmt(p.hits)+'</span></div>'+
+        '<div class="bar"><div style="width:'+Math.round(p.hits/max*100)+'%;background:'+rankColors[i%rankColors.length]+'"></div></div></div>';
+    }).join("");
+  }
+  function portFor(e){
+    var t = e.attack.type;
+    if(/Brute Force|Credential Stuffing|Kerberoasting|Pass-the-Hash/.test(t)) return pick([22,3389,22]);
+    if(/DDoS|Rapid Reset/.test(t)) return pick([443,80,53]);
+    if(/Scanning|Probe/.test(t)) return pick([23,445,8080,3306]);
+    if(/DNS/.test(t)) return 53;
+    if(/SMTP/.test(t)) return 25;
+    if(/SMB|EternalBlue/.test(t)) return 445;
+    return pick([443,443,80,8080,8443,443]);
+  }
+  function bumpPort(e){
+    var p = portFor(e);
+    for(var i=0;i<PORTS.length;i++){ if(PORTS[i].port===p){ PORTS[i].hits += ri(1,6); break; } }
+    renderPorts();
+  }
+  renderPorts();
+
+  /* ============ APT ACTOR ACTIVITY (live) ============ */
+  var apts = [
+    {name:"Lazarus Group", origin:"Korea Utara", focus:"Finansial & pencurian kripto", act:64, color:"#f87171"},
+    {name:"APT28 · Fancy Bear", origin:"Rusia", focus:"Spionase pemerintah & militer", act:57, color:"#fb923c"},
+    {name:"APT41", origin:"Tiongkok", focus:"Spionase + motif finansial", act:52, color:"#fbbf24"},
+    {name:"LockBit Affiliates", origin:"Global (RaaS)", focus:"Ransomware-as-a-Service", act:47, color:"#34d399"},
+    {name:"Sandworm", origin:"Rusia", focus:"Infrastruktur kritis & energi", act:44, color:"#22d3ee"},
+    {name:"Kimsuky", origin:"Korea Utara", focus:"Spionase lembaga riset", act:38, color:"#2dd4bf"},
+    {name:"FIN7", origin:"Eropa Timur", focus:"Kartu pembayaran & ransomware", act:33, color:"#a78bfa"},
+    {name:"Scattered Spider", origin:"AS / Inggris", focus:"Social engineering & SIM swap", act:29, color:"#f472b6"}
+  ];
+  function renderApts(){
+    $("aptList").innerHTML = apts.map(function(a){
+      return '<div class="vector-row"><div class="vector-top"><b>'+a.name+'</b><span class="mono">aktivitas '+a.act+'%</span></div>'+
+        '<div class="bar"><div style="width:'+a.act+'%;background:'+a.color+'"></div></div>'+
+        '<div class="apt-sub">'+a.origin+" • "+a.focus+'</div></div>';
+    }).join("");
+  }
+  function bumpApt(){
+    var a = pick(apts);
+    a.act = Math.max(8, Math.min(96, a.act + ri(-6, 8)));
+    renderApts();
+  }
+  renderApts();
+
+  /* ============ DAILY COUNTERS (live) ============ */
+  var counters = [
+    {icon:"📊", label:"Total Event Keamanan Hari Ini", val:1284392, step:[40,160]},
+    {icon:"🎣", label:"Email Phishing Diblokir", val:4812, step:[0,6]},
+    {icon:"🧱", label:"Query DNS Jahat Diblokir", val:312540, step:[10,60]},
+    {icon:"🦠", label:"File Di-scan Antivirus", val:96214, step:[5,30]},
+    {icon:"🔑", label:"Percobaan Login Gagal Dicegah", val:18903, step:[1,9]},
+    {icon:"☣️", label:"Sampel Malware Dikarantina", val:1367, step:[0,2]}
+  ];
+  function renderCounters(){
+    $("counterGrid").innerHTML = counters.map(function(c){
+      return '<div class="counter"><b class="mono">'+fmt(c.val)+'</b><span>'+c.icon+" "+c.label+'</span></div>';
+    }).join("");
+  }
+  renderCounters();
+  setInterval(function(){
+    if(!running) return;
+    counters.forEach(function(c){ c.val += ri(c.step[0], c.step[1]); });
+    renderCounters();
+  }, 5000);
+
+  /* ============ HEADLINE TICKER ============ */
+  var tickerMsgs = [
+    "Selamat datang di <b>Sentinel SOC</b> — semua sistem pertahanan terpantau aktif",
+    "Pembaruan signature <b>Suricata</b> &amp; <b>ModSecurity CRS</b> terpasang 12 menit lalu",
+    "<b>CISA KEV</b>: 1.210 CVE terkonfirmasi dieksploitasi aktif di alam liar",
+    "Honeypot <b>T-Pot</b> mencatat lonjakan scan port 23 (Telnet) dari botnet IoT",
+    "<b>Spamhaus DROP</b>: 1.893 netblock berbahaya diblokir di perimeter",
+    "Grup <b>Lazarus</b> &amp; <b>APT28</b> menunjukkan aktivitas di atas rata-rata hari ini"
+  ];
+  var tickerIdx = 0;
+  function showTicker(){
+    var el = $("tickerText"); if(!el) return;
+    el.style.opacity = 0;
+    setTimeout(function(){ el.innerHTML = tickerMsgs[tickerIdx % tickerMsgs.length]; el.style.opacity = 1; }, 320);
+    tickerIdx++;
+  }
+  function feedTicker(e){
+    tickerMsgs.unshift("<b>"+e.attack.type+"</b> dari "+e.ip+" ("+e.country.code+") → "+e.target.name+" ("+e.target.code+") "+e.asset.domain+e.path+" — "+(e.blocked ? "diblokir" : "dimonitor"));
+    if(tickerMsgs.length > 14) tickerMsgs.length = 14;
+    tickerIdx = 0; showTicker();
+  }
+  showTicker();
+  setInterval(showTicker, 6000);
+
+  /* ============ PROTOCOL DONUT ============ */
+  var protos = [
+    {name:"HTTPS :443", pct:46, color:"#22d3ee"},
+    {name:"HTTP :80", pct:24, color:"#f87171"},
+    {name:"SSH :22", pct:13, color:"#fbbf24"},
+    {name:"DNS :53", pct:8, color:"#2dd4bf"},
+    {name:"SMTP :25", pct:5, color:"#a78bfa"},
+    {name:"Lainnya", pct:4, color:"#5f748f"}
+  ];
+  (function drawDonut(){
+    var c = $("protoDonut"); if(!c) return;
+    var ctx = c.getContext("2d");
+    var cx = 150, cy = 150, R = 118, r = 74;
+    var start = -Math.PI/2;
+    protos.forEach(function(p){
+      var ang = p.pct/100 * Math.PI*2;
+      ctx.beginPath();
+      ctx.arc(cx, cy, R, start, start+ang);
+      ctx.arc(cx, cy, r, start+ang, start, true);
+      ctx.closePath();
+      ctx.fillStyle = p.color; ctx.fill();
+      start += ang;
+    });
+    ctx.fillStyle = "#e8f1ff"; ctx.font = "700 30px 'JetBrains Mono', monospace"; ctx.textAlign = "center";
+    ctx.fillText("9.412", cx, cy-2);
+    ctx.fillStyle = "#8ea3bf"; ctx.font = "600 12px 'Plus Jakarta Sans', sans-serif";
+    ctx.fillText("serangan / 24 jam", cx, cy+20);
+    $("protoLegend").innerHTML = protos.map(function(p){
+      return '<div><i style="background:'+p.color+'"></i>'+p.name+'<span class="mono">'+p.pct+'%</span></div>';
+    }).join("");
+  })();
+
+  /* ============ INCIDENTS TABLE ============ */
+  var incidents = [
+    {id:"INC-90412", threat:"RCE Attempt — "+fakeCVE(), src:"185.220."+ri(1,254)+"."+ri(1,254)+" (RU)", tgt:"api.tokyo-mart.jp (JP)", sev:"critical", status:"investigating"},
+    {id:"INC-90408", threat:"SQL Injection (CWE-89)", src:"103.75."+ri(1,254)+"."+ri(1,254)+" (CN)", tgt:"portal.rheinbank.de (DE)", sev:"critical", status:"open"},
+    {id:"INC-90397", threat:"DDoS — 42k req/s", src:"Botnet (multi-country)", tgt:"portal.libertybank.com (US)", sev:"high", status:"contained"},
+    {id:"INC-90391", threat:"Credential Stuffing", src:"91.108."+ri(1,254)+"."+ri(1,254)+" (NL)", tgt:"online.thamesbank.co.uk (GB)", sev:"high", status:"investigating"},
+    {id:"INC-90384", threat:"Malware C2 Callback", src:"45.155."+ri(1,254)+"."+ri(1,254)+" (IR)", tgt:"Workstation FIN-023", sev:"critical", status:"contained"},
+    {id:"INC-90377", threat:"IDOR Probe (CWE-639)", src:"193.32."+ri(1,254)+"."+ri(1,254)+" (RO)", tgt:"portal.bancoverde.com.br (BR)", sev:"medium", status:"resolved"},
+    {id:"INC-90370", threat:"Log4Shell Probe (CVE-2021-44228)", src:"45.148."+ri(1,254)+"."+ri(1,254)+" (NL)", tgt:"api.sentra.id (ID)", sev:"high", status:"contained"},
+    {id:"INC-90366", threat:"Web Shell Upload Attempt", src:"212.47."+ri(1,254)+"."+ri(1,254)+" (FR)", tgt:"smart.dubai-services.ae (AE)", sev:"high", status:"investigating"},
+    {id:"INC-90361", threat:"DNS Tunneling / Exfiltrasi", src:"156.96."+ri(1,254)+"."+ri(1,254)+" (US)", tgt:"DNS Resolver INT-02", sev:"critical", status:"investigating"}
+  ];
+  var statusLabel = {open:"Open", investigating:"Investigating", contained:"Contained", resolved:"Resolved"};
+  function renderIncidents(){
+    $("incidentBody").innerHTML = incidents.map(function(x){
+      return "<tr>"+
+        '<td data-label="ID Insiden" class="mono">'+x.id+"</td>"+
+        '<td data-label="Ancaman"><b>'+x.threat+"</b></td>"+
+        '<td data-label="Sumber" class="mono" style="font-size:12px">'+x.src+"</td>"+
+        '<td data-label="Target" class="mono" style="font-size:12px">'+x.tgt+"</td>"+
+        '<td data-label="Severity"><span class="sev-tag '+x.sev+'">'+x.sev+"</span></td>"+
+        '<td data-label="Status"><span class="status-pill '+x.status+'">'+statusLabel[x.status]+"</span></td>"+
+        '<td data-label="Waktu" class="mono" style="font-size:12px;color:var(--muted)">'+x.time+"</td></tr>";
+    }).join("");
+  }
+  incidents.forEach(function(x,i){ var d = new Date(Date.now()-i*ri(4,18)*60000); x.time = pad(d.getHours())+":"+pad(d.getMinutes()); });
+  renderIncidents();
+
+  /* ============ EVENT FACTORY (shared by feed + attacker table) ============ */
+  function makeEvent(){
+    var bad = Math.random()<0.55 ? pick(BAD_IPS) : null;
+    var c = bad ? bad.country : pickCountry(), a = pick(ATTACKS), s = pickSev();
+    var tgt = pickTarget(c.code); /* cross-border: the target is never the source country itself */
+    var asset = pick(tgt.assets);
+    return { country:c, target:tgt, attack:a, sev:s, ip: bad ? bad.ip : fakeIP(), asset:asset, path:pick(PATHS),
+      method:pick(METHODS), asn: bad ? bad.asn : pick(ASNS), ua:pick(USER_AGENTS),
+      action: s.key==="low" ? "Logged & monitored" : (Math.random()<0.82 ? "Blocked by WAF" : "Blocked by IPS"),
+      blocked: s.key!=="low",
+      cve: Math.random()<0.35 ? fakeCVE() : null, time:new Date() };
+  }
+
+  /* ============ ATTACKER TABLE (realtime) ============ */
+  var attackerRows = [];
+  function attackerRowHTML(e, isNew){
+    var status = e.blocked
+      ? '<span class="status-pill blocked">🛡️ Diblokir</span>'
+      : '<span class="status-pill monitored">👁️ Dimonitor</span>';
+    return (isNew ? "" : "") +
+      '<td data-label="Waktu" class="mono" style="font-size:12px;color:var(--muted)">'+nowTime(e.time)+"</td>"+
+      '<td data-label="IP Penyerang" class="mono" style="font-size:12.5px"><b>'+e.ip+"</b><br><span style='font-size:10.5px;color:var(--muted2)'>"+e.ua+"</span></td>"+
+      '<td data-label="Asal"><b>'+e.country.name+" ("+e.country.code+")</b><br><span style='font-size:11.5px;color:var(--muted)'>"+e.country.city+"</span></td>"+
+      '<td data-label="ASN / ISP" style="font-size:12px">'+e.asn+"</td>"+
+      '<td data-label="Jenis Serangan"><b style="font-size:12.5px">'+e.attack.type+'</b><br><span class="sev-tag '+e.sev.key+'">'+e.sev.label+"</span></td>"+
+      '<td data-label="Target" class="path-cell mono"><b>'+e.asset.domain+"</b>"+e.path+"<br><span>"+e.asset.name+" — \u{1F3AF} "+e.target.name+" ("+e.target.city+")</span></td>"+
+      '<td data-label="Metode" class="mono" style="font-size:12px">'+e.method+"</td>"+
+      '<td data-label="Status">'+status+"</td>";
+  }
+  function renderAttackers(){
+    $("attackerBody").innerHTML = attackerRows.map(function(e){
+      return "<tr>"+attackerRowHTML(e, false)+"</tr>";
+    }).join("");
+  }
+  function pushAttackerRow(e){
+    attackerRows.unshift(e);
+    attackerRows = attackerRows.slice(0, 10);
+    renderAttackers();
+    var first = $("attackerBody").firstChild;
+    if(first) first.className = "new-row";
+  }
+
+  /* ============ THREAT FEED ============ */
+  var feedEl = $("feed");
+  var activeFilter = "all";
+  function feedItemHTML(e){
+    var meta = e.attack.cwe + (e.cve ? " • "+e.cve : "");
+    return '<span class="sev-dot sev-'+e.sev.key+'"></span>'+
+      "<div><h3>"+e.attack.type+' <span style="color:var(--muted);font-weight:600">→ '+e.asset.domain+"</span></h3>"+
+      '<p class="mono" style="font-size:11.5px">'+e.ip+" • "+e.country.name+", "+e.country.city+" ("+e.country.code+")<br>"+
+      "🎯 "+e.target.name+" ("+e.target.city+") — "+e.asset.name+" — "+e.asset.domain+e.path+"<br>"+
+      "🏢 "+e.asn+" • "+e.method+" • "+meta+"<br>"+e.action+" • "+e.attack.owasp+"</p></div>"+
+      '<div class="feed-meta"><span class="sev-tag '+e.sev.key+'">'+e.sev.label+'</span><br><span class="mono">'+nowTime(e.time)+"</span></div>";
+  }
+  function pushEvent(){
+    var e = makeEvent();
+    var div = document.createElement("div");
+    div.className = "feed-item"; div.dataset.sev = e.sev.key;
+    div.innerHTML = feedItemHTML(e);
+    if(activeFilter!=="all" && activeFilter!==e.sev.key) div.style.display="none";
+    feedEl.insertBefore(div, feedEl.firstChild);
+    while(feedEl.children.length>40) feedEl.removeChild(feedEl.lastChild);
+    sessionAttacks++;
+    uniqueIps += ri(0,3);
+    $("attackCounter").textContent = fmt(sessionAttacks)+" serangan divisualkan";
+    $("statUniqueIp").textContent = fmt(uniqueIps);
+    spawnArc(e.country, e.sev.key, e.target);
+    pushAttackerRow(e);
+    countryCounts[e.country.code] = (countryCounts[e.country.code]||0) + ri(4, 18);
+    targetCounts[e.asset.domain] = (targetCounts[e.asset.domain]||0) + ri(3, 14);
+    targetCountryCounts[e.target.code] = (targetCountryCounts[e.target.code]||0) + ri(3, 14);
+    var rk = e.country.code+">"+e.target.code;
+    routeCounts[rk] = (routeCounts[rk]||0) + ri(3, 14);
+    renderRanks();
+    trackIp(e); bumpPort(e); feedTicker(e);
+    if(Math.random()<0.35) bumpApt();
+    if(Math.random()<0.4){ var cv = pick(cves); cv.tries += ri(1,9); renderCves(); }
+    if(e.sev.key==="critical" && Math.random()<0.55) showToast(e);
+    if((e.sev.key==="critical" || e.sev.key==="high") && Math.random()<0.5){
+      incidents.unshift({id:"INC-"+ri(90413,98999), threat:e.attack.type+" ("+e.attack.cwe+")", src:e.ip+" ("+e.country.code+")", tgt:e.asset.domain+" ("+e.target.code+")", sev:e.sev.key, status: e.sev.key==="critical"?"open":"investigating", time:pad(e.time.getHours())+":"+pad(e.time.getMinutes())});
+      incidents = incidents.slice(0,7); renderIncidents();
+    }
+    var perMin = ri(268, 386);
+    $("statPerMin").innerHTML = perMin+'<span style="font-size:12px;color:var(--muted)">/mnt</span>';
+    var topC = COUNTRIES.map(function(c){ return {c:c, n:countryCounts[c.code]}; }).sort(function(a,b){ return b.n-a.n; })[0];
+    $("statTopOrigin").textContent = topC.c.name;
+    var topT = TARGETS.map(function(t){ return {t:t, n:targetCountryCounts[t.code]||0}; }).sort(function(a,b){ return b.n-a.n; })[0];
+    var ttEl = $("statTopTarget");
+    if(ttEl) ttEl.textContent = topT.t.name;
+  }
+  for(var i=0;i<9;i++) pushEvent();
+
+  document.querySelectorAll(".filter-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".filter-btn").forEach(function(b){b.classList.remove("active");});
+      btn.classList.add("active");
+      activeFilter = btn.dataset.filter;
+      Array.prototype.forEach.call(feedEl.children, function(item){
+        item.style.display = (activeFilter==="all" || item.dataset.sev===activeFilter) ? "" : "none";
+      });
+    });
+  });
+
+  /* Toast */
+  var toastTimer = null;
+  function showToast(e){
+    $("toastTitle").textContent = "🚨 Ancaman Kritis: "+e.attack.type;
+    $("toastBody").textContent = e.ip+" ("+e.country.name+", "+e.country.city+") menyerang "+e.target.name+" ("+e.target.city+") — "+e.asset.domain+e.path+" — "+e.action+". "+e.attack.cwe+(e.cve?" • "+e.cve:"");
+    $("toast").classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ $("toast").classList.remove("show"); }, 5200);
+  }
+
+  /* ============ TRAFFIC CHART ============ */
+  var chartRange = "1H";
+  var trafficSeries = [], attackSeries = [];
+  function genSeries(n, base, spike){
+    trafficSeries=[]; attackSeries=[];
+    for(var i=0;i<n;i++){
+      var wave = Math.sin(i/6)*base*0.18 + rnd(-base*0.08, base*0.08);
+      trafficSeries.push(base+wave);
+      attackSeries.push(Math.max(4, base*0.10 + Math.sin(i/4.2)*base*0.05 + (Math.random()<spike? base*rnd(0.12,0.3): rnd(0, base*0.05))));
+    }
+  }
+  function drawChart(){
+    var c = $("trafficChart"); var ctx = c.getContext("2d");
+    var W=c.width, H=c.height, P={l:8,r:8,t:12,b:20};
+    ctx.clearRect(0,0,W,H);
+    var max = Math.max.apply(null, trafficSeries)*1.2;
+    ctx.strokeStyle="rgba(148,197,255,.09)"; ctx.lineWidth=1;
+    for(var g=0; g<4; g++){ var y=P.t+(H-P.t-P.b)*g/3; ctx.beginPath(); ctx.moveTo(P.l,y); ctx.lineTo(W-P.r,y); ctx.stroke(); }
+    function plot(data, color, fill){
+      ctx.beginPath();
+      data.forEach(function(v,i){
+        var x=P.l+(W-P.l-P.r)*i/(data.length-1), y=P.t+(H-P.t-P.b)*(1-v/max);
+        i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      });
+      ctx.strokeStyle=color; ctx.lineWidth=2; ctx.stroke();
+      if(fill){
+        ctx.lineTo(W-P.r, H-P.b); ctx.lineTo(P.l, H-P.b); ctx.closePath();
+        var gr=ctx.createLinearGradient(0,P.t,0,H-P.b);
+        gr.addColorStop(0,color+"44"); gr.addColorStop(1,color+"00");
+        ctx.fillStyle=gr; ctx.fill();
+      }
+    }
+    plot(trafficSeries, "#22d3ee", true);
+    plot(attackSeries, "#f87171", false);
+    ctx.fillStyle="#5f748f"; ctx.font="10px JetBrains Mono";
+    var labels = chartRange==="1H" ? ["-60m","-45m","-30m","-15m","now"] : (chartRange==="6H" ? ["-6j","-4j","-2j","-1j","now"] : ["00:00","06:00","12:00","18:00","now"]);
+    labels.forEach(function(l,i){ ctx.fillText(l, P.l+(W-P.l-P.r)*i/(labels.length-1)-8, H-5); });
+    $("chartPeak").textContent = "Peak: "+Math.round(Math.max.apply(null,trafficSeries)).toLocaleString("id-ID")+" req/s";
+  }
+  genSeries(48, 4200, 0.10); drawChart();
+  document.querySelectorAll(".tab").forEach(function(tab){
+    tab.addEventListener("click", function(){
+      document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+      tab.classList.add("active"); chartRange = tab.dataset.range;
+      genSeries(chartRange==="1H"?48:(chartRange==="6H"?56:64), chartRange==="24H"?5100:4200, 0.10);
+      drawChart();
+    });
+  });
+  function shiftChart(){
+    trafficSeries.push(Math.max(1800, trafficSeries[trafficSeries.length-1]+rnd(-260,260)));
+    trafficSeries.shift();
+    attackSeries.push(Math.max(6, attackSeries[attackSeries.length-1]+rnd(-60,80) + (Math.random()<0.08? rnd(200,600):0)));
+    attackSeries.shift();
+    drawChart();
+  }
+
+  /* ============ CONTROLS ============ */
+  $("pauseBtn").addEventListener("click", function(){
+    running = !running;
+    this.innerHTML = running ? "⏸ Pause Live" : "▶ Resume Live";
+    $("liveText").textContent = running ? "LIVE MONITORING" : "PAUSED";
+    $("liveDot").classList.toggle("paused", !running);
+    $("feedBadge").textContent = running ? "● STREAMING" : "❚❚ PAUSED";
+    $("attackerBadge").textContent = running ? "● LIVE" : "❚❚ PAUSED";
+  });
+
+  /* ============ THREE.JS GLOBE ============ */
+  /* ============ WORLD MAP DATA — real landmass bitmap (Natural Earth via world.geo.json, 240x120 grid = 1.5 deg/cell, bit-packed base64) ============ */
+  var LAND_B64 = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//8////44AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx/n/////AAAA/AAYAAAAfAAAAAAAAAAAAAAAAEO3v4f////+AAAPgAAAAAAAAcAAAAAAAAAAAAAADAAAfgP////+AAAHAAAAAAAAAMAAAAAAAAAAAAAAA9jjCAAP///+AAAAAAAAHgAAP/8AAPAAAAAAAAAAcAAAAAAD///8AAAAAAAAYAAD//gAAAAAAAAAAAAAe6zs/AAB///4AAAAAAABgDA/////wGAAAAwAEAAAI/wM//AAf//4AAAAAAABwHf/////z/+AABAB//wPI/+sEP4A///wAAAAf8AACHf////////8B8wH/////ww3mB4Af/8AAAAD//xjf7v///////////7A////////+B/g//gAAAAH//4///f///////////GH////////0P5Af4AH4AAPx+H///////////////AAf///////Ng+AP4ADAAA/n////////////////+AD///////8COMAHwAAAAD/P///////////////v8AD/7/////4APwABgAAAAH/P//////////////wfAAA+AH////4APzAAAAAAAD/D/////////////JhgAAAFAAf///8AH/gAAAAAIAOj////////////4AHAAAAQAAP////wH/gAAAAAMBuP////////////wAPgAACAAAH////+f/8AAAAAWAhf////////////AAPAAAAAAAT////+f/+AAAAA3H//////////////+AOAAAAAAAB/////f/8AAAAAHn//////////////+AIAAAAAAAB//////8wAAAAAMf//////////////9AAAAAAAAAA//////2HAAAAAF///////////////4AAAAAAAAAAf/////+AgAAAAD///////////////4AAAAAAAAAAf//////wAAAAAB///yfx/////////wAAAAAAAAAAf/////yAAAAAAB/z/gPj/////////jAAAAAAAAAAf/////gAAAAAA/wY/gDx////////8HAAAAAAAAAAf/////AAAAAAA/gGfnn4////////wAAAAAAAAAAAf////+AAAAAAA/ACY//4///////1gGAAAAAAAAAAP////8AAAAAAA/ACM//4///////hwEAAAAAAAAAAH////4AAAAAAAOLgA//////////4wcAAAAAAAAAAH////4AAAAAAAN/gDC/////////wz8AAAAAAAAAAB////wAAAAAAAf/gAA/////////wDgAAAAAAAAAAA////AAAAAAAA//8YB/////////4EAAAAAAAAAAAAH///AAAAAAAA///f//////////4AAAAAAAAAAAAAX/5BAAAAAAAB//////z///////4AAAAAAAAAAAAAb/gBAAAAAAAH////8/5///////4AAAAAAAAAAAAAF/gBoAAAAAAP////+/4f//////wAAAAAAAAAAAAAE/gAAAAAAAAP////+f8wH/////gAAAAAAAAAAAAAAfgAAAAAAAAf/////P/4D/////IAAAAAAAAAAAAAAPgAQAAAAAAf/////v/8D/+f/4AAAAAAAAAAAAAAAPgwOAAAAAAf/////n/4Af8P+AAAAAAAAAAAAAAAAHxwAwAAAAAf/////n/wAfwH+wAAAAAAAAAAAAAAAB/gAAAAAAAf/////z/gAfgH+AMAAAAAAAAAAAAAAAT8AAAAAAAf/////z+AAfAF/AIAAAAAAAAAAAAAAAB+AAAAAAAf/////94AAOAB/gIAAAAAAAAAAAAAAAAMAAAAAAAf//////AAAOAA/gCAAAAAAAAAAAAAAAAEBQAAAAAP/////+MAAGAAHAFAAAAAAAAAAAAAAAACDfgAAAAH//////8AAGAACAAAAAAAAAAAAAAAAAABP/wAAAAH//////4AABABgADAAAAAAAAAAAAAAAAAP/4AAAAD//////4AABAAQABAAAAAAAAAAAAAAAAAP//gAAAA/H////wAAAACYBgAAAAAAAAAAAAAAAAAH//wAAAAAA////wAAAADYDAAAAAAAAAAAAAAAAAAP//wAAAAAA////gAAAABoPgAAAAAAAAAAAAAAAAAf//4AAAAAA///+AAAAAA4fuQAAAAAAAAAAAAAAAA///+AAAAAA///8AAAAAAYfASAAAAAAAAAAAAAAAA////AAAAAA///4AAAAAAcfYBYAAAAAAAAAAAAAAA////8AAAAAf//4AAAAAAOCEh/AAAAAAAAAAAAAAA/////AAAAAP//wAAAAAAGAAAPgAAAAAAAAAAAAAA/////gAAAAP//wAAAAAADIABPwIAAAAAAAAAAAAAf////gAAAAH//wAAAAAAAOAAPYCAAAAAAAAAAAAAP////AAAAAH//4AAAAAAAACAAMAAAAAAAAAAAAAAP///+AAAAAH//4AAAAAAAAAAAAAAAAAAAAAAAAAAH///+AAAAAH//4AAAAAAAAAHhAAAAAAAAAAAAAAAH///8AAAAAP//4IAAAAAAAAvjAAAAAAAAAAAAAAAD///8AAAAAP//4cAAAAAAAB/jgAAAAAAAAAAAAAAA///8AAAAAP//h4AAAAAAAD/7gAAAAAAAAAAAAAAAf//8AAAAAP//B4AAAAAAAH//wAAAAAAAAAAAAAAAf//4AAAAAH/+AwAAAAAAAf//4AQAAAAAAAAAAAAAf//4AAAAAH//BwAAAAAAB///8AIAAAAAAAAAAAAAf//gAAAAAD//BwAAAAAAD///+AAAAAAAAAAAAAAAf/8AAAAAAD/+BgAAAAAAD////AAAAAAAAAAAAAAAf/8AAAAAAD/8AAAAAAAAD////AAAAAAAAAAAAAAAf/8AAAAAAD/8AAAAAAAAD////AAAAAAAAAAAAAAA//4AAAAAAB/4AAAAAAAAB////AAAAAAAAAAAAAAA//wAAAAAAA/wAAAAAAAAB////AAAAAAAAAAAAAAA//gAAAAAAA/gAAAAAAAAB/h//AAAAAAAAAAAAAAA//AAAAAAAA+AAAAAAAAAB+Av+AAAAAAAAAAAAAAA/8AAAAAAAAAAAAAAAAAAAAAP8AAQAAAAAAAAAAAB/8AAAAAAAAAAAAAAAAAAAAAH8AAIAAAAAAAAAAAB/4AAAAAAAAAAAAAAAAAAAAADQAAOAAAAAAAAAAAB/gAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAB+AAAAAAAAAAAAAAAAAAAAAAAYAAIAAAAAAAAAAAB+AAAAAAAAAAAAAAAAAAAAAAAYAAwAAAAAAAAAAAD8AAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAADwAACAefH/gAAAAAAAAAAAAAAAAEAAAAAAAAAAAB//8B///////4AAAAAAAAAAAAAAA/AAAAAAAAAAH///8P////////8AAAAAAAAAAAAAB3gAAAAATf//////8//////////+AAAAAAAAAAAgAHgAAAAH////////////////////AAAAAAAB4B////gAAAAP///////////////////4AAAAD////////4AAAAD////////////////////gAAALP///////8AAAAD/////////////////////gAABj////////wAAHg//////////////////////4AAAAD///////8AQ/AB////////////////////+AAAAB//////////AGP//////////////////////AAAAA///////////////////////////////////8AAD//gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+  var LAND_COLS = 240, LAND_ROWS = 120;
+  var LAND_POINTS = [];
+  (function(){
+    try{
+      var bin = atob(LAND_B64), idx = 0;
+      for(var r=0; r<LAND_ROWS; r++){
+        for(var c=0; c<LAND_COLS; c++){
+          if(bin.charCodeAt(idx>>3) & (1 << (7-(idx&7)))) LAND_POINTS.push([90-(r+0.5)*1.5, -180+(c+0.5)*1.5]);
+          idx++;
+        }
+      }
+    }catch(e){ LAND_POINTS = []; }
+  })();
+  /* Source countries that get a permanent name label on the map
+     (target countries are labeled separately, in green, from TARGETS) */
+  /* Source-country labels only for countries that are not also targets —
+     target countries get their own green labels, so nothing overlaps. */
+  var LABEL_CODES = ["RU","CN","KP","IR","NL","NG","SG","MY","VN","TR","UA","TH"];
+  var LABEL_COUNTRIES = COUNTRIES.filter(function(c){ return LABEL_CODES.indexOf(c.code) >= 0; });
+
+  var autoRotate = true;
+  $("rotateBtn").addEventListener("click", function(){
+    autoRotate = !autoRotate;
+    this.textContent = autoRotate ? "🌐 Rotasi: ON" : "🌐 Rotasi: OFF";
+  });
+
+  var arcs = [];
+  var arcGroupHolder = null;
+
+  function latLonToVec3(lat, lon, r){
+    var phi = (90-lat)*Math.PI/180, theta = (lon+180)*Math.PI/180;
+    return new THREE.Vector3(-r*Math.sin(phi)*Math.cos(theta), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(theta));
+  }
+
+  function initGlobe(){
+    var canvas = $("globe");
+    if(typeof THREE === "undefined"){ canvas.style.height="120px"; return; }
+    var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(42, 2, 0.1, 100);
+    camera.position.z = 6.4;
+
+    var group = new THREE.Group(); scene.add(group);
+    var R = 2.05;
+
+    var sphere = new THREE.Mesh(
+      new THREE.SphereGeometry(R, 48, 48),
+      new THREE.MeshBasicMaterial({color:0x0a1a2e, transparent:true, opacity:0.92})
+    );
+    group.add(sphere);
+
+    var wire = new THREE.Mesh(
+      new THREE.SphereGeometry(R*1.002, 28, 28),
+      new THREE.MeshBasicMaterial({color:0x1e4a66, wireframe:true, transparent:true, opacity:0.28})
+    );
+    group.add(wire);
+
+    var ptsGeo = new THREE.BufferGeometry();
+    var pts = [];
+    for(var li=0; li<LAND_POINTS.length; li++){
+      var lpv = latLonToVec3(LAND_POINTS[li][0], LAND_POINTS[li][1], R*1.006);
+      pts.push(lpv.x, lpv.y, lpv.z);
+    }
+    ptsGeo.setAttribute("position", new THREE.Float32BufferAttribute(pts, 3));
+    var dots = new THREE.Points(ptsGeo, new THREE.PointsMaterial({color:0x38bdf8, size:0.03, transparent:true, opacity:0.9}));
+    group.add(dots);
+
+    var glow = new THREE.Mesh(
+      new THREE.SphereGeometry(R*1.14, 48, 48),
+      new THREE.MeshBasicMaterial({color:0x0ea5e9, transparent:true, opacity:0.06, side:THREE.BackSide})
+    );
+    scene.add(glow);
+
+    /* Every target country gets its own green marker + ring on the globe */
+    var targetRings = [];
+    TARGETS.forEach(function(t){
+      var tp = latLonToVec3(t.lat, t.lon, R*1.01);
+      var mk = new THREE.Mesh(new THREE.SphereGeometry(0.042, 12, 12), new THREE.MeshBasicMaterial({color:0x34d399}));
+      mk.position.copy(tp); group.add(mk);
+      var ring = new THREE.Mesh(new THREE.RingGeometry(0.06, 0.082, 32), new THREE.MeshBasicMaterial({color:0x34d399, transparent:true, opacity:0.8, side:THREE.DoubleSide}));
+      ring.position.copy(tp.clone().multiplyScalar(1.01));
+      ring.lookAt(tp.clone().multiplyScalar(2)); group.add(ring);
+      targetRings.push(ring);
+    });
+    /* ---- Country name labels: sprites that fade out on the far side of the globe ---- */
+    var labelSprites = [];
+    function makeLabelSprite(text, colorCss, hWorld){
+      var fs = 46, padX = 18;
+      var meas = document.createElement("canvas").getContext("2d");
+      meas.font = "700 " + fs + "px 'Segoe UI', Arial, sans-serif";
+      var tw = Math.ceil(meas.measureText(text).width);
+      var cv = document.createElement("canvas");
+      cv.width = tw + padX*2; cv.height = fs + 26;
+      var g2 = cv.getContext("2d");
+      g2.beginPath();
+      if(g2.roundRect){ g2.roundRect(1, 1, cv.width-2, cv.height-2, 16); } else { g2.rect(1, 1, cv.width-2, cv.height-2); }
+      g2.fillStyle = "rgba(3,14,26,0.78)"; g2.fill();
+      g2.strokeStyle = colorCss; g2.globalAlpha = 0.55; g2.lineWidth = 2; g2.stroke(); g2.globalAlpha = 1;
+      g2.font = "700 " + fs + "px 'Segoe UI', Arial, sans-serif";
+      g2.fillStyle = colorCss; g2.textAlign = "center"; g2.textBaseline = "middle";
+      g2.fillText(text, cv.width/2, cv.height/2 + 2);
+      var sp = new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(cv), transparent:true, depthTest:false}));
+      sp.scale.set(hWorld * cv.width/cv.height, hWorld, 1);
+      sp.renderOrder = 20;
+      return sp;
+    }
+    LABEL_COUNTRIES.forEach(function(c){
+      var mk = new THREE.Mesh(new THREE.SphereGeometry(0.02, 8, 8), new THREE.MeshBasicMaterial({color:0xe0f2fe}));
+      mk.position.copy(latLonToVec3(c.lat, c.lon, R*1.012));
+      group.add(mk);
+      var sp = makeLabelSprite(c.name, "#bae6fd", 0.115);
+      sp.position.copy(latLonToVec3(c.lat, c.lon, R*1.14));
+      group.add(sp);
+      labelSprites.push({sp:sp, dir:latLonToVec3(c.lat, c.lon, 1).normalize()});
+    });
+    TARGETS.forEach(function(t){
+      var sp = makeLabelSprite(t.name + " — " + t.city, "#34d399", 0.125);
+      sp.position.copy(latLonToVec3(t.lat, t.lon, R*1.16));
+      group.add(sp);
+      labelSprites.push({sp:sp, dir:latLonToVec3(t.lat, t.lon, 1).normalize()});
+    });
+
+
+    var starGeo = new THREE.BufferGeometry(); var sp=[];
+    for(var s=0;s<700;s++){ var sv = new THREE.Vector3(rnd(-1,1),rnd(-1,1),rnd(-1,1)).normalize().multiplyScalar(rnd(7,13)); sp.push(sv.x,sv.y,sv.z); }
+    starGeo.setAttribute("position", new THREE.Float32BufferAttribute(sp,3));
+    scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({color:0x93c5fd, size:0.035, transparent:true, opacity:0.6})));
+
+    arcGroupHolder = new THREE.Group(); group.add(arcGroupHolder);
+
+    var sevColors = {critical:0xef4444, high:0xfb923c, medium:0xfbbf24, low:0x22d3ee};
+
+    /* ---- Impact effects at the target: shockwave ring + particle burst + flash ---- */
+    var fx = [];
+    function spawnImpact(color, atPos){
+      var ring = new THREE.Mesh(
+        new THREE.RingGeometry(0.055, 0.075, 40),
+        new THREE.MeshBasicMaterial({color:color, transparent:true, opacity:0.95, side:THREE.DoubleSide})
+      );
+      ring.position.copy(atPos.clone().multiplyScalar(1.02));
+      ring.lookAt(atPos.clone().multiplyScalar(2));
+      group.add(ring);
+      var n = 16, pos = new Float32Array(n*3), vel = [];
+      var base = atPos.clone().normalize();
+      for(var i=0;i<n;i++){
+        pos[i*3]=atPos.x; pos[i*3+1]=atPos.y; pos[i*3+2]=atPos.z;
+        var v = new THREE.Vector3(rnd(-1,1), rnd(-1,1), rnd(-1,1)).normalize().multiplyScalar(rnd(0.25,0.7));
+        v.add(base.clone().multiplyScalar(0.55));
+        vel.push(v);
+      }
+      var bg = new THREE.BufferGeometry();
+      bg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+      var burst = new THREE.Points(bg, new THREE.PointsMaterial({color:color, size:0.045, transparent:true, opacity:1}));
+      group.add(burst);
+      var flash = new THREE.Mesh(
+        new THREE.SphereGeometry(0.05, 10, 10),
+        new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.95})
+      );
+      flash.position.copy(atPos); group.add(flash);
+      if(fx.length > 8){ var f0 = fx.shift(); group.remove(f0.ring); group.remove(f0.burst); group.remove(f0.flash); }
+      fx.push({ring:ring, burst:burst, vel:vel, flash:flash, age:0, life:1.15});
+    }
+
+    globeBridge.addArc = function(country, sevKey, target){
+      target = target || pickTarget(country.code);
+      if(arcs.length > 34){
+        var old = arcs.shift();
+        arcGroupHolder.remove(old.line); arcGroupHolder.remove(old.dot); arcGroupHolder.remove(old.src);
+        arcGroupHolder.remove(old.trail); arcGroupHolder.remove(old.srcRing);
+        old.line.geometry.dispose(); old.trail.geometry.dispose();
+      }
+      var start = latLonToVec3(country.lat, country.lon, R*1.01);
+      var end = latLonToVec3(target.lat, target.lon, R*1.01);
+      var mid = start.clone().add(end).multiplyScalar(0.5).normalize().multiplyScalar(R + start.distanceTo(end)*0.38);
+      var curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+      /* The arc "draws itself" as the attack launches (drawRange grows in the animate loop) */
+      var geo = new THREE.BufferGeometry().setFromPoints(curve.getPoints(60));
+      geo.setDrawRange(0, 2);
+      var color = sevColors[sevKey] || 0x22d3ee;
+      var line = new THREE.Line(geo, new THREE.LineBasicMaterial({color:color, transparent:true, opacity:0.75}));
+      /* Glowing projectile: white-hot core + colored halo */
+      var dot = new THREE.Mesh(new THREE.SphereGeometry(0.034, 10, 10), new THREE.MeshBasicMaterial({color:0xffffff}));
+      var halo = new THREE.Mesh(new THREE.SphereGeometry(0.072, 10, 10), new THREE.MeshBasicMaterial({color:color, transparent:true, opacity:0.32}));
+      dot.add(halo);
+      /* Light trail that follows the projectile */
+      var trailGeo = new THREE.BufferGeometry();
+      trailGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(14*3), 3));
+      var trail = new THREE.Line(trailGeo, new THREE.LineBasicMaterial({color:color, transparent:true, opacity:0.9}));
+      var srcDot = new THREE.Mesh(new THREE.SphereGeometry(0.028, 10, 10), new THREE.MeshBasicMaterial({color:color}));
+      srcDot.position.copy(start);
+      /* Pulsing launch ring at the origin country */
+      var srcRing = new THREE.Mesh(
+        new THREE.RingGeometry(0.045, 0.06, 28),
+        new THREE.MeshBasicMaterial({color:color, transparent:true, opacity:0.7, side:THREE.DoubleSide})
+      );
+      srcRing.position.copy(start.clone().multiplyScalar(1.01));
+      srcRing.lookAt(start.clone().multiplyScalar(2));
+      arcGroupHolder.add(line); arcGroupHolder.add(trail); arcGroupHolder.add(dot); arcGroupHolder.add(srcDot); arcGroupHolder.add(srcRing);
+      arcs.push({line:line, dot:dot, src:srcDot, srcRing:srcRing, trail:trail, curve:curve, color:color, endPos:end, t:-Math.random()*0.2, speed:rnd(0.3,0.6), born:performance.now()});
+    };
+    globeBridge.queue.splice(0).forEach(function(q){ globeBridge.addArc(q.country, q.sev, q.target); });
+    for(var k=0;k<14;k++){ var c0 = pickCountry(); globeBridge.addArc(c0, pickSev().key, pickTarget(c0.code)); }
+
+    var dragging=false, px=0, py=0, velY=0.0035;
+    canvas.addEventListener("pointerdown", function(e){ dragging=true; px=e.clientX; py=e.clientY; });
+    window.addEventListener("pointerup", function(){ dragging=false; });
+    window.addEventListener("pointermove", function(e){
+      if(!dragging) return;
+      group.rotation.y += (e.clientX-px)*0.005;
+      group.rotation.x += (e.clientY-py)*0.003;
+      group.rotation.x = Math.max(-0.9, Math.min(0.9, group.rotation.x));
+      px=e.clientX; py=e.clientY;
+    });
+
+    function resize(){
+      var w = canvas.clientWidth, h = canvas.clientHeight;
+      if(!w || !h) return;
+      renderer.setSize(w, h, false);
+      camera.aspect = w/h; camera.updateProjectionMatrix();
+    }
+    window.addEventListener("resize", resize); resize();
+
+    var clockT = new THREE.Clock();
+    (function animate(){
+      requestAnimationFrame(animate);
+      var dt = Math.min(clockT.getDelta(), 0.05);
+      if(autoRotate && !dragging) group.rotation.y += velY;
+      targetRings.forEach(function(rg, rgi){ rg.scale.setScalar(1 + Math.sin(Date.now()*0.004 + rgi*1.3)*0.18); });
+      /* Country labels: visible only while their side of the globe faces the camera */
+      var camDirV = camera.position.clone().normalize();
+      labelSprites.forEach(function(L){
+        var wd = L.dir.clone().applyQuaternion(group.quaternion);
+        var dd = wd.dot(camDirV);
+        L.sp.visible = dd > 0.22;
+        if(L.sp.visible) L.sp.material.opacity = Math.min(1, (dd-0.22)/0.3);
+      });
+
+      var nowMs = performance.now();
+      arcs.forEach(function(a){
+        /* Launch phase: the arc line draws itself from origin toward target */
+        var drawP = Math.min(1, (nowMs - a.born)/800);
+        a.line.geometry.setDrawRange(0, Math.max(2, Math.floor(61*drawP)));
+        a.t += dt*a.speed*(running?1:0.25);
+        if(a.t>=1){ a.t = 0; a.born = nowMs; spawnImpact(a.color, a.endPos); }
+        var tc = Math.max(0, a.t);
+        a.dot.visible = a.t>=0; a.trail.visible = a.t>=0;
+        a.dot.position.copy(a.curve.getPoint(tc));
+        /* Trail: last 14 sampled points behind the projectile */
+        var tp = a.trail.geometry.attributes.position;
+        for(var ti=0; ti<14; ti++){
+          var pp = a.curve.getPoint(Math.max(0, tc - ti*0.014));
+          tp.setXYZ(ti, pp.x, pp.y, pp.z);
+        }
+        tp.needsUpdate = true;
+        a.line.material.opacity = 0.30 + Math.sin(tc*Math.PI)*0.45;
+        /* Origin launch ring pulses */
+        var pulse = 1 + (Math.sin(nowMs*0.006 + a.born)*0.5 + 0.5)*0.8;
+        a.srcRing.scale.setScalar(pulse);
+        a.srcRing.material.opacity = 0.8 - (pulse-1)*0.55;
+      });
+      /* Impact effects: expand, scatter, fade, then clean up */
+      for(var fi=fx.length-1; fi>=0; fi--){
+        var f = fx[fi]; f.age += dt*(running?1:0.4);
+        var fp = f.age/f.life;
+        if(fp>=1){ group.remove(f.ring); group.remove(f.burst); group.remove(f.flash); fx.splice(fi,1); continue; }
+        f.ring.scale.setScalar(1 + fp*3.4);
+        f.ring.material.opacity = 0.95*(1-fp);
+        f.flash.scale.setScalar(1 + fp*2.2);
+        f.flash.material.opacity = 0.95*(1-fp*fp);
+        var bp = f.burst.geometry.attributes.position;
+        for(var bi=0; bi<f.vel.length; bi++){
+          bp.setXYZ(bi, bp.getX(bi)+f.vel[bi].x*dt, bp.getY(bi)+f.vel[bi].y*dt, bp.getZ(bi)+f.vel[bi].z*dt);
+        }
+        bp.needsUpdate = true;
+        f.burst.material.opacity = 1-fp;
+      }
+      renderer.render(scene, camera);
+    })();
+  }
+  /* ============ 2D FALLBACK GLOBE (if Three.js CDN / WebGL unavailable) ============ */
+  function initFallbackGlobe(){
+    var canvas = $("globe");
+    var ctx = canvas.getContext("2d");
+    if(!ctx) return;
+    var sevColor = {critical:"#ef4444", high:"#fb923c", medium:"#fbbf24", low:"#22d3ee"};
+    var farcs = [];
+    var ripples = [];
+    function proj(lat, lon, rot, cx, cy, R){
+      var lo = (lon + rot) * Math.PI/180, la = lat * Math.PI/180;
+      var x = Math.cos(la)*Math.sin(lo), y = Math.sin(la), z = Math.cos(la)*Math.cos(lo);
+      if(z < -0.15) return null;
+      return {x: cx + x*R, y: cy - y*R, z:z};
+    }
+    globeBridge.addArc = function(country, sevKey, target){
+      if(farcs.length>26) farcs.shift();
+      farcs.push({from:country, to:target || pickTarget(country.code), sev:sevKey, t:Math.random()*0.3, speed:rnd(0.14,0.3), born:Date.now()});
+    };
+    globeBridge.queue.splice(0).forEach(function(q){ globeBridge.addArc(q.country, q.sev, q.target); });
+    for(var k=0;k<10;k++){ var fc0 = pickCountry(); globeBridge.addArc(fc0, pickSev().key, pickTarget(fc0.code)); }
+    var rot = 0;
+    (function draw(){
+      requestAnimationFrame(draw);
+      var W = canvas.clientWidth, H = canvas.clientHeight;
+      if(!W) return;
+      if(canvas.width !== W*2){ canvas.width = W*2; canvas.height = H*2; }
+      ctx.setTransform(2,0,0,2,0,0);
+      ctx.clearRect(0,0,W,H);
+      var cx=W/2, cy=H/2, R=Math.min(W,H)*0.36;
+      if(autoRotate) rot += running ? 0.11 : 0.03;
+      var g = ctx.createRadialGradient(cx-R*0.4, cy-R*0.4, R*0.1, cx, cy, R);
+      g.addColorStop(0,"#12365a"); g.addColorStop(1,"#050d1a");
+      ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      ctx.strokeStyle="rgba(56,189,248,.55)"; ctx.lineWidth=1.2; ctx.stroke();
+      ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,R,0,Math.PI*2); ctx.clip();
+      ctx.strokeStyle="rgba(56,189,248,.16)"; ctx.lineWidth=1;
+      for(var la=-60; la<=60; la+=30){ ctx.beginPath(); ctx.ellipse(cx, cy - Math.sin(la*Math.PI/180)*R, R*Math.cos(la*Math.PI/180), R*0.18, 0, 0, Math.PI*2); ctx.stroke(); }
+      for(var lo=0; lo<360; lo+=30){ ctx.beginPath(); ctx.ellipse(cx, cy, Math.abs(Math.sin((lo+rot)*Math.PI/180))*R, R, 0, 0, Math.PI*2); ctx.stroke(); }
+      ctx.fillStyle = "rgba(125,211,252,.85)";
+      for(var li2=0; li2<LAND_POINTS.length; li2++){
+        var pp2 = proj(LAND_POINTS[li2][0], LAND_POINTS[li2][1], rot, cx, cy, R);
+        if(pp2) ctx.fillRect(pp2.x-1, pp2.y-1, 2, 2);
+      }
+      function qpt(s,mx,my,e,t){ return {x:(1-t)*(1-t)*s.x+2*(1-t)*t*mx+t*t*e.x, y:(1-t)*(1-t)*s.y+2*(1-t)*t*my+t*t*e.y}; }
+      farcs.forEach(function(a){
+        a.t += 0.006*a.speed*10*(running?1:0.3);
+        if(a.t>1){ a.t=0; a.born=Date.now(); ripples.push({age:0, color:sevColor[a.sev]||"#22d3ee", tgt:a.to}); if(ripples.length>8) ripples.shift(); }
+        var s = proj(a.from.lat, a.from.lon, rot, cx, cy, R), e = proj(a.to.lat, a.to.lon, rot, cx, cy, R);
+        if(!s || !e) return;
+        var mx=(s.x+e.x)/2, my=(s.y+e.y)/2 - Math.hypot(e.x-s.x, e.y-s.y)*0.35;
+        var col = sevColor[a.sev]||"#22d3ee";
+        /* Launch phase: arc draws itself toward the target */
+        var drawP = Math.min(1, (Date.now()-a.born)/900), SEG = 26, upto = Math.max(2, Math.floor(SEG*drawP));
+        ctx.beginPath();
+        for(var si=0; si<=upto; si++){ var qp = qpt(s,mx,my,e, si/SEG); si===0 ? ctx.moveTo(qp.x,qp.y) : ctx.lineTo(qp.x,qp.y); }
+        ctx.strokeStyle=col; ctx.globalAlpha=0.55; ctx.lineWidth=1.3; ctx.stroke(); ctx.globalAlpha=1;
+        /* Bright trail behind the projectile */
+        var t=a.t;
+        ctx.beginPath();
+        for(var tj=0; tj<=8; tj++){ var tp2 = qpt(s,mx,my,e, Math.max(0, t - (8-tj)*0.016)); tj===0 ? ctx.moveTo(tp2.x,tp2.y) : ctx.lineTo(tp2.x,tp2.y); }
+        ctx.strokeStyle="#ffffff"; ctx.globalAlpha=0.75; ctx.lineWidth=1.8; ctx.stroke(); ctx.globalAlpha=1;
+        /* Projectile with glow */
+        var ip = qpt(s,mx,my,e,t);
+        ctx.beginPath(); ctx.arc(ip.x,ip.y,6,0,Math.PI*2); ctx.fillStyle=col; ctx.globalAlpha=0.3; ctx.fill(); ctx.globalAlpha=1;
+        ctx.beginPath(); ctx.arc(ip.x,ip.y,3,0,Math.PI*2); ctx.fillStyle="#ffffff"; ctx.fill();
+        ctx.beginPath(); ctx.arc(s.x,s.y,2.4,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
+      });
+      /* Impact ripples at whichever target country was hit */
+      for(var rpi=ripples.length-1; rpi>=0; rpi--){
+        var rp = ripples[rpi]; rp.age += 0.016;
+        if(rp.age>1){ ripples.splice(rpi,1); continue; }
+        var rpP = proj(rp.tgt.lat, rp.tgt.lon, rot, cx, cy, R);
+        if(rpP){ ctx.beginPath(); ctx.arc(rpP.x, rpP.y, 5+rp.age*24, 0, Math.PI*2); ctx.strokeStyle=rp.color; ctx.globalAlpha=0.85*(1-rp.age); ctx.lineWidth=2; ctx.stroke(); ctx.globalAlpha=1; }
+      }
+      /* Green markers on every target country */
+      TARGETS.forEach(function(tg){
+        var tp = proj(tg.lat, tg.lon, rot, cx, cy, R);
+        if(!tp) return;
+        ctx.beginPath(); ctx.arc(tp.x,tp.y,4.5,0,Math.PI*2); ctx.fillStyle="#34d399"; ctx.fill();
+        ctx.beginPath(); ctx.arc(tp.x,tp.y,9+Math.sin(Date.now()*0.005)*2.5,0,Math.PI*2); ctx.strokeStyle="rgba(52,211,153,.7)"; ctx.stroke();
+      });
+      /* Country name labels for the visible hemisphere */
+      ctx.font = "700 10px 'Segoe UI', Arial, sans-serif"; ctx.textAlign = "center";
+      LABEL_COUNTRIES.concat(TARGETS).forEach(function(c){
+        var lp3 = proj(c.lat, c.lon, rot, cx, cy, R);
+        if(!lp3 || lp3.z < 0.25) return;
+        var isT = TARGETS.indexOf(c) >= 0;
+        var txt = isT ? c.name.toUpperCase() : c.name;
+        var wdt = ctx.measureText(txt).width + 10;
+        ctx.fillStyle = "rgba(3,14,26,.78)";
+        ctx.fillRect(lp3.x - wdt/2, lp3.y - 20, wdt, 13);
+        ctx.fillStyle = isT ? "#34d399" : "#bae6fd";
+        ctx.fillText(txt, lp3.x, lp3.y - 10);
+      });
+      ctx.restore();
+    })();
+  }
+
+  if(typeof THREE !== "undefined"){ try{ initGlobe(); }catch(e){ initFallbackGlobe(); } }
+  else { initFallbackGlobe(); }
+
+  /* ============ MAIN LOOPS ============ */
+  setInterval(function(){ if(running){ pushEvent(); } }, 2600);
+  setInterval(function(){ if(running){ updateKpis(); shiftChart(); } }, 4000);
+  setInterval(function(){ if(running && Math.random()<0.4){ updateKpis(); } }, 9000);
+  setInterval(function(){ if(running){ tickSources(); } }, 15000);
+})();
+</script>
+</body>
+</html>
